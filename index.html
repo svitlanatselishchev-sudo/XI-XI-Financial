@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- GSAP + ScrollTrigger — powers the hero logo docking into the header on scroll -->
+    <!-- GSAP + ScrollTrigger -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script>
@@ -34,14 +34,7 @@
         }
     </script>
     <style>
-        html {
-            /* Reserves scrollbar space permanently so the vertical
-               scrollbar appearing/disappearing (e.g. while the hero is
-               pinned and the page briefly needs less scroll room) never
-               shifts the viewport width the fixed, centered header's
-               left:50%/translateX(-50%) math depends on. */
-            scrollbar-gutter: stable;
-        }
+        html { scrollbar-gutter: stable; }
         body {
             background-color: #F7F4EF;
             color: #1A1A1A;
@@ -52,28 +45,16 @@
             -moz-osx-font-smoothing: grayscale;
             text-rendering: optimizeLegibility;
         }
-        .font-serif {
-            font-family: 'Playfair Display', serif;
-        }
-        /* Custom smooth scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #F7F4EF;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #C5A880;
-            border-radius: 4px;
-        }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F7F4EF; }
+        ::-webkit-scrollbar-thumb { background: #C5A880; border-radius: 4px; }
 
-        /* Frosted floating header — Safari fallback for backdrop-blur */
         .frosted {
             -webkit-backdrop-filter: blur(20px) saturate(160%);
             backdrop-filter: blur(20px) saturate(160%);
         }
 
-        /* Animated dark-section aesthetic, shared by Bio and Partners */
         .animated-dark { position: relative; overflow: hidden; }
         .animated-dark::before {
             content: ''; position: absolute; inset: -30%; pointer-events: none; z-index: 0;
@@ -99,17 +80,12 @@
             letter-spacing: 0.04em; color: #C5A880; opacity: 0.05; white-space: nowrap;
         }
 
-        /* Floating "Book a Call" pill */
         @keyframes fcPulse {
             0% { box-shadow: 0 14px 34px rgba(20,20,20,0.28), 0 0 0 0 rgba(197,168,128,0.45); }
             70% { box-shadow: 0 14px 34px rgba(20,20,20,0.28), 0 0 0 14px rgba(197,168,128,0); }
             100% { box-shadow: 0 14px 34px rgba(20,20,20,0.28), 0 0 0 0 rgba(197,168,128,0); }
         }
         .floating-contact.pulse { animation: fcPulse 1.8s ease 2; }
-        /* Hide once the footer's own contact section is on screen — the
-           pill's destination is #contact, so on short/mobile viewports
-           it would otherwise float directly on top of the footer's
-           form, disclaimer, or copyright line. */
         .floating-contact {
             transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.2s ease, color 0.2s ease;
         }
@@ -119,16 +95,10 @@
             pointer-events: none;
         }
 
-        /* Hero → header logo docking (desktop only, see script near end of
-           body). #animatedLogo starts sized/positioned over #logoHeroSlot
-           and glides up into #headerLogoMark's position on scroll. */
         #animatedLogo {
             position: fixed;
             top: 0;
             left: 0;
-            /* Matches #logoHeroSlot's box exactly, and both share the mark's
-               viewBox aspect ratio (148:52 ≈ 2.85:1 → 370:130) so scaling
-               down to the header size is a pure, undistorted transform. */
             width: 370px;
             height: 130px;
             transform-origin: 0% 0%;
@@ -137,12 +107,9 @@
             will-change: transform, opacity;
         }
         @media (prefers-reduced-motion: reduce) {
-            /* No scroll-driven motion for this visitor — keep things
-               simple and static: just the always-present header logo. */
             #logoHeroSlot, #animatedLogo { display: none !important; }
         }
 
-        /* Equilibrium balance graphic — Brand Signature section */
         .equilibrium-rig .beam-group {
             transform-origin: 200px 80px;
             transition: transform 0.7s cubic-bezier(.22,1,.36,1);
@@ -150,9 +117,6 @@
         .equilibrium-wrap:hover .equilibrium-rig .beam-group {
             transform: rotate(-4deg);
         }
-        /* Pan assemblies counter-rotate against the beam so each weight
-           keeps hanging straight down (like a real pendulum/pan) instead
-           of swinging with the beam's tilt. */
         .equilibrium-rig .pan-assembly.left { transform-origin: 90px 80px; transition: transform 0.7s cubic-bezier(.22,1,.36,1); }
         .equilibrium-rig .pan-assembly.right { transform-origin: 310px 80px; transition: transform 0.7s cubic-bezier(.22,1,.36,1); }
         .equilibrium-wrap:hover .equilibrium-rig .pan-assembly.left,
@@ -166,23 +130,7 @@
         .equilibrium-wrap:hover .scale-caption {
             opacity: 1;
         }
-        @media (prefers-reduced-motion: reduce) {
-            .equilibrium-rig .beam-group,
-            .equilibrium-rig .pan-assembly.left,
-            .equilibrium-rig .pan-assembly.right { transition: none; }
-        }
 
-        /* Hero dial ornament — decorative Roman-numeral audit dial in the
-           hero's empty right column (xl+ only). Ambient by default; a
-           soft gold glow blooms behind the hands on hover, the same
-           hover-reveal language as the equilibrium scale above. */
-        .hero-dial-wrap { transition: transform 0.6s cubic-bezier(.22,1,.36,1); }
-        .hero-dial-wrap:hover { transform: scale(1.03); }
-        .hero-dial-glow { opacity: 0; transition: opacity 0.5s ease; }
-        .hero-dial-wrap:hover .hero-dial-glow { opacity: 1; }
-        @media (prefers-reduced-motion: reduce) {
-            .hero-dial-wrap, .hero-dial-glow { transition: none; }
-        }
     </style>
 </head>
 <body class="antialiased selection:bg-accentGold selection:text-white">
@@ -190,17 +138,12 @@
     <!-- Floating Pill Header -->
     <header class="fixed top-4 sm:top-5 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-1.25rem)] sm:w-[calc(100%-2.5rem)] max-w-6xl rounded-full border border-accentGold/30 bg-cream/75 frosted shadow-lg shadow-charcoal/10">
         <div class="px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
-            <div class="flex items-center gap-2 sm:gap-3 shrink-0" role="img" aria-label="XI:XI — Strategic Finance Business Optimization">
-                <!-- Mark cropped straight from the master logo file (viewBox 0 0 560 150),
-                     so the type, weight and colon color match the real logo exactly. -->
+            <div class="flex items-center gap-2 sm:gap-3 shrink-0" role="img" aria-label="XI:XI — Strategic Finance &amp; Business Optimization">
                 <svg id="headerLogoMark" viewBox="20 46 148 52" class="h-8 sm:h-9 w-auto" aria-hidden="true" focusable="false">
                     <text x="24" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="56" font-weight="500">
                         <tspan fill="#1A1A1A">XI</tspan><tspan fill="#C5A880">:</tspan><tspan fill="#1A1A1A">XI</tspan>
                     </text>
                 </svg>
-                <!-- Divider + tagline cropped from the same master file/coordinate
-                     space, so the rule and both lines land exactly where they do in
-                     the real lockup instead of an approximated Tailwind rebuild. -->
                 <div class="hidden lg:flex items-center">
                     <svg viewBox="190 46 270 52" class="h-8 sm:h-9 w-auto" aria-hidden="true" focusable="false">
                         <line x1="200" y1="34" x2="200" y2="112" stroke="#C5A880" stroke-width="1"/>
@@ -211,12 +154,12 @@
             </div>
             <nav class="hidden md:flex items-center space-x-6 lg:space-x-7 text-sm font-medium text-charcoal">
                 <a href="#services" class="hover:text-accentGold transition-colors">Services</a>
-                <a href="#pricing" class="hover:text-accentGold transition-colors">Engagement Tiers</a>
+                <a href="#pricing" class="hover:text-accentGold transition-colors">Trust</a>
                 <a href="#testimonials" class="hover:text-accentGold transition-colors">Testimonials</a>
-                <a href="#story" class="hover:text-accentGold transition-colors">Our Story</a>
+                <a href="story.html" class="hover:text-accentGold transition-colors">Our Story</a>
             </nav>
             <div class="flex items-center gap-2 shrink-0">
-                <a href="#pricing" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-xs font-semibold uppercase tracking-wider bg-charcoal text-cream rounded-full hover:bg-accentGold hover:text-white transition-all">
+                <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-xs font-semibold uppercase tracking-wider bg-charcoal text-cream rounded-full hover:bg-accentGold hover:text-white transition-all">
                     Request Assessment
                 </a>
                 <button id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu" class="md:hidden flex flex-col justify-center gap-1.5 w-10 h-10 items-center">
@@ -226,275 +169,266 @@
             </div>
         </div>
     </header>
+
     <nav id="mobileMenu" class="md:hidden hidden flex-col fixed top-[4.75rem] sm:top-[5.25rem] left-1/2 -translate-x-1/2 z-40 w-[calc(100%-1.25rem)] sm:w-[calc(100%-2.5rem)] max-w-6xl rounded-3xl border border-accentGold/30 bg-cream/95 frosted shadow-xl px-6 py-5 space-y-4 text-sm font-medium text-charcoal">
         <a href="#services" class="block hover:text-accentGold transition-colors">Services</a>
-        <a href="#pricing" class="block hover:text-accentGold transition-colors">Engagement Tiers</a>
+        <a href="#pricing" class="block hover:text-accentGold transition-colors">Trust</a>
         <a href="#testimonials" class="block hover:text-accentGold transition-colors">Testimonials</a>
-        <a href="#story" class="block hover:text-accentGold transition-colors">Our Story</a>
-        <a href="#pricing" class="block pt-2 text-center px-5 py-2.5 text-xs font-semibold uppercase tracking-wider bg-charcoal text-cream rounded-full">Request Assessment</a>
+        <a href="story.html" class="block hover:text-accentGold transition-colors">Our Story</a>
+        <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="block pt-2 text-center px-5 py-2.5 text-xs font-semibold uppercase tracking-wider bg-charcoal text-cream rounded-full">Request Assessment</a>
     </nav>
 
-    <!-- Hero Section — wrapped in #heroPinWrapper so ScrollTrigger can pin
-         it while the logo docks into the header (desktop only; see the
-         script block near the end of <body>). -->
+    <!-- Hero Section -->
     <div id="heroPinWrapper">
-    <section id="hero" class="relative pt-36 sm:pt-40 pb-24 px-6 max-w-7xl mx-auto">
-        <div class="max-w-3xl space-y-8">
-            <div class="inline-flex items-center space-x-2 text-xs uppercase tracking-widest text-accentGold font-semibold">
-                <span>Strategic Finance Business Optimization</span>
-            </div>
-            <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-normal leading-[1.1] text-charcoal">
-                Remote diagnosis.<br><span class="italic text-accentGoldDark">On-site results.</span>
-            </h1>
-            <p class="text-lg text-mutedText max-w-2xl font-normal leading-relaxed">
-                We verify your numbers, isolate each discrepancy, and deliver the fix.
-            </p>
-            <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
-                <a href="#pricing" class="inline-flex items-center justify-center px-8 py-4 bg-charcoal text-cream text-xs uppercase tracking-widest font-semibold hover:bg-accentGold transition-all">
-                    Request a Scoping Assessment
-                </a>
-                <a href="tel:7722109957" class="inline-flex items-center justify-center px-8 py-4 border border-sand text-charcoal text-xs uppercase tracking-widest font-semibold hover:border-accentGold transition-all">
-                    Call +1 (772) 210-9957
-                </a>
-            </div>
-        </div>
-        <!-- Reserves the on-screen position/size the big hero mark starts
-             from — empty on purpose, it only exists so JS can measure
-             where to place #animatedLogo. xl+ only: at lg (1024–1279px)
-             there isn't reliably enough clearance beside the headline
-             column to guarantee no overlap without a browser to check it in. -->
-        <div id="logoHeroSlot" class="hidden xl:block absolute top-1/2 right-12 -translate-y-1/2 w-[370px] h-[130px]" aria-hidden="true"></div>
+        <section id="hero" class="relative pt-32 sm:pt-40 pb-16 sm:pb-24 px-5 sm:px-6 max-w-7xl mx-auto">
+            <span class="xixi-watermark" aria-hidden="true">XI:XI</span>
+            <div class="relative z-10 max-w-2xl space-y-8">
+                <div class="inline-flex items-center space-x-2 text-xs uppercase tracking-widest text-accentGold font-semibold">
+                    <span>XI:XI Strategy</span>
+                </div>
+                <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-normal leading-[1.1] text-charcoal">
+                    Remote verification.<br><span class="italic text-accentGoldDark">Precision results.</span>
+                </h1>
 
-        <!-- Decorative Roman-numeral audit dial — fills the empty space
-             below the big docking XI:XI mark (same xl+ breakpoint as
-             #logoHeroSlot above it, and centered under that 370px-wide
-             box: right-[143px] = logo's right-12 + half the width
-             difference). Both clock hands lock onto the same "XI"
-             position (330° / 11 o'clock), so the dial quietly reads as
-             "11:11" — an echo of "XI:XI" distinct from the Brand
-             Signature balance scale further down the page. Purely
-             decorative: aria-hidden, nothing here is load-bearing. -->
-        <div class="hero-dial-wrap hidden xl:block absolute right-[143px] w-[180px] h-[180px]" style="top: calc(50% + 93px);" aria-hidden="true">
-            <svg viewBox="0 0 200 200" width="180" height="180">
-                <defs>
-                    <radialGradient id="dialGlow" cx="50%" cy="50%" r="50%">
-                        <stop offset="0%" stop-color="#C5A880" stop-opacity="0.35"/>
-                        <stop offset="100%" stop-color="#C5A880" stop-opacity="0"/>
-                    </radialGradient>
-                </defs>
-                <circle class="hero-dial-glow" cx="100" cy="100" r="70" fill="url(#dialGlow)"/>
-                <circle cx="100" cy="100" r="92" fill="none" stroke="#C5A880" stroke-opacity="0.35" stroke-width="1"/>
-                <circle cx="100" cy="100" r="76" fill="none" stroke="#C5A880" stroke-opacity="0.18" stroke-width="1"/>
-                <!-- 12 tick marks, each the same base line rotated around the dial's center -->
-                <line x1="100" y1="17" x2="100" y2="8" stroke="#B9B2A4" stroke-width="1"/>
-                <line x1="100" y1="17" x2="100" y2="8" stroke="#B9B2A4" stroke-width="1" transform="rotate(30 100 100)"/>
-                <line x1="100" y1="17" x2="100" y2="8" stroke="#B9B2A4" stroke-width="1" transform="rotate(60 100 100)"/>
-                <line x1="100" y1="17" x2="100" y2="8" stroke="#B9B2A4" stroke-width="1" transform="rotate(90 100 100)"/>
-                <line x1="100" y1="17" x2="100" y2="8" stroke="#B9B2A4" stroke-width="1" transform="rotate(120 100 100)"/>
-                <line x1="100" y1="17" x2="100" y2="8" stroke="#B9B2A4" stroke-width="1" transform="rotate(150 100 100)"/>
-                <line x1="100" y1="17" x2="100" y2="8" stroke="#B9B2A4" stroke-width="1" transform="rotate(180 100 100)"/>
-                <line x1="100" y1="17" x2="100" y2="8" stroke="#B9B2A4" stroke-width="1" transform="rotate(210 100 100)"/>
-                <line x1="100" y1="17" x2="100" y2="8" stroke="#B9B2A4" stroke-width="1" transform="rotate(240 100 100)"/>
-                <line x1="100" y1="17" x2="100" y2="8" stroke="#B9B2A4" stroke-width="1" transform="rotate(270 100 100)"/>
-                <line x1="100" y1="17" x2="100" y2="8" stroke="#B9B2A4" stroke-width="1" transform="rotate(300 100 100)"/>
-                <line x1="100" y1="18" x2="100" y2="5" stroke="#C5A880" stroke-width="2.5" transform="rotate(330 100 100)"/>
-                <!-- Roman numerals at the cardinal points; "XI" emphasized in gold -->
-                <text x="100" y="32" text-anchor="middle" dominant-baseline="middle" font-family="'Playfair Display', Georgia, serif" font-size="13" fill="#6B655D">XII</text>
-                <text x="168" y="100" text-anchor="middle" dominant-baseline="middle" font-family="'Playfair Display', Georgia, serif" font-size="13" fill="#6B655D">III</text>
-                <text x="100" y="168" text-anchor="middle" dominant-baseline="middle" font-family="'Playfair Display', Georgia, serif" font-size="13" fill="#6B655D">VI</text>
-                <text x="32" y="100" text-anchor="middle" dominant-baseline="middle" font-family="'Playfair Display', Georgia, serif" font-size="13" fill="#6B655D">IX</text>
-                <text x="66" y="41" text-anchor="middle" dominant-baseline="middle" font-family="'Playfair Display', Georgia, serif" font-size="15" font-weight="600" fill="#9E825C">XI</text>
-                <!-- Hands: both lock onto the XI position — the pun is that
-                     11:11 reads as "XI : XI". -->
-                <line x1="100" y1="100" x2="100" y2="48" stroke="#1A1A1A" stroke-width="4" stroke-linecap="round" transform="rotate(330 100 100)"/>
-                <line x1="100" y1="100" x2="100" y2="26" stroke="#C5A880" stroke-width="2.5" stroke-linecap="round" transform="rotate(330 100 100)"/>
-                <circle cx="100" cy="100" r="5" fill="#C5A880"/>
-                <circle cx="100" cy="100" r="2" fill="#1A1A1A"/>
-            </svg>
-        </div>
-    </section>
+                <p class="text-lg text-mutedText font-normal leading-relaxed">
+                    XI:XI verifies your numbers, isolates every discrepancy, and delivers the fix.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-4 pt-2">
+                    <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-8 py-4 bg-charcoal text-white text-xs uppercase tracking-widest font-semibold border border-[#C5A059] hover:bg-accentGold hover:border-accentGold transition-all">
+                        Request Scoping Assessment
+                    </a>
+                    <a href="tel:+17722109957" class="inline-flex items-center justify-center px-8 py-4 border border-[#2C2C2C] text-charcoal text-xs uppercase tracking-widest font-semibold hover:border-accentGold transition-all">
+                        Call +1 (772) 210-9957
+                    </a>
+                </div>
+            </div>
+
+            <!-- Docking slot: invisible target for the header-logo scroll
+                 animation. No decorative clock/date element here anymore. -->
+            <div id="logoHeroSlot" class="hidden xl:block absolute top-1/2 right-12 -translate-y-1/2 w-[370px] h-[130px]" aria-hidden="true"></div>
+        </section>
     </div>
 
-    <!-- Animated logo overlay — same exact mark markup as #headerLogoMark
-         (same viewBox, same text/font/coordinates), so shrinking it to the
-         header's size is a pure scale transform with no font or weight
-         mismatch to fight. Hidden by default; JS reveals it only once it
-         has confirmed the desktop layout applies and a starting position
-         has been measured. -->
+    <!-- Animated Logo Overlay -->
     <svg id="animatedLogo" viewBox="20 46 148 52" aria-hidden="true" focusable="false" style="visibility:hidden;">
         <text x="24" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="56" font-weight="500">
             <tspan fill="#1A1A1A">XI</tspan><tspan fill="#C5A880">:</tspan><tspan fill="#1A1A1A">XI</tspan>
         </text>
     </svg>
 
-    <!-- Scope of Services Section — plain-language, contractor-friendly -->
-    <section id="services" class="py-20 px-6 max-w-7xl mx-auto">
-        <div class="max-w-3xl mb-10">
+    <!-- Scope of Services Section -->
+    <section id="services" class="py-14 sm:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
+        <div class="max-w-3xl mb-10 space-y-3">
             <h2 class="font-serif text-3xl lg:text-4xl text-charcoal">Scope of Services</h2>
+            <p class="text-base text-mutedText leading-relaxed max-w-xl">Six areas of statement-to-ledger verification, each scoped and delivered on its own — no bundled retainer required.</p>
         </div>
 
-        <div class="space-y-10">
-            <!-- Category 01 -->
-            <div>
-                <div class="flex items-baseline gap-3 mb-4">
-                    <span class="text-[10px] font-mono uppercase tracking-widest text-accentGold font-bold">01</span>
-                    <h3 class="font-serif text-lg text-charcoal">Untangling Your Books</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div class="group p-6 bg-white border border-sand hover:border-accentGold hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                <div>
+                    <span class="block font-serif text-2xl text-accentGold mb-2">I</span>
+                    <h3 class="text-base font-semibold text-charcoal group-hover:text-accentGold transition-colors">Bank &amp; Ledger Verification</h3>
+                    <p class="text-sm text-mutedText leading-relaxed mt-3">Every transaction in your bank feed is matched line-by-line against your internal ledger until the two agree exactly.</p>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div class="group p-5 bg-white border border-sand hover:border-accentGold hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-                        <h4 class="text-sm font-semibold text-charcoal">Bank &amp; Ledger Verification — Single or Multi-Entity</h4>
-                        <p class="text-sm text-mutedText leading-relaxed mt-1.5">We go line by line and make sure what's in your bank account matches what's in your bookkeeping — no more guessing which number is right. We track money moving between one or more accounts and entities.</p>
-                        <div class="flex flex-wrap gap-1.5 mt-3">
-                            <span class="text-[10px] uppercase tracking-wide text-accentGoldDark border border-accentGold/40 rounded-full px-2.5 py-1 group-hover:bg-accentGold group-hover:text-white group-hover:border-accentGold transition-colors">Line-by-line check</span>
-                            <span class="text-[10px] uppercase tracking-wide text-accentGoldDark border border-accentGold/40 rounded-full px-2.5 py-1 group-hover:bg-accentGold group-hover:text-white group-hover:border-accentGold transition-colors">Plain-English report</span>
-                        </div>
-                    </div>
-                    <div class="group p-5 bg-white border border-sand hover:border-accentGold hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-                        <h4 class="text-sm font-semibold text-charcoal">Sorting Out Multiple Accounts or Businesses</h4>
-                        <p class="text-sm text-mutedText leading-relaxed mt-1">Running more than one account or entity? We track money moving between them so nothing gets lost in the shuffle.</p>
-                        <div class="flex flex-wrap gap-1.5 mt-3">
-                            <span class="text-[10px] uppercase tracking-wide text-accentGoldDark border border-accentGold/40 rounded-full px-2.5 py-1 group-hover:bg-accentGold group-hover:text-white group-hover:border-accentGold transition-colors">Multiple accounts</span>
-                            <span class="text-[10px] uppercase tracking-wide text-accentGoldDark border border-accentGold/40 rounded-full px-2.5 py-1 group-hover:bg-accentGold group-hover:text-white group-hover:border-accentGold transition-colors">Transfer tracking</span>
-                        </div>
-                    </div>
+                <div class="mt-6 flex items-center gap-2 text-xs font-semibold text-accentGold opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span>Learn More</span>
+                    <span aria-hidden="true">→</span>
                 </div>
             </div>
 
-            <!-- Category 02 -->
-            <div>
-                <div class="flex items-baseline gap-3 mb-4">
-                    <span class="text-[10px] font-mono uppercase tracking-widest text-accentGold font-bold">02</span>
-                    <h3 class="font-serif text-lg text-charcoal">Knowing Where Your Money Goes</h3>
+            <div class="group p-6 bg-white border border-sand hover:border-accentGold hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                <div>
+                    <span class="block font-serif text-2xl text-accentGold mb-2">II</span>
+                    <h3 class="text-base font-semibold text-charcoal group-hover:text-accentGold transition-colors">Inter-Company Alignment</h3>
+                    <p class="text-sm text-mutedText leading-relaxed mt-3">Transfers and shared expenses between related entities are traced and reconciled so intercompany balances net to zero.</p>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div class="group p-5 bg-white border border-sand hover:border-accentGold hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-                        <h4 class="text-sm font-semibold text-charcoal">Cash Flow Check-Up</h4>
-                        <p class="text-sm text-mutedText leading-relaxed mt-1">We show you when money actually lands in your account — not just when you sent the invoice — so you're never caught short.</p>
-                        <div class="flex flex-wrap gap-1.5 mt-3">
-                            <span class="text-[10px] uppercase tracking-wide text-accentGoldDark border border-accentGold/40 rounded-full px-2.5 py-1 group-hover:bg-accentGold group-hover:text-white group-hover:border-accentGold transition-colors">Real cash timing</span>
-                        </div>
-                    </div>
-                    <div class="group p-5 bg-white border border-sand hover:border-accentGold hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-                        <h4 class="text-sm font-semibold text-charcoal">Vendor &amp; Subcontractor Bill Review</h4>
-                        <p class="text-sm text-mutedText leading-relaxed mt-1">We check what vendors and subs are actually charging against what you agreed to pay, and flag anything that doesn't match.</p>
-                        <div class="flex flex-wrap gap-1.5 mt-3">
-                            <span class="text-[10px] uppercase tracking-wide text-accentGoldDark border border-accentGold/40 rounded-full px-2.5 py-1 group-hover:bg-accentGold group-hover:text-white group-hover:border-accentGold transition-colors">Overcharge flags</span>
-                            <span class="text-[10px] uppercase tracking-wide text-accentGoldDark border border-accentGold/40 rounded-full px-2.5 py-1 group-hover:bg-accentGold group-hover:text-white group-hover:border-accentGold transition-colors">Contract comparison</span>
-                        </div>
-                    </div>
-                    <div class="group p-5 bg-white border border-sand hover:border-accentGold hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-                        <h4 class="text-sm font-semibold text-charcoal">Matching Payments to Your Invoices</h4>
-                        <p class="text-sm text-mutedText leading-relaxed mt-1">We match every payment you receive back to the invoice or contract it belongs to, so you know exactly who paid, who didn't, and who's short.</p>
-                        <div class="flex flex-wrap gap-1.5 mt-3">
-                            <span class="text-[10px] uppercase tracking-wide text-accentGoldDark border border-accentGold/40 rounded-full px-2.5 py-1 group-hover:bg-accentGold group-hover:text-white group-hover:border-accentGold transition-colors">Payment matching</span>
-                            <span class="text-[10px] uppercase tracking-wide text-accentGoldDark border border-accentGold/40 rounded-full px-2.5 py-1 group-hover:bg-accentGold group-hover:text-white group-hover:border-accentGold transition-colors">Outstanding invoice flags</span>
-                        </div>
-                    </div>
-                    <div class="group p-5 bg-white border border-sand hover:border-accentGold hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-                        <h4 class="text-sm font-semibold text-charcoal">Progress Billing &amp; Retainage Check</h4>
-                        <p class="text-sm text-mutedText leading-relaxed mt-1">For draws and milestone payments, we verify what you billed matches what was approved and received — including retainage held back until the job closes.</p>
-                        <div class="flex flex-wrap gap-1.5 mt-3">
-                            <span class="text-[10px] uppercase tracking-wide text-accentGoldDark border border-accentGold/40 rounded-full px-2.5 py-1 group-hover:bg-accentGold group-hover:text-white group-hover:border-accentGold transition-colors">Draw verification</span>
-                            <span class="text-[10px] uppercase tracking-wide text-accentGoldDark border border-accentGold/40 rounded-full px-2.5 py-1 group-hover:bg-accentGold group-hover:text-white group-hover:border-accentGold transition-colors">Retainage tracking</span>
-                        </div>
-                    </div>
+                <div class="mt-6 flex items-center gap-2 text-xs font-semibold text-accentGold opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span>Learn More</span>
+                    <span aria-hidden="true">→</span>
                 </div>
             </div>
 
-            <!-- Category 03 -->
-            <div>
-                <div class="flex items-baseline gap-3 mb-4">
-                    <span class="text-[10px] font-mono uppercase tracking-widest text-accentGold font-bold">03</span>
-                    <h3 class="font-serif text-lg text-charcoal">Florida Sales Tax, Handled</h3>
+            <div class="group p-6 bg-white border border-sand hover:border-accentGold hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                <div>
+                    <span class="block font-serif text-2xl text-accentGold mb-2">III</span>
+                    <h3 class="text-base font-semibold text-charcoal group-hover:text-accentGold transition-colors">Cash Flow Visibility</h3>
+                    <p class="text-sm text-mutedText leading-relaxed mt-3">Real-time visibility into what's actually available to spend, not just what your bank balance shows.</p>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div class="group p-5 bg-white border border-sand hover:border-accentGold hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-                        <h4 class="text-sm font-semibold text-charcoal">Sales Tax Clean-Up</h4>
-                        <p class="text-sm text-mutedText leading-relaxed mt-1">We check the sales tax you collected from customers against what was actually sent to the state, and find any gaps before the state does.</p>
-                        <div class="flex flex-wrap gap-1.5 mt-3">
-                            <span class="text-[10px] uppercase tracking-wide text-accentGoldDark border border-accentGold/40 rounded-full px-2.5 py-1 group-hover:bg-accentGold group-hover:text-white group-hover:border-accentGold transition-colors">Collected vs. paid</span>
-                        </div>
-                    </div>
-                    <div class="group p-5 bg-white border border-sand hover:border-accentGold hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-                        <h4 class="text-sm font-semibold text-charcoal">Filing Your Sales Tax Return</h4>
-                        <p class="text-sm text-mutedText leading-relaxed mt-1">Once your numbers are clean, we prepare and file your Florida sales tax return (Form DR-15) for you.</p>
-                        <div class="flex flex-wrap gap-1.5 mt-3">
-                            <span class="text-[10px] uppercase tracking-wide text-accentGoldDark border border-accentGold/40 rounded-full px-2.5 py-1 group-hover:bg-accentGold group-hover:text-white group-hover:border-accentGold transition-colors">DR-15 filed for you</span>
-                        </div>
-                    </div>
+                <div class="mt-6 flex items-center gap-2 text-xs font-semibold text-accentGold opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span>Learn More</span>
+                    <span aria-hidden="true">→</span>
                 </div>
             </div>
 
-            <!-- Category 04 -->
-            <div>
-                <div class="flex items-baseline gap-3 mb-1">
-                    <span class="text-[10px] font-mono uppercase tracking-widest text-accentGold font-bold">04</span>
-                    <h3 class="font-serif text-lg text-charcoal">On-Site, Without the Disruption</h3>
+            <div class="group p-6 bg-white border border-sand hover:border-accentGold hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                <div>
+                    <span class="block font-serif text-2xl text-accentGold mb-2">IV</span>
+                    <h3 class="text-base font-semibold text-charcoal group-hover:text-accentGold transition-colors">Custom Financial Dashboards</h3>
+                    <p class="text-sm text-mutedText leading-relaxed mt-3">A dashboard built around the numbers you actually check, pulling live data from your existing systems.</p>
                 </div>
-                <p class="text-sm text-mutedText leading-relaxed mb-4">We work around your schedule — your crew keeps working, your day keeps moving, and nothing gets installed on your systems.</p>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div class="group p-5 bg-white border border-sand hover:border-accentGold hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-                        <h4 class="text-sm font-semibold text-charcoal">Custom Spreadsheets, Built for You</h4>
-                        <p class="text-sm text-mutedText leading-relaxed mt-1">A complex, accumulating spreadsheet system — with its own dashboard, locked formulas, and automatic calculations — built specifically around your business and your industry, so it keeps building on itself instead of starting over every month.</p>
-                        <div class="flex flex-wrap gap-1.5 mt-3">
-                            <span class="text-[10px] uppercase tracking-wide text-accentGoldDark border border-accentGold/40 rounded-full px-2.5 py-1 group-hover:bg-accentGold group-hover:text-white group-hover:border-accentGold transition-colors">Built-in dashboard</span>
-                            <span class="text-[10px] uppercase tracking-wide text-accentGoldDark border border-accentGold/40 rounded-full px-2.5 py-1 group-hover:bg-accentGold group-hover:text-white group-hover:border-accentGold transition-colors">Built for your industry</span>
-                        </div>
-                    </div>
-                    <div class="group p-5 bg-white border border-sand hover:border-accentGold hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-                        <h4 class="text-sm font-semibold text-charcoal">Ongoing Peace of Mind</h4>
-                        <p class="text-sm text-mutedText leading-relaxed mt-1">A recurring check to make sure your books stay accurate month after month, so small errors don't turn into big ones.</p>
-                        <div class="flex flex-wrap gap-1.5 mt-3">
-                            <span class="text-[10px] uppercase tracking-wide text-accentGoldDark border border-accentGold/40 rounded-full px-2.5 py-1 group-hover:bg-accentGold group-hover:text-white group-hover:border-accentGold transition-colors">Monthly or quarterly check</span>
-                        </div>
-                    </div>
+                <div class="mt-6 flex items-center gap-2 text-xs font-semibold text-accentGold opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span>Learn More</span>
+                    <span aria-hidden="true">→</span>
                 </div>
             </div>
 
-            <!-- Category 05 -->
-            <div>
-                <div class="flex items-baseline gap-3 mb-4">
-                    <span class="text-[10px] font-mono uppercase tracking-widest text-accentGold font-bold">05</span>
-                    <h3 class="font-serif text-lg text-charcoal">Getting Ready for a Sale or Big Decision</h3>
+            <div class="group p-6 bg-white border border-sand hover:border-accentGold hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                <div>
+                    <span class="block font-serif text-2xl text-accentGold mb-2">V</span>
+                    <h3 class="text-base font-semibold text-charcoal group-hover:text-accentGold transition-colors">Vendor Account Reconciliation</h3>
+                    <p class="text-sm text-mutedText leading-relaxed mt-3">Vendor statements are checked against your payables so duplicate charges, missed credits, and pricing errors don't slip through.</p>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div class="group p-5 bg-white border border-sand hover:border-accentGold hover:-translate-y-1 hover:shadow-lg transition-all duration-300 sm:col-span-2">
-                        <h4 class="text-sm font-semibold text-charcoal">Clean Books for a Sale, Partner, or Loan</h4>
-                        <p class="text-sm text-mutedText leading-relaxed mt-1">Selling the business, bringing on a partner, or applying for financing? We get your numbers in shape so they hold up under scrutiny.</p>
-                        <div class="flex flex-wrap gap-1.5 mt-3">
-                            <span class="text-[10px] uppercase tracking-wide text-accentGoldDark border border-accentGold/40 rounded-full px-2.5 py-1 group-hover:bg-accentGold group-hover:text-white group-hover:border-accentGold transition-colors">Due-diligence ready</span>
-                            <span class="text-[10px] uppercase tracking-wide text-accentGoldDark border border-accentGold/40 rounded-full px-2.5 py-1 group-hover:bg-accentGold group-hover:text-white group-hover:border-accentGold transition-colors">Lender-ready records</span>
-                        </div>
-                    </div>
+                <div class="mt-6 flex items-center gap-2 text-xs font-semibold text-accentGold opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span>Learn More</span>
+                    <span aria-hidden="true">→</span>
                 </div>
             </div>
 
-            <!-- Category 06 -->
-            <div>
-                <div class="flex items-baseline gap-3 mb-4">
-                    <span class="text-[10px] font-mono uppercase tracking-widest text-accentGold font-bold">06</span>
-                    <h3 class="font-serif text-lg text-charcoal">Written Procedures, So Nothing Depends on One Person</h3>
+            <div class="group p-6 bg-white border border-sand hover:border-accentGold hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                <div>
+                    <span class="block font-serif text-2xl text-accentGold mb-2">VI</span>
+                    <h3 class="text-base font-semibold text-charcoal group-hover:text-accentGold transition-colors">Florida Sales Tax Reconciliation</h3>
+                    <p class="text-sm text-mutedText leading-relaxed mt-3">Collected sales tax is verified against filings and remittances to catch shortfalls before the state does.</p>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div class="group p-5 bg-white border border-sand hover:border-accentGold hover:-translate-y-1 hover:shadow-lg transition-all duration-300 sm:col-span-2">
-                        <h4 class="text-sm font-semibold text-charcoal">Custom SOP Playbook</h4>
-                        <p class="text-sm text-mutedText leading-relaxed mt-1">A step-by-step playbook built around how your office actually works — from taking in a vendor bill to closing out the month — spelling out who does each step, who checks it, and who signs off. If your bookkeeper leaves or you bring on new office help, the process doesn't leave with them.</p>
-                        <div class="flex flex-wrap gap-1.5 mt-3">
-                            <span class="text-[10px] uppercase tracking-wide text-accentGoldDark border border-accentGold/40 rounded-full px-2.5 py-1 group-hover:bg-accentGold group-hover:text-white group-hover:border-accentGold transition-colors">Built around your workflow</span>
-                            <span class="text-[10px] uppercase tracking-wide text-accentGoldDark border border-accentGold/40 rounded-full px-2.5 py-1 group-hover:bg-accentGold group-hover:text-white group-hover:border-accentGold transition-colors">Keeps you audit-ready</span>
-                        </div>
-                    </div>
+                <div class="mt-6 flex items-center gap-2 text-xs font-semibold text-accentGold opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span>Learn More</span>
+                    <span aria-hidden="true">→</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Brand Signature — moved directly under Scope of Services -->
-    <section id="signature" class="animated-dark bg-darkBg text-cream py-20 px-6">
+    <!-- Transparent Terms Section -->
+    <section id="pricing" class="py-14 sm:py-20 lg:py-24 bg-sand/30 border-y border-sand">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="max-w-3xl mb-14 space-y-4">
+                <span class="text-xs uppercase tracking-widest text-accentGold font-semibold">How We Work</span>
+                <h2 class="font-serif text-4xl lg:text-5xl text-charcoal">Transparent Terms</h2>
+                <p class="text-base text-mutedText leading-relaxed max-w-xl">Every engagement runs on the same three commitments — agreed in writing before a single file changes hands.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="group animated-dark bg-darkBg p-6 border-t-2 border-accentGold hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                    <div class="relative z-10">
+                        <span class="block text-[10px] font-mono uppercase tracking-widest text-accentGold/70 mb-3">01</span>
+                        <h3 class="font-serif text-lg text-cream mb-2">Upfront Fixed Pricing</h3>
+                        <p class="text-sm text-zinc-300 leading-relaxed">Every project operates on a fixed fee agreed upon before work begins — no hourly clock, no unexpected invoices.</p>
+                    </div>
+                </div>
+                <div class="group animated-dark bg-darkBg p-6 border-t-2 border-accentGold hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                    <div class="relative z-10">
+                        <span class="block text-[10px] font-mono uppercase tracking-widest text-accentGold/70 mb-3">02</span>
+                        <h3 class="font-serif text-lg text-cream mb-2">Zero Business Disruption</h3>
+                        <p class="text-sm text-zinc-300 leading-relaxed">We work directly from exported statements and reports — no software installations or operational downtime.</p>
+                    </div>
+                </div>
+                <div class="group animated-dark bg-darkBg p-6 border-t-2 border-accentGold hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                    <div class="relative z-10">
+                        <span class="block text-[10px] font-mono uppercase tracking-widest text-accentGold/70 mb-3">03</span>
+                        <h3 class="font-serif text-lg text-cream mb-2">Encrypted Vault Security</h3>
+                        <p class="text-sm text-zinc-300 leading-relaxed">All documents are uploaded through an end-to-end encrypted vault. We never request bank login credentials or passwords.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 flex flex-col sm:flex-row items-center gap-4">
+                <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-charcoal text-cream text-xs uppercase tracking-widest font-semibold hover:bg-accentGold transition-all">
+                    Request Scoping Assessment
+                    <span aria-hidden="true">→</span>
+                </a>
+                <span class="text-xs text-mutedText">No commitment. No hourly clock. Just a clear price before we start.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Onboarding Section — compact strip. The intake form lives on
+         its own shareable page (intake.html) so Lana can send clients a
+         direct link after their assessment call. The private upload
+         link/password in step 03 is sent manually by Lana, so it has no
+         on-site button. -->
+    <section id="onboarding" class="py-8 sm:py-10 px-5 sm:px-6 max-w-6xl mx-auto">
+        <div class="text-center mb-5">
+            <span class="text-xs uppercase tracking-widest text-accentGold font-semibold">Getting Started</span>
+            <h2 class="font-serif text-2xl sm:text-3xl text-charcoal mt-1">Client Onboarding</h2>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div class="p-4 bg-white border border-sand rounded-lg">
+                <span class="block text-[10px] font-mono uppercase tracking-widest text-accentGold font-bold mb-1">01</span>
+                <h3 class="text-sm font-semibold text-charcoal mb-1">Book Your Assessment</h3>
+                <p class="text-xs text-mutedText leading-snug">A quick call to scope your project and agree on fixed pricing.</p>
+            </div>
+            <div class="p-4 bg-white border border-sand rounded-lg">
+                <span class="block text-[10px] font-mono uppercase tracking-widest text-accentGold font-bold mb-1">02</span>
+                <h3 class="text-sm font-semibold text-charcoal mb-1">Fill Out the Intake Form</h3>
+                <p class="text-xs text-mutedText leading-snug">Complete our quick form on this site so we have your details upfront.</p>
+            </div>
+            <div class="p-4 bg-white border border-sand rounded-lg">
+                <span class="block text-[10px] font-mono uppercase tracking-widest text-accentGold font-bold mb-1">03</span>
+                <h3 class="text-sm font-semibold text-charcoal mb-1">Upload Your Statements</h3>
+                <p class="text-xs text-mutedText leading-snug">Use your private link and password to drop files into your folder.</p>
+            </div>
+            <div class="p-4 bg-white border border-sand rounded-lg">
+                <span class="block text-[10px] font-mono uppercase tracking-widest text-accentGold font-bold mb-1">04</span>
+                <h3 class="text-sm font-semibold text-charcoal mb-1">We Reconcile &amp; Deliver</h3>
+                <p class="text-xs text-mutedText leading-snug">Every line is verified and your clean ledger is delivered back to you.</p>
+            </div>
+        </div>
+
+        <div class="mt-6 text-center">
+            <a href="intake.html" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-charcoal text-cream text-xs uppercase tracking-widest font-semibold hover:bg-accentGold transition-all">
+                Start Intake Form
+                <span aria-hidden="true">→</span>
+            </a>
+            <p class="text-xs text-mutedText mt-2">Takes about 3 minutes — you can also share this link directly with a client after their call.</p>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="animated-dark bg-darkBg py-14 sm:py-20 lg:py-24 px-5 sm:px-6 text-cream border-t border-accentGold/20">
         <span class="xixi-watermark" aria-hidden="true">XI:XI</span>
-        <div class="max-w-2xl mx-auto relative z-10 text-center">
+        <div class="max-w-[780px] mx-auto relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span class="text-xs uppercase tracking-widest text-accentGold font-semibold">Client Feedback</span>
+                <h2 class="font-serif text-3xl lg:text-4xl text-cream mt-2">Proven Results</h2>
+            </div>
+            <div class="grid grid-cols-1 gap-6">
+                <div class="rounded-2xl border border-white/10 bg-[rgba(20,20,20,0.6)] backdrop-blur-md p-6">
+                    <p class="text-base text-zinc-200 italic leading-relaxed">"Our inventory and cash flow tracking was a mess before we called XI:XI. Now we finally know what our real manufacturing margins actually are, instead of guessing every month."</p>
+                    <p class="text-xs text-accentGold uppercase tracking-widest mt-4">Retail &amp; Manufacturing Client, Deerfield Beach, FL</p>
+                </div>
+                <div class="rounded-2xl border border-white/10 bg-[rgba(20,20,20,0.6)] backdrop-blur-md p-6">
+                    <p class="text-base text-zinc-200 italic leading-relaxed">"I had years of personal and business transactions all tangled together and honestly didn't know where to start. Lana sat down, sorted through everything, and handed me back one clean ledger. Such a relief."</p>
+                    <p class="text-xs text-accentGold uppercase tracking-widest mt-4">Independent Contractor, Brooklyn, NY</p>
+                </div>
+                <div class="rounded-2xl border border-accentGold/30 bg-[rgba(20,20,20,0.6)] backdrop-blur-md p-6 text-center">
+                    <p class="text-base text-zinc-200 italic leading-relaxed mb-3">"Have we worked together? Share your feedback."</p>
+                    <a href="mailto:lana@xixistrategy.com?subject=Client%20Review" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-accentGold hover:text-white transition-colors">
+                        Leave a Client Review
+                        <span aria-hidden="true">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Callout -->
+    <section class="bg-darkBg py-16 px-6">
+        <a href="story.html" class="group block max-w-4xl mx-auto rounded-2xl border border-accentGold/30 bg-black/20 text-cream p-8 sm:p-10 text-center hover:border-accentGold hover:bg-black/30 transition-colors">
+            <p class="font-serif text-xl sm:text-2xl leading-snug">
+                Built on a career of finding what doesn't add up — and fixing it.
+                <span class="block sm:inline text-accentGold italic mt-2 sm:mt-0 sm:ml-2 group-hover:underline">Read Our Story &amp; Track Record →</span>
+            </p>
+        </a>
+    </section>
+
+    <!-- Brand Signature Section -->
+    <section id="signature" class="animated-dark bg-darkBg text-cream py-14 sm:py-20 px-5 sm:px-6 border-t border-accentGold/20">
+        <span class="xixi-watermark" aria-hidden="true">XI:XI</span>
+        <div class="max-w-lg mx-auto relative z-10 text-center">
             <h3 class="font-serif text-2xl lg:text-3xl text-cream leading-tight">Two parallel records.<br><span class="italic text-accentGold">One absolute equilibrium.</span></h3>
-            <p class="text-base text-zinc-300 leading-relaxed mt-4 max-w-md mx-auto">
+            <p class="text-base text-zinc-300 leading-relaxed mt-4 max-w-sm mx-auto">
                 Between raw bank activity and internal reporting lies the margin for error. XI:XI eliminates the disconnect to deliver zero-variance clarity.
             </p>
             <div class="equilibrium-wrap mt-10 flex flex-col items-center max-w-[280px] mx-auto">
@@ -518,14 +452,10 @@
                         </g>
                     </defs>
 
-                    <!-- Ambient glow, sits behind everything, never rotates -->
                     <circle cx="200" cy="140" r="100" fill="url(#equilibriumGlow)"/>
-
-                    <!-- Fixed stand — does not tilt -->
                     <line x1="200" y1="80" x2="200" y2="230" stroke="#C5A880" stroke-width="2"/>
                     <line x1="160" y1="230" x2="240" y2="230" stroke="#C5A880" stroke-width="2.5" stroke-linecap="round"/>
 
-                    <!-- Tilting beam + counter-rotating pans -->
                     <g class="beam-group">
                         <line x1="90" y1="80" x2="310" y2="80" stroke="#C5A880" stroke-width="1.25"/>
 
@@ -551,146 +481,11 @@
         </div>
     </section>
 
-    <!-- Engagement Tiers Matrix Section -->
-    <section id="pricing" class="py-24 bg-sand/30 border-y border-sand">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="max-w-3xl mb-14 space-y-4">
-                <span class="text-xs uppercase tracking-widest text-accentGold font-semibold">Transparent Framework</span>
-                <h2 class="font-serif text-4xl lg:text-5xl text-charcoal">Clean Ledgers. Fixed Fees.<br class="hidden sm:block"> Zero Surprises.</h2>
-                <p class="text-base text-mutedText leading-relaxed max-w-xl">Every engagement runs on the same three commitments — agreed in writing before a single file changes hands.</p>
-            </div>
-
-            <!-- Trust boxes — relocated from the hero. md: (not sm:) so these
-                 three cards don't squeeze into ~190px columns on small
-                 tablets/landscape phones between 640–767px. Numbered and
-                 given a hover lift to match the Scope of Services cards,
-                 and no longer capped at max-w-4xl so they use the same
-                 width as the heading above them. -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div class="group animated-dark bg-darkBg p-6 border-t-2 border-accentGold hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
-                    <div class="relative z-10">
-                        <span class="block text-[10px] font-mono uppercase tracking-widest text-accentGold/70 mb-3">01</span>
-                        <h3 class="font-serif text-lg text-cream mb-2">Upfront Flat Pricing</h3>
-                        <p class="text-sm text-zinc-300 leading-relaxed">Every project starts with a fixed-fee Diagnosis. You approve the exact price before work begins — no hourly clock, no surprise invoices.</p>
-                    </div>
-                </div>
-                <div class="group animated-dark bg-darkBg p-6 border-t-2 border-accentGold hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
-                    <div class="relative z-10">
-                        <span class="block text-[10px] font-mono uppercase tracking-widest text-accentGold/70 mb-3">02</span>
-                        <h3 class="font-serif text-lg text-cream mb-2">Zero Business Disruption</h3>
-                        <p class="text-sm text-zinc-300 leading-relaxed">We work directly from the files you send — no new software to install and no interruption to your daily operations.</p>
-                    </div>
-                </div>
-                <div class="group animated-dark bg-darkBg p-6 border-t-2 border-accentGold hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
-                    <div class="relative z-10">
-                        <span class="block text-[10px] font-mono uppercase tracking-widest text-accentGold/70 mb-3">03</span>
-                        <h3 class="font-serif text-lg text-cream mb-2">100% Credential Security</h3>
-                        <p class="text-sm text-zinc-300 leading-relaxed">You upload files through a secure link. We never ask for bank usernames or passwords.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-12 flex flex-col sm:flex-row items-center gap-4">
-                <a href="#contact" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-charcoal text-cream text-xs uppercase tracking-widest font-semibold hover:bg-accentGold transition-all">
-                    Request a Scoping Assessment
-                    <span aria-hidden="true">→</span>
-                </a>
-                <span class="text-xs text-mutedText">No commitment. No hourly clock. Just a clear price before we start.</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <!-- Background runs bright at the top (continuing the light Engagement
-         Tiers section above) and settles to the same dark tone as Our
-         Story by the time the testimonial cards appear, so the page
-         eases into its dark run instead of cutting to it abruptly. The
-         heading sits in the still-light zone, so it uses charcoal instead
-         of the cream used everywhere else in this section. -->
-    <section id="testimonials" class="animated-dark py-24 px-6 text-cream bg-[linear-gradient(180deg,#F7F4EF_0%,#F7F4EF_18%,#121212_42%,#121212_100%)]">
-        <span class="xixi-watermark" aria-hidden="true">XI:XI</span>
-        <div class="max-w-7xl mx-auto relative z-10">
-            <div class="text-center max-w-2xl mx-auto mb-14">
-                <span class="text-xs uppercase tracking-widest text-accentGold font-semibold">Client Feedback</span>
-                <h2 class="font-serif text-3xl lg:text-4xl text-charcoal mt-2">Real results, in their words.</h2>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="border border-zinc-700/60 p-6">
-                    <p class="text-base text-zinc-200 italic leading-relaxed">"[Add a real client quote here — what discrepancy we found, and what it meant for your business.]"</p>
-                    <p class="text-xs text-accentGold uppercase tracking-widest mt-4">[Client Name], [Business Type]</p>
-                </div>
-                <div class="border border-zinc-700/60 p-6">
-                    <p class="text-base text-zinc-200 italic leading-relaxed">"[Add a real client quote here — what it felt like to finally see the numbers match.]"</p>
-                    <p class="text-xs text-accentGold uppercase tracking-widest mt-4">[Client Name], [Business Type]</p>
-                </div>
-                <div class="border border-zinc-700/60 p-6">
-                    <p class="text-base text-zinc-200 italic leading-relaxed">"[Add a real client quote here — what changed after the on-site implementation.]"</p>
-                    <p class="text-xs text-accentGold uppercase tracking-widest mt-4">[Client Name], [Business Type]</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Our Story: Founder Bio — moved to the bottom, above the footer -->
-    <section id="story" class="animated-dark bg-darkBg text-cream py-24 px-6">
-        <span class="xixi-watermark" aria-hidden="true">XI:XI</span>
-        <div class="max-w-6xl mx-auto relative z-10">
-            <div class="text-center mb-12">
-                <span class="text-xs uppercase tracking-widest text-accentGold font-semibold">Our Story</span>
-                <h2 class="font-serif text-3xl lg:text-4xl text-cream mt-2">The person behind every number.</h2>
-            </div>
-
-            <!-- Bio and track record live in one bordered panel so the
-                 numbers read as evidence for the person, not a bolt-on
-                 afterward. Bio gets more of the panel's width (3fr vs 2fr)
-                 now that it's a full paragraph, and the photo sits beside
-                 the name/text (left-aligned) rather than stacked above
-                 centered copy, which reads better at this length. -->
-            <div class="border border-zinc-700/60 grid grid-cols-1 lg:grid-cols-[3fr_auto_2fr]">
-                <div class="p-8 lg:p-10 flex flex-col sm:flex-row gap-6 items-center sm:items-start text-center sm:text-left">
-                    <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border border-accentGold/40 shadow-lg shrink-0">
-                        <img src="data:image/jpeg;base64,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" alt="Portrait of Lana Tselishchev, Founder of XI:XI" class="w-full h-full object-cover">
-                    </div>
-                    <div>
-                        <span class="font-serif text-lg text-cream block">Lana Tselishchev</span>
-                        <span class="text-[10px] uppercase tracking-widest text-accentGold font-mono mt-0.5 block">Founder &amp; Accountant</span>
-                        <p class="text-base text-zinc-200 leading-relaxed mt-4">
-                            Throughout my career, I repeatedly watched businesses run into the exact same wall: assuming that because transactions are being recorded, the numbers must be right. When something breaks between daily logging and year-end filing, it falls into an operational void. Everyday transactions continue to pile up on top of unreconciled discrepancies—masking timing errors, missing payouts, or broken data feeds. XI:XI was built to close that gap. I bring structured, statement-to-ledger precision directly to your business operations, giving you clear, plain-number visibility into exactly where your ledgers and bank accounts diverge—and resolving those discrepancies before they turn into a bigger issue.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="hidden lg:block w-px bg-zinc-700/60"></div>
-
-                <!-- Track record stats -->
-                <div class="grid grid-cols-2 gap-6 text-center content-center p-8 lg:p-10 border-t lg:border-t-0 border-zinc-700/60">
-                    <div>
-                        <span class="block font-mono text-lg text-accentGold font-semibold">1M+</span>
-                        <span class="block text-xs text-zinc-400 mt-1">Ledger Lines Verified</span>
-                    </div>
-                    <div>
-                        <span class="block font-mono text-lg text-accentGold font-semibold">$100M+</span>
-                        <span class="block text-xs text-zinc-400 mt-1">Settlements Verified</span>
-                    </div>
-                    <div>
-                        <span class="block font-mono text-lg text-accentGold font-semibold">$5.4M+</span>
-                        <span class="block text-xs text-zinc-400 mt-1">Global Disbursements</span>
-                    </div>
-                    <div>
-                        <span class="block font-mono text-lg text-accentGold font-semibold">Multi-Currency</span>
-                        <span class="block text-xs text-zinc-400 mt-1">USD/AED Cross-Rate</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer / Contact + Legal Disclaimer -->
     <footer id="contact" class="bg-charcoal text-cream/70 py-16 px-6 border-t border-zinc-800">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 mb-10">
             <div class="md:col-span-5 space-y-3">
-                <div class="flex items-center gap-3" role="img" aria-label="XI:XI — Strategic Finance Business Optimization">
-                    <!-- Same master-file crop as the header, recolored for the dark footer background. -->
+                <div class="flex items-center gap-3" role="img" aria-label="XI:XI — Strategic Finance &amp; Business Optimization">
                     <svg viewBox="20 46 148 52" class="h-6 w-auto" aria-hidden="true" focusable="false">
                         <text x="24" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="56" font-weight="500">
                             <tspan fill="#F7F4EF">XI</tspan><tspan fill="#C5A880">:</tspan><tspan fill="#F7F4EF">XI</tspan>
@@ -704,37 +499,49 @@
                         </svg>
                     </div>
                 </div>
-                <p class="text-xs text-zinc-400 max-w-sm">XI:XI specializes in strategic finance and business optimization—bringing structured controls, clean data, and precision to your financial operations.</p>
+                <p class="text-xs text-zinc-400 max-w-sm">XI:XI specializes in strategic finance and business optimization — bringing structured controls, clean data, and precision to your financial operations.</p>
                 <p class="text-xs font-mono text-accentGold">Call +1 (772) 210-9957</p>
             </div>
             <div class="md:col-span-7 md:pl-8 md:border-l md:border-zinc-800/60">
-                <h4 class="text-xs font-semibold text-cream uppercase tracking-wider mb-3">Send a Quick Message</h4>
-                <form id="quickContactForm" class="space-y-3 max-w-md">
-                    <input type="text" name="name" placeholder="Your name" required class="w-full bg-transparent border border-zinc-700 text-cream text-sm px-3 py-2.5 focus:border-accentGold outline-none placeholder:text-zinc-500">
-                    <input type="email" name="email" placeholder="Your email" required class="w-full bg-transparent border border-zinc-700 text-cream text-sm px-3 py-2.5 focus:border-accentGold outline-none placeholder:text-zinc-500">
-                    <textarea name="message" placeholder="What's going on with your books?" rows="3" required class="w-full bg-transparent border border-zinc-700 text-cream text-sm px-3 py-2.5 focus:border-accentGold outline-none placeholder:text-zinc-500"></textarea>
-                    <button type="submit" class="w-full sm:w-auto px-6 py-2.5 bg-accentGold text-white text-xs uppercase tracking-widest font-semibold hover:bg-accentGoldDark transition-all">Send Message</button>
+                <h2 class="font-serif text-2xl text-cream mb-1">Get In Touch</h2>
+                <h4 class="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-3">Send a Quick Message</h4>
+                <form id="quickContactForm" action="https://formsubmit.co/lana@xixistrategy.com" method="POST" class="space-y-3 max-w-md">
+                    <input type="hidden" name="_subject" value="New message from the XI:XI website">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                    <div>
+                        <label for="qc-name" class="sr-only">Name</label>
+                        <input id="qc-name" type="text" name="name" placeholder="Your name" required class="w-full bg-transparent border border-zinc-700 text-cream text-sm px-3 py-2.5 focus:border-accentGold outline-none placeholder:text-zinc-500">
+                    </div>
+                    <div>
+                        <label for="qc-email" class="sr-only">Email</label>
+                        <input id="qc-email" type="email" name="email" placeholder="Your email" required class="w-full bg-transparent border border-zinc-700 text-cream text-sm px-3 py-2.5 focus:border-accentGold outline-none placeholder:text-zinc-500">
+                    </div>
+                    <div>
+                        <label for="qc-message" class="sr-only">Message</label>
+                        <textarea id="qc-message" name="message" placeholder="What's going on with your books?" rows="3" required class="w-full bg-transparent border border-zinc-700 text-cream text-sm px-3 py-2.5 focus:border-accentGold outline-none placeholder:text-zinc-500"></textarea>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-3 pt-1">
+                        <button type="submit" class="flex-1 px-6 py-2.5 bg-accentGold text-white text-xs uppercase tracking-widest font-semibold hover:bg-accentGoldDark transition-all">Send Direct Message</button>
+                        <a href="mailto:lana@xixistrategy.com?subject=Referral%20Network%20Inquiry" class="flex-1 inline-flex items-center justify-center gap-2 px-6 py-2.5 border border-accentGold/50 text-accentGold text-xs uppercase tracking-widest font-semibold hover:bg-accentGold hover:text-white transition-all">
+                            CPA &amp; Professional Referral Network
+                        </a>
+                    </div>
+                    <p id="qc-status" class="text-xs mt-1" role="status" aria-live="polite"></p>
                 </form>
-                <!-- Moved down from Testimonials and turned into a proper
-                     outline button, sitting right next to the contact
-                     form instead of a plain text link further up the page. -->
-                <a href="mailto:REPLACE-WITH-YOUR-EMAIL@example.com?subject=Referral%20Network%20Inquiry" class="mt-4 inline-flex items-center gap-2 px-5 py-2.5 border border-accentGold/50 text-accentGold text-[11px] uppercase tracking-widest font-semibold hover:bg-accentGold hover:text-white transition-all">
-                    For CPA &amp; Finance Professionals — Join Our Referral Network
-                    <span aria-hidden="true">→</span>
-                </a>
             </div>
         </div>
         <div class="max-w-7xl mx-auto pt-6 border-t border-zinc-800/60">
-            <p class="text-xs text-zinc-500 max-w-2xl leading-relaxed">XI:XI is not a CPA firm and does not provide attestation services, audits, reviews, IRS representation, or legal advice.</p>
+            <p class="text-xs text-zinc-500 max-w-2xl leading-relaxed">XI:XI is a management consulting and reconciliation practice, not a licensed Certified Public Accountant (CPA) firm or law firm. We do not provide attest services, formal financial statement reviews, audits, IRS representation, or legal advice.</p>
         </div>
-        <div class="max-w-7xl mx-auto pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-zinc-500">
+        <div class="max-w-7xl mx-auto pt-6 text-center text-xs text-zinc-500">
             <p>&copy; 2026 XI:XI. All rights reserved.</p>
-            <p class="mt-2 sm:mt-0">Founder: Svitlana "Lana" Tselishchev</p>
         </div>
     </footer>
 
-    <!-- Floating "Book a Call" pill -->
-    <a href="#contact" id="floatingContact" class="floating-contact fixed right-4 bottom-4 sm:right-6 sm:bottom-6 z-[60] inline-flex items-center gap-2 bg-charcoal text-cream text-xs font-semibold uppercase tracking-wider px-5 py-3.5 rounded-full border border-accentGold/40 shadow-xl hover:bg-accentGold hover:text-white transition-all" aria-label="Jump to the contact section to book a call">
+    <!-- Floating Contact Pill -->
+    <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" id="floatingContact" class="floating-contact fixed right-4 bottom-4 sm:right-6 sm:bottom-6 z-[60] inline-flex items-center gap-2 bg-charcoal text-cream text-xs font-semibold uppercase tracking-wider px-5 py-3.5 rounded-full border border-accentGold/40 shadow-xl hover:bg-accentGold hover:text-white transition-all" aria-label="Book a call on Cal.com (opens in a new tab)">
         <span class="w-1.5 h-1.5 rounded-full bg-accentGold"></span>
         Book a Call
     </a>
@@ -752,16 +559,38 @@
         });
         menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
     })();
+
     (function(){
         var form = document.getElementById('quickContactForm');
         if(!form) return;
+        var status = document.getElementById('qc-status');
+        var submitBtn = form.querySelector('button[type="submit"]');
         form.addEventListener('submit', function(e){
             e.preventDefault();
-            var subject = encodeURIComponent('New inquiry from ' + form.name.value);
-            var body = 'Name: ' + form.name.value + '%0D%0AEmail: ' + form.email.value + '%0D%0A%0D%0A' + encodeURIComponent(form.message.value);
-            window.location.href = 'mailto:REPLACE-WITH-YOUR-EMAIL@example.com?subject=' + subject + '&body=' + body;
+            var formData = new FormData(form);
+            var originalLabel = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending…';
+            if (status) { status.textContent = ''; status.className = 'text-xs mt-1'; }
+            fetch(form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            }).then(function(res){
+                if (!res.ok) throw new Error('Request failed');
+                return res.json();
+            }).then(function(){
+                form.reset();
+                if (status) { status.textContent = "Thanks — I'll get back to you shortly."; status.className = 'text-xs mt-1 text-accentGold'; }
+            }).catch(function(){
+                if (status) { status.textContent = 'Something went wrong. Please email lana@xixistrategy.com directly.'; status.className = 'text-xs mt-1 text-red-400'; }
+            }).finally(function(){
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalLabel;
+            });
         });
     })();
+
     (function(){
         var fc = document.getElementById('floatingContact');
         if(!fc) return;
@@ -773,6 +602,7 @@
             });
         }, 2500);
     })();
+
     (function(){
         var fc = document.getElementById('floatingContact');
         var footer = document.getElementById('contact');
@@ -784,10 +614,8 @@
         }, { rootMargin: '0px 0px -10% 0px' });
         observer.observe(footer);
     })();
+
     (function(){
-        // Hero → header logo docking. Desktop (xl, 1280px+) only, and only
-        // when the visitor hasn't asked for reduced motion — both checked
-        // again below in case this ever runs before the CSS has applied.
         if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
         if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
@@ -798,7 +626,7 @@
 
         gsap.registerPlugin(ScrollTrigger);
 
-        var DESKTOP_MIN_WIDTH = 1280; // matches the xl: breakpoint that reveals #logoHeroSlot
+        var DESKTOP_MIN_WIDTH = 1280;
         var timeline = null;
 
         function teardown() {
@@ -808,9 +636,6 @@
                 timeline = null;
             }
             logoMark.style.visibility = 'hidden';
-            // Always restore the real header logo — this must never be
-            // left hidden if setup() bails, errors, or the viewport
-            // drops below the desktop breakpoint mid-scroll.
             gsap.set(headerMark, { clearProps: 'opacity' });
         }
 
@@ -819,8 +644,6 @@
 
             var heroRect = heroSlot.getBoundingClientRect();
             var dockRect = headerMark.getBoundingClientRect();
-            // Layout not ready / slot not actually visible — bail rather
-            // than animate to a bogus position.
             if (heroRect.width === 0 || dockRect.width === 0) return;
 
             teardown();
@@ -828,12 +651,6 @@
             gsap.set(logoMark, { x: heroRect.left, y: heroRect.top, scale: 1, opacity: 1 });
             logoMark.style.visibility = 'visible';
 
-            // #animatedLogo shares #headerLogoMark's exact viewBox and
-            // markup (same font, weight, colon color, coordinates) — it's
-            // the same artwork, just scaled. Matching the height ratio
-            // also matches width automatically, and the scaled mark's
-            // height lands flush with dockRect's height by construction,
-            // so there's no vertical-centering fudge factor to guess at.
             var targetScale = dockRect.height / heroRect.height;
 
             timeline = gsap.timeline({
@@ -849,13 +666,6 @@
                 }
             });
 
-            // Hide the real header logo the instant the pin engages, so
-            // there is only ever ONE "XI:XI" on screen at a time. Without
-            // this, the flying mark and the always-static header mark
-            // were both fully opaque for the first 80% of the scroll —
-            // visible simultaneously in two different, unaligned spots —
-            // which is what read as "not aligned" after scrolling back to
-            // some point mid-transition rather than all the way to the top.
             timeline.set(headerMark, { opacity: 0 }, 0);
 
             timeline.to(logoMark, {
@@ -866,13 +676,6 @@
                 duration: 1
             }, 0);
 
-            // Crossfade: the flying mark fades out exactly as the real
-            // header mark fades back in, so any tiny sub-pixel gap
-            // between them disappears into the handoff instead of
-            // showing as a faint duplicate — and this now runs
-            // identically whether the user scrolls forward through it or
-            // back through it, since it's part of the same scrubbed
-            // timeline rather than a one-shot transition.
             timeline.to(logoMark, {
                 opacity: 0,
                 ease: "power1.in",
