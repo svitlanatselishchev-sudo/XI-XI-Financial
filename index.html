@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XI:XI Financial Operations Consultancy | Palm City, FL</title>
+    <meta name="description" content="Independent financial operations consultancy led by Svitlana 'Lana' Tselishchev in Palm City, FL. Rigorous statement-to-ledger verification and on-site resolution.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#F7F4EF',
+                        sand: '#EAE3D2',
+                        charcoal: '#1A1A1A',
+                        darkBg: '#121212',
+                        accentGold: '#C5A880',
+                        accentGoldDark: '#9E825C',
+                        mutedText: '#6B655D'
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F7F4EF;
+            color: #1A1A1A;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Custom smooth scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F7F4EF;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C5A880;
+            border-radius: 4px;
+        }
+
+        /* Frosted floating header — Safari fallback for backdrop-blur */
+        .frosted {
+            -webkit-backdrop-filter: blur(20px) saturate(160%);
+            backdrop-filter: blur(20px) saturate(160%);
+        }
+
+        /* Animated dark-section aesthetic, shared by Bio and Partners */
+        .animated-dark { position: relative; overflow: hidden; }
+        .animated-dark::before {
+            content: ''; position: absolute; inset: -30%; pointer-events: none; z-index: 0;
+            opacity: 0.35; filter: blur(60px);
+            background-image:
+                radial-gradient(circle at 25% 30%, #C5A880 0%, transparent 45%),
+                radial-gradient(circle at 75% 70%, #3a4250 0%, transparent 50%);
+            animation: tonalShift 40s ease-in-out infinite alternate;
+        }
+        .animated-dark::after {
+            content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+            opacity: 0.22;
+            background-image: radial-gradient(circle, rgba(197,168,128,0.5) 1px, transparent 1.5px);
+            background-size: 140px 140px;
+            animation: gridPulse 70s linear infinite;
+        }
+        @keyframes tonalShift { 0%{transform:translate(0,0) scale(1);} 50%{transform:translate(-4%,3%) scale(1.08);} 100%{transform:translate(3%,-3%) scale(1);} }
+        @keyframes gridPulse { 0%{background-position:0 0;} 100%{background-position:140px 280px;} }
+        .xixi-watermark {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 0;
+            pointer-events: none; user-select: none;
+            font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(6rem, 18vw, 16rem);
+            letter-spacing: 0.04em; color: #C5A880; opacity: 0.05; white-space: nowrap;
+        }
+
+        /* Floating "Book a Call" pill */
+        @keyframes fcPulse {
+            0% { box-shadow: 0 14px 34px rgba(20,20,20,0.28), 0 0 0 0 rgba(197,168,128,0.45); }
+            70% { box-shadow: 0 14px 34px rgba(20,20,20,0.28), 0 0 0 14px rgba(197,168,128,0); }
+            100% { box-shadow: 0 14px 34px rgba(20,20,20,0.28), 0 0 0 0 rgba(197,168,128,0); }
+        }
+        .floating-contact.pulse { animation: fcPulse 1.8s ease 2; }
+    </style>
+</head>
+<body class="antialiased selection:bg-accentGold selection:text-white">
+
+    <!-- Floating Pill Header -->
+    <header class="fixed top-4 sm:top-5 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-1.25rem)] sm:w-[calc(100%-2.5rem)] max-w-6xl rounded-full border border-accentGold/30 bg-cream/75 frosted shadow-lg shadow-charcoal/10">
+        <div class="px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+            <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+                <span class="font-serif text-xl sm:text-2xl font-bold tracking-widest text-charcoal">XI<span class="text-accentGold">:</span>XI</span>
+                <span class="hidden lg:inline-block text-[10px] uppercase tracking-widest text-mutedText border-l border-sand pl-3">Financial Operations Consultancy</span>
+            </div>
+            <nav class="hidden md:flex items-center space-x-6 lg:space-x-7 text-sm font-medium text-charcoal">
+                <a href="#services" class="hover:text-accentGold transition-colors">Services</a>
+                <a href="#pricing" class="hover:text-accentGold transition-colors">Engagement Tiers</a>
+                <a href="#partners" class="hover:text-accentGold transition-colors">CPA Partners</a>
+                <a href="#story" class="hover:text-accentGold transition-colors">Our Story</a>
+            </nav>
+            <div class="flex items-center gap-2 shrink-0">
+                <a href="#pricing" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-xs font-semibold uppercase tracking-wider bg-charcoal text-cream rounded-full hover:bg-accentGold hover:text-white transition-all">
+                    Request Assessment
+                </a>
+                <button id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu" class="md:hidden flex flex-col justify-center gap-1.5 w-10 h-10 items-center">
+                    <span class="block w-5 h-px bg-charcoal"></span>
+                    <span class="block w-5 h-px bg-charcoal"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <nav id="mobileMenu" class="md:hidden hidden flex-col fixed top-[4.75rem] sm:top-[5.25rem] left-1/2 -translate-x-1/2 z-40 w-[calc(100%-1.25rem)] sm:w-[calc(100%-2.5rem)] max-w-6xl rounded-3xl border border-accentGold/30 bg-cream/95 frosted shadow-xl px-6 py-5 space-y-4 text-sm font-medium text-charcoal">
+        <a href="#services" class="block hover:text-accentGold transition-colors">Services</a>
+        <a href="#pricing" class="block hover:text-accentGold transition-colors">Engagement Tiers</a>
+        <a href="#partners" class="block hover:text-accentGold transition-colors">CPA Partners</a>
+        <a href="#story" class="block hover:text-accentGold transition-colors">Our Story</a>
+        <a href="#pricing" class="block pt-2 text-center px-5 py-2.5 text-xs font-semibold uppercase tracking-wider bg-charcoal text-cream rounded-full">Request Assessment</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-36 sm:pt-40 pb-24 px-6 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-8 space-y-8">
+                <div class="inline-flex items-center space-x-2 text-xs uppercase tracking-widest text-accentGold font-semibold">
+                    <span>XI:XI Financial Operations Consultancy</span>
+                    <span class="text-sand">•</span>
+                    <span>Palm City, FL</span>
+                </div>
+                <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-normal leading-[1.1] text-charcoal">
+                    Remote diagnosis.<br><span class="italic text-accentGoldDark">On-site resolution.</span>
+                </h1>
+                <p class="text-lg text-mutedText max-w-2xl font-light leading-relaxed">
+                    XI:XI verifies your numbers, isolates every discrepancy, and delivers the fix.
+                </p>
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
+                    <a href="#pricing" class="inline-flex items-center justify-center px-8 py-4 bg-charcoal text-cream text-xs uppercase tracking-widest font-semibold hover:bg-accentGold transition-all">
+                        Request a Scoping Assessment
+                    </a>
+                    <a href="tel:7722109957" class="inline-flex items-center justify-center px-8 py-4 border border-sand text-charcoal text-xs uppercase tracking-widest font-semibold hover:border-accentGold transition-all">
+                        Call +1 (772) 210-9957
+                    </a>
+                </div>
+            </div>
+
+            <!-- Compact Bento Highlights Sidebar — Streamlined Protocol, dark animated aesthetic -->
+            <div class="lg:col-span-4 space-y-2.5">
+                <div class="animated-dark bg-darkBg p-3.5 border border-accentGold/20">
+                    <div class="relative z-10">
+                        <span class="text-[9px] uppercase tracking-widest text-accentGold font-bold block mb-0.5">The Client Vault</span>
+                        <h3 class="font-serif text-sm font-medium text-cream mb-0.5">Zero login access</h3>
+                        <p class="text-[11px] text-zinc-400 leading-snug">Secure document transfer only — no bank credentials, ever.</p>
+                    </div>
+                </div>
+                <div class="animated-dark bg-darkBg p-3.5 border border-accentGold/20">
+                    <div class="relative z-10">
+                        <span class="text-[9px] uppercase tracking-widest text-accentGold font-bold block mb-0.5">Zero System Access</span>
+                        <h3 class="font-serif text-sm font-medium text-cream mb-0.5">No software installed</h3>
+                        <p class="text-[11px] text-zinc-400 leading-snug">Documents only, at every stage — no exceptions.</p>
+                    </div>
+                </div>
+                <div class="animated-dark bg-darkBg p-3.5 border border-accentGold/20">
+                    <div class="relative z-10">
+                        <span class="text-[9px] uppercase tracking-widest text-accentGold font-bold block mb-0.5">Fixed-Rate Pricing</span>
+                        <h3 class="font-serif text-sm font-medium text-cream mb-0.5">Quoted before work begins</h3>
+                        <p class="text-[11px] text-zinc-400 leading-snug">Written price, zero surprises or retainer creep.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scope of Services Section — modernized, minimal interactive cards -->
+    <section id="services" class="py-20 px-6 max-w-7xl mx-auto">
+        <div class="max-w-3xl mb-10 space-y-3">
+            <span class="text-xs uppercase tracking-widest text-accentGold font-semibold">Scope of Services</span>
+            <h2 class="font-serif text-3xl lg:text-4xl text-charcoal">Scope of services.</h2>
+            <p class="text-mutedText text-sm leading-relaxed">Flat fee, agreed in writing before work starts. On-site work is scoped from what The Diagnosis finds.</p>
+        </div>
+
+        <div class="space-y-10">
+            <!-- Category 01: Verification -->
+            <div>
+                <div class="flex items-baseline gap-3 mb-4">
+                    <span class="text-[10px] font-mono uppercase tracking-widest text-accentGold font-bold">01</span>
+                    <h3 class="font-serif text-lg text-charcoal">Verification</h3>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div class="group p-5 bg-white border border-sand hover:border-accentGold hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                        <h4 class="text-sm font-semibold text-charcoal">Statement-to-Ledger Verification</h4>
+                        <p class="text-xs text-mutedText mt-1">Books matched to bank accounts, dollar for dollar.</p>
+                        <div class="flex flex-wrap gap-1.5 mt-3">
+                            <span class="text-[10px] uppercase tracking-wide text-accentGoldDark border border-accentGold/40 rounded-full px-2.5 py-1 group-hover:bg-accentGold group-hover:text-white group-hover:border-accentGold transition-colors">Variance mapping</span>
+                            <span class="text-[10px] uppercase tracking-wide text-accentGoldDark border border-accentGold/40 rounded-full px-2.5 py-1 group-hover:bg-accentGold group-hover:text-white group-hover:border-accentGold transition-colors">Discrepancy report</span>
+                        </div>
+                    </div>
+                    <div class="group p-5 bg-white border border-sand hover:border-accentGold hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                        <h4 class="text-sm font-semibold text-charcoal">Multi-Entity Reconciliation</h4>
+                        <p class="text-xs text-mutedText mt-1">Every account and entity, transfers included.</p>
+                        <div class="flex flex-wrap gap-1.5 mt-3">
+                            <span class="text-[10px] uppercase tracking-wide text-accentGoldDark border border-accentGold/40 rounded-full px-2.5 py-1 group-hover:bg-accentGold group-hover:text-white group-hover:border-accentGold transition-colors">Cross-entity match</span>
+                            <span class="text-[10px] uppercase tracking-wide text-accentGoldDark border border-accentGold/40 rounded-full px-2.5 py-1 group-hover:bg-accentGold group-hover:text-white group-hover:border-accentGold transition-colors">Transfer clearing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 02: Strategy & Compliance -->
+            <div>
+                <div class="flex items-baseline gap-3 mb-4">
+                    <span class="text-[10px] font-mono uppercase tracking-widest text-accentGold font-bold">02</span>
+                    <h3 class="font-serif text-lg text-charcoal">Strategy &amp; Compliance</h3>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div class="group p-5 bg-white border border-sand hover:border-accentGold hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                        <h4 class="text-sm font-semibold text-charcoal">Cash Flow Modeling</h4>
+                        <p class="text-xs text-mutedText mt-1">Models when cash actually lands, not when it's invoiced.</p>
+                        <div class="flex flex-wrap gap-1.5 mt-3">
+                            <span class="text-[10px] uppercase tracking-wide text-accentGoldDark border border-accentGold/40 rounded-full px-2.5 py-1 group-hover:bg-accentGold group-hover:text-white group-hover:border-accentGold transition-colors">Forward cash model</span>
+                        </div>
+                    </div>
+                    <div class="group p-5 bg-white border border-sand hover:border-accentGold hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                        <h4 class="text-sm font-semibold text-charcoal">Vendor &amp; Cost Review</h4>
+                        <p class="text-xs text-mutedText mt-1">Recurring spend checked against contracted terms.</p>
+                        <div class="flex flex-wrap gap-1.5 mt-3">
+                            <span class="text-[10px] uppercase tracking-wide text-accentGoldDark border border-accentGold/40 rounded-full px-2.5 py-1 group-hover:bg-accentGold group-hover:text-white group-hover:border-accentGold transition-colors">Rate verification</span>
+                            <span class="text-[10px] uppercase tracking-wide text-accentGoldDark border border-accentGold/40 rounded-full px-2.5 py-1 group-hover:bg-accentGold group-hover:text-white group-hover:border-accentGold transition-colors">Overbilling flags</span>
+                        </div>
+                    </div>
+                    <div class="group p-5 bg-white border border-sand hover:border-accentGold hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                        <h4 class="text-sm font-semibold text-charcoal">FL Sales &amp; Use Tax Reconciliation</h4>
+                        <p class="text-xs text-mutedText mt-1">Tax collected matched to tax remitted.</p>
+                        <div class="flex flex-wrap gap-1.5 mt-3">
+                            <span class="text-[10px] uppercase tracking-wide text-accentGoldDark border border-accentGold/40 rounded-full px-2.5 py-1 group-hover:bg-accentGold group-hover:text-white group-hover:border-accentGold transition-colors">Collected vs. remitted</span>
+                        </div>
+                    </div>
+                    <div class="group p-5 bg-white border border-sand hover:border-accentGold hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                        <h4 class="text-sm font-semibold text-charcoal">FL Sales &amp; Use Tax Filing</h4>
+                        <p class="text-xs text-mutedText mt-1">DR-15 prepared and filed from a reconciled baseline.</p>
+                        <div class="flex flex-wrap gap-1.5 mt-3">
+                            <span class="text-[10px] uppercase tracking-wide text-accentGoldDark border border-accentGold/40 rounded-full px-2.5 py-1 group-hover:bg-accentGold group-hover:text-white group-hover:border-accentGold transition-colors">DR-15 preparation</span>
+                            <span class="text-[10px] uppercase tracking-wide text-accentGoldDark border border-accentGold/40 rounded-full px-2.5 py-1 group-hover:bg-accentGold group-hover:text-white group-hover:border-accentGold transition-colors">Filing included</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 03: On-Site & Ongoing -->
+            <div>
+                <div class="flex items-baseline gap-3 mb-1">
+                    <span class="text-[10px] font-mono uppercase tracking-widest text-accentGold font-bold">03</span>
+                    <h3 class="font-serif text-lg text-charcoal">On-Site &amp; Ongoing</h3>
+                </div>
+                <p class="text-xs text-mutedText mb-4">Hands-on document reconciliation at your office and across Martin County — never software, never a system login.</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div class="group p-5 bg-white border border-sand hover:border-accentGold hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                        <h4 class="text-sm font-semibold text-charcoal">On-Site Process Implementation</h4>
+                        <p class="text-xs text-mutedText mt-1">Workflows and controls built at your office, team trained.</p>
+                        <div class="flex flex-wrap gap-1.5 mt-3">
+                            <span class="text-[10px] uppercase tracking-wide text-accentGoldDark border border-accentGold/40 rounded-full px-2.5 py-1 group-hover:bg-accentGold group-hover:text-white group-hover:border-accentGold transition-colors">Workflow build-out</span>
+                            <span class="text-[10px] uppercase tracking-wide text-accentGoldDark border border-accentGold/40 rounded-full px-2.5 py-1 group-hover:bg-accentGold group-hover:text-white group-hover:border-accentGold transition-colors">Team training</span>
+                        </div>
+                    </div>
+                    <div class="group p-5 bg-white border border-sand hover:border-accentGold hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                        <h4 class="text-sm font-semibold text-charcoal">The Verification Retainer</h4>
+                        <p class="text-xs text-mutedText mt-1">Ongoing, independent confirmation your books stay accurate.</p>
+                        <div class="flex flex-wrap gap-1.5 mt-3">
+                            <span class="text-[10px] uppercase tracking-wide text-accentGoldDark border border-accentGold/40 rounded-full px-2.5 py-1 group-hover:bg-accentGold group-hover:text-white group-hover:border-accentGold transition-colors">Recurring reconciliation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Engagement Tiers Matrix Section -->
+    <section id="pricing" class="py-24 bg-sand/30 border-y border-sand">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="max-w-3xl mb-16 space-y-4">
+                <span class="text-xs uppercase tracking-widest text-accentGold font-semibold">Transparent Framework</span>
+                <h2 class="font-serif text-4xl lg:text-5xl text-charcoal">Engagement tiers &amp; intake criteria.</h2>
+                <p class="text-mutedText leading-relaxed">
+                    Every engagement starts with The Diagnosis, a flat $795. It tells you exactly what's wrong and what fixing it would cost — before you commit to anything further. Nothing beyond that is billed until you approve a price in writing.
+                </p>
+            </div>
+
+            <!-- Three sequential phases, each read the same way -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Tier 1 -->
+                <div class="bg-white border border-sand p-8 flex flex-col justify-between shadow-sm relative">
+                    <div class="space-y-5">
+                        <div>
+                            <span class="text-[10px] font-mono uppercase tracking-widest text-accentGold font-bold">Step 1</span>
+                            <h3 class="font-serif text-2xl text-charcoal mt-1">The Diagnosis</h3>
+                        </div>
+                        <p class="text-sm text-mutedText leading-relaxed">Single-entity businesses that need a verified baseline before deciding on anything further.</p>
+                        <dl class="text-xs text-charcoal space-y-3 pt-2 border-t border-sand">
+                            <div>
+                                <dt class="uppercase tracking-wider text-mutedText font-semibold mb-1">Investment</dt>
+                                <dd class="font-serif text-lg text-charcoal">$795 flat fee</dd>
+                            </div>
+                            <div>
+                                <dt class="uppercase tracking-wider text-mutedText font-semibold mb-1">Includes</dt>
+                                <dd>Statement-to-Ledger Verification &amp; discrepancy report</dd>
+                            </div>
+                            <div>
+                                <dt class="uppercase tracking-wider text-mutedText font-semibold mb-1">You Provide</dt>
+                                <dd>Minimum 3 months of statements — 6–12+ months typical, confirmed at intake</dd>
+                            </div>
+                        </dl>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-sand">
+                        <a href="#contact" class="block w-full text-center py-3 bg-charcoal text-cream text-xs uppercase tracking-widest font-semibold hover:bg-accentGold transition-all">Start With The Diagnosis</a>
+                    </div>
+                </div>
+
+                <!-- Tier 2 -->
+                <div class="bg-white border-2 border-accentGold p-8 flex flex-col justify-between shadow-md relative">
+                    <div class="absolute -top-3 right-6 bg-accentGold text-white text-[10px] uppercase tracking-widest font-bold px-3 py-1">Most Common Next Step</div>
+                    <div class="space-y-5">
+                        <div>
+                            <span class="text-[10px] font-mono uppercase tracking-widest text-accentGold font-bold">Step 2</span>
+                            <h3 class="font-serif text-2xl text-charcoal mt-1">The Resolution</h3>
+                        </div>
+                        <p class="text-sm text-mutedText leading-relaxed">Businesses ready to implement the fix on-site, not just read about it.</p>
+                        <dl class="text-xs text-charcoal space-y-3 pt-2 border-t border-sand">
+                            <div>
+                                <dt class="uppercase tracking-wider text-mutedText font-semibold mb-1">Investment</dt>
+                                <dd class="font-serif text-lg text-charcoal">Custom — quoted after The Diagnosis</dd>
+                            </div>
+                            <div>
+                                <dt class="uppercase tracking-wider text-mutedText font-semibold mb-1">Includes</dt>
+                                <dd>On-site process implementation &amp; control architecture</dd>
+                            </div>
+                            <div>
+                                <dt class="uppercase tracking-wider text-mutedText font-semibold mb-1">Prerequisite</dt>
+                                <dd>A completed Diagnosis</dd>
+                            </div>
+                        </dl>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-sand">
+                        <a href="#contact" class="block w-full text-center py-3 bg-accentGold text-white text-xs uppercase tracking-widest font-semibold hover:bg-accentGoldDark transition-all">Inquire About The Resolution</a>
+                    </div>
+                </div>
+
+                <!-- Tier 3 -->
+                <div class="bg-white border border-sand p-8 flex flex-col justify-between shadow-sm relative">
+                    <div class="space-y-5">
+                        <div>
+                            <span class="text-[10px] font-mono uppercase tracking-widest text-accentGold font-bold">Ongoing</span>
+                            <h3 class="font-serif text-2xl text-charcoal mt-1">The Verification Retainer</h3>
+                        </div>
+                        <p class="text-sm text-mutedText leading-relaxed">Businesses that want ongoing, independent confirmation their books stay accurate.</p>
+                        <dl class="text-xs text-charcoal space-y-3 pt-2 border-t border-sand">
+                            <div>
+                                <dt class="uppercase tracking-wider text-mutedText font-semibold mb-1">Investment</dt>
+                                <dd class="font-serif text-lg text-charcoal">Quoted with an active Resolution</dd>
+                            </div>
+                            <div>
+                                <dt class="uppercase tracking-wider text-mutedText font-semibold mb-1">Includes</dt>
+                                <dd>Recurring reconciliation checks through the Client Vault</dd>
+                            </div>
+                            <div>
+                                <dt class="uppercase tracking-wider text-mutedText font-semibold mb-1">Prerequisite</dt>
+                                <dd>An active or completed Resolution</dd>
+                            </div>
+                        </dl>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-sand">
+                        <a href="#contact" class="block w-full text-center py-3 bg-charcoal text-cream text-xs uppercase tracking-widest font-semibold hover:bg-accentGold transition-all">Ask About The Retainer</a>
+                    </div>
+                </div>
+            </div>
+            <p class="text-xs text-mutedText text-center mt-8">Every engagement is scoped and priced in writing before work begins. The figures above are starting points, not final quotes.</p>
+        </div>
+    </section>
+
+    <!-- Black Section: CPA & Professional Partnerships -->
+    <section id="partners" class="animated-dark py-24 bg-darkBg text-cream px-6">
+        <span class="xixi-watermark" aria-hidden="true">XI:XI</span>
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center space-x-2 text-xs uppercase tracking-widest text-accentGold font-semibold">
+                        <span>Professional Referral Network</span>
+                    </div>
+                    <h2 class="font-serif text-4xl lg:text-5xl text-cream font-normal leading-tight">
+                        If a client's books need extensive reconciliation before your tax or filing work begins, <span class="italic text-accentGold">partner with XI:XI to bridge the gap.</span>
+                    </h2>
+                </div>
+                <div class="lg:col-span-5 space-y-6 border-l border-zinc-800 pl-8">
+                    <div class="space-y-4 text-xs text-zinc-400">
+                        <p class="leading-relaxed">
+                            <strong class="text-cream">No overlap, ever</strong> — tax, attestation, and legal work stay firmly with you.
+                        </p>
+                        <p class="leading-relaxed">
+                            <strong class="text-cream">The referral runs clean in both directions</strong>, ensuring strict professional boundaries and pristine books.
+                        </p>
+                    </div>
+                    <div class="pt-4">
+                        <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 border border-accentGold text-cream text-xs uppercase tracking-widest font-semibold hover:bg-accentGold hover:text-darkBg transition-all">
+                            Send a Referral or Propose a Partnership
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story: combined Founder Bio + Brand Signature — moved to the bottom, above the footer -->
+    <section id="story" class="animated-dark bg-darkBg text-cream py-24 px-6">
+        <span class="xixi-watermark" aria-hidden="true">XI:XI</span>
+        <div class="max-w-5xl mx-auto relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-widest text-accentGold font-semibold">Our Story</span>
+                <h2 class="font-serif text-3xl lg:text-4xl text-cream mt-2">The person and the principle behind every number.</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+                <!-- Founder & Bio -->
+                <div>
+                    <div class="flex items-center gap-5">
+                        <div class="w-20 h-20 rounded-full overflow-hidden border border-accentGold/40 shadow-lg shrink-0">
+                            <img src="data:image/jpeg;base64,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" alt="Portrait of Lana Tselishchev, Founder of XI:XI" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <span class="font-serif text-lg text-cream block">Lana Tselishchev</span>
+                            <span class="text-[10px] uppercase tracking-widest text-accentGold font-mono mt-0.5 block">Founder &amp; Accountant</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-zinc-300 leading-relaxed mt-5">Precision-driven work: untangling multi-entity structures, cross-border transfers, and ledgers years overdue for reconciliation. Every engagement runs the same way — a full remote diagnostic, then direct, on-site execution alongside your team.</p>
+                </div>
+
+                <!-- Brand Signature -->
+                <div class="lg:pl-16 lg:border-l lg:border-zinc-700/50">
+                    <h3 class="font-serif text-xl lg:text-2xl text-cream leading-tight">Two parallel records.<br><span class="italic text-accentGold">One absolute equilibrium.</span></h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed mt-3">
+                        XI:XI marks two independent records — a bank statement and a general ledger — brought line by line into agreement. The colon at the center is the point of balance.
+                    </p>
+                    <div class="mt-5 max-w-xs font-mono text-[11px] text-zinc-400 border border-zinc-700/60">
+                        <div class="flex items-center justify-between px-4 py-2.5 border-b border-zinc-700/60">
+                            <span>Bank Statement</span><span class="text-cream font-bold">$48,250.00</span>
+                        </div>
+                        <div class="flex items-center justify-between px-4 py-2.5">
+                            <span>General Ledger</span><span class="text-cream font-bold">$48,250.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shared stats strip -->
+            <div class="mt-16 pt-8 border-t border-zinc-700/60 grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+                <div>
+                    <span class="block font-mono text-lg text-accentGold font-semibold">1M+</span>
+                    <span class="block text-[11px] text-zinc-400 mt-1">Ledger Lines Verified</span>
+                </div>
+                <div>
+                    <span class="block font-mono text-lg text-accentGold font-semibold">$100M+</span>
+                    <span class="block text-[11px] text-zinc-400 mt-1">Settlements Verified</span>
+                </div>
+                <div>
+                    <span class="block font-mono text-lg text-accentGold font-semibold">$5.4M+</span>
+                    <span class="block text-[11px] text-zinc-400 mt-1">Global Disbursements</span>
+                </div>
+                <div>
+                    <span class="block font-mono text-lg text-accentGold font-semibold">Multi-Currency</span>
+                    <span class="block text-[11px] text-zinc-400 mt-1">USD/AED Cross-Rate</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Legal Disclaimer -->
+    <footer id="contact" class="bg-charcoal text-cream/70 py-16 px-6 border-t border-zinc-800">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 mb-12">
+            <div class="md:col-span-6 space-y-4">
+                <span class="font-serif text-2xl font-bold tracking-widest text-cream">XI:XI</span>
+                <p class="text-xs text-zinc-400 max-w-sm">
+                    XI:XI Financial Operations Consultancy is an independent reconciliation practice founded and led by Svitlana "Lana" Tselishchev, serving Palm City and Martin County, FL — document-based statement matching and ledger verification, executed on-site by signed agreement.
+                </p>
+                <p class="text-xs font-mono text-accentGold">Call +1 (772) 210-9957</p>
+            </div>
+            <div class="md:col-span-6 space-y-4 text-xs text-zinc-400">
+                <h4 class="font-semibold text-cream uppercase tracking-wider">Regulatory Compliance Disclosure</h4>
+                <p class="leading-relaxed">
+                    XI:XI is not a CPA firm and does not provide attestation services, audits, reviews, income tax preparation, IRS representation, or legal advice. Sales and use tax document preparation and filing are permitted under Florida law without CPA licensure and are offered as a standalone service; all other tax and legal matters are referred to independent, licensed professionals. Not a service agreement — scope and terms are set in a signed engagement letter.
+                </p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto pt-8 border-t border-zinc-800 flex flex-col sm:flex-row justify-between items-center text-[10px] text-zinc-500">
+            <p>&copy; 2026 XI:XI Financial Operations Consultancy. All rights reserved.</p>
+            <p class="mt-2 sm:mt-0">Palm City, FL • Founder: Svitlana "Lana" Tselishchev</p>
+        </div>
+    </footer>
+
+    <!-- Floating "Book a Call" pill -->
+    <a href="#contact" id="floatingContact" class="floating-contact fixed right-4 bottom-4 sm:right-6 sm:bottom-6 z-[60] inline-flex items-center gap-2 bg-charcoal text-cream text-xs font-semibold uppercase tracking-wider px-5 py-3.5 rounded-full border border-accentGold/40 shadow-xl hover:bg-accentGold hover:text-white transition-all" aria-label="Jump to the contact section to book a call">
+        <span class="w-1.5 h-1.5 rounded-full bg-accentGold"></span>
+        Book a Call
+    </a>
+
+    <script>
+    (function(){
+        var toggle = document.getElementById('menuToggle');
+        var menu = document.getElementById('mobileMenu');
+        if(!toggle || !menu) return;
+        function closeMenu(){ menu.classList.add('hidden'); menu.classList.remove('flex'); toggle.setAttribute('aria-expanded','false'); }
+        function openMenu(){ menu.classList.remove('hidden'); menu.classList.add('flex'); toggle.setAttribute('aria-expanded','true'); }
+        toggle.addEventListener('click', function(){
+            var isOpen = toggle.getAttribute('aria-expanded') === 'true';
+            isOpen ? closeMenu() : openMenu();
+        });
+        menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+    })();
+    (function(){
+        var fc = document.getElementById('floatingContact');
+        if(!fc) return;
+        setTimeout(function(){
+            fc.classList.add('pulse');
+            fc.addEventListener('animationend', function handler(){
+                fc.classList.remove('pulse');
+                fc.removeEventListener('animationend', handler);
+            });
+        }, 2500);
+    })();
+    </script>
+</body>
+</html>
