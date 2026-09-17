@@ -109,6 +109,17 @@
             transform: translateY(0);
             pointer-events: auto;
         }
+        .back-to-top {
+            opacity: 0;
+            transform: translateY(12px);
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.2s ease, border-color 0.2s ease;
+        }
+        .back-to-top.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
 
         #animatedLogo {
             position: fixed;
@@ -189,14 +200,6 @@
             height: 4px;
             background: linear-gradient(90deg, #C5A880 0%, #9E825C 50%, #C5A880 100%);
         }
-        .onboard-card {
-            border-top: 3px solid #C5A880;
-            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .onboard-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 30px -10px rgba(0,0,0,0.08);
-        }
         .signature-glow {
             position: absolute; top: 0; left: 50%; transform: translateX(-50%);
             width: 320px; height: 320px; border-radius: 50%;
@@ -235,7 +238,7 @@
             </div>
             <nav class="hidden md:flex items-center space-x-4 lg:space-x-7 text-sm font-medium text-charcoal">
                 <a href="#services" class="hover:text-accentGold transition-colors">Services</a>
-                <a href="#insights" class="hover:text-accentGold transition-colors">Insights</a>
+                <a href="insights.html" class="hover:text-accentGold transition-colors">Insights</a>
                 <a href="story.html" class="hover:text-accentGold transition-colors">About</a>
                 <a href="intake.html" class="hover:text-accentGold transition-colors">Client Intake</a>
             </nav>
@@ -253,7 +256,7 @@
 
     <nav id="mobileMenu" class="md:hidden hidden flex-col fixed top-[4.75rem] sm:top-[5.25rem] left-1/2 -translate-x-1/2 z-40 w-[calc(100%-1.25rem)] sm:w-[calc(100%-2.5rem)] max-w-6xl rounded-3xl border border-accentGold/30 bg-cream/95 frosted shadow-xl px-6 py-5 space-y-4 text-sm font-medium text-charcoal">
         <a href="#services" class="block hover:text-accentGold transition-colors">Services</a>
-        <a href="#insights" class="block hover:text-accentGold transition-colors">Insights</a>
+        <a href="insights.html" class="block hover:text-accentGold transition-colors">Insights</a>
         <a href="story.html" class="block hover:text-accentGold transition-colors">About</a>
         <a href="intake.html" class="block hover:text-accentGold transition-colors">Client Intake</a>
         <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="block pt-2 text-center px-5 py-2.5 text-xs font-semibold uppercase tracking-wider bg-charcoal text-cream rounded-full">Book Free Assessment</a>
@@ -264,29 +267,37 @@
         Book Free Assessment<span aria-hidden="true">→</span>
     </a>
 
+    <!-- Back to Top — appears once the visitor has scrolled roughly one viewport down, on the opposite corner from the floating contact CTA so the two never collide. -->
+    <button type="button" id="backToTop" class="back-to-top fixed left-4 bottom-4 sm:left-6 sm:bottom-6 z-[60] inline-flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 bg-cream text-charcoal rounded-full border border-accentGold/50 shadow-xl hover:bg-charcoal hover:text-cream hover:border-accentGold transition-all" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" aria-hidden="true">
+            <path d="M12 19V5"/>
+            <path d="M5 12l7-7 7 7"/>
+        </svg>
+    </button>
+
     <!-- Hero Section -->
     <div id="heroPinWrapper">
-        <section id="hero" class="relative pt-32 sm:pt-40 pb-16 sm:pb-24 px-5 sm:px-6 max-w-7xl mx-auto">
+        <section id="hero" class="relative animated-dark bg-darkBg pt-32 sm:pt-40 pb-16 sm:pb-24 px-5 sm:px-6 max-w-7xl mx-auto">
             <span class="xixi-watermark" aria-hidden="true">XI:XI</span>
             <div class="relative z-10 max-w-2xl space-y-8">
-                <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-normal leading-[1.1] text-charcoal">
-                    Remote verification.<br><span class="italic text-accentGoldDark">On-site results.</span>
+                <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-normal leading-[1.1] text-cream">
+                    Remote verification.<br><span class="italic text-accentGold">On-site results.</span>
                 </h1>
 
-                <p class="font-serif italic text-xl sm:text-2xl text-accentGoldDark leading-snug">
+                <p class="font-serif italic text-xl sm:text-2xl text-accentGold leading-snug">
                     Structured controls, clean data, and precision for your financial operations.
                 </p>
 
                 <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-4 pt-2">
-                    <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-8 py-4 bg-charcoal text-white text-xs uppercase tracking-widest font-semibold border border-[#C5A059] hover:bg-accentGold hover:border-accentGold transition-all">
+                    <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-8 py-4 bg-accentGold text-charcoal text-xs uppercase tracking-widest font-bold hover:bg-cream transition-all">
                         Book a Free 15-Min Assessment
                     </a>
-                    <a href="tel:+17722109957" class="inline-flex items-center justify-center px-8 py-4 border border-[#2C2C2C] text-charcoal text-xs uppercase tracking-widest font-semibold hover:border-accentGold transition-all">
+                    <a href="tel:+17722109957" class="inline-flex items-center justify-center px-8 py-4 border border-accentGold text-accentGold text-xs uppercase tracking-widest font-semibold hover:bg-accentGold hover:text-charcoal transition-all">
                         Call +1 (772) 210-9957
                     </a>
                 </div>
 
-                <p class="text-xs uppercase tracking-widest text-mutedText/80 !mt-3">For corporate revenue, multi-entity holdings, and growing businesses.</p>
+                <p class="text-xs uppercase tracking-widest text-zinc-400 !mt-3">For corporate revenue, multi-entity holdings, and growing businesses.</p>
             </div>
 
             <!-- Docking slot: invisible target for the header-logo scroll
@@ -298,7 +309,7 @@
     <!-- Animated Logo Overlay -->
     <svg id="animatedLogo" viewBox="20 46 148 52" aria-hidden="true" focusable="false" style="visibility:hidden;">
         <text x="24" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="56" font-weight="500">
-            <tspan fill="#1A1A1A">XI</tspan><tspan fill="#C5A880">:</tspan><tspan fill="#1A1A1A">XI</tspan>
+            <tspan class="logo-ink" fill="#F7F4EF">XI</tspan><tspan fill="#C5A880">:</tspan><tspan class="logo-ink" fill="#F7F4EF">XI</tspan>
         </text>
     </svg>
 
@@ -464,9 +475,17 @@
                 </div>
                 <div class="terms-card-light bg-white p-6 rounded-lg border border-slate-200 flex flex-col justify-between min-h-[280px]">
                     <div>
-                        <span class="block text-[10px] uppercase tracking-[0.2em] text-accentGoldDark font-semibold mb-3">— Read-Only Access</span>
+                        <span class="block text-[10px] uppercase tracking-[0.2em] text-accentGoldDark font-semibold mb-3">— No Software Installs</span>
                         <h3 class="font-serif text-lg text-charcoal mb-2">Zero Business Disruption</h3>
-                        <p class="text-sm text-mutedText leading-relaxed">We work strictly from exported bank statements and standard read-only feeds. No software installs, no staff retraining, and zero operational downtime.</p>
+                        <p class="text-sm text-mutedText leading-relaxed">We work strictly from the bank and card statements you export and send us. No software installs, no staff retraining, and zero operational downtime.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-sand flex justify-center" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 text-accentGoldDark/70">
+                            <path d="M14 3v4a1 1 0 0 0 1 1h4"/>
+                            <path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"/>
+                            <path d="M12 17v-6"/>
+                            <path d="M9.5 13.5 12 11l2.5 2.5"/>
+                        </svg>
                     </div>
                 </div>
                 <div class="terms-card-light bg-white p-6 rounded-lg border border-slate-200 flex flex-col justify-between min-h-[280px]">
@@ -475,67 +494,75 @@
                         <h3 class="font-serif text-lg text-charcoal mb-2">Strict Vault Security</h3>
                         <p class="text-sm text-mutedText leading-relaxed">All financial records and ledger data are transmitted through an end-to-end encrypted client vault. We never ask for direct bank login credentials.</p>
                     </div>
+                    <div class="mt-6 pt-4 border-t border-sand flex justify-center" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 text-accentGoldDark/70">
+                            <rect x="5" y="11" width="14" height="10" rx="2"/>
+                            <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+                        </svg>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Client Onboarding Section — compact strip. Two steps: (1) book +
-         intake, (2) secure document exchange, which folds in both the
-         upload and the delivery turnaround. The intake form also lives on
-         its own shareable page (intake.html) so Lana can send clients a
-         direct link after their assessment call. -->
-    <section id="onboarding" class="py-10 sm:py-14 px-5 sm:px-6 max-w-6xl mx-auto">
-        <div class="text-center mb-6">
+    <!-- Client Onboarding & Delivery Section — restyled to match the
+         Transparent Terms card system above it (featured charcoal first
+         card, gold-accented light cards, serif headlines, icon footers)
+         so the two sections read as one visual family. Kept intentionally
+         high-level — no payment/deposit specifics called out publicly. -->
+    <section id="onboarding" class="py-14 sm:py-20 lg:py-24 px-5 sm:px-6 max-w-7xl mx-auto">
+        <div class="max-w-3xl mb-8 space-y-3">
             <span class="text-xs uppercase tracking-[0.25em] text-accentGold font-semibold">— How We Engage</span>
-            <h2 class="font-serif text-2xl sm:text-3xl text-charcoal mt-1">Client Onboarding &amp; Delivery</h2>
+            <h2 class="font-serif text-4xl lg:text-5xl text-charcoal">Client Onboarding &amp; Delivery</h2>
+            <p class="text-sm text-mutedText leading-relaxed !mt-4">A simple, three-part path from your first call to a finished, reconciled ledger — no ambiguity about what happens next or when.</p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 items-stretch">
-            <div class="onboard-card min-h-[320px] p-5 bg-white border border-sand rounded-lg flex flex-col justify-between">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch">
+            <div class="terms-card-featured bg-charcoal text-cream p-6 rounded-lg border border-accentGold flex flex-col justify-between min-h-[320px]">
                 <div>
-                    <span class="block text-[10px] font-mono uppercase tracking-widest text-accentGold font-bold mb-1">01</span>
-                    <h3 class="text-sm font-semibold text-charcoal mb-2">Confirm Scope &amp; Fixed Price</h3>
-                    <ul class="space-y-1.5 text-xs text-mutedText leading-snug">
-                        <li class="flex gap-1.5"><span class="text-accentGold" aria-hidden="true">—</span><span>Free 15-min call to review your entity structure</span></li>
-                        <li class="flex gap-1.5"><span class="text-accentGold" aria-hidden="true">—</span><span>Upfront fixed fee, agreed before work begins</span></li>
-                        <li class="flex gap-1.5"><span class="text-accentGold" aria-hidden="true">—</span><span>Zero surprise billable hours</span></li>
+                    <span class="block text-[10px] uppercase tracking-[0.2em] text-accentGold font-semibold mb-3">— Step One</span>
+                    <h3 class="font-serif text-lg text-cream mb-2">Confirm Scope &amp; Sign On</h3>
+                    <ul class="space-y-1.5 text-sm text-zinc-300 leading-snug">
+                        <li class="flex gap-1.5"><span class="text-accentGold" aria-hidden="true">—</span><span>Free 15-min call to review your entity structure &amp; fixed price</span></li>
+                        <li class="flex gap-1.5"><span class="text-accentGold" aria-hidden="true">—</span><span>Complete your client intake form</span></li>
+                        <li class="flex gap-1.5"><span class="text-accentGold" aria-hidden="true">—</span><span>Review &amp; sign your engagement letter</span></li>
                     </ul>
                 </div>
-                <div class="mt-4 flex flex-col gap-2">
-                    <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-4 py-2.5 bg-accentGold text-charcoal text-xs uppercase tracking-widest font-bold hover:bg-accentGoldDark hover:text-white transition-all">
+                <div class="mt-6 flex flex-col gap-2">
+                    <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-5 py-3 bg-accentGold text-charcoal text-xs uppercase tracking-widest font-bold hover:bg-cream transition-all">
                         Book 15-Min Scoping Call
                     </a>
-                    <a href="intake.html" class="inline-flex items-center justify-center gap-1 text-xs font-semibold uppercase tracking-wider text-accentGold hover:text-accentGoldDark transition-colors">
+                    <a href="intake.html" class="inline-flex items-center justify-center gap-1 text-xs uppercase tracking-widest font-semibold text-accentGold hover:text-cream transition-colors">
                         Complete Client Intake Form<span aria-hidden="true">→</span>
                     </a>
                 </div>
             </div>
-            <div class="onboard-card min-h-[320px] p-5 bg-white border border-sand rounded-lg flex flex-col justify-between">
+            <div class="terms-card-light bg-white p-6 rounded-lg border border-slate-200 flex flex-col justify-between min-h-[320px]">
                 <div>
-                    <span class="block text-[10px] font-mono uppercase tracking-widest text-accentGold font-bold mb-1">02</span>
-                    <h3 class="text-sm font-semibold text-charcoal mb-2">Upload Statement Files</h3>
-                    <ul class="space-y-1.5 text-xs text-mutedText leading-snug">
-                        <li class="flex gap-1.5"><span class="text-accentGold" aria-hidden="true">—</span><span>Private, end-to-end encrypted client vault</span></li>
-                        <li class="flex gap-1.5"><span class="text-accentGold" aria-hidden="true">—</span><span>Exported PDF/CSV statements only</span></li>
-                        <li class="flex gap-1.5"><span class="text-accentGold" aria-hidden="true">—</span><span>No bank login credentials ever requested</span></li>
-                    </ul>
+                    <span class="block text-[10px] uppercase tracking-[0.2em] text-accentGoldDark font-semibold mb-3">— Step Two</span>
+                    <h3 class="font-serif text-lg text-charcoal mb-2">We Get to Work</h3>
+                    <p class="text-sm text-mutedText leading-relaxed">Upload the exported statements you already have into your private, encrypted vault — no software installs, no bank login required — and your reconciliation begins.</p>
                 </div>
-                <div class="mt-4">
-                    <a href="mailto:lana@xixistrategy.com?subject=Vault%20Access%20Request" class="inline-flex items-center justify-center w-full px-4 py-2.5 border border-accentGold text-accentGoldDark text-xs uppercase tracking-widest font-bold hover:bg-accentGold hover:text-charcoal transition-all">
-                        Request Vault Access<span aria-hidden="true" class="ml-1">→</span>
-                    </a>
+                <div class="mt-6 pt-4 border-t border-sand flex justify-center" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 text-accentGoldDark/70">
+                        <path d="M7 18a4 4 0 0 1-1-7.874A5 5 0 0 1 16.9 8.5 3.5 3.5 0 0 1 17.5 18H17"/>
+                        <path d="M12 12v9"/>
+                        <path d="M9.5 14.5 12 12l2.5 2.5"/>
+                    </svg>
                 </div>
             </div>
-            <div class="onboard-card min-h-[320px] p-5 bg-white border border-sand rounded-lg flex flex-col justify-between">
+            <div class="terms-card-light bg-white p-6 rounded-lg border border-slate-200 flex flex-col justify-between min-h-[320px]">
                 <div>
-                    <span class="block text-[10px] font-mono uppercase tracking-widest text-accentGold font-bold mb-1">03</span>
-                    <h3 class="text-sm font-semibold text-charcoal mb-2">Receive Zero-Variance Ledger</h3>
-                    <ul class="space-y-1.5 text-xs text-mutedText leading-snug">
-                        <li class="flex gap-1.5"><span class="text-accentGold" aria-hidden="true">—</span><span>Line-by-line reconciliation delivered back through the vault</span></li>
-                        <li class="flex gap-1.5"><span class="text-accentGold" aria-hidden="true">—</span><span>3–5 business day standard turnaround</span></li>
-                        <li class="flex gap-1.5"><span class="text-accentGold" aria-hidden="true">—</span><span>Variance summary report included</span></li>
-                    </ul>
+                    <span class="block text-[10px] uppercase tracking-[0.2em] text-accentGoldDark font-semibold mb-3">— Step Three</span>
+                    <h3 class="font-serif text-lg text-charcoal mb-2">Receive Your Reconciliation</h3>
+                    <p class="text-sm text-mutedText leading-relaxed">Standard turnaround is 3–5 business days. Your finished, line-by-line reconciliation and variance summary are delivered straight through the vault.</p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-sand flex justify-center" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 text-accentGoldDark/70">
+                        <path d="M14 3v4a1 1 0 0 0 1 1h4"/>
+                        <path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"/>
+                        <path d="M9 14.5l2 2 4-4.5"/>
+                    </svg>
                 </div>
             </div>
         </div>
@@ -582,7 +609,7 @@
                         <p class="text-xs text-mutedText leading-relaxed"><span class="font-semibold text-charcoal">Key Takeaway:</span> Ledger errors compound — a discrepancy left unresolved for even one quarter can multiply into months of unwinding.</p>
                     </div>
                 </div>
-                <span class="px-6 pb-6 inline-flex items-center gap-2 text-xs font-semibold text-mutedText/70 uppercase tracking-widest">Coming Soon</span>
+                <a href="blog/5-invisible-ledger-errors.html" class="px-6 pb-6 inline-flex items-center gap-2 text-xs font-semibold text-accentGoldDark uppercase tracking-widest hover:text-accentGold transition-colors">Read Article<span aria-hidden="true">→</span></a>
             </article>
             <article class="bg-white border border-sand flex flex-col justify-between overflow-hidden">
                 <div class="insight-accent-bar" aria-hidden="true"></div>
@@ -593,7 +620,7 @@
                         <p class="text-xs text-mutedText leading-relaxed"><span class="font-semibold text-charcoal">Key Takeaway:</span> Auditors start with the same few red flags every time — mismatched exemption codes and rounding drift top the list.</p>
                     </div>
                 </div>
-                <span class="px-6 pb-6 inline-flex items-center gap-2 text-xs font-semibold text-mutedText/70 uppercase tracking-widest">Coming Soon</span>
+                <a href="blog/florida-sales-tax-pre-audit-checklist.html" class="px-6 pb-6 inline-flex items-center gap-2 text-xs font-semibold text-accentGoldDark uppercase tracking-widest hover:text-accentGold transition-colors">Read Article<span aria-hidden="true">→</span></a>
             </article>
             <article class="bg-white border border-sand flex flex-col justify-between overflow-hidden">
                 <div class="insight-accent-bar" aria-hidden="true"></div>
@@ -604,8 +631,13 @@
                         <p class="text-xs text-mutedText leading-relaxed"><span class="font-semibold text-charcoal">Key Takeaway:</span> Most intercompany mismatches trace back to timing — one entity books a transfer a month before the other does.</p>
                     </div>
                 </div>
-                <span class="px-6 pb-6 inline-flex items-center gap-2 text-xs font-semibold text-mutedText/70 uppercase tracking-widest">Coming Soon</span>
+                <a href="blog/intercompany-balances-reconcile-to-zero.html" class="px-6 pb-6 inline-flex items-center gap-2 text-xs font-semibold text-accentGoldDark uppercase tracking-widest hover:text-accentGold transition-colors">Read Article<span aria-hidden="true">→</span></a>
             </article>
+        </div>
+        <div class="text-center mt-8">
+            <a href="insights.html" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-accentGold hover:text-accentGoldDark transition-colors">
+                View All Insights<span aria-hidden="true">→</span>
+            </a>
         </div>
     </section>
 
@@ -728,7 +760,7 @@
                     <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3 bg-accentGold text-charcoal text-xs uppercase tracking-widest font-bold hover:bg-cream transition-all">Book 15-Min Free Assessment <span aria-hidden="true">→</span></a>
                     <a href="intake.html" class="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3 border border-accentGold text-accentGold text-xs uppercase tracking-widest font-bold hover:bg-accentGold hover:text-charcoal transition-all">Submit Ledger Intake Form</a>
                 </div>
-                <p class="mt-6 text-[10px] font-semibold tracking-[0.18em] uppercase text-zinc-500">100% Read-Only Access &bull; End-to-End Encrypted Vault &bull; Zero Downtime</p>
+                <p class="mt-6 text-[10px] font-semibold tracking-[0.18em] uppercase text-zinc-500">No Bank Login Required &bull; End-to-End Encrypted Vault &bull; Zero Downtime</p>
             </div>
         </section>
 
@@ -813,6 +845,26 @@
     })();
 
     (function(){
+        var btt = document.getElementById('backToTop');
+        if (!btt) return;
+        var ticking = false;
+        function updateVisibility(){
+            btt.classList.toggle('is-visible', window.scrollY > window.innerHeight * 0.8);
+            ticking = false;
+        }
+        window.addEventListener('scroll', function(){
+            if (!ticking) {
+                window.requestAnimationFrame(updateVisibility);
+                ticking = true;
+            }
+        }, { passive: true });
+        updateVisibility();
+        btt.addEventListener('click', function(){
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    })();
+
+    (function(){
         if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
         if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
@@ -846,6 +898,7 @@
             teardown();
 
             gsap.set(logoMark, { x: heroRect.left, y: heroRect.top, scale: 1, opacity: 1 });
+            gsap.set(logoMark.querySelectorAll('.logo-ink'), { attr: { fill: '#F7F4EF' } });
             logoMark.style.visibility = 'visible';
 
             var targetScale = dockRect.height / heroRect.height;
@@ -872,6 +925,15 @@
                 ease: "power2.inOut",
                 duration: 1
             }, 0);
+
+            // The logo starts light (cream) so it reads against the dark hero,
+            // then shifts to dark (charcoal) before it docks into the cream
+            // header pill, so it never goes light-on-light mid-scroll.
+            timeline.to(logoMark.querySelectorAll('.logo-ink'), {
+                attr: { fill: '#1A1A1A' },
+                ease: "power1.inOut",
+                duration: 0.2
+            }, 0.5);
 
             timeline.to(logoMark, {
                 opacity: 0,
