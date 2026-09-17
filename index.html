@@ -53,7 +53,7 @@
         }
     </script>
     <style>
-        html { scrollbar-gutter: stable; }
+        html { scrollbar-gutter: stable; scroll-padding-top: 6rem; }
         body {
             background-color: #F7F4EF;
             color: #1A1A1A;
@@ -96,22 +96,18 @@
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 0;
             pointer-events: none; user-select: none;
             font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(6rem, 18vw, 16rem);
-            letter-spacing: 0.04em; color: #C5A880; opacity: 0.05; white-space: nowrap;
+            letter-spacing: 0.04em; color: #C5A880; opacity: 0.03; white-space: nowrap;
         }
-
-        @keyframes fcPulse {
-            0% { box-shadow: 0 14px 34px rgba(20,20,20,0.28), 0 0 0 0 rgba(197,168,128,0.45); }
-            70% { box-shadow: 0 14px 34px rgba(20,20,20,0.28), 0 0 0 14px rgba(197,168,128,0); }
-            100% { box-shadow: 0 14px 34px rgba(20,20,20,0.28), 0 0 0 0 rgba(197,168,128,0); }
-        }
-        .floating-contact.pulse { animation: fcPulse 1.8s ease 2; }
         .floating-contact {
-            transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.2s ease, color 0.2s ease;
-        }
-        .floating-contact.is-hidden {
             opacity: 0;
             transform: translateY(12px);
             pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.2s ease, color 0.2s ease;
+        }
+        .floating-contact.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
         }
 
         #animatedLogo {
@@ -142,6 +138,72 @@
         .equilibrium-wrap:hover .equilibrium-rig .pan-assembly.right {
             transform: rotate(4deg);
         }
+        .service-card {
+            cursor: pointer;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .service-card:hover, .service-card.in-view {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px -10px rgba(0,0,0,0.08);
+            border-color: rgba(197,168,128,0.4);
+        }
+        .service-card.in-view h3 {
+            color: #9E825C;
+        }
+        .service-tag {
+            display: inline-block;
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #9E825C;
+            background: rgba(197,168,128,0.14);
+            padding: 0.28rem 0.65rem;
+            border-radius: 9999px;
+            margin-top: 0.4rem;
+        }
+        .service-goal {
+            background: rgba(234,227,210,0.4);
+            border-radius: 0.375rem;
+            padding: 0.65rem 0.75rem;
+        }
+        .service-card.pillar-controls { border-left: 3px solid #1A1A1A; }
+        .service-card.pillar-data { border-left: 3px solid #C5A880; }
+        .service-card.pillar-precision { border-left: 3px solid #9E825C; }
+
+        .terms-card-featured {
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        .terms-card-featured:hover {
+            box-shadow: 0 0 0 1px rgba(197,168,128,0.5), 0 20px 40px -12px rgba(197,168,128,0.3);
+            transform: translateY(-2px);
+        }
+        .terms-card-light {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .terms-card-light:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+        .insight-accent-bar {
+            height: 4px;
+            background: linear-gradient(90deg, #C5A880 0%, #9E825C 50%, #C5A880 100%);
+        }
+        .onboard-card {
+            border-top: 3px solid #C5A880;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .onboard-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px -10px rgba(0,0,0,0.08);
+        }
+        .signature-glow {
+            position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+            width: 320px; height: 320px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(197,168,128,0.25) 0%, rgba(197,168,128,0) 70%);
+            pointer-events: none; z-index: 0;
+        }
+
         .equilibrium-wrap .scale-caption {
             opacity: 0;
             transition: opacity 0.4s ease;
@@ -155,7 +217,7 @@
 <body class="antialiased selection:bg-accentGold selection:text-white">
 
     <!-- Floating Pill Header -->
-    <header class="fixed top-4 sm:top-5 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-1.25rem)] sm:w-[calc(100%-2.5rem)] max-w-6xl rounded-full border border-accentGold/30 bg-cream/75 frosted shadow-lg shadow-charcoal/10">
+    <header class="fixed top-4 sm:top-5 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-1.25rem)] sm:w-[calc(100%-2.5rem)] max-w-6xl rounded-full border border-accentGold/30 bg-cream/95 frosted shadow-lg shadow-charcoal/10">
         <div class="px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
             <div class="flex items-center gap-2 sm:gap-3 shrink-0" role="img" aria-label="XI:XI — Strategic Finance &amp; Business Optimization">
                 <svg id="headerLogoMark" viewBox="20 46 148 52" class="h-8 sm:h-9 w-auto" aria-hidden="true" focusable="false">
@@ -166,21 +228,20 @@
                 <div class="hidden lg:flex items-center">
                     <svg viewBox="190 46 270 52" class="h-8 sm:h-9 w-auto" aria-hidden="true" focusable="false">
                         <line x1="200" y1="34" x2="200" y2="112" stroke="#C5A880" stroke-width="1"/>
-                        <text x="224" y="68" font-family="Arial, Helvetica, sans-serif" font-size="13" letter-spacing="2.5" fill="#6B655D">STRATEGIC FINANCE</text>
-                        <text x="224" y="90" font-family="Arial, Helvetica, sans-serif" font-size="13" letter-spacing="2.5" fill="#6B655D">BUSINESS OPTIMIZATION</text>
+                        <text x="224" y="68" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" letter-spacing="3.5" fill="#1A1A1A">STRATEGIC FINANCE</text>
+                        <text x="224" y="90" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" letter-spacing="3.5" fill="#1A1A1A">BUSINESS OPTIMIZATION</text>
                     </svg>
                 </div>
             </div>
             <nav class="hidden md:flex items-center space-x-4 lg:space-x-7 text-sm font-medium text-charcoal">
                 <a href="#services" class="hover:text-accentGold transition-colors">Services</a>
-                <a href="#pricing" class="hover:text-accentGold transition-colors">Trust</a>
-                <a href="#testimonials" class="hover:text-accentGold transition-colors">Testimonials</a>
-                <a href="story.html" class="hover:text-accentGold transition-colors">Our Story</a>
+                <a href="#insights" class="hover:text-accentGold transition-colors">Insights</a>
+                <a href="story.html" class="hover:text-accentGold transition-colors">About</a>
                 <a href="intake.html" class="hover:text-accentGold transition-colors">Client Intake</a>
             </nav>
             <div class="flex items-center gap-2 shrink-0">
                 <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-xs font-semibold uppercase tracking-wider bg-charcoal text-cream rounded-full hover:bg-accentGold hover:text-white transition-all">
-                    Request Assessment
+                    Book Free Assessment
                 </a>
                 <button id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu" class="md:hidden flex flex-col justify-center gap-1.5 w-10 h-10 items-center">
                     <span class="block w-5 h-px bg-charcoal"></span>
@@ -192,37 +253,40 @@
 
     <nav id="mobileMenu" class="md:hidden hidden flex-col fixed top-[4.75rem] sm:top-[5.25rem] left-1/2 -translate-x-1/2 z-40 w-[calc(100%-1.25rem)] sm:w-[calc(100%-2.5rem)] max-w-6xl rounded-3xl border border-accentGold/30 bg-cream/95 frosted shadow-xl px-6 py-5 space-y-4 text-sm font-medium text-charcoal">
         <a href="#services" class="block hover:text-accentGold transition-colors">Services</a>
-        <a href="#pricing" class="block hover:text-accentGold transition-colors">Trust</a>
-        <a href="#testimonials" class="block hover:text-accentGold transition-colors">Testimonials</a>
-        <a href="story.html" class="block hover:text-accentGold transition-colors">Our Story</a>
+        <a href="#insights" class="block hover:text-accentGold transition-colors">Insights</a>
+        <a href="story.html" class="block hover:text-accentGold transition-colors">About</a>
         <a href="intake.html" class="block hover:text-accentGold transition-colors">Client Intake</a>
-        <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="block pt-2 text-center px-5 py-2.5 text-xs font-semibold uppercase tracking-wider bg-charcoal text-cream rounded-full">Request Assessment</a>
+        <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="block pt-2 text-center px-5 py-2.5 text-xs font-semibold uppercase tracking-wider bg-charcoal text-cream rounded-full">Book Free Assessment</a>
     </nav>
+
+    <!-- Floating Contact CTA — appears only while the Scope of Services section is in view, so it supports that section's booking intent without competing with the hero or footer CTAs. -->
+    <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" id="floatingContact" class="floating-contact fixed right-4 bottom-4 sm:right-6 sm:bottom-6 z-[60] inline-flex items-center gap-2 bg-charcoal text-cream text-xs font-semibold uppercase tracking-wider px-5 py-3.5 rounded-full border border-accentGold/40 shadow-xl hover:bg-accentGold hover:text-white transition-all" aria-label="Book a free 15-minute assessment on Cal.com (opens in a new tab)">
+        Book Free Assessment<span aria-hidden="true">→</span>
+    </a>
 
     <!-- Hero Section -->
     <div id="heroPinWrapper">
         <section id="hero" class="relative pt-32 sm:pt-40 pb-16 sm:pb-24 px-5 sm:px-6 max-w-7xl mx-auto">
             <span class="xixi-watermark" aria-hidden="true">XI:XI</span>
             <div class="relative z-10 max-w-2xl space-y-8">
-                <div class="inline-flex items-center space-x-2 text-xs uppercase tracking-widest text-accentGold font-semibold">
-                    <span>Strategic Finance &amp; Business Optimization</span>
-                </div>
                 <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-normal leading-[1.1] text-charcoal">
-                    Remote verification.<br><span class="italic text-accentGoldDark">Precision results.</span>
+                    Remote verification.<br><span class="italic text-accentGoldDark">On-site results.</span>
                 </h1>
 
-                <p class="text-lg text-mutedText font-normal leading-relaxed">
-                    XI:XI verifies your numbers, isolates every discrepancy, and delivers the fix.
+                <p class="font-serif italic text-xl sm:text-2xl text-accentGoldDark leading-snug">
+                    Structured controls, clean data, and precision for your financial operations.
                 </p>
 
                 <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-4 pt-2">
                     <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-8 py-4 bg-charcoal text-white text-xs uppercase tracking-widest font-semibold border border-[#C5A059] hover:bg-accentGold hover:border-accentGold transition-all">
-                        Request Scoping Assessment
+                        Book a Free 15-Min Assessment
                     </a>
                     <a href="tel:+17722109957" class="inline-flex items-center justify-center px-8 py-4 border border-[#2C2C2C] text-charcoal text-xs uppercase tracking-widest font-semibold hover:border-accentGold transition-all">
                         Call +1 (772) 210-9957
                     </a>
                 </div>
+
+                <p class="text-xs uppercase tracking-widest text-mutedText/80 !mt-3">For corporate revenue, multi-entity holdings, and growing businesses.</p>
             </div>
 
             <!-- Docking slot: invisible target for the header-logo scroll
@@ -242,263 +306,306 @@
     <section id="services" class="py-14 sm:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
         <div class="max-w-3xl mb-10 space-y-3">
             <h2 class="font-serif text-3xl lg:text-4xl text-charcoal">Scope of Services</h2>
-            <p class="text-base text-mutedText leading-relaxed max-w-xl">Six areas of statement-to-ledger verification, each scoped and delivered on its own — no bundled retainer required.</p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            <div class="group p-6 bg-white border border-sand hover:border-accentGold hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+        <div class="mb-3">
+            <span class="text-xs uppercase tracking-widest text-accentGold font-semibold">Structured Controls</span>
+            <span class="text-xs text-mutedText/80"> — Compliance &amp; Risk Prevention</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+            <a href="#terms" class="service-card pillar-controls group block p-5 bg-white border border-sand flex flex-col justify-between">
                 <div>
-                    <span class="block font-serif text-2xl text-accentGold mb-2">I</span>
-                    <h3 class="text-base font-semibold text-charcoal group-hover:text-accentGold transition-colors">Bank &amp; Ledger Verification</h3>
-                    <p class="text-sm text-mutedText leading-relaxed mt-3">Every transaction in your bank feed is matched line-by-line against your internal ledger until the two agree exactly.</p>
+                    <h3 class="text-base font-semibold text-charcoal group-hover:text-accentGoldDark transition-colors">Vendor Payment &amp; 1099 Check</h3>
+                    <span class="service-tag">Vendor AP &amp; 1099 Compliance</span>
+                    <div class="service-goal mt-3">
+                        <p class="text-sm text-mutedText leading-relaxed"><span class="font-semibold text-charcoal">Goal:</span> Catch billing errors, prevent duplicate supplier payouts, and keep your business 100% compliant for year-end 1099 filings.</p>
+                    </div>
                 </div>
-                <div class="mt-6 flex items-center gap-2 text-xs font-semibold text-accentGold opacity-0 group-hover:opacity-100 transition-opacity">
-                    <span>Learn More</span>
-                    <span aria-hidden="true">→</span>
+            </a>
+            <a href="#terms" class="service-card pillar-controls group block p-5 bg-white border border-sand flex flex-col justify-between">
+                <div>
+                    <h3 class="text-base font-semibold text-charcoal group-hover:text-accentGoldDark transition-colors">Payroll &amp; Tax Matching</h3>
+                    <span class="service-tag">Payroll Register to GL Reconciliation</span>
+                    <div class="service-goal mt-3">
+                        <p class="text-sm text-mutedText leading-relaxed"><span class="font-semibold text-charcoal">Goal:</span> Ensure exact agreement between bank debits, payroll provider summaries, tax withholdings, and employee benefit totals.</p>
+                    </div>
                 </div>
-            </div>
+            </a>
+            <a href="#terms" class="service-card pillar-controls group block p-5 bg-white border border-sand flex flex-col justify-between">
+                <div>
+                    <h3 class="text-base font-semibold text-charcoal group-hover:text-accentGoldDark transition-colors">Florida Sales Tax Reconciliation &amp; Compliance Prep</h3>
+                    <span class="service-tag">Indirect Tax Verification</span>
+                    <div class="service-goal mt-3">
+                        <p class="text-sm text-mutedText leading-relaxed"><span class="font-semibold text-charcoal">Goal:</span> Verify collected sales tax against monthly state filings and actual bank remittances to catch shortfalls before the state flags them.</p>
+                    </div>
+                </div>
+            </a>
+            <a href="#terms" class="service-card pillar-controls group block p-5 bg-white border border-sand flex flex-col justify-between">
+                <div>
+                    <h3 class="text-base font-semibold text-charcoal group-hover:text-accentGoldDark transition-colors">Standard Operating Procedures</h3>
+                    <span class="service-tag">Financial Process Documentation</span>
+                    <div class="service-goal mt-3">
+                        <p class="text-sm text-mutedText leading-relaxed"><span class="font-semibold text-charcoal">Goal:</span> Turn your approvals, monthly close, and document handling into clear, written procedures your team can follow without you explaining it every time.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
 
-            <div class="group p-6 bg-white border border-sand hover:border-accentGold hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+        <div class="mb-3">
+            <span class="text-xs uppercase tracking-widest text-accentGold font-semibold">Clean Data</span>
+            <span class="text-xs text-mutedText/80"> — Daily Cash Flow &amp; Revenue Tracking</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+            <a href="#terms" class="service-card pillar-data group block p-5 bg-white border border-sand flex flex-col justify-between">
                 <div>
-                    <span class="block font-serif text-2xl text-accentGold mb-2">II</span>
-                    <h3 class="text-base font-semibold text-charcoal group-hover:text-accentGold transition-colors">Inter-Company Alignment</h3>
-                    <p class="text-sm text-mutedText leading-relaxed mt-3">Transfers and shared expenses between related entities are traced and reconciled so intercompany balances net to zero.</p>
+                    <h3 class="text-base font-semibold text-charcoal group-hover:text-accentGoldDark transition-colors">Bank Account Line-by-Line Match</h3>
+                    <span class="service-tag">Full-Cycle Bank Reconciliation</span>
+                    <div class="service-goal mt-3">
+                        <p class="text-sm text-mutedText leading-relaxed"><span class="font-semibold text-charcoal">Goal:</span> Confirm every dollar entering or leaving your bank feed is accounted for in your ledger down to the penny.</p>
+                    </div>
                 </div>
-                <div class="mt-6 flex items-center gap-2 text-xs font-semibold text-accentGold opacity-0 group-hover:opacity-100 transition-opacity">
-                    <span>Learn More</span>
-                    <span aria-hidden="true">→</span>
+            </a>
+            <a href="#terms" class="service-card pillar-data group block p-5 bg-white border border-sand flex flex-col justify-between">
+                <div>
+                    <h3 class="text-base font-semibold text-charcoal group-hover:text-accentGoldDark transition-colors">Customer Invoice &amp; Payment Verification</h3>
+                    <span class="service-tag">Accounts Receivable Verification</span>
+                    <div class="service-goal mt-3">
+                        <p class="text-sm text-mutedText leading-relaxed"><span class="font-semibold text-charcoal">Goal:</span> Track every unpaid invoice against actual bank deposits so you know exactly who owes you money and what is overdue.</p>
+                    </div>
                 </div>
-            </div>
+            </a>
+            <a href="#terms" class="service-card pillar-data group block p-5 bg-white border border-sand flex flex-col justify-between">
+                <div>
+                    <h3 class="text-base font-semibold text-charcoal group-hover:text-accentGoldDark transition-colors">Card Processing &amp; Fee Recovery</h3>
+                    <span class="service-tag">Merchant Payout Reconciliation</span>
+                    <div class="service-goal mt-3">
+                        <p class="text-sm text-mutedText leading-relaxed"><span class="font-semibold text-charcoal">Goal:</span> Uncover hidden processor fees, chargeback gaps, and timing delays between gross sales and net bank deposits.</p>
+                    </div>
+                </div>
+            </a>
+            <a href="#terms" class="service-card pillar-data group block p-5 bg-white border border-sand flex flex-col justify-between">
+                <div>
+                    <h3 class="text-base font-semibold text-charcoal group-hover:text-accentGoldDark transition-colors">Inventory &amp; Cost of Goods Check</h3>
+                    <span class="service-tag">Inventory &amp; COGS Reconciliation</span>
+                    <div class="service-goal mt-3">
+                        <p class="text-sm text-mutedText leading-relaxed"><span class="font-semibold text-charcoal">Goal:</span> Verify inventory counts against cost of goods sold so your reported margins reflect what's actually happening on the shelf, not a rough estimate.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
 
-            <div class="group p-6 bg-white border border-sand hover:border-accentGold hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+        <div class="mb-3">
+            <span class="text-xs uppercase tracking-widest text-accentGold font-semibold">Precision Operations</span>
+            <span class="text-xs text-mutedText/80"> — Reporting, Systems &amp; High-Tier Strategy</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <a href="#terms" class="service-card pillar-precision group block p-5 bg-white border border-sand flex flex-col justify-between">
                 <div>
-                    <span class="block font-serif text-2xl text-accentGold mb-2">III</span>
-                    <h3 class="text-base font-semibold text-charcoal group-hover:text-accentGold transition-colors">Cash Flow Visibility</h3>
-                    <p class="text-sm text-mutedText leading-relaxed mt-3">Real-time visibility into what's actually available to spend, not just what your bank balance shows.</p>
+                    <h3 class="text-base font-semibold text-charcoal group-hover:text-accentGoldDark transition-colors">Real Available Spend Tracking</h3>
+                    <span class="service-tag">Cash Flow &amp; Liquidity Analysis</span>
+                    <div class="service-goal mt-3">
+                        <p class="text-sm text-mutedText leading-relaxed"><span class="font-semibold text-charcoal">Goal:</span> Layer outstanding checks, pending deposits, and near-term obligations onto bank balances so you see what is actually safe to spend.</p>
+                    </div>
                 </div>
-                <div class="mt-6 flex items-center gap-2 text-xs font-semibold text-accentGold opacity-0 group-hover:opacity-100 transition-opacity">
-                    <span>Learn More</span>
-                    <span aria-hidden="true">→</span>
-                </div>
-            </div>
-
-            <div class="group p-6 bg-white border border-sand hover:border-accentGold hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+            </a>
+            <a href="#terms" class="service-card pillar-precision group block p-5 bg-white border border-sand flex flex-col justify-between">
                 <div>
-                    <span class="block font-serif text-2xl text-accentGold mb-2">IV</span>
-                    <h3 class="text-base font-semibold text-charcoal group-hover:text-accentGold transition-colors">Custom Financial Dashboards</h3>
-                    <p class="text-sm text-mutedText leading-relaxed mt-3">A dashboard built around the numbers you actually check, pulling live data from your existing systems.</p>
+                    <h3 class="text-base font-semibold text-charcoal group-hover:text-accentGoldDark transition-colors">Product &amp; Client Margin Review</h3>
+                    <span class="service-tag">Margin &amp; Profitability Breakdown</span>
+                    <div class="service-goal mt-3">
+                        <p class="text-sm text-mutedText leading-relaxed"><span class="font-semibold text-charcoal">Goal:</span> Break down true revenue and direct costs by offering or client so you know what is actually making money versus just generating revenue.</p>
+                    </div>
                 </div>
-                <div class="mt-6 flex items-center gap-2 text-xs font-semibold text-accentGold opacity-0 group-hover:opacity-100 transition-opacity">
-                    <span>Learn More</span>
-                    <span aria-hidden="true">→</span>
-                </div>
-            </div>
-
-            <div class="group p-6 bg-white border border-sand hover:border-accentGold hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+            </a>
+            <a href="#terms" class="service-card pillar-precision group block p-5 bg-white border border-sand flex flex-col justify-between">
                 <div>
-                    <span class="block font-serif text-2xl text-accentGold mb-2">V</span>
-                    <h3 class="text-base font-semibold text-charcoal group-hover:text-accentGold transition-colors">Vendor Account Reconciliation</h3>
-                    <p class="text-sm text-mutedText leading-relaxed mt-3">Vendor statements are checked against your payables so duplicate charges, missed credits, and pricing errors don't slip through.</p>
+                    <h3 class="text-base font-semibold text-charcoal group-hover:text-accentGoldDark transition-colors">Multi-Business Account Balancing</h3>
+                    <span class="service-tag">Intercompany &amp; Combined Reporting</span>
+                    <div class="service-goal mt-3">
+                        <p class="text-sm text-mutedText leading-relaxed"><span class="font-semibold text-charcoal">Goal:</span> Reconcile shared expenses, intercompany transfers, and multi-entity eliminations so combined books net cleanly to zero without ghost balances.</p>
+                    </div>
                 </div>
-                <div class="mt-6 flex items-center gap-2 text-xs font-semibold text-accentGold opacity-0 group-hover:opacity-100 transition-opacity">
-                    <span>Learn More</span>
-                    <span aria-hidden="true">→</span>
-                </div>
-            </div>
-
-            <div class="group p-6 bg-white border border-sand hover:border-accentGold hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+            </a>
+            <a href="#terms" class="service-card pillar-precision group block p-5 bg-white border border-sand flex flex-col justify-between">
                 <div>
-                    <span class="block font-serif text-2xl text-accentGold mb-2">VI</span>
-                    <h3 class="text-base font-semibold text-charcoal group-hover:text-accentGold transition-colors">Florida Sales Tax Reconciliation</h3>
-                    <p class="text-sm text-mutedText leading-relaxed mt-3">Collected sales tax is verified against filings and remittances to catch shortfalls before the state does.</p>
+                    <h3 class="text-base font-semibold text-charcoal group-hover:text-accentGoldDark transition-colors">Advanced Excel Systems &amp; Dashboards</h3>
+                    <span class="service-tag">Financial Modeling &amp; Automation</span>
+                    <div class="service-goal mt-3">
+                        <p class="text-sm text-mutedText leading-relaxed"><span class="font-semibold text-charcoal">Goal:</span> Replace manual data entry with locked, dynamic workbooks and custom KPI dashboards built for fast, error-free executive decision-making.</p>
+                    </div>
                 </div>
-                <div class="mt-6 flex items-center gap-2 text-xs font-semibold text-accentGold opacity-0 group-hover:opacity-100 transition-opacity">
-                    <span>Learn More</span>
-                    <span aria-hidden="true">→</span>
-                </div>
-            </div>
+            </a>
         </div>
     </section>
 
     <!-- Transparent Terms Section -->
-    <section id="pricing" class="py-14 sm:py-20 lg:py-24 bg-sand/30 border-y border-sand">
+    <section id="terms" class="py-14 sm:py-20 lg:py-24 bg-sand/30 border-y border-sand">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="max-w-3xl mb-14 space-y-4">
-                <span class="text-xs uppercase tracking-widest text-accentGold font-semibold">How We Work</span>
+            <div class="max-w-3xl mb-8 space-y-3">
+                <span class="text-xs uppercase tracking-[0.25em] text-accentGold font-semibold">— Operational Standards &amp; Transparency</span>
                 <h2 class="font-serif text-4xl lg:text-5xl text-charcoal">Transparent Terms</h2>
-                <p class="text-base text-mutedText leading-relaxed max-w-xl">Every engagement runs on the same three commitments — agreed in writing before a single file changes hands.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div class="group animated-dark bg-darkBg p-6 border-t-2 border-accentGold hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
-                    <div class="relative z-10">
-                        <span class="block text-[10px] font-mono uppercase tracking-widest text-accentGold/70 mb-3">01</span>
-                        <h3 class="font-serif text-lg text-cream mb-2">Upfront Fixed Pricing</h3>
-                        <p class="text-sm text-zinc-300 leading-relaxed">Every project operates on a fixed fee agreed upon before work begins — no hourly clock, no unexpected invoices.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch">
+                <div class="terms-card-featured bg-charcoal text-cream p-6 rounded-lg border border-accentGold flex flex-col justify-between min-h-[280px]">
+                    <div>
+                        <span class="block text-[10px] uppercase tracking-[0.2em] text-accentGold font-semibold mb-3">— Zero-Risk Engagement</span>
+                        <h3 class="font-serif text-lg text-cream mb-2">Fixed Upfront Investment</h3>
+                        <p class="text-sm text-zinc-300 leading-relaxed">Agreed-upon scope and a clear fixed fee before work begins. No billable hours, no ticking clock, and zero hidden overages.</p>
+                    </div>
+                    <div class="mt-6 flex flex-col gap-2">
+                        <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-5 py-3 bg-accentGold text-charcoal text-xs uppercase tracking-widest font-bold hover:bg-cream transition-all">
+                            Book 15-Min Free Assessment
+                        </a>
+                        <a href="intake.html" class="inline-flex items-center justify-center gap-1 text-xs uppercase tracking-widest font-semibold text-accentGold hover:text-cream transition-colors">
+                            Complete Client Intake Form<span aria-hidden="true">→</span>
+                        </a>
                     </div>
                 </div>
-                <div class="group animated-dark bg-darkBg p-6 border-t-2 border-accentGold hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
-                    <div class="relative z-10">
-                        <span class="block text-[10px] font-mono uppercase tracking-widest text-accentGold/70 mb-3">02</span>
-                        <h3 class="font-serif text-lg text-cream mb-2">Zero Business Disruption</h3>
-                        <p class="text-sm text-zinc-300 leading-relaxed">We work directly from exported statements and reports — no software installations or operational downtime.</p>
+                <div class="terms-card-light bg-white p-6 rounded-lg border border-slate-200 flex flex-col justify-between min-h-[280px]">
+                    <div>
+                        <span class="block text-[10px] uppercase tracking-[0.2em] text-accentGoldDark font-semibold mb-3">— Read-Only Access</span>
+                        <h3 class="font-serif text-lg text-charcoal mb-2">Zero Business Disruption</h3>
+                        <p class="text-sm text-mutedText leading-relaxed">We work strictly from exported bank statements and standard read-only feeds. No software installs, no staff retraining, and zero operational downtime.</p>
                     </div>
                 </div>
-                <div class="group animated-dark bg-darkBg p-6 border-t-2 border-accentGold hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
-                    <div class="relative z-10">
-                        <span class="block text-[10px] font-mono uppercase tracking-widest text-accentGold/70 mb-3">03</span>
-                        <h3 class="font-serif text-lg text-cream mb-2">Encrypted Vault Security</h3>
-                        <p class="text-sm text-zinc-300 leading-relaxed">All documents are uploaded through an end-to-end encrypted vault. We never request bank login credentials or passwords.</p>
+                <div class="terms-card-light bg-white p-6 rounded-lg border border-slate-200 flex flex-col justify-between min-h-[280px]">
+                    <div>
+                        <span class="block text-[10px] uppercase tracking-[0.2em] text-accentGoldDark font-semibold mb-3">— Encrypted Vault</span>
+                        <h3 class="font-serif text-lg text-charcoal mb-2">Strict Vault Security</h3>
+                        <p class="text-sm text-mutedText leading-relaxed">All financial records and ledger data are transmitted through an end-to-end encrypted client vault. We never ask for direct bank login credentials.</p>
                     </div>
                 </div>
-            </div>
-
-            <div class="mt-12 flex flex-col sm:flex-row items-center gap-4">
-                <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-charcoal text-cream text-xs uppercase tracking-widest font-semibold hover:bg-accentGold transition-all">
-                    Request Scoping Assessment
-                    <span aria-hidden="true">→</span>
-                </a>
-                <span class="text-xs text-mutedText">No commitment. No hourly clock. Just a clear price before we start.</span>
             </div>
         </div>
     </section>
 
-    <!-- Client Onboarding Section — compact strip. The intake form lives on
+    <!-- Client Onboarding Section — compact strip. Two steps: (1) book +
+         intake, (2) secure document exchange, which folds in both the
+         upload and the delivery turnaround. The intake form also lives on
          its own shareable page (intake.html) so Lana can send clients a
-         direct link after their assessment call. The private upload
-         link/password in step 03 is sent manually by Lana, so it has no
-         on-site button. -->
-    <section id="onboarding" class="py-8 sm:py-10 px-5 sm:px-6 max-w-6xl mx-auto">
-        <div class="text-center mb-5">
-            <span class="text-xs uppercase tracking-widest text-accentGold font-semibold">Getting Started</span>
-            <h2 class="font-serif text-2xl sm:text-3xl text-charcoal mt-1">Client Onboarding</h2>
+         direct link after their assessment call. -->
+    <section id="onboarding" class="py-10 sm:py-14 px-5 sm:px-6 max-w-6xl mx-auto">
+        <div class="text-center mb-6">
+            <span class="text-xs uppercase tracking-[0.25em] text-accentGold font-semibold">— How We Engage</span>
+            <h2 class="font-serif text-2xl sm:text-3xl text-charcoal mt-1">Client Onboarding &amp; Delivery</h2>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-            <div class="p-4 bg-white border border-sand rounded-lg">
-                <span class="block text-[10px] font-mono uppercase tracking-widest text-accentGold font-bold mb-1">01</span>
-                <h3 class="text-sm font-semibold text-charcoal mb-1">Book Your Assessment</h3>
-                <p class="text-xs text-mutedText leading-snug">A quick call to scope your project and agree on fixed pricing.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 items-stretch">
+            <div class="onboard-card min-h-[320px] p-5 bg-white border border-sand rounded-lg flex flex-col justify-between">
+                <div>
+                    <span class="block text-[10px] font-mono uppercase tracking-widest text-accentGold font-bold mb-1">01</span>
+                    <h3 class="text-sm font-semibold text-charcoal mb-2">Confirm Scope &amp; Fixed Price</h3>
+                    <ul class="space-y-1.5 text-xs text-mutedText leading-snug">
+                        <li class="flex gap-1.5"><span class="text-accentGold" aria-hidden="true">—</span><span>Free 15-min call to review your entity structure</span></li>
+                        <li class="flex gap-1.5"><span class="text-accentGold" aria-hidden="true">—</span><span>Upfront fixed fee, agreed before work begins</span></li>
+                        <li class="flex gap-1.5"><span class="text-accentGold" aria-hidden="true">—</span><span>Zero surprise billable hours</span></li>
+                    </ul>
+                </div>
+                <div class="mt-4 flex flex-col gap-2">
+                    <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-4 py-2.5 bg-accentGold text-charcoal text-xs uppercase tracking-widest font-bold hover:bg-accentGoldDark hover:text-white transition-all">
+                        Book 15-Min Scoping Call
+                    </a>
+                    <a href="intake.html" class="inline-flex items-center justify-center gap-1 text-xs font-semibold uppercase tracking-wider text-accentGold hover:text-accentGoldDark transition-colors">
+                        Complete Client Intake Form<span aria-hidden="true">→</span>
+                    </a>
+                </div>
             </div>
-            <div class="p-4 bg-white border border-sand rounded-lg">
-                <span class="block text-[10px] font-mono uppercase tracking-widest text-accentGold font-bold mb-1">02</span>
-                <h3 class="text-sm font-semibold text-charcoal mb-1">Fill Out Intake Form</h3>
-                <p class="text-xs text-mutedText leading-snug">Submit your details directly on our site so we have all your account details upfront.</p>
+            <div class="onboard-card min-h-[320px] p-5 bg-white border border-sand rounded-lg flex flex-col justify-between">
+                <div>
+                    <span class="block text-[10px] font-mono uppercase tracking-widest text-accentGold font-bold mb-1">02</span>
+                    <h3 class="text-sm font-semibold text-charcoal mb-2">Upload Statement Files</h3>
+                    <ul class="space-y-1.5 text-xs text-mutedText leading-snug">
+                        <li class="flex gap-1.5"><span class="text-accentGold" aria-hidden="true">—</span><span>Private, end-to-end encrypted client vault</span></li>
+                        <li class="flex gap-1.5"><span class="text-accentGold" aria-hidden="true">—</span><span>Exported PDF/CSV statements only</span></li>
+                        <li class="flex gap-1.5"><span class="text-accentGold" aria-hidden="true">—</span><span>No bank login credentials ever requested</span></li>
+                    </ul>
+                </div>
+                <div class="mt-4">
+                    <a href="mailto:lana@xixistrategy.com?subject=Vault%20Access%20Request" class="inline-flex items-center justify-center w-full px-4 py-2.5 border border-accentGold text-accentGoldDark text-xs uppercase tracking-widest font-bold hover:bg-accentGold hover:text-charcoal transition-all">
+                        Request Vault Access<span aria-hidden="true" class="ml-1">→</span>
+                    </a>
+                </div>
             </div>
-            <div class="p-4 bg-white border border-sand rounded-lg">
-                <span class="block text-[10px] font-mono uppercase tracking-widest text-accentGold font-bold mb-1">03</span>
-                <h3 class="text-sm font-semibold text-charcoal mb-1">Upload Your Statements</h3>
-                <p class="text-xs text-mutedText leading-snug">Use your private link and password sent after our call to securely drop files into your dedicated folder.</p>
+            <div class="onboard-card min-h-[320px] p-5 bg-white border border-sand rounded-lg flex flex-col justify-between">
+                <div>
+                    <span class="block text-[10px] font-mono uppercase tracking-widest text-accentGold font-bold mb-1">03</span>
+                    <h3 class="text-sm font-semibold text-charcoal mb-2">Receive Zero-Variance Ledger</h3>
+                    <ul class="space-y-1.5 text-xs text-mutedText leading-snug">
+                        <li class="flex gap-1.5"><span class="text-accentGold" aria-hidden="true">—</span><span>Line-by-line reconciliation delivered back through the vault</span></li>
+                        <li class="flex gap-1.5"><span class="text-accentGold" aria-hidden="true">—</span><span>3–5 business day standard turnaround</span></li>
+                        <li class="flex gap-1.5"><span class="text-accentGold" aria-hidden="true">—</span><span>Variance summary report included</span></li>
+                    </ul>
+                </div>
             </div>
-            <div class="p-4 bg-white border border-sand rounded-lg">
-                <span class="block text-[10px] font-mono uppercase tracking-widest text-accentGold font-bold mb-1">04</span>
-                <h3 class="text-sm font-semibold text-charcoal mb-1">We Reconcile &amp; Deliver</h3>
-                <p class="text-xs text-mutedText leading-snug">Every line is verified and your clean ledger is delivered back to you.</p>
-            </div>
-        </div>
-
-        <div class="mt-6 text-center">
-            <a href="intake.html" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-charcoal text-cream text-xs uppercase tracking-widest font-semibold hover:bg-accentGold transition-all">
-                Start Client Intake Form
-                <span aria-hidden="true">→</span>
-            </a>
-            <p class="text-xs text-mutedText mt-2">Takes about 3 minutes — you can also share this link directly with a client after their call.</p>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="animated-dark bg-darkBg py-14 sm:py-20 lg:py-24 px-5 sm:px-6 text-cream border-t border-accentGold/20">
-        <span class="xixi-watermark" aria-hidden="true">XI:XI</span>
-        <div class="max-w-[780px] mx-auto relative z-10">
-            <div class="text-center max-w-2xl mx-auto mb-14">
+    <section id="testimonials" class="bg-darkBg py-10 sm:py-12 px-5 sm:px-6 text-cream border-t border-accentGold/20">
+        <div class="max-w-[700px] mx-auto relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-6">
                 <span class="text-xs uppercase tracking-widest text-accentGold font-semibold">Client Feedback</span>
-                <h2 class="font-serif text-3xl lg:text-4xl text-cream mt-2">Proven Results</h2>
             </div>
-            <div class="grid grid-cols-1 gap-6">
-                <div class="rounded-2xl border border-white/10 bg-[rgba(20,20,20,0.6)] backdrop-blur-md p-6">
-                    <p class="text-base text-zinc-200 italic leading-relaxed">"Our inventory and cash flow tracking was a mess before we called XI:XI. Now we finally know what our real manufacturing margins actually are, instead of guessing every month."</p>
-                    <p class="text-xs text-accentGold uppercase tracking-widest mt-4">Retail &amp; Manufacturing Client, Deerfield Beach, FL</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div class="rounded-lg bg-white p-5" style="border:1px solid rgba(212,175,55,0.3);">
+                    <p class="font-serif italic text-[1.15rem] leading-snug text-charcoal">"Our inventory and cash flow tracking was a mess before we called XI:XI. Now we finally know what our real manufacturing margins actually are."</p>
+                    <p class="text-[10px] text-accentGoldDark uppercase tracking-widest mt-3 font-semibold">Retail &amp; Manufacturing, Deerfield Beach, FL</p>
                 </div>
-                <div class="rounded-2xl border border-white/10 bg-[rgba(20,20,20,0.6)] backdrop-blur-md p-6">
-                    <p class="text-base text-zinc-200 italic leading-relaxed">"I had years of personal and business transactions all tangled together and honestly didn't know where to start. Lana sat down, sorted through everything, and handed me back one clean ledger. Such a relief."</p>
-                    <p class="text-xs text-accentGold uppercase tracking-widest mt-4">Independent Contractor, Brooklyn, NY</p>
+                <div class="rounded-lg bg-white p-5" style="border:1px solid rgba(212,175,55,0.3);">
+                    <p class="font-serif italic text-[1.15rem] leading-snug text-charcoal">"I had years of transactions all tangled together. Lana sorted through everything and handed me back one clean ledger. Such a relief."</p>
+                    <p class="text-[10px] text-accentGoldDark uppercase tracking-widest mt-3 font-semibold">Independent Contractor, Brooklyn, NY</p>
                 </div>
-                <div class="rounded-2xl border border-accentGold/30 bg-[rgba(20,20,20,0.6)] backdrop-blur-md p-6 text-center">
-                    <p class="text-base text-zinc-200 italic leading-relaxed mb-3">"Have we worked together? Share your feedback."</p>
-                    <a href="mailto:lana@xixistrategy.com?subject=Client%20Review" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-accentGold hover:text-white transition-colors">
-                        Leave a Client Review
-                        <span aria-hidden="true">→</span>
-                    </a>
-                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="mailto:lana@xixistrategy.com?subject=Client%20Review" class="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-widest font-semibold text-accentGold hover:text-white transition-colors">
+                    Have we worked together? Leave a Client Review
+                    <span aria-hidden="true">→</span>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Our Story Callout -->
-    <section class="bg-darkBg py-16 px-6">
-        <a href="story.html" class="group block max-w-4xl mx-auto rounded-2xl border border-accentGold/30 bg-black/20 text-cream p-8 sm:p-10 text-center hover:border-accentGold hover:bg-black/30 transition-colors">
-            <p class="font-serif text-xl sm:text-2xl leading-snug">
-                Built on a career of finding what doesn't add up — and fixing it.
-                <span class="block sm:inline text-accentGold italic mt-2 sm:mt-0 sm:ml-2 group-hover:underline">Read Our Story &amp; Track Record →</span>
-            </p>
-        </a>
-    </section>
-
-    <!-- Brand Signature Section -->
-    <section id="signature" class="animated-dark bg-darkBg text-cream py-14 sm:py-20 px-5 sm:px-6 border-t border-accentGold/20">
-        <span class="xixi-watermark" aria-hidden="true">XI:XI</span>
-        <div class="max-w-lg mx-auto relative z-10 text-center">
-            <h3 class="font-serif text-2xl lg:text-3xl text-cream leading-tight">Two parallel records.<br><span class="italic text-accentGold">One absolute equilibrium.</span></h3>
-            <p class="text-base text-zinc-300 leading-relaxed mt-4 max-w-sm mx-auto">
-                Between raw bank activity and internal reporting lies the margin for error. XI:XI eliminates the disconnect to deliver zero-variance clarity.
-            </p>
-            <div class="equilibrium-wrap mt-10 flex flex-col items-center max-w-[280px] mx-auto">
-                <svg class="equilibrium-rig" width="280" height="220" viewBox="0 0 400 280" role="img" aria-label="A balance scale with a precision counterweight on each pan, marked XI, resting level">
-                    <defs>
-                        <linearGradient id="goldMetal" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#EBD7B0"/>
-                            <stop offset="45%" stop-color="#C5A880"/>
-                            <stop offset="100%" stop-color="#8B6F49"/>
-                        </linearGradient>
-                        <radialGradient id="equilibriumGlow" cx="50%" cy="50%" r="50%">
-                            <stop offset="0%" stop-color="#C5A880" stop-opacity="0.16"/>
-                            <stop offset="100%" stop-color="#C5A880" stop-opacity="0"/>
-                        </radialGradient>
-                        <g id="weightShape">
-                            <rect x="-6" y="-34" width="12" height="10" rx="5" fill="url(#goldMetal)" stroke="#6E5636" stroke-width="0.5"/>
-                            <polygon points="-13,-24 13,-24 20,22 -20,22" fill="url(#goldMetal)" stroke="#6E5636" stroke-width="0.75"/>
-                            <text x="0.6" y="1.6" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-size="16" fill="#5C4728" opacity="0.65">XI</text>
-                            <text x="-0.6" y="-0.4" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-size="16" fill="#F7ECD8" opacity="0.55">XI</text>
-                            <text x="0" y="0.6" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-size="16" fill="#4A3A22">XI</text>
-                        </g>
-                    </defs>
-
-                    <circle cx="200" cy="140" r="100" fill="url(#equilibriumGlow)"/>
-                    <line x1="200" y1="80" x2="200" y2="230" stroke="#C5A880" stroke-width="2"/>
-                    <line x1="160" y1="230" x2="240" y2="230" stroke="#C5A880" stroke-width="2.5" stroke-linecap="round"/>
-
-                    <g class="beam-group">
-                        <line x1="90" y1="80" x2="310" y2="80" stroke="#C5A880" stroke-width="1.25"/>
-
-                        <g class="pan-assembly left">
-                            <line x1="90" y1="80" x2="60" y2="180" stroke="#C5A880" stroke-opacity="0.45" stroke-width="1"/>
-                            <line x1="90" y1="80" x2="120" y2="180" stroke="#C5A880" stroke-opacity="0.45" stroke-width="1"/>
-                            <path d="M50,180 Q90,198 130,180" stroke="#C5A880" stroke-width="1.25" fill="none"/>
-                            <use href="#weightShape" x="90" y="162"/>
-                        </g>
-
-                        <g class="pan-assembly right">
-                            <line x1="310" y1="80" x2="280" y2="180" stroke="#C5A880" stroke-opacity="0.45" stroke-width="1"/>
-                            <line x1="310" y1="80" x2="340" y2="180" stroke="#C5A880" stroke-opacity="0.45" stroke-width="1"/>
-                            <path d="M270,180 Q310,198 350,180" stroke="#C5A880" stroke-width="1.25" fill="none"/>
-                            <use href="#weightShape" x="310" y="162"/>
-                        </g>
-                    </g>
-
-                    <circle cx="200" cy="80" r="3" fill="#C5A880"/>
-                </svg>
-                <p class="scale-caption mt-3 text-[10px] font-semibold tracking-[0.18em] uppercase text-accentGold">Hover to test variance</p>
-            </div>
+    <!-- Insights & Case Studies (Blog Preview) -->
+    <section id="insights" class="py-14 sm:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
+        <div class="max-w-3xl mb-10 space-y-3">
+            <span class="text-xs uppercase tracking-widest text-accentGold font-semibold">Insights &amp; Case Studies</span>
+            <h2 class="font-serif text-3xl lg:text-4xl text-charcoal">From the Ledger</h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <article class="bg-white border border-sand flex flex-col justify-between overflow-hidden">
+                <div class="insight-accent-bar" aria-hidden="true"></div>
+                <div class="p-6">
+                    <span class="text-[10px] font-mono uppercase tracking-widest text-accentGold">Reconciliation</span>
+                    <h3 class="font-serif text-lg text-charcoal mt-2 leading-snug">5 Invisible Ledger Errors Costing Your Business Thousands (And How to Spot Them)</h3>
+                    <div class="service-goal mt-3">
+                        <p class="text-xs text-mutedText leading-relaxed"><span class="font-semibold text-charcoal">Key Takeaway:</span> Ledger errors compound — a discrepancy left unresolved for even one quarter can multiply into months of unwinding.</p>
+                    </div>
+                </div>
+                <span class="px-6 pb-6 inline-flex items-center gap-2 text-xs font-semibold text-mutedText/70 uppercase tracking-widest">Coming Soon</span>
+            </article>
+            <article class="bg-white border border-sand flex flex-col justify-between overflow-hidden">
+                <div class="insight-accent-bar" aria-hidden="true"></div>
+                <div class="p-6">
+                    <span class="text-[10px] font-mono uppercase tracking-widest text-accentGold">Florida Sales Tax</span>
+                    <h3 class="font-serif text-lg text-charcoal mt-2 leading-snug">What the Florida Dept. of Revenue Looks For First: A Pre-Audit Checklist</h3>
+                    <div class="service-goal mt-3">
+                        <p class="text-xs text-mutedText leading-relaxed"><span class="font-semibold text-charcoal">Key Takeaway:</span> Auditors start with the same few red flags every time — mismatched exemption codes and rounding drift top the list.</p>
+                    </div>
+                </div>
+                <span class="px-6 pb-6 inline-flex items-center gap-2 text-xs font-semibold text-mutedText/70 uppercase tracking-widest">Coming Soon</span>
+            </article>
+            <article class="bg-white border border-sand flex flex-col justify-between overflow-hidden">
+                <div class="insight-accent-bar" aria-hidden="true"></div>
+                <div class="p-6">
+                    <span class="text-[10px] font-mono uppercase tracking-widest text-accentGold">Intercompany Accounting</span>
+                    <h3 class="font-serif text-lg text-charcoal mt-2 leading-snug">Why Related Entity Balances Drift Apart — And How to Reconcile to Zero</h3>
+                    <div class="service-goal mt-3">
+                        <p class="text-xs text-mutedText leading-relaxed"><span class="font-semibold text-charcoal">Key Takeaway:</span> Most intercompany mismatches trace back to timing — one entity books a transfer a month before the other does.</p>
+                    </div>
+                </div>
+                <span class="px-6 pb-6 inline-flex items-center gap-2 text-xs font-semibold text-mutedText/70 uppercase tracking-widest">Coming Soon</span>
+            </article>
         </div>
     </section>
 
@@ -515,13 +622,16 @@
                     <div class="flex items-center">
                         <svg viewBox="190 46 270 52" class="h-6 w-auto" aria-hidden="true" focusable="false">
                             <line x1="200" y1="34" x2="200" y2="112" stroke="#C5A880" stroke-width="1"/>
-                            <text x="224" y="68" font-family="Arial, Helvetica, sans-serif" font-size="13" letter-spacing="2.5" fill="#A1A1AA">STRATEGIC FINANCE</text>
-                            <text x="224" y="90" font-family="Arial, Helvetica, sans-serif" font-size="13" letter-spacing="2.5" fill="#A1A1AA">BUSINESS OPTIMIZATION</text>
+                            <text x="224" y="68" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" letter-spacing="3.5" fill="#E4E4E7">STRATEGIC FINANCE</text>
+                            <text x="224" y="90" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" letter-spacing="3.5" fill="#E4E4E7">BUSINESS OPTIMIZATION</text>
                         </svg>
                     </div>
                 </div>
                 <p class="text-xs text-zinc-400 max-w-sm">Strategic finance &amp; business optimization, built on statement-to-ledger reconciliation — structured controls, clean data, and precision for your financial operations.</p>
                 <p class="text-xs font-mono text-accentGold">Call +1 (772) 210-9957</p>
+                <a href="story.html" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-accentGold hover:text-white transition-colors">
+                    Meet the Accountant &amp; Founder<span aria-hidden="true">→</span>
+                </a>
             </div>
             <div class="md:col-span-7 md:pl-8 md:border-l md:border-zinc-800/60">
                 <h2 class="font-serif text-2xl text-cream mb-1">Get In Touch</h2>
@@ -532,40 +642,105 @@
                     <input type="hidden" name="_captcha" value="false">
                     <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                     <div>
-                        <label for="qc-name" class="sr-only">Name</label>
-                        <input id="qc-name" type="text" name="name" placeholder="Your name" required class="w-full bg-transparent border border-zinc-700 text-cream text-sm px-3 py-2.5 focus:border-accentGold outline-none placeholder:text-zinc-500">
+                        <label for="qc-name" class="sr-only">Full Name &amp; Title</label>
+                        <input id="qc-name" type="text" name="name" placeholder="Full Name &amp; Title" required class="w-full bg-transparent border border-zinc-700 text-cream text-sm px-3 py-2.5 focus:border-accentGold outline-none placeholder:text-zinc-500">
                     </div>
                     <div>
-                        <label for="qc-email" class="sr-only">Email</label>
-                        <input id="qc-email" type="email" name="email" placeholder="Your email" required class="w-full bg-transparent border border-zinc-700 text-cream text-sm px-3 py-2.5 focus:border-accentGold outline-none placeholder:text-zinc-500">
+                        <label for="qc-email" class="sr-only">Corporate Email</label>
+                        <input id="qc-email" type="email" name="email" placeholder="Corporate Email" required class="w-full bg-transparent border border-zinc-700 text-cream text-sm px-3 py-2.5 focus:border-accentGold outline-none placeholder:text-zinc-500">
                     </div>
                     <div>
-                        <label for="qc-message" class="sr-only">Message</label>
-                        <textarea id="qc-message" name="message" placeholder="What's going on with your books?" rows="3" required class="w-full bg-transparent border border-zinc-700 text-cream text-sm px-3 py-2.5 focus:border-accentGold outline-none placeholder:text-zinc-500"></textarea>
+                        <label for="qc-entity" class="sr-only">Entity Type &amp; Estimated Monthly Transaction Volume</label>
+                        <input id="qc-entity" type="text" name="entity_info" placeholder="Entity Type &amp; Estimated Monthly Transaction Volume" class="w-full bg-transparent border border-zinc-700 text-cream text-sm px-3 py-2.5 focus:border-accentGold outline-none placeholder:text-zinc-500">
                     </div>
-                    <div class="flex flex-col sm:flex-row gap-3 pt-1">
-                        <button type="submit" class="flex-1 px-6 py-2.5 bg-accentGold text-white text-xs uppercase tracking-widest font-semibold hover:bg-accentGoldDark transition-all">Send Direct Message</button>
-                        <a href="mailto:lana@xixistrategy.com?subject=Referral%20Network%20Inquiry" class="flex-1 inline-flex items-center justify-center gap-2 px-6 py-2.5 border border-accentGold/50 text-accentGold text-xs uppercase tracking-widest font-semibold hover:bg-accentGold hover:text-white transition-all">
-                            CPA &amp; Professional Referral Network
-                        </a>
+                    <div>
+                        <label for="qc-message" class="sr-only">Primary Reconciliation Challenge</label>
+                        <textarea id="qc-message" name="message" placeholder="Primary Reconciliation Challenge (e.g., AR/AP, Intercompany, Sales Tax)" rows="3" required class="w-full bg-transparent border border-zinc-700 text-cream text-sm px-3 py-2.5 focus:border-accentGold outline-none placeholder:text-zinc-500"></textarea>
+                    </div>
+                    <div class="pt-1">
+                        <button type="submit" class="w-full px-6 py-2.5 bg-accentGold text-charcoal text-xs uppercase tracking-widest font-bold hover:bg-accentGoldDark hover:text-white transition-all">Send Direct Message</button>
                     </div>
                     <p id="qc-status" class="text-xs mt-1" role="status" aria-live="polite"></p>
+                    <a href="mailto:lana@xixistrategy.com?subject=Referral%20Network%20Inquiry" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-accentGold hover:text-white transition-colors">
+                        External CPA &amp; Professional Referral Network<span aria-hidden="true">→</span>
+                    </a>
                 </form>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto pt-6 border-t border-zinc-800/60">
-            <p class="text-xs text-zinc-500 max-w-2xl leading-relaxed">XI:XI is an independent strategic finance and business optimization practice specializing in statement-to-ledger reconciliation — not a licensed Certified Public Accountant (CPA) firm or law firm. We do not provide attest services, formal financial statement reviews, audits, IRS representation, or legal advice.</p>
+
+        <!-- Brand Signature -->
+        <section id="signature" class="animated-dark bg-darkBg text-cream py-20 sm:py-24 px-6 sm:px-10 rounded-2xl border border-accentGold/20 max-w-7xl mx-auto relative overflow-hidden">
+            <span class="xixi-watermark" aria-hidden="true">XI:XI</span>
+            <div class="max-w-lg mx-auto relative z-10 text-center">
+                <div class="signature-glow" aria-hidden="true"></div>
+                <div class="equilibrium-wrap relative flex flex-col items-center max-w-[240px] mx-auto mb-8">
+                    <svg class="equilibrium-rig" width="280" height="220" viewBox="0 0 400 280" role="img" aria-label="A balance scale with a precision counterweight on each pan, marked XI, resting level">
+                        <defs>
+                            <linearGradient id="goldMetal" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#EBD7B0"/>
+                                <stop offset="45%" stop-color="#C5A880"/>
+                                <stop offset="100%" stop-color="#8B6F49"/>
+                            </linearGradient>
+                            <radialGradient id="equilibriumGlow" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="#C5A880" stop-opacity="0.16"/>
+                                <stop offset="100%" stop-color="#C5A880" stop-opacity="0"/>
+                            </radialGradient>
+                            <g id="weightShape">
+                                <rect x="-6" y="-34" width="12" height="10" rx="5" fill="url(#goldMetal)" stroke="#6E5636" stroke-width="0.5"/>
+                                <polygon points="-13,-24 13,-24 20,22 -20,22" fill="url(#goldMetal)" stroke="#6E5636" stroke-width="0.75"/>
+                                <text x="0.6" y="1.6" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-size="16" fill="#5C4728" opacity="0.65">XI</text>
+                                <text x="-0.6" y="-0.4" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-size="16" fill="#F7ECD8" opacity="0.55">XI</text>
+                                <text x="0" y="0.6" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-size="16" fill="#4A3A22">XI</text>
+                            </g>
+                        </defs>
+
+                        <circle cx="200" cy="140" r="100" fill="url(#equilibriumGlow)"/>
+                        <line x1="200" y1="80" x2="200" y2="230" stroke="#C5A880" stroke-width="2"/>
+                        <line x1="160" y1="230" x2="240" y2="230" stroke="#C5A880" stroke-width="2.5" stroke-linecap="round"/>
+
+                        <g class="beam-group">
+                            <line x1="90" y1="80" x2="310" y2="80" stroke="#C5A880" stroke-width="1.25"/>
+
+                            <g class="pan-assembly left">
+                                <line x1="90" y1="80" x2="60" y2="180" stroke="#C5A880" stroke-opacity="0.45" stroke-width="1"/>
+                                <line x1="90" y1="80" x2="120" y2="180" stroke="#C5A880" stroke-opacity="0.45" stroke-width="1"/>
+                                <path d="M50,180 Q90,198 130,180" stroke="#C5A880" stroke-width="1.25" fill="none"/>
+                                <use href="#weightShape" x="90" y="162"/>
+                            </g>
+
+                            <g class="pan-assembly right">
+                                <line x1="310" y1="80" x2="280" y2="180" stroke="#C5A880" stroke-opacity="0.45" stroke-width="1"/>
+                                <line x1="310" y1="80" x2="340" y2="180" stroke="#C5A880" stroke-opacity="0.45" stroke-width="1"/>
+                                <path d="M270,180 Q310,198 350,180" stroke="#C5A880" stroke-width="1.25" fill="none"/>
+                                <use href="#weightShape" x="310" y="162"/>
+                            </g>
+                        </g>
+
+                        <circle cx="200" cy="80" r="3" fill="#C5A880"/>
+                    </svg>
+                    <p class="scale-caption mt-3 text-[10px] font-semibold tracking-[0.18em] uppercase text-accentGold">Hover to test variance</p>
+                </div>
+                <h3 class="font-serif text-2xl lg:text-3xl text-cream leading-tight">Two parallel records.<br><span class="italic text-accentGold">One absolute equilibrium.</span></h3>
+                <p class="text-base text-zinc-300 leading-relaxed mt-4 max-w-sm mx-auto">
+                    Between raw bank activity and internal reporting lies the margin for error. XI:XI eliminates the disconnect to deliver zero-variance clarity.
+                </p>
+                <div class="mt-9 flex flex-col sm:flex-row items-center justify-center gap-3">
+                    <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3 bg-accentGold text-charcoal text-xs uppercase tracking-widest font-bold hover:bg-cream transition-all">Book 15-Min Free Assessment <span aria-hidden="true">→</span></a>
+                    <a href="intake.html" class="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3 border border-accentGold text-accentGold text-xs uppercase tracking-widest font-bold hover:bg-accentGold hover:text-charcoal transition-all">Submit Ledger Intake Form</a>
+                </div>
+                <p class="mt-6 text-[10px] font-semibold tracking-[0.18em] uppercase text-zinc-500">100% Read-Only Access &bull; End-to-End Encrypted Vault &bull; Zero Downtime</p>
+            </div>
+        </section>
+
+        <div class="max-w-7xl mx-auto pt-10 border-t border-zinc-800/60 mt-10">
+            <p class="text-xs text-zinc-500 max-w-2xl leading-relaxed">XI:XI is an independent strategic finance and business optimization practice specializing in statement-to-ledger reconciliation — not a licensed Certified Public Accountant firm or law firm. We do not provide attest services, formal financial statement reviews, audits, IRS representation, or legal advice.</p>
         </div>
-        <div class="max-w-7xl mx-auto pt-6 text-center text-xs text-zinc-500">
+        <div class="max-w-7xl mx-auto pt-6 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-center text-xs text-zinc-500">
             <p>&copy; 2026 XI:XI. All rights reserved.</p>
+            <span class="hidden sm:inline text-zinc-700" aria-hidden="true">|</span>
+            <a href="#terms" class="hover:text-accentGold transition-colors">Terms</a>
         </div>
     </footer>
-
-    <!-- Floating Contact Pill -->
-    <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" id="floatingContact" class="floating-contact fixed right-4 bottom-4 sm:right-6 sm:bottom-6 z-[60] inline-flex items-center gap-2 bg-charcoal text-cream text-xs font-semibold uppercase tracking-wider px-5 py-3.5 rounded-full border border-accentGold/40 shadow-xl hover:bg-accentGold hover:text-white transition-all" aria-label="Book a call on Cal.com (opens in a new tab)">
-        <span class="w-1.5 h-1.5 rounded-full bg-accentGold"></span>
-        Book a Call
-    </a>
 
     <script>
     (function(){
@@ -613,27 +788,28 @@
     })();
 
     (function(){
-        var fc = document.getElementById('floatingContact');
-        if(!fc) return;
-        setTimeout(function(){
-            fc.classList.add('pulse');
-            fc.addEventListener('animationend', function handler(){
-                fc.classList.remove('pulse');
-                fc.removeEventListener('animationend', handler);
+        var cards = document.querySelectorAll('.service-card');
+        if(!cards.length || !('IntersectionObserver' in window)) return;
+        var canHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+        if (canHover) return; // desktop with a real mouse: rely on the existing hover states
+        var observer = new IntersectionObserver(function(entries){
+            entries.forEach(function(entry){
+                entry.target.classList.toggle('in-view', entry.isIntersecting);
             });
-        }, 2500);
+        }, { threshold: 0.55 });
+        cards.forEach(function(c){ observer.observe(c); });
     })();
 
     (function(){
         var fc = document.getElementById('floatingContact');
-        var footer = document.getElementById('contact');
-        if(!fc || !footer || !('IntersectionObserver' in window)) return;
+        var servicesSection = document.getElementById('services');
+        if (!fc || !servicesSection || !('IntersectionObserver' in window)) return;
         var observer = new IntersectionObserver(function(entries){
             entries.forEach(function(entry){
-                fc.classList.toggle('is-hidden', entry.isIntersecting);
+                fc.classList.toggle('is-visible', entry.isIntersecting);
             });
-        }, { rootMargin: '0px 0px -10% 0px' });
-        observer.observe(footer);
+        }, { threshold: 0.15 });
+        observer.observe(servicesSection);
     })();
 
     (function(){
