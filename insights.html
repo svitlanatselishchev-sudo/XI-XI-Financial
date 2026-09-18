@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="light">
-    <title>Client Intake | XI:XI</title>
-    <meta name="description" content="Client intake form for XI:XI — share this page with a client after their assessment call so they can send over their details before reconciliation begins.">
+    <title>Insights &amp; Case Studies | XI:XI</title>
+    <meta name="description" content="From the Ledger — reconciliation insights, Florida sales tax guidance, and multi-entity accounting case studies from XI:XI Strategy.">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -14,15 +14,15 @@
 
     <!-- Open Graph / Twitter -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Client Intake | XI:XI">
-    <meta property="og:description" content="Client intake form for XI:XI — share this page with a client after their assessment call so they can send over their details before reconciliation begins.">
-    <meta property="og:url" content="https://xixistrategy.com/intake.html">
+    <meta property="og:title" content="Insights &amp; Case Studies | XI:XI">
+    <meta property="og:description" content="From the Ledger — reconciliation insights, Florida sales tax guidance, and multi-entity accounting case studies from XI:XI Strategy.">
+    <meta property="og:url" content="https://xixistrategy.com/insights.html">
     <meta property="og:image" content="https://xixistrategy.com/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Client Intake | XI:XI">
-    <meta name="twitter:description" content="Client intake form for XI:XI — share this page with a client after their assessment call so they can send over their details before reconciliation begins.">
+    <meta name="twitter:title" content="Insights &amp; Case Studies | XI:XI">
+    <meta name="twitter:description" content="From the Ledger — reconciliation insights, Florida sales tax guidance, and multi-entity accounting case studies from XI:XI Strategy.">
     <meta name="twitter:image" content="https://xixistrategy.com/og-image.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -70,30 +70,11 @@
             -webkit-backdrop-filter: blur(20px) saturate(160%);
             backdrop-filter: blur(20px) saturate(160%);
         }
-        .animated-dark { position: relative; overflow: hidden; }
-        .animated-dark::before {
-            content: ''; position: absolute; inset: -30%; pointer-events: none; z-index: 0;
-            opacity: 0.35; filter: blur(60px);
-            background-image:
-                radial-gradient(circle at 25% 30%, #C5A880 0%, transparent 45%),
-                radial-gradient(circle at 75% 70%, #3a4250 0%, transparent 50%);
-            animation: tonalShift 40s ease-in-out infinite alternate;
+        .insight-accent-bar {
+            height: 4px;
+            background: linear-gradient(90deg, #C5A880 0%, #9E825C 50%, #C5A880 100%);
         }
-        .animated-dark::after {
-            content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 0;
-            opacity: 0.22;
-            background-image: radial-gradient(circle, rgba(197,168,128,0.5) 1px, transparent 1.5px);
-            background-size: 140px 140px;
-            animation: gridPulse 70s linear infinite;
-        }
-        @keyframes tonalShift { 0%{transform:translate(0,0) scale(1);} 50%{transform:translate(-4%,3%) scale(1.08);} 100%{transform:translate(3%,-3%) scale(1);} }
-        @keyframes gridPulse { 0%{background-position:0 0;} 100%{background-position:140px 280px;} }
-        .xixi-watermark {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 0;
-            pointer-events: none; user-select: none;
-            font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(6rem, 18vw, 16rem);
-            letter-spacing: 0.04em; color: #C5A880; opacity: 0.05; white-space: nowrap;
-        }
+        .service-goal { background: rgba(234,227,210,0.4); border-radius: 0.375rem; padding: 0.65rem 0.75rem; }
         @keyframes fcPulse {
             0% { box-shadow: 0 14px 34px rgba(20,20,20,0.28), 0 0 0 0 rgba(197,168,128,0.45); }
             70% { box-shadow: 0 14px 34px rgba(20,20,20,0.28), 0 0 0 14px rgba(197,168,128,0); }
@@ -112,7 +93,7 @@
 </head>
 <body class="antialiased selection:bg-accentGold selection:text-white">
 
-    <!-- Floating Pill Header — same as the rest of the site, with nav links
+    <!-- Floating Pill Header — same as the homepage, with nav links
          pointed back at index.html's sections and the logo linking home. -->
     <header class="fixed top-4 sm:top-5 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-1.25rem)] sm:w-[calc(100%-2.5rem)] max-w-6xl rounded-full border border-accentGold/30 bg-cream/95 frosted shadow-lg shadow-charcoal/10">
         <div class="px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
@@ -132,9 +113,9 @@
             </a>
             <nav class="hidden md:flex items-center space-x-4 lg:space-x-7 text-sm font-medium text-charcoal">
                 <a href="index.html#services" class="hover:text-accentGold transition-colors">Services</a>
-                <a href="insights.html" class="hover:text-accentGold transition-colors">Insights</a>
+                <a href="insights.html" class="text-accentGold">Insights</a>
                 <a href="story.html" class="hover:text-accentGold transition-colors">About</a>
-                <a href="intake.html" class="text-accentGold">Client Intake</a>
+                <a href="intake.html" class="hover:text-accentGold transition-colors">Client Intake</a>
             </nav>
             <div class="flex items-center gap-2 shrink-0">
                 <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-xs font-semibold uppercase tracking-wider bg-charcoal text-cream rounded-full hover:bg-accentGold hover:text-white transition-all">
@@ -149,97 +130,59 @@
     </header>
     <nav id="mobileMenu" class="md:hidden hidden flex-col fixed top-[4.75rem] sm:top-[5.25rem] left-1/2 -translate-x-1/2 z-40 w-[calc(100%-1.25rem)] sm:w-[calc(100%-2.5rem)] max-w-6xl rounded-3xl border border-accentGold/30 bg-cream/95 frosted shadow-xl px-6 py-5 space-y-4 text-sm font-medium text-charcoal">
         <a href="index.html#services" class="block hover:text-accentGold transition-colors">Services</a>
-        <a href="insights.html" class="block hover:text-accentGold transition-colors">Insights</a>
+        <a href="insights.html" class="block text-accentGold">Insights</a>
         <a href="story.html" class="block hover:text-accentGold transition-colors">About</a>
-        <a href="intake.html" class="block text-accentGold">Client Intake</a>
+        <a href="intake.html" class="block hover:text-accentGold transition-colors">Client Intake</a>
         <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="block pt-2 text-center px-5 py-2.5 text-xs font-semibold uppercase tracking-wider bg-charcoal text-cream rounded-full">Book Free Assessment</a>
     </nav>
 
     <!-- Page header -->
-    <section class="relative pt-32 sm:pt-40 pb-10 px-5 sm:px-6 max-w-3xl mx-auto text-center">
-        <span class="text-xs uppercase tracking-widest text-accentGold font-semibold">Client Intake</span>
-        <h1 class="font-serif text-4xl sm:text-5xl text-charcoal mt-2">Let's get your file started.</h1>
-        <p class="text-base text-mutedText leading-relaxed mt-4 max-w-xl mx-auto">Thanks for booking your assessment call. Fill out the quick form below so I have your account details on hand before we talk — it takes about 3 minutes. This page is yours to bookmark or share whenever you need to send it back over.</p>
+    <section class="relative pt-32 sm:pt-40 pb-10 px-5 sm:px-6 max-w-5xl mx-auto text-center">
+        <span class="text-xs uppercase tracking-widest text-accentGold font-semibold">Insights &amp; Case Studies</span>
+        <h1 class="font-serif text-4xl sm:text-5xl text-charcoal mt-2">From the Ledger</h1>
+        <p class="text-base text-mutedText leading-relaxed mt-4 max-w-2xl mx-auto">Practical reconciliation guidance, Florida sales tax notes, and multi-entity accounting case studies — written from what actually shows up in the ledger.</p>
     </section>
 
-    <!-- Client Intake Form — kept short on purpose: just what's needed to
-         prep for the call, plus your consent to be contacted. -->
-    <section class="px-5 sm:px-6 pb-16 sm:pb-24 max-w-2xl mx-auto">
-        <form id="clientIntakeForm" action="https://formsubmit.co/lana@xixistrategy.com" method="POST" class="bg-white border border-sand rounded-2xl p-6 sm:p-8 space-y-5">
-            <input type="hidden" name="_subject" value="New Client Intake — XI:XI Website">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                    <label for="ci-name" class="sr-only">Full name</label>
-                    <input id="ci-name" type="text" name="name" placeholder="Full name" required class="w-full bg-transparent border border-sand text-charcoal text-sm px-3 py-2.5 focus:border-accentGold outline-none placeholder:text-mutedText">
+    <!-- Article Grid -->
+    <section class="px-5 sm:px-6 pb-16 sm:pb-24 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <article class="bg-white border border-sand flex flex-col justify-between overflow-hidden">
+                <div class="insight-accent-bar" aria-hidden="true"></div>
+                <div class="p-6">
+                    <span class="text-[10px] font-mono uppercase tracking-widest text-accentGold">Reconciliation</span>
+                    <h3 class="font-serif text-lg text-charcoal mt-2 leading-snug">5 Invisible Ledger Errors Costing Your Business Thousands (And How to Spot Them)</h3>
+                    <div class="service-goal mt-3">
+                        <p class="text-xs text-mutedText leading-relaxed"><span class="font-semibold text-charcoal">Key Takeaway:</span> Ledger errors compound — a discrepancy left unresolved for even one quarter can multiply into months of unwinding.</p>
+                    </div>
                 </div>
-                <div>
-                    <label for="ci-business" class="sr-only">Business name</label>
-                    <input id="ci-business" type="text" name="business" placeholder="Business name" class="w-full bg-transparent border border-sand text-charcoal text-sm px-3 py-2.5 focus:border-accentGold outline-none placeholder:text-mutedText">
+                <a href="blog/5-invisible-ledger-errors.html" class="px-6 pb-6 inline-flex items-center gap-2 text-xs font-semibold text-accentGoldDark uppercase tracking-widest hover:text-accentGold transition-colors">Read Article<span aria-hidden="true">→</span></a>
+            </article>
+            <article class="bg-white border border-sand flex flex-col justify-between overflow-hidden">
+                <div class="insight-accent-bar" aria-hidden="true"></div>
+                <div class="p-6">
+                    <span class="text-[10px] font-mono uppercase tracking-widest text-accentGold">Florida Sales Tax</span>
+                    <h3 class="font-serif text-lg text-charcoal mt-2 leading-snug">What the Florida Dept. of Revenue Looks For First: A Pre-Audit Checklist</h3>
+                    <div class="service-goal mt-3">
+                        <p class="text-xs text-mutedText leading-relaxed"><span class="font-semibold text-charcoal">Key Takeaway:</span> Auditors start with the same few red flags every time — mismatched exemption codes and rounding drift top the list.</p>
+                    </div>
                 </div>
-                <div class="sm:col-span-2">
-                    <label for="ci-address" class="sr-only">Business address</label>
-                    <input id="ci-address" type="text" name="address" placeholder="Business address" class="w-full bg-transparent border border-sand text-charcoal text-sm px-3 py-2.5 focus:border-accentGold outline-none placeholder:text-mutedText">
+                <a href="blog/florida-sales-tax-pre-audit-checklist.html" class="px-6 pb-6 inline-flex items-center gap-2 text-xs font-semibold text-accentGoldDark uppercase tracking-widest hover:text-accentGold transition-colors">Read Article<span aria-hidden="true">→</span></a>
+            </article>
+            <article class="bg-white border border-sand flex flex-col justify-between overflow-hidden">
+                <div class="insight-accent-bar" aria-hidden="true"></div>
+                <div class="p-6">
+                    <span class="text-[10px] font-mono uppercase tracking-widest text-accentGold">Intercompany Accounting</span>
+                    <h3 class="font-serif text-lg text-charcoal mt-2 leading-snug">Why Related Entity Balances Drift Apart — And How to Reconcile to Zero</h3>
+                    <div class="service-goal mt-3">
+                        <p class="text-xs text-mutedText leading-relaxed"><span class="font-semibold text-charcoal">Key Takeaway:</span> Most intercompany mismatches trace back to timing — one entity books a transfer a month before the other does.</p>
+                    </div>
                 </div>
-                <div>
-                    <label for="ci-email" class="sr-only">Email</label>
-                    <input id="ci-email" type="email" name="email" placeholder="Email" required class="w-full bg-transparent border border-sand text-charcoal text-sm px-3 py-2.5 focus:border-accentGold outline-none placeholder:text-mutedText">
-                </div>
-                <div>
-                    <label for="ci-phone" class="sr-only">Phone</label>
-                    <input id="ci-phone" type="tel" name="phone" placeholder="Phone" class="w-full bg-transparent border border-sand text-charcoal text-sm px-3 py-2.5 focus:border-accentGold outline-none placeholder:text-mutedText">
-                </div>
-            </div>
-
-            <div>
-                <label for="ci-software" class="block text-xs text-mutedText mb-1.5">Current bookkeeping software</label>
-                <select id="ci-software" name="software" class="w-full bg-transparent border border-sand text-charcoal text-sm px-3 py-2.5 focus:border-accentGold outline-none">
-                    <option value="">Select one</option>
-                    <option>QuickBooks Online</option>
-                    <option>QuickBooks Desktop</option>
-                    <option>Xero</option>
-                    <option>Wave</option>
-                    <option>Spreadsheets only</option>
-                    <option>None</option>
-                    <option>Other</option>
-                </select>
-            </div>
-
-            <div>
-                <span class="block text-xs text-mutedText mb-2">What do you need help with?</span>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-4 text-sm text-mutedText">
-                    <label class="flex items-center gap-2"><input type="checkbox" name="service" value="Bank & Ledger Verification" class="accent-accentGold">Bank &amp; Ledger Verification</label>
-                    <label class="flex items-center gap-2"><input type="checkbox" name="service" value="Inter-Company Alignment" class="accent-accentGold">Inter-Company Alignment</label>
-                    <label class="flex items-center gap-2"><input type="checkbox" name="service" value="Cash Flow Visibility" class="accent-accentGold">Cash Flow Visibility</label>
-                    <label class="flex items-center gap-2"><input type="checkbox" name="service" value="Custom Financial Dashboards" class="accent-accentGold">Custom Financial Dashboards</label>
-                    <label class="flex items-center gap-2"><input type="checkbox" name="service" value="Vendor Account Reconciliation" class="accent-accentGold">Vendor Account Reconciliation</label>
-                    <label class="flex items-center gap-2"><input type="checkbox" name="service" value="Florida Sales Tax Reconciliation" class="accent-accentGold">Florida Sales Tax Reconciliation</label>
-                    <label class="flex items-center gap-2"><input type="checkbox" name="service" value="Not sure yet" class="accent-accentGold">Not sure yet</label>
-                </div>
-            </div>
-
-            <div>
-                <label for="ci-notes" class="sr-only">Anything else we should know?</label>
-                <textarea id="ci-notes" name="notes" placeholder="Anything else we should know? (optional)" rows="3" class="w-full bg-transparent border border-sand text-charcoal text-sm px-3 py-2.5 focus:border-accentGold outline-none placeholder:text-mutedText"></textarea>
-            </div>
-
-            <!-- Next Steps callout -->
-            <div class="rounded-xl border border-accentGold/40 bg-sand/25 p-5 space-y-1.5">
-                <span class="block text-xs font-semibold uppercase tracking-widest text-accentGoldDark">What happens next</span>
-                <p class="text-sm text-mutedText leading-relaxed">I'll review your intake within one business day and reply by email with a secure, password-protected link to your dedicated XI:XI upload folder. From there, just drop in your statements whenever you're ready — no software to install, nothing else to set up.</p>
-            </div>
-
-            <label class="flex items-start gap-2.5 text-xs text-mutedText leading-relaxed">
-                <input type="checkbox" name="agreement" value="Agreed" required class="accent-accentGold mt-0.5">
-                <span>I agree to be contacted by XI:XI regarding this inquiry, and I understand that submitting this form does not establish a client relationship until an engagement is confirmed.</span>
-            </label>
-
-            <button type="submit" class="w-full px-6 py-3 bg-charcoal text-cream text-xs uppercase tracking-widest font-semibold hover:bg-accentGold transition-all">Submit Intake Form</button>
-            <p id="ci-status" class="text-xs text-center" role="status" aria-live="polite"></p>
-        </form>
+                <a href="blog/intercompany-balances-reconcile-to-zero.html" class="px-6 pb-6 inline-flex items-center gap-2 text-xs font-semibold text-accentGoldDark uppercase tracking-widest hover:text-accentGold transition-colors">Read Article<span aria-hidden="true">→</span></a>
+            </article>
+        </div>
+        <div class="text-center mt-10">
+            <p class="text-xs text-mutedText/80 uppercase tracking-widest">New articles publish regularly — check back soon, or subscribe below.</p>
+        </div>
     </section>
 
     <!-- Footer / Contact + Legal Disclaimer — same as the rest of the site -->
@@ -322,38 +265,6 @@
         });
         menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
     })();
-
-    (function(){
-        var form = document.getElementById('clientIntakeForm');
-        if(!form) return;
-        var status = document.getElementById('ci-status');
-        var submitBtn = form.querySelector('button[type="submit"]');
-        form.addEventListener('submit', function(e){
-            e.preventDefault();
-            var formData = new FormData(form);
-            var originalLabel = submitBtn.textContent;
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Submitting…';
-            if (status) { status.textContent = ''; status.className = 'text-xs text-center'; }
-            fetch(form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
-                method: 'POST',
-                body: formData,
-                headers: { 'Accept': 'application/json' }
-            }).then(function(res){
-                if (!res.ok) throw new Error('Request failed');
-                return res.json();
-            }).then(function(){
-                form.reset();
-                if (status) { status.textContent = "Thanks — I'll review this before our call."; status.className = 'text-xs text-center text-accentGold'; }
-            }).catch(function(){
-                if (status) { status.textContent = 'Something went wrong. Please email lana@xixistrategy.com directly.'; status.className = 'text-xs text-center text-red-500'; }
-            }).finally(function(){
-                submitBtn.disabled = false;
-                submitBtn.textContent = originalLabel;
-            });
-        });
-    })();
-
     (function(){
         var form = document.getElementById('quickContactForm');
         if(!form) return;
@@ -384,7 +295,6 @@
             });
         });
     })();
-
     (function(){
         var fc = document.getElementById('floatingContact');
         if(!fc) return;
@@ -396,7 +306,6 @@
             });
         }, 2500);
     })();
-
     (function(){
         var fc = document.getElementById('floatingContact');
         var footer = document.getElementById('contact');

@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light">
     <title>XI:XI | Strategic Finance &amp; Business Optimization</title>
-    <meta name="description" content="Independent strategic finance and business optimization practice led by Svitlana 'Lana' Tselishchev. Rigorous statement-to-ledger verification and on-site resolution for businesses with messy books.">
+    <meta name="description" content="Independent strategic finance and business optimization practice led by Svitlana 'Lana' Tselishchev. Clear financial diagnostics. Fixes built to hold.">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -14,14 +15,14 @@
     <!-- Open Graph / Twitter -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="XI:XI | Strategic Finance &amp; Business Optimization">
-    <meta property="og:description" content="Independent strategic finance and business optimization practice led by Svitlana 'Lana' Tselishchev. Rigorous statement-to-ledger verification and on-site resolution for businesses with messy books.">
+    <meta property="og:description" content="Independent strategic finance and business optimization practice led by Svitlana 'Lana' Tselishchev. Clear financial diagnostics. Fixes built to hold.">
     <meta property="og:url" content="https://xixistrategy.com/">
     <meta property="og:image" content="https://xixistrategy.com/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="XI:XI | Strategic Finance &amp; Business Optimization">
-    <meta name="twitter:description" content="Independent strategic finance and business optimization practice led by Svitlana 'Lana' Tselishchev. Rigorous statement-to-ledger verification and on-site resolution for businesses with messy books.">
+    <meta name="twitter:description" content="Independent strategic finance and business optimization practice led by Svitlana 'Lana' Tselishchev. Clear financial diagnostics. Fixes built to hold.">
     <meta name="twitter:image" content="https://xixistrategy.com/og-image.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,7 +54,7 @@
         }
     </script>
     <style>
-        html { scrollbar-gutter: stable; scroll-padding-top: 6rem; }
+        html { scrollbar-gutter: stable; scroll-padding-top: 6rem; color-scheme: light; }
         body {
             background-color: #F7F4EF;
             color: #1A1A1A;
@@ -181,6 +182,8 @@
         .service-card.pillar-controls { border-left: 3px solid #1A1A1A; }
         .service-card.pillar-data { border-left: 3px solid #C5A880; }
         .service-card.pillar-precision { border-left: 3px solid #9E825C; }
+        .service-card.pillar-international { border-left: 3px solid #6B655D; }
+        .service-card.pillar-deliverable { border-left: 4px solid #C5A880; }
 
         .terms-card-featured {
             transition: box-shadow 0.3s ease, transform 0.3s ease;
@@ -285,7 +288,7 @@
                 </h1>
 
                 <p class="font-serif italic text-xl sm:text-2xl text-accentGold leading-snug">
-                    Structured controls, clean data, and precision for your financial operations.
+                    Clear financial diagnostics. Fixes built to hold.
                 </p>
 
                 <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-4 pt-2">
@@ -298,6 +301,7 @@
                 </div>
 
                 <p class="text-xs uppercase tracking-widest text-zinc-400 !mt-3">For corporate revenue, multi-entity holdings, and growing businesses.</p>
+                <p class="font-serif italic text-xs text-zinc-500 !mt-4 flex items-center gap-2"><span class="inline-block w-4 h-px bg-accentGold/50" aria-hidden="true"></span>Founded &amp; led by Lana Tselishchev, Accountant</p>
             </div>
 
             <!-- Docking slot: invisible target for the header-logo scroll
@@ -315,8 +319,27 @@
 
     <!-- Scope of Services Section -->
     <section id="services" class="py-14 sm:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
-        <div class="max-w-3xl mb-10 space-y-3">
+        <div class="max-w-3xl mb-8 space-y-3">
             <h2 class="font-serif text-3xl lg:text-4xl text-charcoal">Scope of Services</h2>
+            <p class="text-sm text-mutedText leading-relaxed !mt-4">Every check below, across all four pillars, ends the same way — with these three deliverables:</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mb-12">
+            <div class="service-card pillar-deliverable p-5 bg-white border border-sand flex flex-col items-center text-center">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 text-accentGoldDark mb-3" aria-hidden="true"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"/><path d="M9 13h6"/><path d="M9 17h4"/></svg>
+                <h3 class="text-base font-semibold text-charcoal mb-1.5">Written Findings Summary</h3>
+                <p class="text-sm text-mutedText leading-relaxed">A clear breakdown of the operational gaps and financial leaks identified during diagnostic review.</p>
+            </div>
+            <div class="service-card pillar-deliverable p-5 bg-white border border-sand flex flex-col items-center text-center">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 text-accentGoldDark mb-3" aria-hidden="true"><path d="M9 6h11"/><path d="M9 12h11"/><path d="M9 18h11"/><path d="M4 6h.01"/><path d="M4 12h.01"/><path d="M4 18h.01"/></svg>
+                <h3 class="text-base font-semibold text-charcoal mb-1.5">Step-by-Step SOP</h3>
+                <p class="text-sm text-mutedText leading-relaxed">Process documentation built for your team to execute independently.</p>
+            </div>
+            <div class="service-card pillar-deliverable p-5 bg-white border border-sand flex flex-col items-center text-center">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 text-accentGoldDark mb-3" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 3v18"/><path d="M15 3v18"/></svg>
+                <h3 class="text-base font-semibold text-charcoal mb-1.5">Locked Excel System</h3>
+                <p class="text-sm text-mutedText leading-relaxed">An advanced, automated workbook engineered for ongoing, standalone use.</p>
+            </div>
         </div>
 
         <div class="mb-3">
@@ -447,6 +470,49 @@
                 </div>
             </a>
         </div>
+
+        <div class="mb-3">
+            <span class="text-xs uppercase tracking-widest text-accentGold font-semibold">International &amp; Multi-Currency</span>
+            <span class="text-xs text-mutedText/80"> — Cross-Border Reconciliation &amp; Reporting</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <a href="#terms" class="service-card pillar-international group block p-5 bg-white border border-sand flex flex-col justify-between">
+                <div>
+                    <h3 class="text-base font-semibold text-charcoal group-hover:text-accentGoldDark transition-colors">Multi-Currency Revenue Reconciliation</h3>
+                    <span class="service-tag">FX &amp; Platform Payout Matching</span>
+                    <div class="service-goal mt-3">
+                        <p class="text-sm text-mutedText leading-relaxed"><span class="font-semibold text-charcoal">Goal:</span> Match international revenue and marketplace payouts against actual bank deposits, accounting for FX timing differences and platform commissions.</p>
+                    </div>
+                </div>
+            </a>
+            <a href="#terms" class="service-card pillar-international group block p-5 bg-white border border-sand flex flex-col justify-between">
+                <div>
+                    <h3 class="text-base font-semibold text-charcoal group-hover:text-accentGoldDark transition-colors">International AP &amp; Vendor Payment Reconciliation</h3>
+                    <span class="service-tag">Cross-Border Vendor Verification</span>
+                    <div class="service-goal mt-3">
+                        <p class="text-sm text-mutedText leading-relaxed"><span class="font-semibold text-charcoal">Goal:</span> Verify payments to foreign vendors and contractors match invoiced amounts once FX conversion is applied, catching double-payments and rate discrepancies.</p>
+                    </div>
+                </div>
+            </a>
+            <a href="#terms" class="service-card pillar-international group block p-5 bg-white border border-sand flex flex-col justify-between">
+                <div>
+                    <h3 class="text-base font-semibold text-charcoal group-hover:text-accentGoldDark transition-colors">Cross-Border Tax Adjustment Verification</h3>
+                    <span class="service-tag">VAT &amp; Indirect Tax Check</span>
+                    <div class="service-goal mt-3">
+                        <p class="text-sm text-mutedText leading-relaxed"><span class="font-semibold text-charcoal">Goal:</span> Confirm VAT and country-specific tax adjustments are calculated and recorded correctly against source documentation.</p>
+                    </div>
+                </div>
+            </a>
+            <a href="#terms" class="service-card pillar-international group block p-5 bg-white border border-sand flex flex-col justify-between">
+                <div>
+                    <h3 class="text-base font-semibold text-charcoal group-hover:text-accentGoldDark transition-colors">Multi-Entity, Multi-Currency Consolidation</h3>
+                    <span class="service-tag">Cross-Currency Intercompany Reporting</span>
+                    <div class="service-goal mt-3">
+                        <p class="text-sm text-mutedText leading-relaxed"><span class="font-semibold text-charcoal">Goal:</span> Reconcile combined books across entities operating in different currencies so intercompany balances net cleanly to zero.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
     </section>
 
     <!-- Transparent Terms Section -->
@@ -514,7 +580,7 @@
         <div class="max-w-3xl mb-8 space-y-3">
             <span class="text-xs uppercase tracking-[0.25em] text-accentGold font-semibold">— How We Engage</span>
             <h2 class="font-serif text-4xl lg:text-5xl text-charcoal">Client Onboarding &amp; Delivery</h2>
-            <p class="text-sm text-mutedText leading-relaxed !mt-4">A simple, three-part path from your first call to a finished, reconciled ledger — no ambiguity about what happens next or when.</p>
+            <p class="text-sm text-mutedText leading-relaxed !mt-4">A simple, three-part path from your first call to a written procedure and a custom Excel system built around your numbers — no ambiguity about what happens next or when.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch">
@@ -554,8 +620,8 @@
             <div class="terms-card-light bg-white p-6 rounded-lg border border-slate-200 flex flex-col justify-between min-h-[320px]">
                 <div>
                     <span class="block text-[10px] uppercase tracking-[0.2em] text-accentGoldDark font-semibold mb-3">— Step Three</span>
-                    <h3 class="font-serif text-lg text-charcoal mb-2">Receive Your Reconciliation</h3>
-                    <p class="text-sm text-mutedText leading-relaxed">Standard turnaround is 3–5 business days. Your finished, line-by-line reconciliation and variance summary are delivered straight through the vault.</p>
+                    <h3 class="font-serif text-lg text-charcoal mb-2">Receive Your Findings &amp; Fix</h3>
+                    <p class="text-sm text-mutedText leading-relaxed">Standard turnaround is 3–5 business days for the diagnostic. Every engagement beyond that lands with a written procedure and a custom Excel system built around your numbers — not just a report — delivered straight through the vault.</p>
                 </div>
                 <div class="mt-6 pt-4 border-t border-sand flex justify-center" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 text-accentGoldDark/70">
@@ -564,6 +630,19 @@
                         <path d="M9 14.5l2 2 4-4.5"/>
                     </svg>
                 </div>
+            </div>
+        </div>
+
+        <div class="mt-6 bg-charcoal text-cream p-6 sm:p-8 rounded-lg border border-accentGold flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
+            <div>
+                <span class="block text-[10px] uppercase tracking-[0.2em] text-accentGold font-semibold mb-2">— Ongoing Support (Optional)</span>
+                <h3 class="font-serif text-xl text-cream">Prefer we keep running it?</h3>
+                <p class="text-sm text-zinc-300 mt-2 max-w-md">Some clients take the finished SOP and dashboard and run it themselves. Others would rather we keep reconciling and updating it for them. The Managed Reconciliation &amp; Reporting retainer covers monthly or quarterly reconciliation, dashboard updates, and a variance summary — with sales tax filing available as an add-on.</p>
+            </div>
+            <div class="flex flex-col gap-2 shrink-0">
+                <a href="mailto:lana@xixistrategy.com?subject=Managed%20Reconciliation%20Retainer%20Inquiry" class="inline-flex items-center justify-center px-5 py-3 bg-accentGold text-charcoal text-xs uppercase tracking-widest font-bold hover:bg-cream transition-all">
+                    Ask About the Retainer
+                </a>
             </div>
         </div>
     </section>
@@ -659,7 +738,7 @@
                         </svg>
                     </div>
                 </div>
-                <p class="text-xs text-zinc-400 max-w-sm">Strategic finance &amp; business optimization, built on statement-to-ledger reconciliation — structured controls, clean data, and precision for your financial operations.</p>
+                <p class="text-xs text-zinc-400 max-w-sm">My process: diagnose via reconciliation, define the fix, and build it.</p>
                 <p class="text-xs font-mono text-accentGold">Call +1 (772) 210-9957</p>
                 <a href="story.html" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-accentGold hover:text-white transition-colors">
                     Meet the Accountant &amp; Founder<span aria-hidden="true">→</span>
