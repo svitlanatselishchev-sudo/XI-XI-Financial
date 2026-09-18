@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XI:XI — Operational Strategy &amp; Profit Optimization Practice</title>
+<meta name="description" content="I find the capital already inside your business — vendor drift, subscription bleed, cash-timing gaps — and recover it through direct implementation, not a report. Not a CPA or accounting firm.">
+<meta name="theme-color" content="#15130f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Montserrat:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     TOKENS
+  ============================================================ */
+  :root{
+    --ink:#15130f;
+    --ink-2:#211c16;
+    --ink-3:#2c261e;
+    --limestone:#eee5d3;
+    --limestone-2:#e3d7bd;
+    --stone:#a3927a;
+    --stone-2:#7d6f5b;
+    --brass:#8c6a3f;
+    --brass-bright:#ad8452;
+    --cream:#f4eee1;
+    --ink-text:#2a251e;
+    --ink-text-soft:#5a5142;
+
+    --font-display:'Playfair Display', Georgia, 'Times New Roman', serif;
+    --font-body:'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono:'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+    --max:1180px;
+    --pad:clamp(1.5rem, 4vw, 4rem);
+  }
+
+  /* ============================================================
+     RESET
+  ============================================================ */
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *,*::before,*::after{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+  body{
+    margin:0;
+    font-family:var(--font-body);
+    color:var(--ink-text);
+    background:var(--limestone);
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  img{max-width:100%; display:block;}
+  a{color:inherit; text-decoration:none;}
+  button{font-family:inherit; cursor:pointer;}
+  ul{margin:0; padding:0; list-style:none;}
+  h1,h2,h3,h4,p{margin:0;}
+  :focus-visible{outline:2px solid var(--brass); outline-offset:3px;}
+
+  /* subtle grain texture, used on dark sections only */
+  .grain{position:relative;}
+  .grain::after{
+    content:'';
+    position:absolute; inset:0;
+    pointer-events:none;
+    opacity:0.05;
+    mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  /* binding spine — the one structural flourish, hidden on small screens */
+  body::before{
+    content:'';
+    position:fixed;
+    top:0; left:0;
+    width:3px; height:100vh;
+    background:linear-gradient(180deg, transparent 0%, var(--brass) 12%, var(--brass) 88%, transparent 100%);
+    opacity:0.55;
+    z-index:5;
+  }
+  @media (max-width:820px){ body::before{ display:none; } }
+
+  .wrap{max-width:var(--max); margin:0 auto; padding-left:var(--pad); padding-right:var(--pad);}
+
+  .eyebrow-mono{
+    font-family:var(--font-mono);
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    color:var(--brass);
+  }
+
+  /* ============================================================
+     HEADER
+  ============================================================ */
+  header{
+    position:sticky; top:0; z-index:100;
+    background:rgba(238,229,211,0.92);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(140,106,63,0.25);
+  }
+  .header-inner{
+    max-width:var(--max); margin:0 auto;
+    padding:1.1rem var(--pad);
+    display:flex; align-items:center; justify-content:space-between;
+    gap:1.5rem;
+  }
+  .logo{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:1.35rem;
+    letter-spacing:0.03em;
+    color:var(--ink);
+    white-space:nowrap;
+  }
+  nav.primary-nav{
+    display:flex; align-items:center; gap:2.1rem;
+  }
+  nav.primary-nav a{
+    font-size:0.86rem;
+    font-weight:500;
+    color:var(--ink-text-soft);
+    position:relative;
+    padding:0.2rem 0;
+    transition:color .2s ease;
+  }
+  nav.primary-nav a:hover{color:var(--ink);}
+  nav.primary-nav a::after{
+    content:'';
+    position:absolute; left:0; right:100%; bottom:-2px;
+    height:1px; background:var(--brass);
+    transition:right .25s ease;
+  }
+  nav.primary-nav a:hover::after{right:0;}
+  nav.primary-nav a.active{color:var(--ink);}
+  nav.primary-nav a.active::after{right:0;}
+
+  .header-right{display:flex; align-items:center; gap:1.4rem;}
+  .phone-link{
+    font-family:var(--font-mono);
+    font-size:0.86rem;
+    color:var(--ink);
+    white-space:nowrap;
+    display:flex; align-items:center; gap:0.5rem;
+  }
+  .phone-link svg{width:14px; height:14px; flex:none;}
+
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    font-family:var(--font-body);
+    font-weight:600;
+    font-size:0.86rem;
+    padding:0.75rem 1.5rem;
+    border:1px solid var(--ink);
+    color:var(--ink);
+    background:transparent;
+    white-space:nowrap;
+    transition:background .22s ease, color .22s ease, border-color .22s ease;
+  }
+  .btn:hover{background:var(--ink); color:var(--limestone);}
+  .btn.solid{background:var(--ink); color:var(--limestone);}
+  .btn.solid:hover{background:var(--brass); border-color:var(--brass); color:var(--limestone);}
+  .btn.on-dark{border-color:var(--cream); color:var(--cream);}
+  .btn.on-dark:hover{background:var(--brass); border-color:var(--brass); color:var(--ink);}
+
+  .menu-toggle{
+    display:none;
+    background:none; border:none; padding:0.4rem;
+    flex-direction:column; gap:5px;
+  }
+  .menu-toggle span{width:22px; height:2px; background:var(--ink); display:block;}
+
+  @media (max-width:900px){
+    nav.primary-nav{display:none;}
+    .header-right .btn{display:none;}
+    .menu-toggle{display:flex;}
+  }
+
+  /* mobile drawer */
+  .drawer-backdrop{
+    position:fixed; inset:0; background:rgba(21,19,15,0.55);
+    opacity:0; pointer-events:none; transition:opacity .25s ease;
+    z-index:200;
+  }
+  .drawer{
+    position:fixed; top:0; right:0; height:100%; width:min(84vw, 360px);
+    background:var(--ink); color:var(--cream);
+    transform:translateX(100%);
+    transition:transform .3s ease;
+    z-index:201;
+    padding:2rem 1.75rem;
+    display:flex; flex-direction:column; gap:2rem;
+  }
+  body.nav-open .drawer{transform:translateX(0);}
+  body.nav-open .drawer-backdrop{opacity:1; pointer-events:auto;}
+  .drawer-close{align-self:flex-end; background:none; border:none; color:var(--cream); font-size:1.6rem; line-height:1; padding:0.25rem;}
+  .drawer nav{display:flex; flex-direction:column; gap:1.4rem;}
+  .drawer nav a{font-family:var(--font-display); font-size:1.35rem; font-weight:500;}
+  .drawer .phone-link{color:var(--cream);}
+  .drawer .btn{align-self:flex-start;}
+
+  /* ============================================================
+     HERO
+  ============================================================ */
+  .hero{
+    padding:clamp(4.5rem,10vw,8rem) 0 clamp(3.5rem,8vw,6rem);
+  }
+  .hero-inner{max-width:var(--max); margin:0 auto; padding:0 var(--pad);}
+  .hero h1{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:clamp(2.6rem, 6.4vw, 5.3rem);
+    line-height:1.04;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+    max-width:16ch;
+  }
+  .hero .lede{
+    margin-top:1.9rem;
+    font-size:clamp(1.05rem,1.6vw,1.25rem);
+    line-height:1.65;
+    color:var(--ink-text-soft);
+    max-width:52ch;
+  }
+  .hero .actions{
+    margin-top:2.4rem;
+    display:flex; flex-wrap:wrap; align-items:center; gap:1.6rem;
+  }
+  .hero .meta-row{
+    margin-top:3.2rem;
+    padding-top:1.6rem;
+    border-top:1px solid rgba(140,106,63,0.35);
+    display:flex; flex-wrap:wrap; gap:2.2rem;
+  }
+  .hero .meta-row div{font-family:var(--font-mono); font-size:0.75rem; letter-spacing:0.06em; color:var(--stone-2);}
+  .hero .meta-row span{display:block; color:var(--ink); font-size:0.9rem; margin-top:0.3rem; font-family:var(--font-body); font-weight:600;}
+
+  /* one deliberate load animation */
+  .hero h1, .hero .lede, .hero .actions, .hero .meta-row{
+    animation:rise .8s cubic-bezier(.2,.7,.2,1) both;
+  }
+  .hero h1{animation-delay:.05s;}
+  .hero .lede{animation-delay:.2s;}
+  .hero .actions{animation-delay:.34s;}
+  .hero .meta-row{animation-delay:.46s;}
+  @keyframes rise{from{opacity:0; transform:translateY(16px);} to{opacity:1; transform:translateY(0);}}
+
+  /* ============================================================
+     CLAIM / POSITIONING BAND
+  ============================================================ */
+  .claim{
+    background:var(--ink); color:var(--cream);
+    padding:clamp(4rem,9vw,6.5rem) 0;
+  }
+  .claim-inner{max-width:920px; margin:0 auto; padding:0 var(--pad);}
+  .claim p.big{
+    font-family:var(--font-display);
+    font-style:italic;
+    font-weight:500;
+    font-size:clamp(1.5rem,3.4vw,2.5rem);
+    line-height:1.4;
+  }
+  .claim p.big em{font-style:normal; color:var(--brass-bright);}
+  .claim .support{
+    margin-top:1.8rem;
+    font-size:1rem;
+    line-height:1.75;
+    color:#c9c0ae;
+    max-width:60ch;
+  }
+
+  /* ============================================================
+     SECTION SHELL
+  ============================================================ */
+  section{padding:clamp(4.5rem,9vw,7.5rem) 0;}
+  section[id]{scroll-margin-top:84px;}
+  .section-head{max-width:640px; margin-bottom:clamp(2.5rem,5vw,4rem);}
+  .section-head h2{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:clamp(1.9rem,3.6vw,2.9rem);
+    line-height:1.15;
+    color:var(--ink);
+  }
+  .section-head p{
+    margin-top:1rem;
+    font-size:1.02rem;
+    line-height:1.7;
+    color:var(--ink-text-soft);
+  }
+  section.on-dark .section-head h2{color:var(--cream);}
+  section.on-dark .section-head p{color:#c9c0ae;}
+
+  /* ============================================================
+     WHO WE WORK WITH — asymmetric dual track
+  ============================================================ */
+  .tracks{
+    display:grid;
+    grid-template-columns:1.35fr 1fr;
+    gap:0;
+    border-top:1px solid var(--stone);
+  }
+  .track{padding:clamp(2.2rem,4vw,3.4rem) clamp(1.6rem,3vw,3rem);}
+  .track-a{border-right:1px solid var(--stone);}
+  .track-b{background:var(--limestone-2);}
+  .track .kicker{font-family:var(--font-mono); font-size:0.74rem; letter-spacing:0.12em; color:var(--brass); display:block; margin-bottom:1rem;}
+  .track h3{font-family:var(--font-display); font-weight:600; font-size:clamp(1.35rem,2.2vw,1.8rem); color:var(--ink); max-width:22ch;}
+  .track .verticals{margin-top:1.1rem; display:flex; flex-wrap:wrap; gap:0.5rem 0.8rem;}
+  .track .verticals span{font-size:0.82rem; color:var(--ink-text-soft); position:relative; padding-left:0.9rem;}
+  .track .verticals span::before{content:'—'; position:absolute; left:0; color:var(--stone);}
+  .track p.copy{margin-top:1.5rem; font-size:1rem; line-height:1.75; color:var(--ink-text-soft); max-width:48ch;}
+  .track-b p.copy{max-width:38ch; font-size:0.98rem;}
+
+  @media (max-width:840px){
+    .tracks{grid-template-columns:1fr;}
+    .track-a{border-right:none; border-bottom:1px solid var(--stone);}
+  }
+
+  /* ============================================================
+     HOW IT WORKS — genuine sequence
+  ============================================================ */
+  .steps{border-top:1px solid rgba(163,146,122,0.4);}
+  .step{
+    display:grid;
+    grid-template-columns:88px 1fr;
+    gap:clamp(1.2rem,3vw,2.5rem);
+    padding:clamp(1.8rem,3.5vw,2.6rem) 0;
+    border-bottom:1px solid rgba(163,146,122,0.4);
+  }
+  .step .num{font-family:var(--font-mono); font-size:1.1rem; color:var(--brass); padding-top:0.15rem;}
+  .step h3{font-family:var(--font-display); font-weight:600; font-size:clamp(1.2rem,2vw,1.5rem); color:var(--ink); margin-bottom:0.6rem;}
+  .step p{font-size:0.98rem; line-height:1.72; color:var(--ink-text-soft); max-width:60ch;}
+  .step .rule-tag{
+    display:inline-block; margin-top:0.9rem;
+    font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.06em;
+    color:var(--stone-2); border:1px solid var(--stone); padding:0.35rem 0.7rem;
+  }
+  @media (max-width:640px){
+    .step{grid-template-columns:1fr;}
+    .step .num{padding-top:0;}
+  }
+
+  /* ============================================================
+     HARD RULES
+  ============================================================ */
+  .rules{border-top:1px solid rgba(196,177,142,0.3);}
+  .rule{
+    display:grid; grid-template-columns:1fr 1.6fr; gap:clamp(1rem,3vw,3rem);
+    padding:clamp(1.6rem,3vw,2.2rem) 0;
+    border-bottom:1px solid rgba(196,177,142,0.3);
+  }
+  .rule h3{font-family:var(--font-body); font-weight:600; font-size:1.05rem; color:var(--cream);}
+  .rule p{font-size:0.96rem; line-height:1.72; color:#bdb29c;}
+  @media (max-width:700px){.rule{grid-template-columns:1fr; gap:0.6rem;}}
+
+  /* ============================================================
+     SERVICES — ledger style, no price tags
+  ============================================================ */
+  .ledger{border-top:1px solid var(--stone);}
+  .ledger-row{
+    display:grid;
+    grid-template-columns:1.2fr 2fr auto;
+    align-items:start;
+    gap:clamp(1rem,3vw,2.5rem);
+    padding:clamp(1.7rem,3vw,2.3rem) 1rem;
+    margin:0 -1rem;
+    border-bottom:1px solid var(--stone);
+    border-left:3px solid transparent;
+    transition:border-color .25s ease, background-color .25s ease;
+  }
+  .ledger-row:hover{border-left-color:var(--brass); background:rgba(140,106,63,0.05);}
+  .ledger-row h3{font-family:var(--font-display); font-weight:600; font-size:clamp(1.15rem,1.9vw,1.4rem); color:var(--ink);}
+  .ledger-row p{font-size:0.96rem; line-height:1.7; color:var(--ink-text-soft);}
+  .ledger-row .cta-mini{
+    font-family:var(--font-mono); font-size:0.78rem; letter-spacing:0.04em;
+    color:var(--brass); border-bottom:1px solid var(--brass); padding-bottom:2px;
+    white-space:nowrap; align-self:center; transition:color .2s ease, border-color .2s ease;
+  }
+  .ledger-row .cta-mini:hover{color:var(--ink); border-color:var(--ink);}
+  @media (max-width:760px){
+    .ledger-row{grid-template-columns:1fr;}
+    .ledger-row .cta-mini{margin-top:0.4rem;}
+  }
+  .fee-note{
+    margin-top:2.4rem; padding-top:2rem; border-top:1px dashed var(--stone);
+    max-width:60ch; font-size:0.95rem; line-height:1.75; color:var(--ink-text-soft);
+  }
+
+  /* ============================================================
+     FIT CHECK — pre-qualifier ahead of the contact ask
+  ============================================================ */
+  .fit-grid{
+    display:grid; grid-template-columns:1fr 1fr;
+    gap:clamp(1.6rem,4vw,3rem);
+    border-top:1px solid var(--stone);
+    padding-top:clamp(1.8rem,3vw,2.4rem);
+  }
+  .fit-col .kicker{font-family:var(--font-mono); font-size:0.74rem; letter-spacing:0.12em; color:var(--brass); display:block; margin-bottom:1.1rem;}
+  .fit-col ul{display:flex; flex-direction:column; gap:0.9rem;}
+  .fit-col li{font-size:0.98rem; line-height:1.65; color:var(--ink-text-soft); padding-left:1.15rem; position:relative;}
+  .fit-col li::before{content:'—'; position:absolute; left:0; color:var(--stone);}
+  @media (max-width:700px){.fit-grid{grid-template-columns:1fr;}}
+
+  /* ============================================================
+     FOUNDER
+  ============================================================ */
+  .founder-grid{
+    display:grid; grid-template-columns:280px 1fr; gap:clamp(2rem,5vw,4.5rem); align-items:center;
+  }
+  .founder-photo{
+    width:100%; aspect-ratio:1/1.02; border-radius:2px; overflow:hidden;
+    background:var(--ink-2);
+  }
+  .founder-photo img{width:100%; height:100%; object-fit:cover;}
+  .founder-text .name{font-family:var(--font-display); font-weight:600; font-size:clamp(1.6rem,2.6vw,2.1rem); color:var(--cream);}
+  .founder-text .title{font-family:var(--font-mono); font-size:0.78rem; letter-spacing:0.08em; color:var(--brass-bright); margin-top:0.5rem; display:block;}
+  .founder-text p.bio{margin-top:1.4rem; font-size:1rem; line-height:1.8; color:#c9c0ae; max-width:56ch;}
+  @media (max-width:760px){
+    .founder-grid{grid-template-columns:1fr;}
+    .founder-photo{max-width:220px;}
+  }
+
+  /* ============================================================
+     CONTACT / FINAL CTA
+  ============================================================ */
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:clamp(2.5rem,5vw,5rem);}
+  .contact-direct h3{font-family:var(--font-display); font-weight:600; font-size:clamp(1.4rem,2.4vw,1.9rem); color:var(--ink); max-width:16ch;}
+  .contact-direct .big-phone{
+    display:inline-block; margin-top:1.6rem;
+    font-family:var(--font-mono); font-size:clamp(1.5rem,3vw,2.1rem);
+    color:var(--ink); border-bottom:2px solid var(--brass); padding-bottom:0.3rem;
+  }
+  .contact-direct p{margin-top:1.2rem; font-size:0.95rem; color:var(--ink-text-soft); line-height:1.7; max-width:42ch;}
+
+  form.inquiry{display:flex; flex-direction:column; gap:1.1rem;}
+  form.inquiry .field{display:flex; flex-direction:column; gap:0.4rem;}
+  form.inquiry label{font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.08em; color:var(--stone-2);}
+  form.inquiry input, form.inquiry select, form.inquiry textarea{
+    font-family:var(--font-body); font-size:0.98rem; color:var(--ink);
+    background:transparent; border:none; border-bottom:1px solid var(--stone);
+    padding:0.6rem 0.1rem; transition:border-color .2s ease;
+  }
+  form.inquiry input:focus, form.inquiry select:focus, form.inquiry textarea:focus{border-color:var(--brass);}
+  form.inquiry textarea{resize:vertical; min-height:80px;}
+  form.inquiry .submit-row{margin-top:0.6rem; display:flex; align-items:center; gap:1rem; flex-wrap:wrap;}
+  .form-note{font-size:0.82rem; color:var(--stone-2);}
+
+  @media (max-width:820px){.contact-grid{grid-template-columns:1fr;}}
+
+  /* ============================================================
+     FOOTER
+  ============================================================ */
+  footer{background:var(--ink); color:#a79a82; padding:3rem 0 2.2rem;}
+  .footer-top{display:flex; flex-wrap:wrap; justify-content:space-between; gap:2rem; padding-bottom:2rem; border-bottom:1px solid rgba(163,146,122,0.25);}
+  .footer-logo{font-family:var(--font-display); font-weight:600; font-size:1.2rem; color:var(--cream);}
+  footer nav{display:flex; flex-wrap:wrap; gap:1.6rem;}
+  footer nav a{font-size:0.85rem; transition:color .2s ease;}
+  footer nav a:hover{color:var(--cream);}
+  .footer-disclaimer{margin-top:1.8rem; font-size:0.82rem; line-height:1.7; max-width:70ch;}
+  .footer-bottom{margin-top:1.6rem; display:flex; flex-wrap:wrap; justify-content:space-between; gap:1rem; font-size:0.78rem; font-family:var(--font-mono);}
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="#top" class="logo">XI:XI</a>
+      <nav class="primary-nav" aria-label="Primary">
+        <a href="#who-we-work-with">Who I Work With</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#hard-rules">The Hard Rules</a>
+        <a href="#services">Engagements</a>
+      </nav>
+      <div class="header-right">
+        <a href="tel:+17722109957" class="phone-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +1 (772) 210-9957
+        </a>
+        <a href="#contact" class="btn solid">Request a Scoping Assessment</a>
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="drawer" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">&times;</button>
+    <nav aria-label="Mobile">
+      <a href="#who-we-work-with">Who I Work With</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#hard-rules">The Hard Rules</a>
+      <a href="#services">Engagements</a>
+    </nav>
+    <a href="tel:+17722109957" class="phone-link">+1 (772) 210-9957</a>
+    <a href="#contact" class="btn on-dark">Request a Scoping Assessment</a>
+  </aside>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-inner">
+        <h1>Find the money you're&nbsp;already making.</h1>
+        <p class="lede">I dig into your vendors, subscriptions, and payment terms to find the profit that's quietly leaking out of the business — and I fix it, in the room with you. So you can put that money back to work.</p>
+        <div class="actions">
+          <a href="#contact" class="btn solid">Request a Scoping Assessment</a>
+          <a href="tel:+17722109957" class="phone-link" style="font-size:0.95rem;">Call +1 (772) 210-9957</a>
+        </div>
+        <div class="meta-row">
+          <div>Practice type<span>Operational strategy &amp; profit optimization</span></div>
+          <div>Not<span>A CPA, accounting, or audit firm</span></div>
+          <div>Delivery<span>Live implementation, not a report</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLAIM / POSITIONING -->
+    <section class="claim grain">
+      <div class="claim-inner">
+        <p class="big">XI:XI is an operational strategy and profit-optimization practice — <em>not</em> a cost-cutting firm, and not an accounting firm.</p>
+        <p class="support">The claim I make is narrow and specific: money your business is already making, but losing to leaks — vendor price creep, subscription bleed, cash-timing gaps between what you pay out and what comes in. I find it. Then I recover it, through direct implementation rather than a document you file away.</p>
+      </div>
+    </section>
+
+    <!-- WHO I WORK WITH -->
+    <section id="who-we-work-with">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Two ways in. One standard of work.</h2>
+          <p>How an engagement is scoped shifts by client. What I'm accountable for delivering doesn't.</p>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="tracks">
+          <div class="track track-a">
+            <span class="kicker">Track A</span>
+            <h3>For firms and portfolios with real complexity.</h3>
+            <div class="verticals">
+              <span>Legal</span><span>Marine &amp; Aviation</span><span>Real Estate Portfolios</span><span>Professional Services</span>
+            </div>
+            <p class="copy">Across a portfolio this size, small misalignments compound. I find where capital is quietly leaking — vendor drift, payment-term inefficiencies, cash-timing gaps — and fix it in the room with you. So you can run the operation with the same precision you bring to the practice itself.</p>
+          </div>
+          <div class="track track-b">
+            <span class="kicker">Track B</span>
+            <h3>For owners running the business day to day.</h3>
+            <div class="verticals"><span>Trades &amp; Contractors</span></div>
+            <p class="copy">You didn't start this business to chase vendor invoices. I find the money leaking out of your subscriptions and supplier bills, fix it, and hand you back a business that runs tighter — so you can get back to the work.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" style="background:var(--limestone-2);">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>How it works.</h2>
+          <p>Four steps. No standalone reports at any point in the sequence.</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <span class="num">01</span>
+            <div>
+              <h3>You send statements, not credentials.</h3>
+              <p>CSV or PDF exports — bank statements, subscription lists, vendor invoices. No live bank login, no API pull, no third-party sync tool granted access to your accounts. If it can't be exported as a file, I don't touch it.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="num">02</span>
+            <div>
+              <h3>I surface the top three.</h3>
+              <p>Every review turns up more than three issues. I don't hand you all of them. Findings are ranked by recovery size and cut to the three that matter most this cycle — because a list of twenty gets filed away, and a list of three gets done.</p>
+              <span class="rule-tag">Capped at 3 per cycle</span>
+            </div>
+          </div>
+          <div class="step">
+            <span class="num">03</span>
+            <div>
+              <h3>I fix it live, with you.</h3>
+              <p>The deliverable is a working session, not an inbox attachment. I pull up the actual accounts and act — cancel the subscription, draft the vendor call, adjust the invoice term — while you're in the room.</p>
+              <span class="rule-tag">No email-only delivery</span>
+            </div>
+          </div>
+          <div class="step">
+            <span class="num">04</span>
+            <div>
+              <h3>I check the bank, not my notes.</h3>
+              <p>Thirty days out, I pull the updated statement and confirm the recovered capital actually landed. That verification is what a case study is built on — not what I found, what showed up in the account.</p>
+              <span class="rule-tag">30-day checkpoint, mandatory</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HARD RULES -->
+    <section id="hard-rules" class="on-dark grain" style="background:var(--ink); color:var(--cream);">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>The hard rules.</h2>
+          <p>Boundaries I don't move for a bigger engagement or an easier sale.</p>
+        </div>
+        <div class="rules">
+          <div class="rule">
+            <h3>Not a CPA or accounting firm.</h3>
+            <p>I don't prepare, compile, or review financial statements, and I don't provide audit, tax, or assurance services of any kind. If a finding touches something that needs a CPA or an attorney, I say so and step aside.</p>
+          </div>
+          <div class="rule">
+            <h3>Zero-trust data handling.</h3>
+            <p>I work only from the records and statements you provide — no live bank connections, no automated sync, no standing access to an account. Every figure that reaches a working session has been manually verified, line by line, against your original source document. Nothing is trusted until I've checked it by hand.</p>
+          </div>
+          <div class="rule">
+            <h3>Active recovery, not a report.</h3>
+            <p>A finding that isn't implemented isn't worth anything. Every engagement ends in a live session where the fix happens on the spot — cancellation, renegotiation, or a corrected term — not a PDF for someone to action later.</p>
+          </div>
+          <div class="rule">
+            <h3>Scope stops at what you gave me.</h3>
+            <p>My analysis is limited strictly to the records and statements you provide. I don't make representations about your business beyond that scope, and I don't extend findings into areas — legal, tax, investment — outside operational strategy.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>The engagements.</h2>
+          <p>Every engagement is scoped individually against the complexity of what I'm reviewing. There's no shelf price to quote before I've seen the accounts — the assessment call is where we set scope and fee together.</p>
+        </div>
+        <div class="ledger">
+          <div class="ledger-row">
+            <h3>Capital Leak Diagnostic</h3>
+            <p>The entry engagement. A full vendor, subscription, and payment-term review, delivered as a live working session — not a document.</p>
+            <a href="#contact" class="cta-mini">Start with this one</a>
+          </div>
+          <div class="ledger-row">
+            <h3>Expense Optimization Sprint</h3>
+            <p>Active supplier renegotiation, subscription consolidation, and vendor-drift correction, run in capped, three-item implementation cycles.</p>
+            <a href="#contact" class="cta-mini">Ask about this</a>
+          </div>
+          <div class="ledger-row">
+            <h3>Working Capital &amp; Cash-Timing Realignment</h3>
+            <p>For asset-heavy operations and portfolios: closing the gap between when cash goes out and when it comes in.</p>
+            <a href="#contact" class="cta-mini">Talk through fit</a>
+          </div>
+          <div class="ledger-row">
+            <h3>Operational Health Diagnostic</h3>
+            <p>The broader review, for clients engaging the full operational-strategy scope rather than expense recovery alone.</p>
+            <a href="#contact" class="cta-mini">Discuss scope</a>
+          </div>
+          <div class="ledger-row">
+            <h3>Oversight Retainer</h3>
+            <p>Ongoing quarterly re-diagnostics and implementation check-ins once the initial recovery work is verified and closed.</p>
+            <a href="#contact" class="cta-mini">Ask about ongoing work</a>
+          </div>
+        </div>
+        <p class="fee-note">Fees are structured as a flat engagement fee tied to the diagnostic and the implementation work itself — never billed hourly, and never estimated before I've seen your actual records. Request an assessment and I'll scope it directly with you.</p>
+      </div>
+    </section>
+
+    <!-- FOUNDER -->
+    <section id="founder" class="on-dark grain" style="background:var(--ink);">
+      <div class="wrap">
+        <div class="founder-grid">
+          <div class="founder-photo">
+            <img src="data:image/jpeg;base64,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" alt="Portrait of Lana Tselishchev, Founder of XI:XI">
+          </div>
+          <div class="founder-text">
+            <span class="name">Lana Tselishchev</span>
+            <span class="title">Founder &amp; Operational Strategist</span>
+            <p class="bio">I run XI:XI on a simple premise: the money is usually already there. Most owner-operators are too close to the day-to-day to see where it's leaking, and most reports are too long to act on. I work every engagement the same way — find what's leaking, get in the room, fix it, and verify it landed. No exceptions for a bigger client, no shortcuts for a smaller one.</p>
+            <p class="bio">There's no team behind XI:XI fielding your call or reviewing your file. It's me, and that's deliberate — fewer hands on your data means fewer chances something gets missed, and the person who found the leak is the same person sitting across from you when it gets fixed.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FIT CHECK -->
+    <section id="fit-check">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Is this the right call?</h2>
+          <p>High-ticket work only makes sense when it's a fit on both sides. Read this before you request an assessment.</p>
+        </div>
+        <div class="fit-grid">
+          <div class="fit-col fit-yes">
+            <span class="kicker">This works when</span>
+            <ul>
+              <li>You already suspect something's off in the numbers and want it found, not just reported.</li>
+              <li>You can sit through a working session, not just receive a file and move on.</li>
+              <li>The amount at stake is meaningful enough to justify a diagnostic, not a five-dollar subscription.</li>
+            </ul>
+          </div>
+          <div class="fit-col fit-no">
+            <span class="kicker">This isn't</span>
+            <ul>
+              <li>Monthly bookkeeping or a software subscription.</li>
+              <li>A one-off favor squeezed in between other clients.</li>
+              <li>The right fit if you want it cheap and fast more than you want it right.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="fee-note" style="border-top:none; padding-top:0;">If it's not a fit, I'll tell you on the call — not after I've taken your money.</p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" style="background:var(--limestone-2);">
+      <div class="wrap">
+        <div class="contact-grid">
+          <div class="contact-direct">
+            <h3>Ready to see what's leaking?</h3>
+            <a href="tel:+17722109957" class="big-phone">+1 (772) 210-9957</a>
+            <p>Call directly, email me at <a href="mailto:hello@xi-xi.com" style="border-bottom:1px solid var(--stone);">hello@xi-xi.com</a>, or send the details and I'll follow up personally to schedule your assessment. Either way, you're talking to me — not a queue.</p>
+          </div>
+          <form class="inquiry" id="inquiryForm">
+            <div class="field">
+              <label for="f-name">Name</label>
+              <input id="f-name" name="name" type="text" required>
+            </div>
+            <div class="field">
+              <label for="f-company">Company</label>
+              <input id="f-company" name="company" type="text" required>
+            </div>
+            <div class="field">
+              <label for="f-vertical">Which best describes you</label>
+              <select id="f-vertical" name="vertical" required>
+                <option value="">Select one</option>
+                <option>Legal</option>
+                <option>Marine / Aviation</option>
+                <option>Real Estate Portfolio</option>
+                <option>Professional Services</option>
+                <option>Trades / Contractor</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-message">What's prompting the call (optional)</label>
+              <textarea id="f-message" name="message"></textarea>
+            </div>
+            <div class="submit-row">
+              <button type="submit" class="btn solid">Request a Scoping Assessment</button>
+              <span class="form-note">Opens your email client, addressed and ready to send.</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="grain">
+    <div class="wrap">
+      <div class="footer-top">
+        <span class="footer-logo">XI:XI</span>
+        <nav aria-label="Footer">
+          <a href="#who-we-work-with">Who I Work With</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#hard-rules">The Hard Rules</a>
+          <a href="#services">Engagements</a>
+          <a href="#contact">Request an Assessment</a>
+        </nav>
+      </div>
+      <p class="footer-disclaimer">XI:XI is an operational strategy and profit optimization practice. I am not a CPA and don't operate an accounting firm — I don't provide audit, tax, or assurance services. My work is limited strictly to the records and statements you provide.</p>
+      <div class="footer-bottom">
+        <span>+1 (772) 210-9957</span>
+        <span>&copy; 2026 XI:XI. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  // Mobile drawer: simple, robust class-toggle implementation
+  // (chosen deliberately over the Popover-API drawer pattern — this is a
+  // single static file and this approach needs no feature detection).
+  (function(){
+    var toggle = document.getElementById('menuToggle');
+    var closeBtn = document.getElementById('drawerClose');
+    var drawer = document.getElementById('drawer');
+    var backdrop = document.getElementById('drawerBackdrop');
+    var main = document.querySelector('main');
+
+    function openDrawer(){
+      document.body.classList.add('nav-open');
+      toggle.setAttribute('aria-expanded','true');
+      drawer.setAttribute('aria-hidden','false');
+      if (main) main.inert = true;
+      closeBtn.focus();
+    }
+    function closeDrawer(){
+      document.body.classList.remove('nav-open');
+      toggle.setAttribute('aria-expanded','false');
+      drawer.setAttribute('aria-hidden','true');
+      if (main) main.inert = false;
+      toggle.focus();
+    }
+    toggle.addEventListener('click', openDrawer);
+    closeBtn.addEventListener('click', closeDrawer);
+    backdrop.addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape' && document.body.classList.contains('nav-open')) closeDrawer();
+    });
+    drawer.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', closeDrawer);
+    });
+  })();
+
+  // Highlight the primary nav link matching the section in view.
+  (function(){
+    var navLinks = document.querySelectorAll('nav.primary-nav a');
+    var sections = Array.prototype.slice.call(navLinks).map(function(a){
+      return document.querySelector(a.getAttribute('href'));
+    }).filter(Boolean);
+    if (!sections.length) return;
+    var map = new Map();
+    sections.forEach(function(sec, i){ map.set(sec, navLinks[i]); });
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        var link = map.get(entry.target);
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navLinks.forEach(function(a){ a.classList.remove('active'); });
+          link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    sections.forEach(function(sec){ observer.observe(sec); });
+  })();
+
+  // Inquiry form -> mailto (static page, no backend).
+  // TODO: replace INQUIRY_EMAIL with the real intake inbox before publishing.
+  (function(){
+    var INQUIRY_EMAIL = 'hello@xi-xi.com';
+    var form = document.getElementById('inquiryForm');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var name = form.name.value.trim();
+      var company = form.company.value.trim();
+      var vertical = form.vertical.value;
+      var message = form.message.value.trim();
+      var subject = encodeURIComponent('Scoping Assessment Request — ' + company);
+      var body = encodeURIComponent(
+        'Name: ' + name + '\n' +
+        'Company: ' + company + '\n' +
+        'Category: ' + vertical + '\n\n' +
+        message
+      );
+      window.location.href = 'mailto:' + INQUIRY_EMAIL + '?subject=' + subject + '&body=' + body;
+    });
+  })();
+</script>
+</body>
+</html>

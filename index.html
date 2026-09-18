@@ -324,21 +324,38 @@
             <p class="text-sm text-mutedText leading-relaxed !mt-4">Every check below, across all four pillars, ends the same way — with these three deliverables:</p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mb-12">
-            <div class="service-card pillar-deliverable p-5 bg-white border border-sand flex flex-col items-center text-center">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 text-accentGoldDark mb-3" aria-hidden="true"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"/><path d="M9 13h6"/><path d="M9 17h4"/></svg>
-                <h3 class="text-base font-semibold text-charcoal mb-1.5">Written Findings Summary</h3>
-                <p class="text-sm text-mutedText leading-relaxed">A clear breakdown of the operational gaps and financial leaks identified during diagnostic review.</p>
+        <!-- Mobile: one bordered list with thin dividers, no repeated card padding -->
+        <div class="sm:hidden max-w-4xl mb-6 bg-white border border-sand divide-y divide-sand">
+            <div class="pillar-deliverable flex items-center gap-2.5 py-2.5 px-3">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-accentGoldDark shrink-0" aria-hidden="true"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"/><path d="M9 13h6"/><path d="M9 17h4"/></svg>
+                <p class="text-xs text-mutedText leading-tight"><span class="font-semibold text-charcoal">Written Findings Summary.</span> A clear breakdown of operational gaps and financial leaks.</p>
             </div>
-            <div class="service-card pillar-deliverable p-5 bg-white border border-sand flex flex-col items-center text-center">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 text-accentGoldDark mb-3" aria-hidden="true"><path d="M9 6h11"/><path d="M9 12h11"/><path d="M9 18h11"/><path d="M4 6h.01"/><path d="M4 12h.01"/><path d="M4 18h.01"/></svg>
-                <h3 class="text-base font-semibold text-charcoal mb-1.5">Step-by-Step SOP</h3>
-                <p class="text-sm text-mutedText leading-relaxed">Process documentation built for your team to execute independently.</p>
+            <div class="pillar-deliverable flex items-center gap-2.5 py-2.5 px-3">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-accentGoldDark shrink-0" aria-hidden="true"><path d="M9 6h11"/><path d="M9 12h11"/><path d="M9 18h11"/><path d="M4 6h.01"/><path d="M4 12h.01"/><path d="M4 18h.01"/></svg>
+                <p class="text-xs text-mutedText leading-tight"><span class="font-semibold text-charcoal">Step-by-Step SOP.</span> Process documentation your team can run independently.</p>
             </div>
-            <div class="service-card pillar-deliverable p-5 bg-white border border-sand flex flex-col items-center text-center">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 text-accentGoldDark mb-3" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 3v18"/><path d="M15 3v18"/></svg>
-                <h3 class="text-base font-semibold text-charcoal mb-1.5">Locked Excel System</h3>
-                <p class="text-sm text-mutedText leading-relaxed">An advanced, automated workbook engineered for ongoing, standalone use.</p>
+            <div class="pillar-deliverable flex items-center gap-2.5 py-2.5 px-3">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-accentGoldDark shrink-0" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 3v18"/><path d="M15 3v18"/></svg>
+                <p class="text-xs text-mutedText leading-tight"><span class="font-semibold text-charcoal">Locked Excel System.</span> An advanced, automated workbook for standalone use.</p>
+            </div>
+        </div>
+
+        <!-- Desktop / tablet: original centered 3-card layout -->
+        <div class="hidden sm:grid sm:grid-cols-3 gap-3 max-w-4xl mb-8">
+            <div class="service-card pillar-deliverable p-3.5 bg-white border border-sand flex flex-col items-center text-center">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-accentGoldDark mb-1.5" aria-hidden="true"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"/><path d="M9 13h6"/><path d="M9 17h4"/></svg>
+                <h3 class="text-sm font-semibold text-charcoal mb-1">Written Findings Summary</h3>
+                <p class="text-xs text-mutedText leading-snug">A clear breakdown of the operational gaps and financial leaks identified during diagnostic review.</p>
+            </div>
+            <div class="service-card pillar-deliverable p-3.5 bg-white border border-sand flex flex-col items-center text-center">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-accentGoldDark mb-1.5" aria-hidden="true"><path d="M9 6h11"/><path d="M9 12h11"/><path d="M9 18h11"/><path d="M4 6h.01"/><path d="M4 12h.01"/><path d="M4 18h.01"/></svg>
+                <h3 class="text-sm font-semibold text-charcoal mb-1">Step-by-Step SOP</h3>
+                <p class="text-xs text-mutedText leading-snug">Process documentation built for your team to execute independently.</p>
+            </div>
+            <div class="service-card pillar-deliverable p-3.5 bg-white border border-sand flex flex-col items-center text-center">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-accentGoldDark mb-1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 3v18"/><path d="M15 3v18"/></svg>
+                <h3 class="text-sm font-semibold text-charcoal mb-1">Locked Excel System</h3>
+                <p class="text-xs text-mutedText leading-snug">An advanced, automated workbook engineered for ongoing, standalone use.</p>
             </div>
         </div>
 
@@ -831,7 +848,7 @@
                     </svg>
                     <p class="scale-caption mt-3 text-[10px] font-semibold tracking-[0.18em] uppercase text-accentGold">Hover to test variance</p>
                 </div>
-                <h3 class="font-serif text-2xl lg:text-3xl text-cream leading-tight">Two parallel records.<br><span class="italic text-accentGold">One absolute equilibrium.</span></h3>
+                <h3 class="font-serif text-2xl lg:text-3xl text-cream leading-tight">Parallel records.<br><span class="italic text-accentGold">Absolute equilibrium.</span></h3>
                 <p class="text-base text-zinc-300 leading-relaxed mt-4 max-w-sm mx-auto">
                     Between raw bank activity and internal reporting lies the margin for error. XI:XI eliminates the disconnect to deliver zero-variance clarity.
                 </p>
