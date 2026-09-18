@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light">
+    <title>Why Related Entity Balances Drift Apart — And How to Reconcile to Zero | XI:XI</title>
+    <meta name="description" content="Why intercompany balances between related entities drift apart, and the monthly routine that keeps them reconciled to zero.">
+
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon-180.png">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Why Related Entity Balances Drift Apart — And How to Reconcile to Zero | XI:XI">
+    <meta property="og:description" content="Why intercompany balances between related entities drift apart, and the monthly routine that keeps them reconciled to zero.">
+    <meta property="og:url" content="https://xixistrategy.com/blog/intercompany-balances-reconcile-to-zero.html">
+    <meta property="og:image" content="https://xixistrategy.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Why Related Entity Balances Drift Apart — And How to Reconcile to Zero | XI:XI">
+    <meta name="twitter:description" content="Why intercompany balances between related entities drift apart, and the monthly routine that keeps them reconciled to zero.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#F7F4EF', sand: '#EAE3D2', charcoal: '#1A1A1A', darkBg: '#121212',
+                        accentGold: '#C5A880', accentGoldDark: '#9E825C', mutedText: '#6B655D'
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scrollbar-gutter: stable; color-scheme: light; }
+        body {
+            background-color: #F7F4EF; color: #1A1A1A; font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden; line-height: 1.6; -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility;
+        }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F7F4EF; }
+        ::-webkit-scrollbar-thumb { background: #C5A880; border-radius: 4px; }
+        .frosted { -webkit-backdrop-filter: blur(20px) saturate(160%); backdrop-filter: blur(20px) saturate(160%); }
+        .service-goal { background: rgba(234,227,210,0.4); border-radius: 0.375rem; padding: 0.65rem 0.75rem; }
+        .article-prose h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #1A1A1A; margin-top: 2.25rem; margin-bottom: 0.75rem; }
+        .article-prose h3 { font-weight: 600; font-size: 1.05rem; color: #1A1A1A; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+        .article-prose p { color: #4B463F; margin-bottom: 1rem; line-height: 1.75; }
+        .article-prose ul { margin: 0.75rem 0 1.25rem 0; }
+        .article-prose li { display: flex; gap: 0.6rem; color: #4B463F; margin-bottom: 0.6rem; line-height: 1.6; }
+        .article-prose li::before { content: '\2014'; color: #C5A880; flex-shrink: 0; }
+        @keyframes fcPulse {
+            0% { box-shadow: 0 14px 34px rgba(20,20,20,0.28), 0 0 0 0 rgba(197,168,128,0.45); }
+            70% { box-shadow: 0 14px 34px rgba(20,20,20,0.28), 0 0 0 14px rgba(197,168,128,0); }
+            100% { box-shadow: 0 14px 34px rgba(20,20,20,0.28), 0 0 0 0 rgba(197,168,128,0); }
+        }
+        .floating-contact.pulse { animation: fcPulse 1.8s ease 2; }
+        .floating-contact { transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.2s ease, color 0.2s ease; }
+        .floating-contact.is-hidden { opacity: 0; transform: translateY(12px); pointer-events: none; }
+    </style>
+</head>
+<body class="antialiased selection:bg-accentGold selection:text-white">
+
+    <header class="fixed top-4 sm:top-5 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-1.25rem)] sm:w-[calc(100%-2.5rem)] max-w-6xl rounded-full border border-accentGold/30 bg-cream/95 frosted shadow-lg shadow-charcoal/10">
+        <div class="px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+            <a href="../index.html" class="flex items-center gap-2 sm:gap-3 shrink-0" role="img" aria-label="XI:XI — Strategic Finance &amp; Business Optimization">
+                <svg viewBox="20 46 148 52" class="h-8 sm:h-9 w-auto" aria-hidden="true" focusable="false">
+                    <text x="24" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="56" font-weight="500">
+                        <tspan fill="#1A1A1A">XI</tspan><tspan fill="#C5A880">:</tspan><tspan fill="#1A1A1A">XI</tspan>
+                    </text>
+                </svg>
+                <div class="hidden lg:flex items-center">
+                    <svg viewBox="190 46 270 52" class="h-8 sm:h-9 w-auto" aria-hidden="true" focusable="false">
+                        <line x1="200" y1="34" x2="200" y2="112" stroke="#C5A880" stroke-width="1"/>
+                        <text x="224" y="68" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" letter-spacing="3.5" fill="#1A1A1A">STRATEGIC FINANCE</text>
+                        <text x="224" y="90" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" letter-spacing="3.5" fill="#1A1A1A">BUSINESS OPTIMIZATION</text>
+                    </svg>
+                </div>
+            </a>
+            <nav class="hidden md:flex items-center space-x-4 lg:space-x-7 text-sm font-medium text-charcoal">
+                <a href="../index.html#services" class="hover:text-accentGold transition-colors">Services</a>
+                <a href="../insights.html" class="text-accentGold">Insights</a>
+                <a href="../story.html" class="hover:text-accentGold transition-colors">About</a>
+                <a href="../intake.html" class="hover:text-accentGold transition-colors">Client Intake</a>
+            </nav>
+            <div class="flex items-center gap-2 shrink-0">
+                <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-xs font-semibold uppercase tracking-wider bg-charcoal text-cream rounded-full hover:bg-accentGold hover:text-white transition-all">
+                    Book Free Assessment
+                </a>
+                <button id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu" class="md:hidden flex flex-col justify-center gap-1.5 w-10 h-10 items-center">
+                    <span class="block w-5 h-px bg-charcoal"></span>
+                    <span class="block w-5 h-px bg-charcoal"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <nav id="mobileMenu" class="md:hidden hidden flex-col fixed top-[4.75rem] sm:top-[5.25rem] left-1/2 -translate-x-1/2 z-40 w-[calc(100%-1.25rem)] sm:w-[calc(100%-2.5rem)] max-w-6xl rounded-3xl border border-accentGold/30 bg-cream/95 frosted shadow-xl px-6 py-5 space-y-4 text-sm font-medium text-charcoal">
+        <a href="../index.html#services" class="block hover:text-accentGold transition-colors">Services</a>
+        <a href="../insights.html" class="block text-accentGold">Insights</a>
+        <a href="../story.html" class="block hover:text-accentGold transition-colors">About</a>
+        <a href="../intake.html" class="block hover:text-accentGold transition-colors">Client Intake</a>
+        <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="block pt-2 text-center px-5 py-2.5 text-xs font-semibold uppercase tracking-wider bg-charcoal text-cream rounded-full">Book Free Assessment</a>
+    </nav>
+
+    <!-- Article Header -->
+    <section class="relative pt-32 sm:pt-40 pb-6 px-5 sm:px-6 max-w-3xl mx-auto">
+        <a href="../insights.html" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-accentGold hover:text-accentGoldDark transition-colors mb-4">
+            <span aria-hidden="true">←</span> Back to Insights
+        </a>
+        <span class="text-[10px] font-mono uppercase tracking-widest text-accentGold">Intercompany Accounting</span>
+        <h1 class="font-serif text-3xl sm:text-4xl text-charcoal mt-2 leading-tight">Why Related Entity Balances Drift Apart — And How to Reconcile to Zero</h1>
+        <div class="service-goal mt-5">
+            <p class="text-sm text-mutedText leading-relaxed"><span class="font-semibold text-charcoal">Key Takeaway:</span> Most intercompany mismatches trace back to timing — one entity books a transfer a month before the other does.</p>
+        </div>
+    </section>
+
+    <!-- Article Body -->
+    <article class="article-prose px-5 sm:px-6 pb-6 max-w-3xl mx-auto">
+
+        <p>On paper, intercompany balances between related entities should always net to zero: if Entity A shows a $40,000 receivable from Entity B, Entity B's books should show a matching $40,000 payable to Entity A. In practice, those two numbers drift apart almost every month — and almost never because anyone did anything wrong. They drift because of timing.</p>
+
+        <h2>1. Timing mismatches between the two entities' books</h2>
+        <p>When Entity A books a transfer on the last day of the month and Entity B doesn't record the corresponding entry until the transfer clears in the new month, the two ledgers will disagree at every month-end close until someone catches it.</p>
+
+        <h2>2. Rounding differences on recurring allocations</h2>
+        <p>Shared expenses split by percentage — rent, payroll processing, software subscriptions — can generate small rounding differences each time they're allocated between entities. A few cents a month becomes real money over a year if it's never reconciled.</p>
+
+        <h2>3. Loans or transfers recorded once instead of twice</h2>
+        <p>Every intercompany transfer needs a matching entry on both sides. A transfer entered on one entity's books but never mirrored on the other's — often because two different people or two different systems are managing each entity — leaves a permanent, growing gap.</p>
+
+        <h2>4. Inconsistent chart-of-accounts mapping</h2>
+        <p>If Entity A tracks intercompany activity under one account structure and Entity B tracks it differently, matching the two becomes a manual, error-prone exercise every time — which is exactly when things get missed.</p>
+
+        <h2>5. Manual journal entries without a shared source document</h2>
+        <p>When intercompany entries are keyed in from memory or a quick note rather than a single shared record of what actually moved and when, the two entities' books start telling two different stories about the same transaction.</p>
+
+        <h2>A monthly routine that keeps balances at zero</h2>
+        <ul>
+            <li>Maintain one shared log of every intercompany transfer — date, amount, and both entities involved — that both sets of books get entered from.</li>
+            <li>Reconcile the intercompany receivable/payable pair between every related entity at each month-end close, not just at year-end.</li>
+            <li>Flag and investigate any balance that doesn't net to exactly zero the same month it appears, before it rolls forward.</li>
+            <li>Standardize the chart-of-accounts treatment for intercompany activity across every entity in the group.</li>
+            <li>Review allocation percentages and rounding methodology at least once a year to make sure they still add up to 100%.</li>
+        </ul>
+        <p>Most intercompany drift isn't a red flag — it's a byproduct of running related entities with separate books and, often, separate people managing each one. The fix isn't more oversight; it's a single, line-by-line reconciliation between the entities on a fixed schedule.</p>
+
+    </article>
+
+    <!-- Conversion CTA Block -->
+    <section class="px-5 sm:px-6 pb-16 sm:pb-24 max-w-3xl mx-auto">
+        <div class="bg-charcoal text-cream p-6 sm:p-8 rounded-lg border border-accentGold flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
+            <div>
+                <span class="block text-[10px] uppercase tracking-[0.2em] text-accentGold font-semibold mb-2">— Fixed-Fee, Statement-Based Reconciliation</span>
+                <h3 class="font-serif text-xl text-cream">Running books across more than one entity?</h3>
+                <p class="text-sm text-zinc-300 mt-2 max-w-md">XI:XI reconciles intercompany balances to zero, on a fixed monthly schedule — before drift becomes a year-end scramble.</p>
+            </div>
+            <div class="flex flex-col gap-2 shrink-0">
+                <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-5 py-3 bg-accentGold text-charcoal text-xs uppercase tracking-widest font-bold hover:bg-cream transition-all">
+                    Book Free Assessment
+                </a>
+                <a href="../intake.html" class="inline-flex items-center justify-center gap-1 text-xs font-semibold uppercase tracking-wider text-accentGold hover:text-white transition-colors">
+                    Complete Client Intake Form<span aria-hidden="true">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact + Legal Disclaimer -->
+    <footer id="contact" class="bg-charcoal text-cream/70 py-16 px-5 sm:px-6 border-t border-zinc-800">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 mb-10">
+            <div class="md:col-span-5 space-y-3">
+                <div class="flex items-center gap-3" role="img" aria-label="XI:XI — Strategic Finance &amp; Business Optimization">
+                    <svg viewBox="20 46 148 52" class="h-6 w-auto" aria-hidden="true" focusable="false">
+                        <text x="24" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="56" font-weight="500">
+                            <tspan fill="#F7F4EF">XI</tspan><tspan fill="#C5A880">:</tspan><tspan fill="#F7F4EF">XI</tspan>
+                        </text>
+                    </svg>
+                    <div class="flex items-center">
+                        <svg viewBox="190 46 270 52" class="h-6 w-auto" aria-hidden="true" focusable="false">
+                            <line x1="200" y1="34" x2="200" y2="112" stroke="#C5A880" stroke-width="1"/>
+                            <text x="224" y="68" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" letter-spacing="3.5" fill="#E4E4E7">STRATEGIC FINANCE</text>
+                            <text x="224" y="90" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" letter-spacing="3.5" fill="#E4E4E7">BUSINESS OPTIMIZATION</text>
+                        </svg>
+                    </div>
+                </div>
+                <p class="text-xs text-zinc-400 max-w-sm">Strategic finance &amp; business optimization, built on statement-to-ledger reconciliation — structured controls, clean data, and precision for your financial operations.</p>
+                <p class="text-xs font-mono text-accentGold">Call +1 (772) 210-9957</p>
+            </div>
+            <div class="md:col-span-7 md:pl-8 md:border-l md:border-zinc-800/60">
+                <h2 class="font-serif text-2xl text-cream mb-1">Get In Touch</h2>
+                <h4 class="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-3">Send a Quick Message</h4>
+                <form id="quickContactForm" action="https://formsubmit.co/lana@xixistrategy.com" method="POST" class="space-y-3 max-w-md">
+                    <input type="hidden" name="_subject" value="New message from the XI:XI website">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                    <div>
+                        <label for="qc-name" class="sr-only">Name</label>
+                        <input id="qc-name" type="text" name="name" placeholder="Your name" required class="w-full bg-transparent border border-zinc-700 text-cream text-sm px-3 py-2.5 focus:border-accentGold outline-none placeholder:text-zinc-500">
+                    </div>
+                    <div>
+                        <label for="qc-email" class="sr-only">Email</label>
+                        <input id="qc-email" type="email" name="email" placeholder="Your email" required class="w-full bg-transparent border border-zinc-700 text-cream text-sm px-3 py-2.5 focus:border-accentGold outline-none placeholder:text-zinc-500">
+                    </div>
+                    <div>
+                        <label for="qc-message" class="sr-only">Message</label>
+                        <textarea id="qc-message" name="message" placeholder="What's going on with your books?" rows="3" required class="w-full bg-transparent border border-zinc-700 text-cream text-sm px-3 py-2.5 focus:border-accentGold outline-none placeholder:text-zinc-500"></textarea>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-3 pt-1">
+                        <button type="submit" class="flex-1 px-6 py-2.5 bg-accentGold text-white text-xs uppercase tracking-widest font-semibold hover:bg-accentGoldDark transition-all">Send Direct Message</button>
+                        <a href="mailto:lana@xixistrategy.com?subject=Referral%20Network%20Inquiry" class="flex-1 inline-flex items-center justify-center gap-2 px-6 py-2.5 border border-accentGold/50 text-accentGold text-xs uppercase tracking-widest font-semibold hover:bg-accentGold hover:text-white transition-all">
+                            External CPA &amp; Professional Referral Network
+                        </a>
+                    </div>
+                    <p id="qc-status" class="text-xs mt-1" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto pt-6 border-t border-zinc-800/60">
+            <p class="text-xs text-zinc-500 max-w-2xl leading-relaxed">XI:XI is an independent strategic finance and business optimization practice specializing in statement-to-ledger reconciliation — not a licensed Certified Public Accountant (CPA) firm or law firm. We do not provide attest services, formal financial statement reviews, audits, IRS representation, or legal advice.</p>
+        </div>
+        <div class="max-w-7xl mx-auto pt-6 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-center text-xs text-zinc-500">
+            <p>&copy; 2026 XI:XI. All rights reserved.</p>
+            <span class="hidden sm:inline text-zinc-700" aria-hidden="true">|</span>
+            <a href="../index.html#terms" class="hover:text-accentGold transition-colors">Terms</a>
+        </div>
+    </footer>
+
+    <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" id="floatingContact" class="floating-contact fixed right-4 bottom-4 sm:right-6 sm:bottom-6 z-[60] inline-flex items-center gap-2 bg-charcoal text-cream text-xs font-semibold uppercase tracking-wider px-5 py-3.5 rounded-full border border-accentGold/40 shadow-xl hover:bg-accentGold hover:text-white transition-all" aria-label="Book a call on Cal.com (opens in a new tab)">
+        <span class="w-1.5 h-1.5 rounded-full bg-accentGold"></span>
+        Book a Call
+    </a>
+
+    <script>
+    (function(){
+        var toggle = document.getElementById('menuToggle');
+        var menu = document.getElementById('mobileMenu');
+        if(!toggle || !menu) return;
+        function closeMenu(){ menu.classList.add('hidden'); menu.classList.remove('flex'); toggle.setAttribute('aria-expanded','false'); }
+        function openMenu(){ menu.classList.remove('hidden'); menu.classList.add('flex'); toggle.setAttribute('aria-expanded','true'); }
+        toggle.addEventListener('click', function(){
+            var isOpen = toggle.getAttribute('aria-expanded') === 'true';
+            isOpen ? closeMenu() : openMenu();
+        });
+        menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+    })();
+    (function(){
+        var form = document.getElementById('quickContactForm');
+        if(!form) return;
+        var status = document.getElementById('qc-status');
+        var submitBtn = form.querySelector('button[type="submit"]');
+        form.addEventListener('submit', function(e){
+            e.preventDefault();
+            var formData = new FormData(form);
+            var originalLabel = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending…';
+            if (status) { status.textContent = ''; status.className = 'text-xs mt-1'; }
+            fetch(form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
+                method: 'POST', body: formData, headers: { 'Accept': 'application/json' }
+            }).then(function(res){
+                if (!res.ok) throw new Error('Request failed');
+                return res.json();
+            }).then(function(){
+                form.reset();
+                if (status) { status.textContent = "Thanks — I'll get back to you shortly."; status.className = 'text-xs mt-1 text-accentGold'; }
+            }).catch(function(){
+                if (status) { status.textContent = 'Something went wrong. Please email lana@xixistrategy.com directly.'; status.className = 'text-xs mt-1 text-red-400'; }
+            }).finally(function(){
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalLabel;
+            });
+        });
+    })();
+    (function(){
+        var fc = document.getElementById('floatingContact');
+        if(!fc) return;
+        setTimeout(function(){
+            fc.classList.add('pulse');
+            fc.addEventListener('animationend', function handler(){
+                fc.classList.remove('pulse');
+                fc.removeEventListener('animationend', handler);
+            });
+        }, 2500);
+    })();
+    (function(){
+        var fc = document.getElementById('floatingContact');
+        var footer = document.getElementById('contact');
+        if(!fc || !footer || !('IntersectionObserver' in window)) return;
+        var observer = new IntersectionObserver(function(entries){
+            entries.forEach(function(entry){
+                fc.classList.toggle('is-hidden', entry.isIntersecting);
+            });
+        }, { rootMargin: '0px 0px -10% 0px' });
+        observer.observe(footer);
+    })();
+    </script>
+</body>
+</html>
