@@ -1,7 +1,7 @@
 <svg width="520" height="120" viewBox="0 0 520 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="logoTitle logoDesc">
   <title id="logoTitle">XI:XI Financial Operations</title>
   <desc id="logoDesc">XI:XI wordmark with a clear gold colon and financial operations descriptor.</desc>
-  <text x="8" y="68" fill="#171717" font-family="Georgia, 'Times New Roman', serif" font-size=" sixty" font-weight="500" letter-spacing="-2">XI</text>
+  <text x="8" y="68" fill="#171717" font-family="Georgia, 'Times New Roman', serif" font-size="60" font-weight="500" letter-spacing="-2">XI</text>
   <text x="91" y="68" fill="#B38D5A" font-family="Georgia, 'Times New Roman', serif" font-size="60" font-weight="700">:</text>
   <text x="119" y="68" fill="#171717" font-family="Georgia, 'Times New Roman', serif" font-size="60" font-weight="500" letter-spacing="-2">XI</text>
   <path d="M9 84H207" stroke="#D9C39F" stroke-width="2" stroke-linecap="round"/>
