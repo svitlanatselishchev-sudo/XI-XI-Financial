@@ -1,15 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 32" role="img" aria-labelledby="title desc">
-  <title id="title">XI:XI</title>
-  <desc id="desc">XI:XI wordmark paired with four aligned pillars and a centered point representing 11:11.</desc>
-  <g fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M3 4v24M10 4v24M30 4v24M37 4v24"/>
-    <path d="M15 16h10"/>
+<svg width="520" height="120" viewBox="0 0 520 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="logoTitle logoDesc">
+  <title id="logoTitle">XI:XI Financial Operations Consultancy</title>
+  <desc id="logoDesc">A premium XI:XI wordmark with a gold monogram representing the financial operations brand.</desc>
+  <defs>
+    <linearGradient id="goldGradient" x1="15" y1="10" x2="95" y2="95" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D7BD8C"/>
+      <stop offset="0.5" stop-color="#B38D5A"/>
+      <stop offset="1" stop-color="#8A6635"/>
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(12 10)">
+    <rect x="0" y="0" width="96" height="96" rx="22" fill="#171717"/>
+    <rect x="10" y="10" width="76" height="76" rx="18" stroke="url(#goldGradient)" stroke-width="2" opacity="0.9"/>
+
+    <path d="M26 31V69M26 31H40C47.732 31 54 37.268 54 45V45C54 52.732 47.732 59 40 59H26M26 59H40C47.732 59 54 65.268 54 73V73C54 80.732 47.732 87 40 87H26" stroke="url(#goldGradient)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M59 27L78 69M59 69L78 27" stroke="url(#goldGradient)" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="69" cy="86" r="4" fill="#D9C39F"/>
   </g>
-  <circle cx="20" cy="16" r="2" fill="currentColor"/>
-  <g fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M52 4 64 28M64 4 52 28M74 4v24M80 4v24"/>
-    <path d="M92 16h14"/>
-    <path d="M120 4 132 28M132 4 120 28M142 4v24M148 4v24"/>
+
+  <g transform="translate(126 18)">
+    <text x="0" y="52" font-size="46" font-weight="700" letter-spacing="-2" fill="#171717" font-family="Georgia, 'Times New Roman', serif">XI:XI</text>
+    <text x="2" y="79" font-size="12" font-weight="700" letter-spacing="4.2" fill="#80633D" font-family="'DM Sans', Arial, sans-serif">FINANCIAL OPERATIONS</text>
+    <rect x="0" y="90" width="168" height="2" rx="1" fill="#D9C39F"/>
   </g>
-  <circle cx="99" cy="16" r="2.25" fill="currentColor"/>
 </svg>
