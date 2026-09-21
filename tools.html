@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171717">
+  <meta name="description" content="Use XI:XI's service scope estimator and financial health check to choose a practical next step.">
+  <title>Tools | XI:XI Financial</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/interactive-tools.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="XI:XI home">XI<span>:</span>XI</a>
+    <nav aria-label="Primary navigation">
+      <a href="services.html">Services</a><a href="insights.html">Insights</a><a href="story.html">About</a><a href="intake.html">Get started</a>
+    </nav>
+    <a class="button button-dark" href="https://cal.com/xix-lana" target="_blank" rel="noopener">Book a call</a>
+  </header>
+
+  <main>
+    <section class="tools-hero wrap">
+      <p class="eyebrow">A clearer first step</p>
+      <h1>Understand what your business needs next.</h1>
+      <p class="lede">Use these quick tools to estimate the shape of an engagement and check how ready your financial operations are. They are conversation starters—not a substitute for reviewing your records.</p>
+    </section>
+
+    <section class="tool-section wrap" id="scope-estimator" aria-labelledby="scope-title">
+      <div class="section-heading"><p class="eyebrow">01 / Scope estimator</p><h2 id="scope-title">Get a practical starting point.</h2><p>Move the controls to describe the work. We’ll suggest a likely service tier and timeline before you book.</p></div>
+      <div class="tool-card estimator">
+        <div class="control-stack">
+          <label for="volume">Monthly transaction volume <output id="volumeValue" for="volume">500</output></label>
+          <input id="volume" type="range" min="100" max="5000" step="100" value="500">
+          <div class="range-labels"><span>100 transactions</span><span>5,000+</span></div>
+
+          <fieldset><legend>How much cleanup is needed?</legend><div class="choice-grid"><label><input type="radio" name="complexity" value="0" checked><span>Mostly organized<small>Some questions or gaps</small></span></label><label><input type="radio" name="complexity" value="2"><span>Some cleanup<small>Several months to untangle</small></span></label><label><input type="radio" name="complexity" value="4"><span>Significant cleanup<small>Records need a clear reset</small></span></label></div></fieldset>
+
+          <fieldset><legend>What kind of help do you need?</legend><div class="choice-grid choice-grid-two"><label><input type="radio" name="engagement" value="0" checked><span>One-time project<small>Fix a defined issue</small></span></label><label><input type="radio" name="engagement" value="2"><span>Ongoing support<small>Build a repeatable rhythm</small></span></label></div></fieldset>
+        </div>
+        <aside class="estimate-result" aria-live="polite"><p class="eyebrow">Your likely fit</p><strong id="tier">Focused diagnostic</strong><p id="timeline">Usually 1–2 weeks from kickoff.</p><p class="result-note">The exact scope and fee come after a short conversation about your records and goals.</p><a class="button button-gold" href="https://cal.com/xix-lana" target="_blank" rel="noopener">Book a consultation <span aria-hidden="true">→</span></a></aside>
+      </div>
+    </section>
+
+    <section class="tool-section tool-section-tint wrap" id="health-check" aria-labelledby="health-title">
+      <div class="section-heading"><p class="eyebrow">02 / Financial health check</p><h2 id="health-title">How ready are your numbers?</h2><p>Answer four plain-language questions. You’ll get a simple score and a recommended next step.</p></div>
+      <div class="tool-card quiz-card">
+        <div class="progress" aria-label="Quiz progress"><span id="progressBar"></span></div><p class="step-count" id="stepCount">Question 1 of 4</p>
+        <div id="quizQuestion" class="quiz-question"></div>
+        <div class="quiz-actions"><button class="button button-outline" id="backButton" type="button" hidden>Back</button><button class="button button-dark" id="nextButton" type="button" disabled>Next</button></div>
+        <div id="quizResult" class="quiz-result" hidden aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="security-band" aria-labelledby="security-title"><div class="wrap"><p class="eyebrow">03 / Your information</p><h2 id="security-title">Clear boundaries for sensitive records.</h2><div class="security-grid"><div><strong>Statements, not passwords.</strong><p>We work from the files you choose to share. No live bank login or standing account connection is required.</p></div><div><strong>Private by design.</strong><p>Confidential business information is used only to understand your situation and deliver the agreed work.</p></div><div><strong>Have a question?</strong><p>Use the info buttons for a plain-language explanation of each safeguard.</p></div></div><div class="tooltip-row"><button class="info-tip" type="button" aria-expanded="false" aria-controls="tip-encrypted">ⓘ <span>Encrypted document transmission</span></button><div class="tooltip-panel" id="tip-encrypted" role="status" hidden>Use a secure file-sharing method agreed during intake. Do not send passwords or full account credentials by email.</div><button class="info-tip" type="button" aria-expanded="false" aria-controls="tip-confidential">ⓘ <span>Confidentiality</span></button><div class="tooltip-panel" id="tip-confidential" role="status" hidden>Your records stay within the scope of the engagement and are not connected to an automated bank feed.</div></div></div></section>
+  </main>
+  <footer><div class="wrap footer-row"><strong>XI<span>:</span>XI</strong><span>Independent financial operations support for owners who need numbers they can trust.</span><a href="intake.html">Get started →</a></div></footer>
+  <script src="assets/interactive-tools.js" defer></script>
+</body>
+</html>
