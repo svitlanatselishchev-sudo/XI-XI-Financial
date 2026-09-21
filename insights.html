@@ -1,322 +1,133 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="light">
-    <title>Insights &amp; Case Studies | XI:XI</title>
-    <meta name="description" content="From the Ledger — reconciliation insights, Florida sales tax guidance, and multi-entity accounting case studies from XI:XI Strategy.">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
-
-    <!-- Open Graph / Twitter -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Insights &amp; Case Studies | XI:XI">
-    <meta property="og:description" content="From the Ledger — reconciliation insights, Florida sales tax guidance, and multi-entity accounting case studies from XI:XI Strategy.">
-    <meta property="og:url" content="https://xixistrategy.com/insights.html">
-    <meta property="og:image" content="https://xixistrategy.com/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Insights &amp; Case Studies | XI:XI">
-    <meta name="twitter:description" content="From the Ledger — reconciliation insights, Florida sales tax guidance, and multi-entity accounting case studies from XI:XI Strategy.">
-    <meta name="twitter:image" content="https://xixistrategy.com/og-image.png">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        cream: '#F7F4EF',
-                        sand: '#EAE3D2',
-                        charcoal: '#1A1A1A',
-                        darkBg: '#121212',
-                        accentGold: '#C5A880',
-                        accentGoldDark: '#9E825C',
-                        mutedText: '#6B655D'
-                    },
-                    fontFamily: {
-                        serif: ['"Playfair Display"', 'serif'],
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        html { scrollbar-gutter: stable; color-scheme: light; }
-        body {
-            background-color: #F7F4EF;
-            color: #1A1A1A;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            overflow-x: hidden;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeLegibility;
-        }
-        .font-serif { font-family: 'Playfair Display', serif; }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #F7F4EF; }
-        ::-webkit-scrollbar-thumb { background: #C5A880; border-radius: 4px; }
-        .frosted {
-            -webkit-backdrop-filter: blur(20px) saturate(160%);
-            backdrop-filter: blur(20px) saturate(160%);
-        }
-        .insight-accent-bar {
-            height: 4px;
-            background: linear-gradient(90deg, #C5A880 0%, #9E825C 50%, #C5A880 100%);
-        }
-        .service-goal { background: rgba(234,227,210,0.4); border-radius: 0.375rem; padding: 0.65rem 0.75rem; }
-        @keyframes fcPulse {
-            0% { box-shadow: 0 14px 34px rgba(20,20,20,0.28), 0 0 0 0 rgba(197,168,128,0.45); }
-            70% { box-shadow: 0 14px 34px rgba(20,20,20,0.28), 0 0 0 14px rgba(197,168,128,0); }
-            100% { box-shadow: 0 14px 34px rgba(20,20,20,0.28), 0 0 0 0 rgba(197,168,128,0); }
-        }
-        .floating-contact.pulse { animation: fcPulse 1.8s ease 2; }
-        .floating-contact {
-            transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.2s ease, color 0.2s ease;
-        }
-        .floating-contact.is-hidden {
-            opacity: 0;
-            transform: translateY(12px);
-            pointer-events: none;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#171717">
+  <meta name="description" content="XI:XI Financial guides on reconciliation, sales tax, and multi-entity accounting for business owners who want practical financial clarity.">
+  <title>Financial Guides | XI:XI</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink:#171717; --paper:#f7f4ef; --white:#fff; --gold:#c5a880; --gold-dark:#987b55; --muted:#69645d; --line:#e3dacb; --max:1180px; --shadow:0 22px 45px rgba(23,23,23,.08); }
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 'DM Sans',sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility} body.menu-open{overflow:hidden} a{color:inherit;text-decoration:none} button{font:inherit} .wrap{width:min(var(--max),calc(100% - 32px));margin:0 auto}
+    header{position:fixed;top:18px;left:50%;z-index:200;transform:translateX(-50%);width:min(1160px,calc(100% - 32px));padding:10px 14px 10px 22px;border:1px solid rgba(197,168,128,.55);border-radius:999px;background:rgba(247,244,239,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:var(--shadow)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font:500 28px/1 Georgia,serif;letter-spacing:-.03em;color:var(--ink);white-space:nowrap}.brand span{color:var(--gold-dark)} .nav{display:flex;align-items:center;justify-content:center;gap:28px;flex:1}.nav a{position:relative;font-size:14px;font-weight:600;color:var(--muted);transition:color .2s ease}.nav a::after{content:"";position:absolute;left:0;right:100%;bottom:-7px;height:2px;background:var(--gold);transition:right .22s ease}.nav a:hover,.nav a:focus-visible{color:var(--ink)} .nav a:hover::after,.nav a:focus-visible::after{right:0}
+    .header-cta{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 18px;border-radius:999px;background:var(--ink);color:var(--white);font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;transition:transform .2s ease,background-color .2s ease,color .2s ease;white-space:nowrap}.header-cta:hover,.header-cta:focus-visible{transform:translateY(-1px);background:var(--gold);color:var(--ink)}
+    .menu{display:none;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid var(--line);border-radius:50%;background:rgba(255,255,255,.2);padding:0;cursor:pointer;color:var(--ink)} .menu span{display:block;width:18px;height:2px;border-radius:99px;background:currentColor;position:relative}.menu span + span { margin-top:4px; }
+    .backdrop{position:fixed;inset:0;background:rgba(23,23,23,.42);opacity:0;pointer-events:none;transition:opacity .2s ease;z-index:120} body.menu-open .backdrop{opacity:1;pointer-events:auto}
+    .mobile-menu{position:fixed;top:88px;left:16px;right:16px;z-index:150;display:none;flex-direction:column;gap:18px;padding:22px 18px 16px;border:1px solid rgba(197,168,128,.45);border-radius:22px;background:rgba(247,244,239,.98);box-shadow:var(--shadow);transform:translateY(-8px);opacity:0;pointer-events:none;transition:opacity .2s ease,transform .2s ease}.mobile-menu.open{display:flex;opacity:1;pointer-events:auto;transform:translateY(0)}.mobile-menu a{font-size:15px;font-weight:600;color:var(--ink);padding:6px 0;border-bottom:1px solid rgba(23,23,23,.08)}.mobile-menu a:last-child{border-bottom:none;padding-top:10px}.mobile-menu .menu-cta{display:inline-flex;align-items:center;justify-content:center;min-height:42px;border-radius:999px;background:var(--ink);color:var(--white);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-top:8px}
+    .page-hero{padding:160px 0 44px}.eyebrow{color:var(--gold-dark);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700}.page-title{margin:18px 0 0;font:500 clamp(42px,5vw,70px)/1.02 'Playfair Display',Georgia,serif;letter-spacing:-.05em}.lede{max-width:720px;margin:18px auto 0;color:var(--muted);font-size:18px;line-height:1.7;text-align:center}
+    .guide-grid{padding:0 0 90px}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.card{background:var(--white);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 18px 32px rgba(23,23,23,.02)}.card-bar{height:6px;background:linear-gradient(90deg,var(--gold),var(--gold-dark));}.card-body{padding:22px}.tag{display:inline-block;color:var(--gold-dark);font-size:11px;font-weight:700;letter-spacing:.17em;text-transform:uppercase}.card h3{margin:12px 0 12px;font:500 26px/1.15 'Playfair Display',Georgia,serif;letter-spacing:-.04em}.card p{margin:0 0 18px;color:var(--muted);line-height:1.7}.card a{color:var(--gold-dark);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+    footer{padding:55px 0 28px;background:#111;color:#aaa}.footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px}.footer-brand{color:var(--white);font:500 30px Georgia,serif}.footer-brand span{color:var(--gold)}.footer-copy{margin-top:18px;max-width:440px;line-height:1.7;color:rgba(255,255,255,.72)}.footer-links{display:flex;flex-wrap:wrap;justify-content:flex-end;align-content:flex-start;gap:18px 28px;font-size:13px;text-transform:uppercase;letter-spacing:.12em}.footer-links a{color:rgba(255,255,255,.7)}.footer-links a:hover,.footer-links a:focus-visible{color:var(--white)} .copyright{margin-top:42px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.64);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+    @media (max-width:900px){.nav,.header-cta{display:none}.menu{display:flex;flex-direction:column;gap:4px}.cards,.footer-grid{grid-template-columns:1fr;display:grid}.page-hero{padding-top:155px}}
+  </style>
 </head>
-<body class="antialiased selection:bg-accentGold selection:text-white">
+<body>
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="XI:XI home">XI<span>:</span>XI</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="services.html">Services</a>
+        <a href="insights.html">Insights</a>
+        <a href="story.html">About</a>
+        <a href="intake.html">Get Started</a>
+      </nav>
+      <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="header-cta">Book a Call</a>
+      <button class="menu" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <div class="backdrop" id="backdrop" aria-hidden="true"></div>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true">
+    <a href="services.html">Services</a>
+    <a href="insights.html">Insights</a>
+    <a href="story.html">About</a>
+    <a href="intake.html">Get Started</a>
+    <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="menu-cta">Book a Call</a>
+  </nav>
 
-    <!-- Floating Pill Header — same as the homepage, with nav links
-         pointed back at index.html's sections and the logo linking home. -->
-    <header class="fixed top-4 sm:top-5 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-1.25rem)] sm:w-[calc(100%-2.5rem)] max-w-6xl rounded-full border border-accentGold/30 bg-cream/95 frosted shadow-lg shadow-charcoal/10">
-        <div class="px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
-            <a href="index.html" class="flex items-center gap-2 sm:gap-3 shrink-0" role="img" aria-label="XI:XI — Strategic Finance &amp; Business Optimization">
-                <svg viewBox="20 46 148 52" class="h-8 sm:h-9 w-auto" aria-hidden="true" focusable="false">
-                    <text x="24" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="56" font-weight="500">
-                        <tspan fill="#1A1A1A">XI</tspan><tspan fill="#C5A880">:</tspan><tspan fill="#1A1A1A">XI</tspan>
-                    </text>
-                </svg>
-                <div class="hidden lg:flex items-center">
-                    <svg viewBox="190 46 270 52" class="h-8 sm:h-9 w-auto" aria-hidden="true" focusable="false">
-                        <line x1="200" y1="34" x2="200" y2="112" stroke="#C5A880" stroke-width="1"/>
-                        <text x="224" y="68" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" letter-spacing="3.5" fill="#1A1A1A">STRATEGIC FINANCE</text>
-                        <text x="224" y="90" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" letter-spacing="3.5" fill="#1A1A1A">BUSINESS OPTIMIZATION</text>
-                    </svg>
-                </div>
-            </a>
-            <nav class="hidden md:flex items-center space-x-4 lg:space-x-7 text-sm font-medium text-charcoal">
-                <a href="services.html" class="hover:text-accentGold transition-colors">Services</a>
-                <a href="insights.html" class="text-accentGold">Insights</a>
-                <a href="story.html" class="hover:text-accentGold transition-colors">About</a>
-                <a href="intake.html" class="hover:text-accentGold transition-colors">Client Intake</a>
-            </nav>
-            <div class="flex items-center gap-2 shrink-0">
-                <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-xs font-semibold uppercase tracking-wider bg-charcoal text-cream rounded-full hover:bg-accentGold hover:text-white transition-all">
-                    Contact Us Today
-                </a>
-                <button id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu" class="md:hidden flex flex-col justify-center gap-1.5 w-10 h-10 items-center">
-                    <span class="block w-5 h-px bg-charcoal"></span>
-                    <span class="block w-5 h-px bg-charcoal"></span>
-                </button>
-            </div>
-        </div>
-    </header>
-    <nav id="mobileMenu" class="md:hidden hidden flex-col fixed top-[4.75rem] sm:top-[5.25rem] left-1/2 -translate-x-1/2 z-40 w-[calc(100%-1.25rem)] sm:w-[calc(100%-2.5rem)] max-w-6xl rounded-3xl border border-accentGold/30 bg-cream/95 frosted shadow-xl px-6 py-5 space-y-4 text-sm font-medium text-charcoal">
-        <a href="services.html" class="block hover:text-accentGold transition-colors">Services</a>
-        <a href="insights.html" class="block text-accentGold">Insights</a>
-        <a href="story.html" class="block hover:text-accentGold transition-colors">About</a>
-        <a href="intake.html" class="block hover:text-accentGold transition-colors">Client Intake</a>
-        <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="block pt-2 text-center px-5 py-2.5 text-xs font-semibold uppercase tracking-wider bg-charcoal text-cream rounded-full">Contact Us Today</a>
-    </nav>
-
-    <!-- Page header -->
-    <section class="relative pt-32 sm:pt-40 pb-10 px-5 sm:px-6 max-w-5xl mx-auto text-center">
-        <span class="text-xs uppercase tracking-widest text-accentGold font-semibold">Insights &amp; Case Studies</span>
-        <h1 class="font-serif text-4xl sm:text-5xl text-charcoal mt-2">From the Ledger</h1>
-        <p class="text-base text-mutedText leading-relaxed mt-4 max-w-2xl mx-auto">Practical reconciliation guidance, Florida sales tax notes, and multi-entity accounting case studies — written from what actually shows up in the ledger.</p>
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="eyebrow">Insights &amp; Guides</div>
+        <h1 class="page-title">Financial Guides</h1>
+        <p class="lede">Practical guidance on bank and ledger issues, sales tax, and multi-entity accounting — written for business owners who need clear answers.</p>
+      </div>
     </section>
 
-    <!-- Article Grid -->
-    <section class="px-5 sm:px-6 pb-16 sm:pb-24 max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            <article class="bg-white border border-sand flex flex-col justify-between overflow-hidden">
-                <div class="insight-accent-bar" aria-hidden="true"></div>
-                <div class="p-6">
-                    <span class="text-[10px] font-mono uppercase tracking-widest text-accentGold">Reconciliation</span>
-                    <h3 class="font-serif text-lg text-charcoal mt-2 leading-snug">5 Invisible Ledger Errors Costing Your Business Thousands (And How to Spot Them)</h3>
-                    <div class="service-goal mt-3">
-                        <p class="text-xs text-mutedText leading-relaxed"><span class="font-semibold text-charcoal">Key Takeaway:</span> Ledger errors compound — a discrepancy left unresolved for even one quarter can multiply into months of unwinding.</p>
-                    </div>
-                </div>
-                <a href="5-invisible-ledger-errors.html" class="px-6 pb-6 inline-flex items-center gap-2 text-xs font-semibold text-accentGoldDark uppercase tracking-widest hover:text-accentGold transition-colors">Read Article<span aria-hidden="true">→</span></a>
-            </article>
-            <article class="bg-white border border-sand flex flex-col justify-between overflow-hidden">
-                <div class="insight-accent-bar" aria-hidden="true"></div>
-                <div class="p-6">
-                    <span class="text-[10px] font-mono uppercase tracking-widest text-accentGold">Florida Sales Tax</span>
-                    <h3 class="font-serif text-lg text-charcoal mt-2 leading-snug">What the Florida Dept. of Revenue Looks For First: A Pre-Audit Checklist</h3>
-                    <div class="service-goal mt-3">
-                        <p class="text-xs text-mutedText leading-relaxed"><span class="font-semibold text-charcoal">Key Takeaway:</span> Auditors start with the same few red flags every time — mismatched exemption codes and rounding drift top the list.</p>
-                    </div>
-                </div>
-                <a href="florida-sales-tax-pre-audit-checklist.html" class="px-6 pb-6 inline-flex items-center gap-2 text-xs font-semibold text-accentGoldDark uppercase tracking-widest hover:text-accentGold transition-colors">Read Article<span aria-hidden="true">→</span></a>
-            </article>
-            <article class="bg-white border border-sand flex flex-col justify-between overflow-hidden">
-                <div class="insight-accent-bar" aria-hidden="true"></div>
-                <div class="p-6">
-                    <span class="text-[10px] font-mono uppercase tracking-widest text-accentGold">Intercompany Accounting</span>
-                    <h3 class="font-serif text-lg text-charcoal mt-2 leading-snug">Why Related Entity Balances Drift Apart — And How to Reconcile to Zero</h3>
-                    <div class="service-goal mt-3">
-                        <p class="text-xs text-mutedText leading-relaxed"><span class="font-semibold text-charcoal">Key Takeaway:</span> Most intercompany mismatches trace back to timing — one entity books a transfer a month before the other does.</p>
-                    </div>
-                </div>
-                <a href="intercompany-balances-reconcile-to-zero.html" class="px-6 pb-6 inline-flex items-center gap-2 text-xs font-semibold text-accentGoldDark uppercase tracking-widest hover:text-accentGold transition-colors">Read Article<span aria-hidden="true">→</span></a>
-            </article>
-        </div>
-        <div class="text-center mt-10">
-            <p class="text-xs text-mutedText/80 uppercase tracking-widest">New articles publish regularly — check back soon, or subscribe below.</p>
-        </div>
+    <section class="guide-grid">
+      <div class="wrap cards">
+        <article class="card">
+          <div class="card-bar"></div>
+          <div class="card-body">
+            <div class="tag">Reconciliation</div>
+            <h3>5 Financial Record Errors That Can Cost Your Business Thousands</h3>
+            <p>Most small discrepancies are easy to miss until they compound into stale balances, missed cash, or a tax filing problem.</p>
+            <a href="5-invisible-ledger-errors.html">Read the guide</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-bar"></div>
+          <div class="card-body">
+            <div class="tag">Florida sales tax</div>
+            <h3>Florida Sales Tax: 5 Things to Check Before an Audit</h3>
+            <p>Audit teams usually start with a few consistent red flags. Here is what to review before an issue becomes a problem.</p>
+            <a href="florida-sales-tax-pre-audit-checklist.html">Read the guide</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-bar"></div>
+          <div class="card-body">
+            <div class="tag">Multi-entity</div>
+            <h3>Why Balances Between Your Companies Stop Matching</h3>
+            <p>Intercompany mismatches often come from timing and cutoffs. We walk through what to look for and how to correct it.</p>
+            <a href="intercompany-balances-reconcile-to-zero.html">Read the guide</a>
+          </div>
+        </article>
+      </div>
     </section>
+  </main>
 
-    <!-- Footer / Contact + Legal Disclaimer — same as the rest of the site -->
-    <footer id="contact" class="bg-charcoal text-cream/70 py-16 px-5 sm:px-6 border-t border-zinc-800">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 mb-10">
-            <div class="md:col-span-5 space-y-3">
-                <div class="flex items-center gap-3" role="img" aria-label="XI:XI — Strategic Finance &amp; Business Optimization">
-                    <svg viewBox="20 46 148 52" class="h-6 w-auto" aria-hidden="true" focusable="false">
-                        <text x="24" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="56" font-weight="500">
-                            <tspan fill="#F7F4EF">XI</tspan><tspan fill="#C5A880">:</tspan><tspan fill="#F7F4EF">XI</tspan>
-                        </text>
-                    </svg>
-                    <div class="flex items-center">
-                        <svg viewBox="190 46 270 52" class="h-6 w-auto" aria-hidden="true" focusable="false">
-                            <line x1="200" y1="34" x2="200" y2="112" stroke="#C5A880" stroke-width="1"/>
-                            <text x="224" y="68" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" letter-spacing="3.5" fill="#E4E4E7">STRATEGIC FINANCE</text>
-                            <text x="224" y="90" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" letter-spacing="3.5" fill="#E4E4E7">BUSINESS OPTIMIZATION</text>
-                        </svg>
-                    </div>
-                </div>
-                <p class="text-xs text-zinc-400 max-w-sm">Strategic finance &amp; business optimization, built on statement-to-ledger reconciliation — structured controls, clean data, and precision for your financial operations.</p>
-                <p class="text-xs font-mono text-accentGold">Call +1 (772) 210-9957</p>
-            </div>
-            <div class="md:col-span-7 md:pl-8 md:border-l md:border-zinc-800/60">
-                <h2 class="font-serif text-2xl text-cream mb-1">Get In Touch</h2>
-                <h4 class="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-3">Send a Quick Message</h4>
-                <form id="quickContactForm" action="https://formsubmit.co/lana@xixistrategy.com" method="POST" class="space-y-3 max-w-md">
-                    <input type="hidden" name="_subject" value="New message from the XI:XI website">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-                    <div>
-                        <label for="qc-name" class="sr-only">Name</label>
-                        <input id="qc-name" type="text" name="name" placeholder="Your name" required class="w-full bg-transparent border border-zinc-700 text-cream text-sm px-3 py-2.5 focus:border-accentGold outline-none placeholder:text-zinc-500">
-                    </div>
-                    <div>
-                        <label for="qc-email" class="sr-only">Email</label>
-                        <input id="qc-email" type="email" name="email" placeholder="Your email" required class="w-full bg-transparent border border-zinc-700 text-cream text-sm px-3 py-2.5 focus:border-accentGold outline-none placeholder:text-zinc-500">
-                    </div>
-                    <div>
-                        <label for="qc-message" class="sr-only">Message</label>
-                        <textarea id="qc-message" name="message" placeholder="What's going on with your books?" rows="3" required class="w-full bg-transparent border border-zinc-700 text-cream text-sm px-3 py-2.5 focus:border-accentGold outline-none placeholder:text-zinc-500"></textarea>
-                    </div>
-                    <div class="flex flex-col sm:flex-row gap-3 pt-1">
-                        <button type="submit" class="flex-1 px-6 py-2.5 bg-accentGold text-white text-xs uppercase tracking-widest font-semibold hover:bg-accentGoldDark transition-all">Send Direct Message</button>
-                        <a href="mailto:lana@xixistrategy.com?subject=Referral%20Network%20Inquiry" class="flex-1 inline-flex items-center justify-center gap-2 px-6 py-2.5 border border-accentGold/50 text-accentGold text-xs uppercase tracking-widest font-semibold hover:bg-accentGold hover:text-white transition-all">
-                            External CPA &amp; Professional Referral Network
-                        </a>
-                    </div>
-                    <p id="qc-status" class="text-xs mt-1" role="status" aria-live="polite"></p>
-                </form>
-            </div>
-        </div>
-        <div class="max-w-7xl mx-auto pt-6 border-t border-zinc-800/60">
-            <p class="text-xs text-zinc-500 max-w-2xl leading-relaxed">XI:XI is an independent strategic finance and business optimization practice specializing in statement-to-ledger reconciliation — not a licensed Certified Public Accountant (CPA) firm or law firm. We do not provide attest services, formal financial statement reviews, audits, IRS representation, or legal advice.</p>
-        </div>
-        <div class="max-w-7xl mx-auto pt-6 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-center text-xs text-zinc-500">
-            <p>&copy; 2026 XI:XI. All rights reserved.</p>
-            <span class="hidden sm:inline text-zinc-700" aria-hidden="true">|</span>
-            <a href="index.html#terms" class="hover:text-accentGold transition-colors">Terms</a>
-        </div>
-    </footer>
+  <footer>
+    <div class="wrap footer-grid">
+      <div>
+        <div class="footer-brand">XI<span>:</span>XI</div>
+        <p class="footer-copy">Independent strategic finance and business optimization for owners who need numbers they can trust.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="services.html">Services</a>
+        <a href="insights.html">Insights</a>
+        <a href="story.html">About</a>
+        <a href="intake.html">Get Started</a>
+        <a href="mailto:lana@xixistrategy.com">Email Us</a>
+      </nav>
+    </div>
+    <div class="wrap copyright">© 2026 XI:XI. All rights reserved.</div>
+  </footer>
 
-    <!-- Floating "Book a Call" pill — same Cal.com link as the rest of the site -->
-    <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" id="floatingContact" class="floating-contact fixed right-4 bottom-4 sm:right-6 sm:bottom-6 z-[60] inline-flex items-center gap-2 bg-charcoal text-cream text-xs font-semibold uppercase tracking-wider px-5 py-3.5 rounded-full border border-accentGold/40 shadow-xl hover:bg-accentGold hover:text-white transition-all" aria-label="Contact us today on Cal.com (opens in a new tab)">
-        <span class="w-1.5 h-1.5 rounded-full bg-accentGold"></span>
-        Contact Us Today
-    </a>
-
-    <script>
-    (function(){
-        var toggle = document.getElementById('menuToggle');
-        var menu = document.getElementById('mobileMenu');
-        if(!toggle || !menu) return;
-        function closeMenu(){ menu.classList.add('hidden'); menu.classList.remove('flex'); toggle.setAttribute('aria-expanded','false'); }
-        function openMenu(){ menu.classList.remove('hidden'); menu.classList.add('flex'); toggle.setAttribute('aria-expanded','true'); }
-        toggle.addEventListener('click', function(){
-            var isOpen = toggle.getAttribute('aria-expanded') === 'true';
-            isOpen ? closeMenu() : openMenu();
-        });
-        menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
-    })();
-    (function(){
-        var form = document.getElementById('quickContactForm');
-        if(!form) return;
-        var status = document.getElementById('qc-status');
-        var submitBtn = form.querySelector('button[type="submit"]');
-        form.addEventListener('submit', function(e){
-            e.preventDefault();
-            var formData = new FormData(form);
-            var originalLabel = submitBtn.textContent;
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending…';
-            if (status) { status.textContent = ''; status.className = 'text-xs mt-1'; }
-            fetch(form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
-                method: 'POST',
-                body: formData,
-                headers: { 'Accept': 'application/json' }
-            }).then(function(res){
-                if (!res.ok) throw new Error('Request failed');
-                return res.json();
-            }).then(function(){
-                form.reset();
-                if (status) { status.textContent = "Thanks — I'll get back to you shortly."; status.className = 'text-xs mt-1 text-accentGold'; }
-            }).catch(function(){
-                if (status) { status.textContent = 'Something went wrong. Please email lana@xixistrategy.com directly.'; status.className = 'text-xs mt-1 text-red-400'; }
-            }).finally(function(){
-                submitBtn.disabled = false;
-                submitBtn.textContent = originalLabel;
-            });
-        });
-    })();
-    (function(){
-        var fc = document.getElementById('floatingContact');
-        if(!fc) return;
-        setTimeout(function(){
-            fc.classList.add('pulse');
-            fc.addEventListener('animationend', function handler(){
-                fc.classList.remove('pulse');
-                fc.removeEventListener('animationend', handler);
-            });
-        }, 2500);
-    })();
-    (function(){
-        var fc = document.getElementById('floatingContact');
-        var footer = document.getElementById('contact');
-        if(!fc || !footer || !('IntersectionObserver' in window)) return;
-        var observer = new IntersectionObserver(function(entries){
-            entries.forEach(function(entry){
-                fc.classList.toggle('is-hidden', entry.isIntersecting);
-            });
-        }, { rootMargin: '0px 0px -10% 0px' });
-        observer.observe(footer);
-    })();
-    </script>
+  <script>
+    (function () {
+      var toggle = document.getElementById('menuToggle');
+      var menu = document.getElementById('mobileMenu');
+      var backdrop = document.getElementById('backdrop');
+      if (!toggle || !menu) return;
+      function setOpen(open) {
+        document.body.classList.toggle('menu-open', open);
+        menu.classList.toggle('open', open);
+        menu.setAttribute('aria-hidden', String(!open));
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+      }
+      toggle.addEventListener('click', function () { setOpen(toggle.getAttribute('aria-expanded') !== 'true'); });
+      if (backdrop) backdrop.addEventListener('click', function () { setOpen(false); });
+      menu.querySelectorAll('a').forEach(function (link) { link.addEventListener('click', function () { setOpen(false); }); });
+      document.addEventListener('keydown', function (event) { if (event.key === 'Escape') setOpen(false); });
+      window.addEventListener('resize', function () { if (window.innerWidth > 900) setOpen(false); });
+    }());
+  </script>
 </body>
 </html>
