@@ -1,17 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 260" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
   <title id="title">XI:XI</title>
-  <desc id="desc">XI:XI boxed alignment monogram.</desc>
-  <defs>
-    <linearGradient id="gold" x1="36" y1="28" x2="224" y2="232" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#D9C39F"/>
-      <stop offset=".52" stop-color="#B38D5A"/>
-      <stop offset="1" stop-color="#80633D"/>
-    </linearGradient>
-  </defs>
-  <rect width="260" height="260" rx="42" fill="#171717"/>
-  <rect x="15" y="15" width="230" height="230" rx="32" fill="none" stroke="url(#gold)" stroke-width="3"/>
-  <g fill="none" stroke="#F7F4EF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M63 71 91 130 63 189M108 71v118M152 71v118M197 71l-28 59 28 59"/>
-  </g>
-  <circle cx="130" cy="130" r="8" fill="url(#gold)"/>
+  <desc id="desc">Simple XI:XI monogram with a gold colon.</desc>
+  <rect width="256" height="256" rx="48" fill="#171717"/>
+  <rect x="14" y="14" width="228" height="228" rx="38" fill="none" stroke="#B38D5A" stroke-width="3"/>
+  <text x="128" y="145" text-anchor="middle" fill="#F7F4EF" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="500" letter-spacing="-4">XI<tspan fill="#D9C39F">:</tspan>XI</text>
+  <rect x="76" y="171" width="104" height="2" rx="1" fill="#D9C39F"/>
 </svg>
