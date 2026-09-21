@@ -10,51 +10,40 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/brand.css">
+  <link rel="stylesheet" href="assets/ux-enhancements.css">
   <style>
-    :root { --ink:#171717; --paper:#f7f4ef; --white:#fff; --gold:#c5a880; --gold-dark:#987b55; --muted:#69645d; --line:#e3dacb; --max:1180px; --shadow:0 22px 45px rgba(23,23,23,.08); }
-    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 'DM Sans',sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility} body.menu-open{overflow:hidden} a{color:inherit;text-decoration:none} button{font:inherit} .wrap{width:min(var(--max),calc(100% - 32px));margin:0 auto}
-    header{position:fixed;top:18px;left:50%;z-index:200;transform:translateX(-50%);width:min(1160px,calc(100% - 32px));padding:10px 14px 10px 22px;border:1px solid rgba(197,168,128,.55);border-radius:999px;background:rgba(247,244,239,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:var(--shadow)}
-    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font:500 28px/1 Georgia,serif;letter-spacing:-.03em;color:var(--ink);white-space:nowrap}.brand span{color:var(--gold-dark)} .nav{display:flex;align-items:center;justify-content:center;gap:28px;flex:1}.nav a{position:relative;font-size:14px;font-weight:600;color:var(--muted);transition:color .2s ease}.nav a::after{content:"";position:absolute;left:0;right:100%;bottom:-7px;height:2px;background:var(--gold);transition:right .22s ease}.nav a:hover,.nav a:focus-visible{color:var(--ink)} .nav a:hover::after,.nav a:focus-visible::after{right:0}
-    .header-cta{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 18px;border-radius:999px;background:var(--ink);color:var(--white);font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;transition:transform .2s ease,background-color .2s ease,color .2s ease;white-space:nowrap}.header-cta:hover,.header-cta:focus-visible{transform:translateY(-1px);background:var(--gold);color:var(--ink)}
-    .menu{display:none;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid var(--line);border-radius:50%;background:rgba(255,255,255,.2);padding:0;cursor:pointer;color:var(--ink)} .menu span{display:block;width:18px;height:2px;border-radius:99px;background:currentColor;position:relative}.menu span + span { margin-top:4px; }
-    .backdrop{position:fixed;inset:0;background:rgba(23,23,23,.42);opacity:0;pointer-events:none;transition:opacity .2s ease;z-index:120} body.menu-open .backdrop{opacity:1;pointer-events:auto}
-    .mobile-menu{position:fixed;top:88px;left:16px;right:16px;z-index:150;display:none;flex-direction:column;gap:18px;padding:22px 18px 16px;border:1px solid rgba(197,168,128,.45);border-radius:22px;background:rgba(247,244,239,.98);box-shadow:var(--shadow);transform:translateY(-8px);opacity:0;pointer-events:none;transition:opacity .2s ease,transform .2s ease}.mobile-menu.open{display:flex;opacity:1;pointer-events:auto;transform:translateY(0)}.mobile-menu a{font-size:15px;font-weight:600;color:var(--ink);padding:6px 0;border-bottom:1px solid rgba(23,23,23,.08)}.mobile-menu a:last-child{border-bottom:none;padding-top:10px}.mobile-menu .menu-cta{display:inline-flex;align-items:center;justify-content:center;min-height:42px;border-radius:999px;background:var(--ink);color:var(--white);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-top:8px}
-    .page-hero{padding:160px 0 44px}.eyebrow{color:var(--gold-dark);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700}.page-title{margin:18px 0 0;font:500 clamp(42px,5vw,70px)/1.02 'Playfair Display',Georgia,serif;letter-spacing:-.05em}.lede{max-width:720px;margin:18px auto 0;color:var(--muted);font-size:18px;line-height:1.7;text-align:center}
-    .guide-grid{padding:0 0 90px}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.card{background:var(--white);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 18px 32px rgba(23,23,23,.02)}.card-bar{height:6px;background:linear-gradient(90deg,var(--gold),var(--gold-dark));}.card-body{padding:22px}.tag{display:inline-block;color:var(--gold-dark);font-size:11px;font-weight:700;letter-spacing:.17em;text-transform:uppercase}.card h3{margin:12px 0 12px;font:500 26px/1.15 'Playfair Display',Georgia,serif;letter-spacing:-.04em}.card p{margin:0 0 18px;color:var(--muted);line-height:1.7}.card a{color:var(--gold-dark);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
-    footer{padding:55px 0 28px;background:#111;color:#aaa}.footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px}.footer-brand{color:var(--white);font:500 30px Georgia,serif}.footer-brand span{color:var(--gold)}.footer-copy{margin-top:18px;max-width:440px;line-height:1.7;color:rgba(255,255,255,.72)}.footer-links{display:flex;flex-wrap:wrap;justify-content:flex-end;align-content:flex-start;gap:18px 28px;font-size:13px;text-transform:uppercase;letter-spacing:.12em}.footer-links a{color:rgba(255,255,255,.7)}.footer-links a:hover,.footer-links a:focus-visible{color:var(--white)} .copyright{margin-top:42px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.64);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
-    @media (max-width:900px){.nav,.header-cta{display:none}.menu{display:flex;flex-direction:column;gap:4px}.cards,.footer-grid{grid-template-columns:1fr;display:grid}.page-hero{padding-top:155px}}
+    :root{--ink:#171717;--paper:#f7f4ef;--white:#fff;--gold:#b38d5a;--gold-dark:#80633d;--muted:#686158;--line:#ded4c5;--shadow:0 26px 64px rgba(23,23,23,.08)}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.7 'DM Sans',sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility} a{color:inherit;text-decoration:none} img{display:block;max-width:100%}.wrap{width:min(1180px,calc(100% - 32px));margin:auto}
+    .site-header{position:sticky;top:18px;z-index:12;width:min(1160px,calc(100% - 32px));margin:16px auto 0;padding:10px 14px 10px 22px;border:1px solid rgba(179,141,90,.6);border-radius:999px;background:rgba(247,244,239,.96);backdrop-filter:blur(12px);display:flex;align-items:center;gap:26px;box-shadow:0 10px 24px rgba(23,23,23,.04)}
+    .site-header nav{display:flex;justify-content:center;gap:24px;flex:1;flex-wrap:wrap}.site-header nav a{font-size:14px;font-weight:600;color:var(--muted);position:relative;padding:6px 0}.site-header nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:center;transition:transform .2s ease}.site-header nav a:hover::after,.site-header nav a[aria-current="page"]::after{transform:scaleX(1)}
+    .button{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 18px;border-radius:999px;background:var(--ink);color:var(--white);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;transition:transform .2s ease,box-shadow .2s ease}.button:hover{transform:translateY(-2px)}
+    .eyebrow{color:var(--gold);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+    .page-hero{padding:92px 0 28px}.page-title{margin:10px 0 0;font:500 clamp(42px,6vw,72px)/1 'Playfair Display',serif;letter-spacing:-.05em}.lede{margin:18px 0 0;max-width:700px;color:var(--muted);font-size:18px}
+    .guide-grid{padding:10px 0 96px}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.card{background:var(--white);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow)}.card-bar{height:7px;background:linear-gradient(90deg,var(--gold),#d7c29c)}.card-body{padding:22px}.tag{display:inline-block;margin-bottom:12px;padding:7px 10px;border-radius:999px;background:rgba(179,141,90,.08);color:var(--gold-dark);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}.card h3{font:500 30px/1.12 'Playfair Display',serif;letter-spacing:-.04em;margin:0 0 12px}.card p{color:var(--muted);font-size:16px}.card a{display:inline-flex;align-items:center;gap:8px;margin-top:18px;color:var(--gold-dark);font-weight:700}.card a::after{content:'→'}
+    .footer{background:#111;color:#aaa;padding:40px 0}.footer-grid{display:grid;grid-template-columns:1fr auto;gap:50px;align-items:center}.footer-brand{color:var(--white);font:500 30px Georgia,serif}.footer-copy{margin:10px 0 0;max-width:420px;color:rgba(255,255,255,.75)}.footer-links{display:flex;gap:18px;flex-wrap:wrap}.footer-links a{color:rgba(255,255,255,.78)}.footer-links a:hover{color:var(--gold)}.copyright{margin-top:18px;color:rgba(255,255,255,.55);font-size:14px}
+    @media(max-width:900px){.site-header nav,.site-header>.button{display:none}.site-header{justify-content:space-between}.cards,.footer-grid{grid-template-columns:1fr;display:grid}.page-hero{padding-top:72px}}
   </style>
 </head>
 <body>
-  <header>
-    <div class="header-inner">
-      <a class="brand" href="index.html" aria-label="XI:XI home">XI<span>:</span>XI</a>
-      <nav class="nav" aria-label="Primary">
-        <a href="services.html">Services</a>
-        <a href="insights.html">Insights</a>
-        <a href="story.html">About</a>
-        <a href="intake.html">Get Started</a>
-      </nav>
-      <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="header-cta">Book a Call</a>
-      <button class="menu" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open navigation">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <a class="brand-lockup" href="index.html" aria-label="XI:XI home"><img src="assets/logo-wordmark.svg" alt="XI:XI"></a>
+    <nav aria-label="Primary navigation">
+      <a href="services.html">Services</a>
+      <a href="insights.html" aria-current="page">Insights</a>
+      <a href="story.html">About</a>
+      <a href="tools.html">Tools</a>
+      <a href="intake.html">Get started</a>
+    </nav>
+    <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="button">Book a call</a>
   </header>
-  <div class="backdrop" id="backdrop" aria-hidden="true"></div>
-  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true">
-    <a href="services.html">Services</a>
-    <a href="insights.html">Insights</a>
-    <a href="story.html">About</a>
-    <a href="intake.html">Get Started</a>
-    <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="menu-cta">Book a Call</a>
-  </nav>
 
-  <main>
+  <main id="main-content">
     <section class="page-hero">
       <div class="wrap">
-        <div class="eyebrow">Insights &amp; Guides</div>
-        <h1 class="page-title">Financial Guides</h1>
+        <div class="eyebrow">Insights &amp; guides</div>
+        <h1 class="page-title">Financial guides</h1>
         <p class="lede">Practical guidance on bank and ledger issues, sales tax, and multi-entity accounting — written for business owners who need clear answers.</p>
       </div>
     </section>
@@ -65,25 +54,27 @@
           <div class="card-bar"></div>
           <div class="card-body">
             <div class="tag">Reconciliation</div>
-            <h3>5 Financial Record Errors That Can Cost Your Business Thousands</h3>
+            <h3>5 financial record errors that can cost your business thousands</h3>
             <p>Most small discrepancies are easy to miss until they compound into stale balances, missed cash, or a tax filing problem.</p>
             <a href="5-invisible-ledger-errors.html">Read the guide</a>
           </div>
         </article>
+
         <article class="card">
           <div class="card-bar"></div>
           <div class="card-body">
             <div class="tag">Florida sales tax</div>
-            <h3>Florida Sales Tax: 5 Things to Check Before an Audit</h3>
+            <h3>Florida sales tax: 5 things to check before an audit</h3>
             <p>Audit teams usually start with a few consistent red flags. Here is what to review before an issue becomes a problem.</p>
             <a href="florida-sales-tax-pre-audit-checklist.html">Read the guide</a>
           </div>
         </article>
+
         <article class="card">
           <div class="card-bar"></div>
           <div class="card-body">
             <div class="tag">Multi-entity</div>
-            <h3>Why Balances Between Your Companies Stop Matching</h3>
+            <h3>Why balances between your companies stop matching</h3>
             <p>Intercompany mismatches often come from timing and cutoffs. We walk through what to look for and how to correct it.</p>
             <a href="intercompany-balances-reconcile-to-zero.html">Read the guide</a>
           </div>
@@ -92,7 +83,7 @@
     </section>
   </main>
 
-  <footer>
+  <footer class="footer">
     <div class="wrap footer-grid">
       <div>
         <div class="footer-brand">XI<span>:</span>XI</div>
@@ -108,26 +99,5 @@
     </div>
     <div class="wrap copyright">© 2026 XI:XI. All rights reserved.</div>
   </footer>
-
-  <script>
-    (function () {
-      var toggle = document.getElementById('menuToggle');
-      var menu = document.getElementById('mobileMenu');
-      var backdrop = document.getElementById('backdrop');
-      if (!toggle || !menu) return;
-      function setOpen(open) {
-        document.body.classList.toggle('menu-open', open);
-        menu.classList.toggle('open', open);
-        menu.setAttribute('aria-hidden', String(!open));
-        toggle.setAttribute('aria-expanded', String(open));
-        toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
-      }
-      toggle.addEventListener('click', function () { setOpen(toggle.getAttribute('aria-expanded') !== 'true'); });
-      if (backdrop) backdrop.addEventListener('click', function () { setOpen(false); });
-      menu.querySelectorAll('a').forEach(function (link) { link.addEventListener('click', function () { setOpen(false); }); });
-      document.addEventListener('keydown', function (event) { if (event.key === 'Escape') setOpen(false); });
-      window.addEventListener('resize', function () { if (window.innerWidth > 900) setOpen(false); });
-    }());
-  </script>
 </body>
 </html>
