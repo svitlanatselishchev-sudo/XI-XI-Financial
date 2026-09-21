@@ -11,33 +11,771 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
   <style>
-    :root{--ink:#171717;--paper:#f7f4ef;--gold:#c5a880;--gold-dark:#987b55;--muted:#69645d;--line:#e3dacb;--max:1180px}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 'DM Sans',sans-serif;-webkit-font-smoothing:antialiased}body.locked{overflow:hidden}a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}.eyebrow{color:var(--gold-dark);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border:1px solid var(--gold);font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;transition:.2s ease}.btn.primary{background:var(--gold);color:var(--ink)}.btn.primary:hover{background:#d5ba91;transform:translateY(-2px)}.btn.ghost:hover{background:var(--gold);color:var(--ink)}
-    header{position:fixed;top:18px;left:50%;z-index:100;transform:translateX(-50%);width:min(1160px,calc(100% - 32px));padding:10px 14px 10px 22px;border:1px solid rgba(197,168,128,.55);border-radius:999px;background:rgba(247,244,239,.94);backdrop-filter:blur(18px);box-shadow:0 10px 35px rgba(34,24,11,.12)}.header-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font:500 28px/1 Georgia,serif;letter-spacing:.03em;white-space:nowrap}.brand span{color:var(--gold)}.nav{display:flex;align-items:center;gap:28px;font-size:13px;font-weight:600}.nav a{position:relative;padding:8px 0;color:var(--muted)}.nav a:hover,.nav a:focus-visible{color:var(--ink)}.nav a::after{content:'';position:absolute;right:100%;bottom:2px;left:0;height:2px;background:var(--gold);transition:right .2s}.nav a:hover::after{right:0}.header-cta{white-space:nowrap}.menu{display:none;align-items:center;justify-content:center;width:44px;height:44px;padding:8px;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--ink);cursor:pointer}.menu-lines,.menu-lines::before,.menu-lines::after{display:block;width:20px;height:2px;background:currentColor;transition:.2s}.menu-lines{position:relative}.menu-lines::before,.menu-lines::after{content:'';position:absolute;left:0}.menu-lines::before{top:-6px}.menu-lines::after{top:6px}.menu[aria-expanded=true] .menu-lines{background:transparent}.menu[aria-expanded=true] .menu-lines::before{top:0;transform:rotate(45deg)}.menu[aria-expanded=true] .menu-lines::after{top:0;transform:rotate(-45deg)}
-    .mobile-menu{position:fixed;top:88px;left:16px;right:16px;z-index:99;display:none;padding:22px;border:1px solid var(--line);border-radius:22px;background:var(--paper);box-shadow:0 20px 45px rgba(34,24,11,.18)}.mobile-menu.open{display:grid;gap:4px}.mobile-menu a{padding:14px 4px;border-bottom:1px solid var(--line);font-weight:600}.mobile-menu .btn{margin-top:14px;border-bottom:1px solid var(--gold)}.backdrop{position:fixed;inset:0;z-index:90;display:none;background:rgba(23,23,23,.45)}body.menu-open .backdrop{display:block}
-    .hero{min-height:720px;padding:190px 0 110px;background:radial-gradient(circle at 85% 25%,#8d765536,transparent 28%),linear-gradient(120deg,#171717,#272421 65%,#171717);color:var(--paper)}.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:80px}.hero h1{max-width:730px;margin:18px 0 24px;font:500 clamp(46px,6.5vw,86px)/1.04 'Playfair Display',serif;letter-spacing:-.04em}.hero h1 em{color:var(--gold);font-style:italic}.hero p{max-width:600px;color:#ddd5c9;font:italic 22px/1.35 'Playfair Display',serif}.hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}.hero-art{display:grid;place-items:center;min-height:290px}.orb{display:grid;place-items:center;width:min(360px,80vw);aspect-ratio:1;border:1px solid #c5a88066;border-radius:50%;box-shadow:0 0 80px #c5a88022,inset 0 0 60px #c5a88033}.orb span{font:italic 56px 'Playfair Display',serif;color:var(--gold)}section{padding:105px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:42px}.section-head h2{max-width:650px;margin:12px 0 0;font:500 clamp(34px,4vw,56px)/1.08 'Playfair Display',serif}.section-head p{max-width:380px;color:var(--muted)}.trust{padding:18px 0;background:var(--gold)}.trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.trust-item{font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}.trust-item strong{margin-right:12px;font:500 28px 'Playfair Display',serif}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{min-height:235px;padding:28px;background:#fff;border:1px solid var(--line);transition:.2s}.card:hover{transform:translateY(-5px);border-color:var(--gold);box-shadow:0 18px 36px #45352112}.card h3{margin:14px 0 9px;font:500 25px/1.2 'Playfair Display',serif}.card p{margin:0;color:var(--muted)}.dark{background:var(--ink);color:var(--paper)}.dark .section-head p,.dark .card p{color:#b5aea4}.dark .card{background:#211f1c;border-color:#c5a88055}.split{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}.promise{border-left:3px solid var(--gold);padding-left:28px}.promise h2{margin:12px 0 20px;font:500 clamp(34px,4vw,57px)/1.08 'Playfair Display',serif}.promise p{color:var(--muted)}.cta{text-align:center;background:linear-gradient(120deg,#22201d,#151515);color:var(--paper)}.cta h2{max-width:700px;margin:12px auto 24px;font:500 clamp(38px,5vw,68px)/1.05 'Playfair Display',serif}.cta p{max-width:520px;margin:0 auto 28px;color:#c6beb2}footer{padding:55px 0 28px;background:#111;color:#aaa}.footer-grid{display:flex;justify-content:space-between;gap:40px}.footer-brand{color:var(--paper);font:500 30px Georgia,serif}.footer-links{display:flex;flex-wrap:wrap;gap:24px;font-size:13px}.footer-links a:hover{color:var(--gold)}
-    @media(max-width:900px){.nav,.header-cta{display:none}.menu{display:flex}.hero-grid,.split{grid-template-columns:1fr;gap:40px}.hero-art{min-height:180px;order:-1}.hero{min-height:auto;padding:150px 0 75px}.cards{grid-template-columns:1fr 1fr}.section-head{display:block}.section-head p{margin-top:18px}.footer-grid{display:block}.footer-links{margin-top:25px}}@media(max-width:600px){.wrap{width:min(var(--max),calc(100% - 32px))}.trust-grid,.cards{grid-template-columns:1fr}.trust-item{padding:5px 0}.hero h1{font-size:clamp(44px,14vw,68px)}section{padding:75px 0}.mobile-menu{top:82px}.header-inner{gap:8px}}
+    :root {
+      --ink: #171717;
+      --paper: #f7f4ef;
+      --white: #ffffff;
+      --gold: #c5a880;
+      --gold-dark: #987b55;
+      --muted: #69645d;
+      --line: #e3dacb;
+      --max: 1180px;
+      --radius: 18px;
+      --shadow: 0 20px 45px rgba(23, 23, 23, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 16px/1.6 'DM Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    body.menu-open { overflow: hidden; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      z-index: 200;
+      transform: translateX(-50%);
+      width: min(1160px, calc(100% - 32px));
+      padding: 10px 14px 10px 22px;
+      border: 1px solid rgba(197, 168, 128, 0.55);
+      border-radius: 999px;
+      background: rgba(247, 244, 239, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 10px 35px rgba(23, 23, 23, 0.08);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font: 500 28px/1 Georgia, serif;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+    .brand span { color: var(--gold-dark); }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      flex: 1;
+    }
+    .nav a {
+      position: relative;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 100%;
+      bottom: -7px;
+      height: 2px;
+      background: var(--gold);
+      transition: right 0.22s ease;
+    }
+    .nav a:hover,
+    .nav a:focus-visible { color: var(--ink); }
+    .nav a:hover::after,
+    .nav a:focus-visible::after { right: 0; }
+
+    .header-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 18px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+      white-space: nowrap;
+    }
+    .header-cta:hover,
+    .header-cta:focus-visible {
+      transform: translateY(-1px);
+      background: var(--gold);
+      color: var(--ink);
+    }
+
+    .menu {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      padding: 0;
+      cursor: pointer;
+      color: var(--ink);
+    }
+    .menu span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      border-radius: 99px;
+      background: currentColor;
+      position: relative;
+    }
+    .menu span + span { margin-top: 4px; }
+
+    .backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(23, 23, 23, 0.42);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      z-index: 120;
+    }
+    body.menu-open .backdrop {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .mobile-menu {
+      position: fixed;
+      top: 88px;
+      left: 16px;
+      right: 16px;
+      z-index: 150;
+      display: none;
+      flex-direction: column;
+      gap: 18px;
+      padding: 22px 18px 16px;
+      border: 1px solid rgba(197, 168, 128, 0.45);
+      border-radius: 22px;
+      background: rgba(247, 244, 239, 0.98);
+      box-shadow: var(--shadow);
+      transform: translateY(-8px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .mobile-menu.open {
+      display: flex;
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .mobile-menu a {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(23, 23, 23, 0.08);
+    }
+    .mobile-menu a:last-child {
+      border-bottom: none;
+      padding-top: 10px;
+    }
+    .mobile-menu .menu-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+
+    .eyebrow {
+      color: var(--gold-dark);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .hero {
+      min-height: 720px;
+      padding: 190px 0 110px;
+      background: radial-gradient(circle at 85% 25%, rgba(141,118,85,0.24), transparent 28%), linear-gradient(120deg, #171717, #272421 65%, #171717);
+      color: var(--white);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .hero h1 {
+      margin: 18px 0 18px;
+      font: 500 clamp(46px, 6vw, 82px)/0.94 'Playfair Display', Georgia, serif;
+      letter-spacing: -0.06em;
+    }
+    .hero h1 em {
+      color: var(--gold);
+      font-style: italic;
+      font-weight: 500;
+    }
+    .hero p {
+      max-width: 600px;
+      color: rgba(255,255,255,0.8);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 30px;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .button:hover,
+    .button:focus-visible { transform: translateY(-1px); }
+    .button.primary {
+      background: var(--gold);
+      color: var(--ink);
+    }
+    .button.primary:hover,
+    .button.primary:focus-visible { background: #d7bb92; }
+    .button.secondary {
+      border-color: rgba(255,255,255,0.35);
+      color: var(--white);
+      background: rgba(255,255,255,0.04);
+    }
+    .button.secondary:hover,
+    .button.secondary:focus-visible { border-color: rgba(255,255,255,0.8); }
+
+    .hero-art {
+      position: relative;
+      min-height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .orb {
+      position: relative;
+      width: min(100%, 380px);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(197, 168, 128, 0.4);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06), 0 40px 90px rgba(0,0,0,0.22);
+    }
+    .orb::before,
+    .orb::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(197, 168, 128, 0.32);
+    }
+    .orb::before { inset: 18%; }
+    .orb::after { inset: 34%; }
+    .orb .brand-mark {
+      position: relative;
+      font: 500 120px/1 'Playfair Display', Georgia, serif;
+      letter-spacing: -0.06em;
+      color: var(--white);
+      text-align: center;
+    }
+    .orb .brand-mark span { color: var(--gold); }
+
+    .trust {
+      background: var(--gold);
+      color: var(--ink);
+      padding: 18px 0;
+    }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: rgba(23,23,23,0.9);
+    }
+    .trust-item strong {
+      font-size: 20px;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 600;
+    }
+
+    section {
+      padding: 105px 0;
+    }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+      margin-bottom: 42px;
+    }
+    .section-head h2 {
+      max-width: 620px;
+      margin: 12px 0 0;
+      font: 500 clamp(34px, 4vw, 56px)/1.08 'Playfair Display', Georgia, serif;
+      letter-spacing: -0.04em;
+      color: var(--ink);
+    }
+    .section-head p {
+      max-width: 430px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px 24px 22px;
+      box-shadow: 0 16px 30px rgba(23, 23, 23, 0.02);
+    }
+    .card .num {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: var(--gold-dark);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .card h3 {
+      margin: 0 0 10px;
+      font: 500 24px/1.2 'Playfair Display', Georgia, serif;
+      letter-spacing: -0.03em;
+    }
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .dark {
+      background: var(--ink);
+      color: var(--white);
+    }
+    .dark .section-head h2,
+    .dark .section-head p {
+      color: var(--white);
+    }
+    .dark .section-head p { color: rgba(255,255,255,0.74); }
+    .process {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(197, 168, 128, 0.4);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .step {
+      background: #201f1d;
+      padding: 34px 24px;
+    }
+    .step .number {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .step h3 {
+      margin: 0 0 12px;
+      font-size: 26px;
+      line-height: 1.2;
+      font-family: 'Playfair Display', Georgia, serif;
+      letter-spacing: -0.03em;
+    }
+    .step p {
+      margin: 0;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.7;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+    .promise {
+      border-left: 3px solid var(--gold);
+      padding-left: 28px;
+    }
+    .promise h2 {
+      font: 500 clamp(34px, 4vw, 56px)/1.08 'Playfair Display', Georgia, serif;
+      letter-spacing: -0.04em;
+      margin: 0 0 18px;
+    }
+    .promise p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+    .checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 14px;
+    }
+    .checklist li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    .checklist li::before {
+      content: "—";
+      color: var(--gold-dark);
+      font-weight: 700;
+      margin-top: -2px;
+    }
+
+    .cta {
+      background: linear-gradient(120deg, #22201d, #151515);
+      color: var(--white);
+    }
+    .cta .wrap {
+      text-align: center;
+    }
+    .cta h2 {
+      margin: 14px auto 16px;
+      max-width: 760px;
+      font: 500 clamp(32px, 4vw, 52px)/1.08 'Playfair Display', Georgia, serif;
+      letter-spacing: -0.04em;
+    }
+    .cta p {
+      margin: 0 auto;
+      max-width: 620px;
+      color: rgba(255,255,255,0.74);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+    .cta .hero-actions {
+      justify-content: center;
+      margin-top: 32px;
+    }
+
+    footer {
+      padding: 55px 0 28px;
+      background: #111;
+      color: #aaa;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+    .footer-brand {
+      color: var(--white);
+      font: 500 30px Georgia, serif;
+      letter-spacing: -0.04em;
+    }
+    .footer-brand span { color: var(--gold); }
+    .footer-copy {
+      margin-top: 18px;
+      max-width: 440px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.72);
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      align-content: flex-start;
+      gap: 18px 28px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    .footer-links a { color: rgba(255,255,255,0.7); }
+    .footer-links a:hover,
+    .footer-links a:focus-visible { color: var(--white); }
+    .copyright {
+      margin-top: 42px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.64);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 900px) {
+      .nav, .header-cta { display: none; }
+      .menu { display: flex; flex-direction: column; gap: 4px; }
+      .hero { min-height: auto; padding-top: 150px; }
+      .hero-grid, .split, .cards, .footer-grid { grid-template-columns: 1fr; }
+      .hero-art { min-height: 180px; order: -1; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 18px; }
+      .trust-grid { grid-template-columns: 1fr; }
+      .process { grid-template-columns: 1fr; }
+      .footer-links { justify-content: flex-start; }
+    }
   </style>
 </head>
 <body>
-  <header><div class="header-inner"><a class="brand" href="#top" aria-label="XI:XI home">XI<span>:</span>XI</a><nav class="nav" aria-label="Primary"><a href="services.html">Services</a><a href="insights.html">Insights</a><a href="story.html">About</a><a href="intake.html">Client Intake</a></nav><a class="btn primary header-cta" href="https://cal.com/xix-lana" target="_blank" rel="noopener">Book a call</a><button class="menu" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open navigation"><span class="menu-lines"></span></button></div></header>
-  <div class="backdrop" id="backdrop"></div><nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true"><a href="services.html">Services</a><a href="insights.html">Insights</a><a href="story.html">About</a><a href="intake.html">Client Intake</a><a class="btn primary" href="https://cal.com/xix-lana" target="_blank" rel="noopener">Book a call</a></nav>
-  <main id="top"><section class="hero"><div class="wrap hero-grid"><div><div class="eyebrow">Strategic finance · Business optimization</div><h1>Know your numbers.<br><em>Trust your decisions.</em></h1><p>We find what's wrong with your books, then build the financial systems that keep your business moving forward.</p><div class="actions"><a class="btn primary" href="https://cal.com/xix-lana" target="_blank" rel="noopener">Contact us today</a><a class="btn ghost" href="services.html">Explore services</a></div></div><div class="hero-art" aria-hidden="true"><div class="orb"><span>XI:XI</span></div></div></div></section>
-    <div class="trust"><div class="wrap trust-grid"><div class="trust-item"><strong>01</strong> Fixed-fee engagements</div><div class="trust-item"><strong>02</strong> No bank login required</div><div class="trust-item"><strong>03</strong> Built around your numbers</div></div></div>
-    <section><div class="wrap"><div class="section-head"><div><div class="eyebrow">Where we help</div><h2>Clarity for the parts of business that feel tangled.</h2></div><p>From a messy ledger to a repeatable operating system, we make the financial side easier to understand and act on.</p></div><div class="cards"><article class="card"><div class="eyebrow">01 / Reconciliation</div><h3>Find the gaps</h3><p>Bank-to-ledger reconciliation that surfaces errors, missing transactions, and numbers that don't tell the full story.</p></article><article class="card"><div class="eyebrow">02 / Operations</div><h3>Build the system</h3><p>Clear procedures, Excel tools, and practical workflows designed around how your business actually works.</p></article><article class="card"><div class="eyebrow">03 / Decision support</div><h3>Move with confidence</h3><p>Reliable reporting that gives you the visibility to grow, prepare for tax, or make your next strategic move.</p></article></div></div></section>
-    <section class="dark"><div class="wrap"><div class="section-head"><div><div class="eyebrow">A simple path forward</div><h2>From uncertainty to a working system.</h2></div><p>Every engagement is focused, transparent, and built to leave you with something useful—not just another report.</p></div><div class="cards"><article class="card"><div class="eyebrow">Step one</div><h3>Diagnose</h3><p>We review your structure, statements, and current process to identify where the variance begins.</p></article><article class="card"><div class="eyebrow">Step two</div><h3>Define</h3><p>You receive clear findings, a fixed scope, and a practical plan for correcting what is not working.</p></article><article class="card"><div class="eyebrow">Step three</div><h3>Build</h3><p>We put reconciliation, SOPs, and custom Excel systems in place so the fix can hold.</p></article></div></div></section>
-    <section><div class="wrap split"><div class="promise"><div class="eyebrow">Why XI:XI</div><h2>Your books should support the business you're building.</h2><p>Clean books are not the finish line. They are the foundation for better operations, calmer decisions, and sustainable growth.</p><a class="btn primary" href="story.html" style="margin-top:28px">Meet the founder</a></div><div><div class="eyebrow">A practical starting point</div><div class="card" style="margin-top:18px"><h3>Ready to see clearly?</h3><p>Start with a focused conversation about what is not working and where you need more confidence.</p><a class="btn ghost" href="intake.html" style="margin-top:24px">Complete client intake</a></div></div></div></section>
-    <section class="cta"><div class="wrap"><div class="eyebrow">Ready to see clearly?</div><h2>Let's make your numbers work harder.</h2><p>Start with a focused conversation about what is not working and where you need more confidence.</p><a class="btn primary" href="https://cal.com/xix-lana" target="_blank" rel="noopener">Book a 15-minute call</a></div></section>
-  </main><footer><div class="wrap footer-grid"><div><div class="footer-brand">XI<span>:</span>XI</div><p>Independent strategic finance and business optimization for owners who need numbers they can trust.</p></div><nav class="footer-links" aria-label="Footer"><a href="services.html">Services</a><a href="insights.html">Insights</a><a href="story.html">About</a><a href="intake.html">Client Intake</a><a href="mailto:lana@xixistrategy.com">Email us</a></nav></div></footer>
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="XI:XI home">XI<span>:</span>XI</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="services.html">Services</a>
+        <a href="insights.html">Insights</a>
+        <a href="story.html">About</a>
+        <a href="intake.html">Get Started</a>
+      </nav>
+      <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="header-cta">Book a Call</a>
+      <button class="menu" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="backdrop" id="backdrop" aria-hidden="true"></div>
+
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true">
+    <a href="services.html">Services</a>
+    <a href="insights.html">Insights</a>
+    <a href="story.html">About</a>
+    <a href="intake.html">Get Started</a>
+    <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="menu-cta">Book a Call</a>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Strategic finance · business optimization</div>
+          <h1>Know your numbers.<br><em>Trust your decisions.</em></h1>
+          <p>We find the gaps hiding in your books, then build the financial systems that keep your business moving forward with clarity.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="https://cal.com/xix-lana" target="_blank" rel="noopener">Book a Call</a>
+            <a class="button secondary" href="services.html">View Services</a>
+          </div>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <div class="orb">
+            <div class="brand-mark">XI<span>:</span>XI</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="trust">
+      <div class="wrap trust-grid">
+        <div class="trust-item"><strong>01</strong> Fixed-fee engagements</div>
+        <div class="trust-item"><strong>02</strong> No bank login required</div>
+        <div class="trust-item"><strong>03</strong> Built around your numbers</div>
+      </div>
+    </div>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Where we help</div>
+            <h2>Clarity for the parts of business that feel tangled.</h2>
+          </div>
+          <p>From a messy ledger to a repeatable operating system, we make the financial side of your business easier to understand and act on.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <span class="num">01 / Reconciliation</span>
+            <h3>Find the gaps</h3>
+            <p>Bank-to-ledger reconciliation that surfaces errors, missing transactions, and the numbers that don’t tell the full story.</p>
+          </article>
+          <article class="card">
+            <span class="num">02 / Optimization</span>
+            <h3>Build the system</h3>
+            <p>Clear procedures, Excel tools, and practical workflows designed around how your business actually works.</p>
+          </article>
+          <article class="card">
+            <span class="num">03 / Decision support</span>
+            <h3>Move with confidence</h3>
+            <p>Reliable reporting that gives you the visibility to grow, prepare for tax, and make the next strategic move.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">A simple path forward</div>
+            <h2>From uncertainty to a working system.</h2>
+          </div>
+          <p>Every engagement is focused, transparent, and built to leave you with something useful — not just another report.</p>
+        </div>
+
+        <div class="process">
+          <div class="step">
+            <span class="number">Step One</span>
+            <h3>Diagnose</h3>
+            <p>We review your structure, statements, and current process to identify where variance begins.</p>
+          </div>
+          <div class="step">
+            <span class="number">Step Two</span>
+            <h3>Define</h3>
+            <p>You receive clear findings, a fixed scope, and a practical plan for correcting what is not working.</p>
+          </div>
+          <div class="step">
+            <span class="number">Step Three</span>
+            <h3>Build</h3>
+            <p>We put the reconciliation, SOPs, and tools in place so the fix can hold over time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap split">
+        <div class="promise">
+          <div class="eyebrow">Why XI:XI</div>
+          <h2>Your books should support the business you’re building.</h2>
+          <p>Clean books are not the finish line. They are the foundation for better operations, calmer decisions, and sustainable growth.</p>
+        </div>
+
+        <ul class="checklist">
+          <li>Have books, but they’re disorganized? We’ll make them clear.</li>
+          <li>Don’t have books at the level you need? We’ll build a workable foundation.</li>
+          <li>No procedures or structure? We’ll get the systems in place.</li>
+          <li>Expanding or preparing for a major move? We’ll make the numbers easier to trust.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="wrap">
+        <div class="eyebrow">Ready to understand your numbers?</div>
+        <h2>Let’s make your numbers easier to use.</h2>
+        <p>Start with a focused conversation about what is not working and where you need more confidence.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="https://cal.com/xix-lana" target="_blank" rel="noopener">Book a Call</a>
+          <a class="button secondary" href="intake.html">Get Started</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid">
+      <div>
+        <div class="footer-brand">XI<span>:</span>XI</div>
+        <p class="footer-copy">Independent strategic finance and business optimization for owners who need numbers they can trust.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="services.html">Services</a>
+        <a href="insights.html">Insights</a>
+        <a href="story.html">About</a>
+        <a href="intake.html">Get Started</a>
+        <a href="mailto:lana@xixistrategy.com">Email Us</a>
+      </nav>
+    </div>
+    <div class="wrap copyright">© 2026 XI:XI. All rights reserved.</div>
+  </footer>
+
   <script>
-    (function(){
-      var toggle=document.getElementById('menuToggle'), menu=document.getElementById('mobileMenu'), backdrop=document.getElementById('backdrop');
-      function setOpen(open){document.body.classList.toggle('menu-open',open);menu.classList.toggle('open',open);toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Close navigation':'Open navigation');menu.setAttribute('aria-hidden',String(!open));}
-      toggle.addEventListener('click',function(){setOpen(toggle.getAttribute('aria-expanded')!=='true');});
-      backdrop.addEventListener('click',function(){setOpen(false);});
-      menu.querySelectorAll('a').forEach(function(link){link.addEventListener('click',function(){setOpen(false);});});
-      document.addEventListener('keydown',function(event){if(event.key==='Escape')setOpen(false);});
-      window.addEventListener('resize',function(){if(window.innerWidth>900)setOpen(false);});
+    (function () {
+      var toggle = document.getElementById('menuToggle');
+      var menu = document.getElementById('mobileMenu');
+      var backdrop = document.getElementById('backdrop');
+
+      if (!toggle || !menu) return;
+
+      function setOpen(open) {
+        document.body.classList.toggle('menu-open', open);
+        menu.classList.toggle('open', open);
+        menu.setAttribute('aria-hidden', String(!open));
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+      }
+
+      toggle.addEventListener('click', function () {
+        setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+      });
+
+      if (backdrop) {
+        backdrop.addEventListener('click', function () { setOpen(false); });
+      }
+
+      menu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () { setOpen(false); });
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') setOpen(false);
+      });
+
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 900) setOpen(false);
+      });
     }());
   </script>
 </body>
