@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 176 32" role="img" aria-labelledby="title desc">
+  <title id="title">XI:XI</title>
+  <desc id="desc">XI:XI wordmark with four balanced vertical strokes and a centered alignment mark.</desc>
+  <g fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 4 15 28M15 4 3 28M25 4v24M31 4v24"/>
+    <path d="M43 16h14"/>
+    <path d="M72 4 84 28M84 4 72 28M94 4v24M100 4v24"/>
+  </g>
+  <circle cx="50" cy="16" r="2.25" fill="currentColor"/>
+</svg>
