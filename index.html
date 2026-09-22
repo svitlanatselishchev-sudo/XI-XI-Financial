@@ -243,6 +243,20 @@
       margin: 0;
     }
 
+    /* Highlight Box (Secure Vault / Encrypted Drop) */
+    .highlight-box {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 48px;
+      box-shadow: var(--shadow);
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+    }
+
     /* Footer */
     .site-footer {
       background: #111111;
@@ -307,8 +321,7 @@
       .site-header nav.active { display: flex; }
       .site-header nav a { width: 100%; text-align: center; padding: 10px 0; }
       .site-header > .button { display: none; }
-      .grid-2, .cards-grid { grid-template-columns: 1fr; gap: 32px; }
-      .footer-content { grid-template-columns: 1fr; gap: 32px; }
+      .grid-2, .cards-grid, .highlight-box { grid-template-columns: 1fr; gap: 32px; }
       .footer-nav { justify-content: start; }
     }
   </style>
@@ -335,7 +348,7 @@
       <a href="services.html">Services</a>
       <a href="insights.html">Insights</a>
       <a href="story.html">About</a>
-      <a href="tools.html">Tools</a>
+      <a href="tools.html" aria-current="page">Tools</a>
       <a href="intake.html">Get started</a>
     </nav>
 
@@ -367,6 +380,48 @@
         <div>
           <p>At XI:XI, we step in to clean up, streamline, and structure your financial operations. From full-cycle revenue reconciliation to multi-state vendor tracking and clean-up projects, we bring corporate-grade precision to your books.</p>
           <a class="button button-outline" href="story.html">Read our approach →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE XI:XI SECTION -->
+    <section class="section">
+      <div class="wrap">
+        <span class="eyebrow">Why Choose XI:XI</span>
+        <h2>Precision, confidentiality, and high-tier advisory.</h2>
+        <div class="cards-grid">
+          <div class="card">
+            <h3>No Account Bloat</h3>
+            <p>Direct, streamlined operations without unnecessary software subscriptions or cumbersome portals slowing your team down.</p>
+          </div>
+          <div class="card">
+            <h3>Corporate-Grade Rigor</h3>
+            <p>Multi-currency, cross-platform reconciliation standards built from managing high-volume international revenue streams.</p>
+          </div>
+          <div class="card">
+            <h3>Absolute Discretion</h3>
+            <p>Confidential handling of sensitive financial ledgers, statements, and tax records with strict security protocols.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENCRYPTED FILES EXCHANGE / SECURE VAULT SECTION -->
+    <section class="section">
+      <div class="wrap">
+        <span class="eyebrow">Secure Infrastructure</span>
+        <h2>Frictionless, encrypted file exchange.</h2>
+        <div class="highlight-box">
+          <div>
+            <h3>Send documents safely without complex portals or account creation.</h3>
+            <p>Share bank statements, ledgers, and financial records through a secure, encrypted drop channel designed specifically for confidential business data.</p>
+            <a class="button button-dark" href="intake.html">Access Secure Drop</a>
+          </div>
+          <div>
+            <p style="font-size: 14px; color: var(--muted); margin: 0;">
+              <strong>Security Protocol:</strong> All files transferred through our intake and review pipeline are encrypted in transit and at rest, ensuring total compliance and peace of mind before reconciliation even begins.
+            </p>
+          </div>
         </div>
       </div>
     </section>
