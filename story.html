@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#171717">
-  <meta name="description" content="Meet Lana Tselishchev, Fractional Financial Controller and founder of XI:XI.">
-  <title>About | XI:XI Financial Operations</title>
+  <meta name="description" content="About XI:XI — Strategic Financial Operations & Business Optimization. Dedicated to turning financial noise into operating clarity.">
+  <title>About | XI:XI Financial Strategy & Business Optimization</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,14 +50,14 @@
     }
     .skip-link:focus { top: 16px; }
 
-    /* Header Navigation */
+    /* Header & Navigation Bar */
     .site-header {
       position: sticky;
       top: 18px;
       z-index: 1000;
       width: min(1160px, calc(100% - 32px));
       margin: 16px auto 0;
-      padding: 10px 14px 10px 22px;
+      padding: 10px 18px 10px 22px;
       border: 1px solid rgba(179, 141, 90, 0.4);
       border-radius: 999px;
       background: rgba(247, 244, 239, 0.96);
@@ -69,8 +69,18 @@
       gap: 20px;
       box-shadow: 0 10px 24px rgba(23, 23, 23, 0.04);
     }
-    .brand-logo { display: flex; align-items: center; text-decoration: none; }
-    .brand-logo svg { height: 26px; width: auto; display: block; }
+    
+    .brand-logo-full {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    .brand-logo-full img,
+    .brand-logo-full svg {
+      height: 44px;
+      width: auto;
+      display: block;
+    }
 
     .site-header nav {
       display: flex;
@@ -87,7 +97,9 @@
       transition: color 0.2s ease;
     }
     .site-header nav a:hover,
-    .site-header nav a[aria-current="page"] { color: var(--ink); }
+    .site-header nav a[aria-current="page"] {
+      color: var(--ink);
+    }
     .site-header nav a::after {
       content: "";
       position: absolute;
@@ -99,7 +111,9 @@
       transition: transform 0.2s ease;
     }
     .site-header nav a:hover::after,
-    .site-header nav a[aria-current="page"]::after { transform: scaleX(1); }
+    .site-header nav a[aria-current="page"]::after {
+      transform: scaleX(1);
+    }
 
     /* Buttons */
     .button {
@@ -119,9 +133,8 @@
     }
     .button-dark { background: var(--ink); color: var(--white); box-shadow: 0 8px 20px rgba(23, 23, 23, 0.15); }
     .button-dark:hover { background: var(--gold-dark); color: var(--white); transform: translateY(-2px); }
-    .button-gold { background: var(--gold); color: var(--ink); font-weight: 700; }
-    .button-gold:hover { background: var(--gold-dark); color: var(--white); transform: translateY(-2px); }
 
+    /* Mobile Menu Toggle */
     .menu-toggle {
       display: none;
       background: none;
@@ -129,62 +142,63 @@
       padding: 8px;
       cursor: pointer;
     }
-    .menu-toggle span { display: block; width: 22px; height: 2px; background: var(--ink); margin: 4px 0; }
+    .menu-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--ink);
+      margin: 4px 0;
+    }
 
-    /* Hero */
-    .about-hero { padding: 80px 0 40px; }
-    .eyebrow { color: var(--gold-dark); font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 12px; }
-    .page-title { font: 500 clamp(38px, 5vw, 64px)/1.1 'Playfair Display', serif; margin: 0 0 16px; }
-    .page-subhead { font-size: 18px; color: var(--muted); max-width: 680px; }
-
-    /* Story Grid */
-    .story-grid {
+    /* About Content Section */
+    .about-hero {
+      padding: 70px 0 50px;
+    }
+    .eyebrow {
+      color: var(--gold-dark);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .about-hero h1 {
+      font: 500 clamp(36px, 4.5vw, 56px)/1.1 'Playfair Display', serif;
+      margin: 0 0 24px;
+      max-width: 800px;
+    }
+    .about-grid {
       display: grid;
-      grid-template-columns: minmax(260px, 360px) 1fr;
-      gap: 56px;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 60px;
       align-items: start;
-      padding: 40px 0 80px;
+      margin-top: 40px;
     }
-    .portrait-wrap {
-      position: relative;
-      border-radius: 20px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-    }
-    .portrait-wrap img { width: 100%; height: auto; aspect-ratio: 1/1; object-fit: cover; }
-    .portrait-badge {
-      position: absolute;
-      bottom: 14px; right: 14px;
-      color: rgba(255,255,255,0.85);
-      font: 500 20px 'Playfair Display', serif;
-    }
-
-    .profile-title { font-size: 16px; font-weight: 700; color: var(--gold-dark); margin-bottom: 20px; }
-    .profile-title span { color: var(--ink); }
-    .story-copy p { color: var(--muted); font-size: 17px; margin-bottom: 20px; }
-    .brand-statement {
-      padding-left: 20px;
-      border-left: 3px solid var(--gold);
-      margin: 28px 0;
-      color: var(--ink);
+    .about-body p {
       font-size: 17px;
-      font-weight: 600;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 24px;
     }
-
-    /* Stats Grid */
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      border-top: 1px solid var(--line);
-      padding-top: 28px;
-      margin-top: 36px;
+    .about-body p strong {
+      color: var(--ink);
     }
-    .stats-grid strong { display: block; font: 500 36px 'Playfair Display', serif; color: var(--ink); }
-    .stats-grid span { color: var(--muted); font-size: 14px; }
-
-    .cta-row { display: flex; gap: 16px; margin-top: 36px; flex-wrap: wrap; }
+    .about-card {
+      background: var(--tint);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 40px;
+    }
+    .about-card h3 {
+      font: 500 24px/1.2 'Playfair Display', serif;
+      margin: 0 0 16px;
+      color: var(--ink);
+    }
+    .about-card p {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
 
     /* Footer */
     .site-footer {
@@ -194,7 +208,12 @@
       border-top: 1px solid #222222;
       margin-top: 80px;
     }
-    .footer-content { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: start; }
+    .footer-content {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 40px;
+      align-items: start;
+    }
     .footer-brand p { font-size: 14px; line-height: 1.6; color: #888888; max-width: 320px; margin-top: 16px; }
     .footer-nav { display: flex; gap: 40px; justify-content: flex-end; flex-wrap: wrap; }
     .footer-nav a { font-size: 14px; color: #cccccc; transition: color 0.2s ease; }
@@ -211,7 +230,10 @@
       gap: 12px;
     }
 
+    /* Mobile Responsive */
     @media (max-width: 850px) {
+      .brand-logo-full img,
+      .brand-logo-full svg { height: 34px; }
       .menu-toggle { display: block; }
       .site-header nav {
         display: none;
@@ -225,11 +247,10 @@
         border-radius: 18px;
         border: 1px solid var(--line);
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        z-index: 1001;
       }
       .site-header nav.active { display: flex; }
       .site-header nav a { width: 100%; text-align: center; padding: 10px 0; }
-      .story-grid, .stats-grid, .footer-content { grid-template-columns: 1fr; }
+      .about-grid, .footer-content { grid-template-columns: 1fr; gap: 32px; }
       .footer-nav { justify-content: start; }
     }
   </style>
@@ -237,10 +258,14 @@
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
 
+  <!-- TOP NAVIGATION HEADER WITH LARGER FULL LOGO -->
   <header class="site-header">
-    <a href="index.html" class="brand-logo" aria-label="XI:XI Home">
-      <svg viewBox="0 0 160 40" fill="none" aria-hidden="true">
-        <text x="0" y="30" font-family="'Playfair Display', Georgia, serif" font-size="32" font-weight="600" fill="#171717" letter-spacing="-0.02em">XI<tspan fill="#B38D5A">:</tspan>XI</text>
+    <a href="index.html" class="brand-logo-full" aria-label="XI:XI Home">
+      <svg viewBox="0 0 380 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <text x="0" y="32" font-family="'Playfair Display', Georgia, serif" font-size="34" font-weight="600" fill="#171717" letter-spacing="-0.02em">XI<tspan fill="#B38D5A">:</tspan>XI</text>
+        <line x1="125" y1="6" x2="125" y2="38" stroke="#B38D5A" stroke-width="1.5" />
+        <text x="145" y="19" font-family="'DM Sans', sans-serif" font-size="11" font-weight="700" fill="#80633D" letter-spacing="0.18em">FINANCIAL STRATEGY</text>
+        <text x="145" y="34" font-family="'DM Sans', sans-serif" font-size="11" font-weight="700" fill="#80633D" letter-spacing="0.18em">BUSINESS OPTIMIZATION</text>
       </svg>
     </a>
 
@@ -259,62 +284,41 @@
     <a class="button button-dark" href="https://cal.com/xix-lana" target="_blank" rel="noopener">Book a call</a>
   </header>
 
-  <main id="main-content" class="wrap">
+  <main id="main-content">
     <section class="about-hero">
-      <p class="eyebrow">ABOUT XI:XI</p>
-      <h1 class="page-title">Meet the person behind the numbers.</h1>
-      <p class="page-subhead">I help owners bring structure to the financial operations side of their business—without the chaos, confusion, or endless cleanup.</p>
-    </section>
-
-    <section class="story-grid">
-      <div class="portrait-wrap">
-        <img src="assets/lana-headshot.jpg" alt="Lana Tselishchev, Fractional Financial Controller" width="360" height="360" loading="eager">
-        <span class="portrait-badge">XI:XI</span>
-      </div>
-
-      <div class="story-copy">
-        <div class="profile-title">
-          <span>Lana Tselishchev</span> &nbsp;·&nbsp; Fractional Financial Controller
-        </div>
-
-        <p>Running a business is demanding enough without wondering whether the financial records can be trusted. I help owners find the gaps, fix the process, and build a clearer operating rhythm.</p>
-
-        <p>I started XI:XI to give business owners a grounded partner in the financial operations of their business—someone who can turn confusing information into a practical next step.</p>
-
-        <div class="brand-statement">
-          XI:XI is named for the moment numbers align: clarity, precision, and confidence before a business moves forward.
-        </div>
-
-        <div class="stats-grid">
-          <div>
-            <strong>1M+</strong>
-            <span>Financial entries reviewed</span>
+      <div class="wrap">
+        <p class="eyebrow">ABOUT XI:XI</p>
+        <h1>Precision financial operations for business owners.</h1>
+        
+        <div class="about-grid">
+          <div class="about-body">
+            <p><strong>XI:XI was built on a simple premise:</strong> business owners shouldn't have to second-guess their general ledgers or wrestle with messy multi-channel transaction reports.</p>
+            <p>We provide high-tier financial operations and reconciliation support designed specifically for businesses with complex workflows, diverse revenue streams, or high transaction volumes.</p>
+            <p>Instead of basic data entry, we focus on deep statement-to-ledger reconciliation, workflow optimization, and actionable operational strategy—giving you numbers that align with real-world activity.</p>
           </div>
-          <div>
-            <strong>$100M+</strong>
-            <span>Payments and revenue checked</span>
-          </div>
-          <div>
-            <strong>$5.4M+</strong>
-            <span>Cash outflows managed</span>
-          </div>
-        </div>
 
-        <div class="cta-row">
-          <a class="button button-dark" href="https://cal.com/xix-lana" target="_blank" rel="noopener">Schedule an intro call</a>
-          <a class="button button-gold" href="services.html">Explore services</a>
+          <div class="about-card">
+            <h3>Our Operating Approach</h3>
+            <p><strong>1. Verification First:</strong> Every ledger entry must tie back to actual bank and merchant source documents.</p>
+            <p><strong>2. Structural Clarity:</strong> We design repeatable internal workflows so your routine accounting operates without bottlenecks.</p>
+            <p><strong>3. Decisive Focus:</strong> Clear reporting packages that highlight true margins, cash movement, and operational efficiency.</p>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- FOOTER WITH FULL LEGAL DISCLAIMER -->
   <footer class="site-footer">
     <div class="wrap">
       <div class="footer-content">
         <div class="footer-brand">
-          <a href="index.html" class="brand-logo" aria-label="XI:XI Home">
-            <svg viewBox="0 0 160 40" fill="none" aria-hidden="true">
-              <text x="0" y="30" font-family="'Playfair Display', Georgia, serif" font-size="32" font-weight="600" fill="#ffffff" letter-spacing="-0.02em">XI<tspan fill="#B38D5A">:</tspan>XI</text>
+          <a href="index.html" class="brand-logo-full" aria-label="XI:XI Home">
+            <svg viewBox="0 0 380 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <text x="0" y="32" font-family="'Playfair Display', Georgia, serif" font-size="34" font-weight="600" fill="#ffffff" letter-spacing="-0.02em">XI<tspan fill="#B38D5A">:</tspan>XI</text>
+              <line x1="125" y1="6" x2="125" y2="38" stroke="#B38D5A" stroke-width="1.5" />
+              <text x="145" y="19" font-family="'DM Sans', sans-serif" font-size="11" font-weight="700" fill="#ded4c5" letter-spacing="0.18em">FINANCIAL STRATEGY</text>
+              <text x="145" y="34" font-family="'DM Sans', sans-serif" font-size="11" font-weight="700" fill="#ded4c5" letter-spacing="0.18em">BUSINESS OPTIMIZATION</text>
             </svg>
           </a>
           <p>Independent financial operations support for owners who need numbers they can trust.</p>
@@ -329,7 +333,7 @@
       </div>
       <div class="legal-disclaimer">
         <span>&copy; 2026 XI:XI. All rights reserved.</span>
-        <span>Not a Certified Public Accountant firm.</span>
+        <span>XI:XI is not a Certified Public Accountant firm and does not provide public accounting services, certified audits, or formal tax representation.</span>
       </div>
     </div>
   </footer>
