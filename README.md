@@ -1,6 +1,6 @@
-# XI:XI Financial Operations Consultancy
+# XI:XI Strategic Finance Business Optimization
 
-Marketing site for XI:XI Financial Operations Consultancy, led by Svitlana "Lana" Tselishchev — Palm City, FL.
+Marketing site for XI:XI Strategic Finance Business Optimization, led by Svitlana "Lana" Tselishchev — Palm City, FL.
 
 Single-file static site (HTML + Tailwind CDN). No build step required.
 
