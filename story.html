@@ -1,45 +1,231 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#171717">
   <meta name="description" content="Meet Lana Tselishchev, founder of XI:XI Financial Operations Consultancy.">
-  <title>About XI:XI | XI:XI</title>
-  <link rel="icon" href="favicon.svg">
+  <title>About XI:XI | Strategic Financial Operations</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/brand.css">
-  <link rel="stylesheet" href="assets/ux-enhancements.css">
   <style>
     :root {
-      --ink:#171717;
-      --paper:#f7f4ef;
-      --white:#fff;
-      --gold:#b38d5a;
-      --gold-dark:#80633d;
-      --muted:#686158;
-      --line:#ded4c5;
-      --tint:#efe7de;
-      --max:1180px;
-      --shadow:0 26px 64px rgba(23,23,23,.08);
+      --ink: #171717;
+      --paper: #f7f4ef;
+      --white: #ffffff;
+      --gold: #b38d5a;
+      --gold-dark: #80633d;
+      --muted: #686158;
+      --line: #ded4c5;
+      --tint: #efe7de;
+      --max: 1180px;
+      --shadow: 0 26px 64px rgba(23, 23, 23, 0.08);
     }
-    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 'DM Sans',sans-serif;-webkit-font-smoothing:antialiased} a{color:inherit;text-decoration:none} img{display:block;max-width:100%} .wrap{width:min(var(--max),calc(100% - 32px));margin:auto}
-    .site-header{position:sticky;top:18px;z-index:12;width:min(1160px,calc(100% - 32px));margin:16px auto 0;padding:10px 14px 10px 22px;border:1px solid rgba(179,141,90,.6);border-radius:999px;background:rgba(247,244,239,.96);backdrop-filter:blur(12px);display:flex;align-items:center;gap:26px;box-shadow:0 10px 24px rgba(23,23,23,.04)}
-    .site-header nav{display:flex;justify-content:center;gap:24px;flex:1;flex-wrap:wrap}.site-header nav a{font-size:14px;font-weight:600;color:var(--muted);position:relative;padding:6px 0}.site-header nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:center;transition:transform .2s ease}.site-header nav a:hover::after,.site-header nav a[aria-current="page"]::after{transform:scaleX(1)}
-    .button{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 20px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;transition:transform .2s ease,box-shadow .2s ease}.button:hover{transform:translateY(-2px)}.button-dark{background:var(--ink);color:var(--white);box-shadow:0 14px 26px rgba(23,23,23,.14)}
-    .eyebrow{color:var(--gold);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
-    .hero{padding:90px 0 48px}.hero h1{margin:12px 0 0;font:500 clamp(42px,6vw,82px)/1 'Playfair Display',serif;letter-spacing:-.05em}.hero .lede{max-width:680px;margin-top:18px;color:var(--muted);font-size:18px}
-    .story{display:grid;grid-template-columns:minmax(260px,360px) 1fr;gap:clamp(32px,5vw,72px);align-items:start;padding:24px 0 100px}.portrait{position:relative;border-radius:24px;overflow:hidden;background:#201f1d;border:1px solid var(--line);box-shadow:var(--shadow)}.portrait img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}.portrait:after{content:'XI:XI';position:absolute;right:14px;bottom:10px;color:rgba(255,255,255,.7);font:500 24px 'Playfair Display',serif}
-    .meta{display:flex;flex-wrap:wrap;gap:10px 20px;color:var(--gold-dark);font-weight:700}.story-copy p{max-width:670px;color:var(--muted);font-size:18px;margin:24px 0}.story-copy .brand-alignment{padding-left:18px;border-left:2px solid var(--brand-brass, var(--gold));margin-top:28px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;border-top:1px solid var(--line);padding-top:26px;margin-top:32px}.stats strong{display:block;font:500 32px 'Playfair Display',serif}.stats span{color:var(--muted);font-size:14px}.footer{background:#111;color:#aaa;padding:38px 0}.footer-line{display:flex;justify-content:space-between;align-items:center;gap:22px}.footer-line a{color:var(--gold)}.footer-line span{max-width:600px;color:rgba(255,255,255,.7)}
-    @media(max-width:800px){.site-header nav,.site-header>.button{display:none}.site-header{justify-content:space-between}.story,.stats,.footer-line{grid-template-columns:1fr;display:grid}.portfolio-header{padding-top:40px}.portrait{max-width:360px} }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 16px/1.65 'DM Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
+    .wrap { width: min(var(--max), calc(100% - 32px)); margin: auto; }
+
+    /* Accessibility Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -50px;
+      left: 0;
+      background: var(--ink);
+      color: var(--white);
+      padding: 10px 18px;
+      font-weight: 700;
+      z-index: 100;
+      transition: top 0.2s ease;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* Header Navigation */
+    .site-header {
+      position: sticky;
+      top: 18px;
+      z-index: 12;
+      width: min(1160px, calc(100% - 32px));
+      margin: 16px auto 0;
+      padding: 10px 14px 10px 22px;
+      border: 1px solid rgba(179, 141, 90, 0.6);
+      border-radius: 999px;
+      background: rgba(247, 244, 239, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      box-shadow: 0 10px 24px rgba(23, 23, 23, 0.04);
+    }
+    .site-header nav {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex: 1;
+      flex-wrap: wrap;
+    }
+    .site-header nav a {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted);
+      position: relative;
+      padding: 6px 0;
+      transition: color 0.2s ease;
+    }
+    .site-header nav a:hover,
+    .site-header nav a[aria-current="page"] {
+      color: var(--ink);
+    }
+    .site-header nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.2s ease;
+    }
+    .site-header nav a:hover::after,
+    .site-header nav a[aria-current="page"]::after {
+      transform: scaleX(1);
+    }
+
+    /* Buttons & Typography */
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button-dark { background: var(--ink); color: var(--white); box-shadow: 0 14px 26px rgba(23, 23, 23, 0.14); }
+    .button-dark:hover { background: var(--gold-dark); }
+    .button-gold { background: var(--gold); color: var(--ink); font-weight: 700; }
+    .button-gold:hover { background: var(--gold-dark); color: var(--white); }
+    .eyebrow { color: var(--gold); font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; }
+
+    /* Hero Section */
+    .hero { padding: 90px 0 48px; }
+    .hero h1 {
+      margin: 12px 0 0;
+      font: 500 clamp(42px, 6vw, 82px)/1 'Playfair Display', serif;
+      letter-spacing: -0.05em;
+    }
+    .hero .lede { max-width: 680px; margin-top: 18px; color: var(--muted); font-size: 18px; }
+
+    /* Main Story Layout */
+    .story {
+      display: grid;
+      grid-template-columns: minmax(260px, 360px) 1fr;
+      gap: clamp(32px, 5vw, 72px);
+      align-items: start;
+      padding: 24px 0 100px;
+    }
+    .portrait {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #201f1d;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      margin: 0;
+    }
+    .portrait img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+    .portrait::after {
+      content: 'XI:XI';
+      position: absolute;
+      right: 14px;
+      bottom: 10px;
+      color: rgba(255, 255, 255, 0.7);
+      font: 500 24px 'Playfair Display', serif;
+      pointer-events: none;
+    }
+
+    .meta { display: flex; flex-wrap: wrap; gap: 10px 20px; color: var(--gold-dark); font-weight: 700; }
+    .story-copy p { max-width: 670px; color: var(--muted); font-size: 18px; margin: 24px 0; }
+    .story-copy .brand-alignment {
+      padding-left: 18px;
+      border-left: 2px solid var(--gold);
+      margin-top: 28px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    /* Stats Grid & Action Row */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      border-top: 1px solid var(--line);
+      padding-top: 26px;
+      margin-top: 32px;
+    }
+    .stats strong { display: block; font: 500 32px 'Playfair Display', serif; }
+    .stats span { color: var(--muted); font-size: 14px; }
+
+    .story-cta {
+      margin-top: 40px;
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    /* Footer */
+    .footer { background: #111111; color: #aaaaaa; padding: 48px 0; border-top: 1px solid #222222; }
+    .footer-line { display: flex; justify-content: space-between; align-items: center; gap: 22px; flex-wrap: wrap; }
+    .footer-line span { max-width: 600px; color: rgba(255, 255, 255, 0.7); font-size: 14px; }
+    .footer-line a.footer-link { color: var(--gold); font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
+    .footer-line a.footer-link:hover { color: var(--white); }
+
+    /* Responsive Design */
+    @media (max-width: 800px) {
+      .site-header nav, .site-header > .button { display: none; }
+      .site-header { justify-content: space-between; }
+      .story, .stats, .footer-line { grid-template-columns: 1fr; display: grid; }
+      .portrait { max-width: 360px; }
+      .hero { padding-top: 50px; }
+    }
   </style>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
+
   <header class="site-header">
-    <a class="brand-lockup" href="index.html" aria-label="XI:XI home"><img src="assets/logo-wordmark.svg" alt="XI:XI"></a>
+    <a href="index.html" aria-label="XI:XI Home" class="flex items-center gap-2">
+      <svg viewBox="20 46 148 52" style="height:28px; width:auto;" aria-hidden="true">
+        <text x="24" y="92" font-family="Georgia, serif" font-size="56" font-weight="500">
+          <tspan fill="#171717">XI</tspan><tspan fill="#B38D5A">:</tspan><tspan fill="#171717">XI</tspan>
+        </text>
+      </svg>
+    </a>
     <nav aria-label="Primary navigation">
       <a href="services.html">Services</a>
       <a href="insights.html">Insights</a>
@@ -59,12 +245,13 @@
 
     <section class="wrap story">
       <figure class="portrait">
-        <img src="assets/lana-headshot.jpg" alt="Lana Tselishchev, founder of XI:XI" loading="eager">
+        <img src="assets/lana-headshot.jpg" alt="Lana Tselishchev, founder of XI:XI" width="360" height="360" loading="eager">
       </figure>
 
       <div class="story-copy">
         <div class="meta">
           <span>Lana Tselishchev</span>
+          <span>·</span>
           <span>Financial operations partner</span>
         </div>
 
@@ -88,15 +275,26 @@
             <span>Cash outflows managed</span>
           </div>
         </div>
+
+        <div class="story-cta">
+          <a class="button button-dark" href="https://cal.com/xix-lana" target="_blank" rel="noopener">Schedule an intro call</a>
+          <a class="button button-gold" href="services.html">Explore services</a>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="wrap footer-line">
-      <a class="brand-lockup" href="index.html"><img src="assets/logo-wordmark.svg" alt="XI:XI"></a>
+      <a href="index.html" aria-label="XI:XI Home">
+        <svg viewBox="20 46 148 52" style="height:24px; width:auto;" aria-hidden="true">
+          <text x="24" y="92" font-family="Georgia, serif" font-size="56" font-weight="500">
+            <tspan fill="#ffffff">XI</tspan><tspan fill="#B38D5A">:</tspan><tspan fill="#ffffff">XI</tspan>
+          </text>
+        </svg>
+      </a>
       <span>Independent financial operations support for owners who need numbers they can trust.</span>
-      <a href="intake.html">Get started →</a>
+      <a href="intake.html" class="footer-link">Get started →</a>
     </div>
   </footer>
 </body>
