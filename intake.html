@@ -6,27 +6,277 @@
   <meta name="theme-color" content="#171717">
   <meta name="description" content="Get started with XI:XI by sharing a few details about your business, current book structure, and what you need help with.">
   <title>Get Started | XI:XI</title>
+
+  <!-- Canonical Link -->
+  <link rel="canonical" href="https://xixistrategy.com/intake.html">
+
+  <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Open Graph / Social Cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Get Started | XI:XI — Financial Operations Consultancy">
+  <meta property="og:description" content="Share a few details about your business, bookkeeping structure, and financial goals to get started.">
+  <meta property="og:url" content="https://xixistrategy.com/intake.html">
+  <meta property="og:image" content="https://xixistrategy.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Structured Data (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Get Started with XI:XI",
+    "url": "https://xixistrategy.com/intake.html",
+    "description": "Client intake form for XI:XI financial operations and advisory services.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "XI:XI",
+      "logo": "https://xixistrategy.com/assets/logo-wordmark.svg"
+    }
+  }
+  </script>
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="assets/brand.css">
   <link rel="stylesheet" href="assets/ux-enhancements.css">
+
   <style>
-    :root{--ink:#171717;--paper:#f7f4ef;--white:#fff;--gold:#b38d5a;--gold-dark:#80633d;--muted:#686158;--line:#ded4c5;--max:760px;--shadow:0 24px 60px rgba(23,23,23,.08)}
-    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 'DM Sans',sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility} a{color:inherit;text-decoration:none} button,input,select,textarea{font:inherit} .wrap{width:min(var(--max),calc(100% - 32px));margin:0 auto}
-    .site-header{position:sticky;top:18px;z-index:12;width:min(1160px,calc(100% - 32px));margin:16px auto 0;padding:10px 14px 10px 22px;border:1px solid rgba(179,141,90,.6);border-radius:999px;background:rgba(247,244,239,.96);backdrop-filter:blur(12px);display:flex;align-items:center;gap:26px;box-shadow:0 10px 24px rgba(23,23,23,.04)}
-    .site-header nav{display:flex;justify-content:center;gap:24px;flex:1;flex-wrap:wrap}.site-header nav a{font-size:14px;font-weight:600;color:var(--muted);position:relative;padding:6px 0}.site-header nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:center;transition:transform .2s ease}.site-header nav a:hover::after,.site-header nav a[aria-current="page"]::after{transform:scaleX(1)}
-    .button{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 18px;border-radius:999px;background:var(--ink);color:var(--white);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;transition:transform .2s ease,box-shadow .2s ease}.button:hover{transform:translateY(-2px)}
-    .page-hero{padding:92px 0 24px}.eyebrow{color:var(--gold);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700}.page-title{margin:16px 0 0;font:500 clamp(40px,5vw,62px)/1 'Playfair Display',serif;letter-spacing:-.05em}.lede{margin:16px 0 0;color:var(--muted);font-size:18px;max-width:620px}
-    .form-wrap{padding:16px 0 90px}.form-box{background:var(--white);border:1px solid var(--line);border-radius:26px;padding:26px;box-shadow:var(--shadow)}.field-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.field.full{grid-column:1/-1}.label{display:block;margin-bottom:8px;color:var(--ink);font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.input,.select,.textarea{width:100%;padding:14px 15px;border:1px solid var(--line);background:rgba(255,255,255,.85);border-radius:12px;color:var(--ink);font:inherit}.textarea{min-height:140px;resize:vertical}.button-row{display:flex;justify-content:flex-start;margin-top:24px}.submit{border:none;cursor:pointer}.footer{padding:42px 0 24px;background:#111;color:#aaa}.footer-grid{display:grid;grid-template-columns:1fr auto;gap:50px;align-items:center}.footer-brand{color:var(--white);font:500 30px Georgia,serif}.footer-copy{margin:12px 0 0;max-width:440px;color:rgba(255,255,255,.72)}.footer-links{display:flex;gap:18px;flex-wrap:wrap}.footer-links a{color:rgba(255,255,255,.78)}.footer-links a:hover{color:var(--gold)}.copyright{margin-top:18px;color:rgba(255,255,255,.5);font-size:14px}
-    @media (max-width:900px){.site-header nav,.site-header>.button{display:none}.site-header{justify-content:space-between}.field-grid,.footer-grid{grid-template-columns:1fr;display:grid}.page-hero{padding-top:72px}}
+    :root {
+      --ink: #171717;
+      --paper: #f7f4ef;
+      --white: #fff;
+      --gold: #b38d5a;
+      --gold-dark: #80633d;
+      --muted: #686158;
+      --line: #ded4c5;
+      --max: 760px;
+      --shadow: 0 24px 60px rgba(23, 23, 23, .08);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 16px/1.6 "DM Sans", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    body.menu-open { overflow: hidden; }
+    body, h1, h2, h3, p, ul { margin: 0; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    img { display: block; max-width: 100%; }
+    .wrap { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+
+    /* Focus States */
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
+    }
+
+    /* Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      z-index: 100;
+      background: var(--ink);
+      color: var(--white);
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: top 0.2s ease;
+    }
+    .skip-link:focus { top: 16px; }
+
+    /* Site Header Navigation */
+    .site-header {
+      position: sticky;
+      top: 18px;
+      z-index: 20;
+      width: min(1160px, calc(100% - 32px));
+      margin: 16px auto 0;
+      padding: 8px 12px 8px 18px;
+      border: 1px solid rgba(179, 141, 90, .58);
+      border-radius: 999px;
+      background: rgba(247, 244, 239, .96);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      box-shadow: 0 10px 28px rgba(23, 23, 23, .06);
+    }
+    .site-header .brand-lockup { flex-shrink: 0; }
+    .site-header .brand-lockup img { width: 184px; }
+    .site-header nav {
+      display: flex;
+      justify-content: center;
+      gap: clamp(14px, 2vw, 26px);
+      flex: 1;
+      flex-wrap: wrap;
+    }
+    .site-header nav a {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted);
+      position: relative;
+      padding: 7px 0;
+    }
+    .site-header nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform .2s ease;
+    }
+    .site-header nav a:hover::after,
+    .site-header nav a[aria-current="page"]::after { transform: scaleX(1); }
+
+    .menu-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .menu-toggle span {
+      width: 18px;
+      height: 2px;
+      background: currentColor;
+      border-radius: 2px;
+      transition: transform .2s ease;
+    }
+    .menu-toggle[aria-expanded="true"] span:first-child { transform: translateY(3.5px) rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
+    .mobile-menu { display: none; }
+    .site-header .button { flex-shrink: 0; }
+
+    /* Buttons */
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 20px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      border: 1px solid transparent;
+      background: var(--ink);
+      color: var(--white);
+      box-shadow: 0 16px 26px rgba(23, 23, 23, .14);
+      transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); }
+
+    /* Typography & Sections */
+    .page-hero { padding: 92px 0 24px; }
+    .eyebrow { color: var(--gold); font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+    .page-title { margin: 16px 0 0; font: 500 clamp(40px, 5vw, 62px)/1 "Playfair Display", serif; letter-spacing: -.05em; }
+    .lede { margin: 16px 0 0; max-width: 620px; color: var(--muted); font-size: 18px; }
+
+    /* Form Styles */
+    .form-wrap { padding: 16px 0 90px; }
+    .form-box { background: var(--white); border: 1px solid var(--line); border-radius: 26px; padding: 32px; box-shadow: var(--shadow); }
+    .field-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+    .field.full { grid-column: 1 / -1; }
+    .label { display: block; margin-bottom: 8px; color: var(--ink); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .input, .select, .textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .95);
+      border-radius: 12px;
+      color: var(--ink);
+      font: inherit;
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+    .input:focus, .select:focus, .textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(179, 141, 90, .15);
+      outline: none;
+    }
+    .textarea { min-height: 150px; resize: vertical; }
+    .button-row { display: flex; justify-content: flex-start; margin-top: 28px; }
+    .submit { border: none; cursor: pointer; }
+
+    /* Footer */
+    .footer { padding: 42px 0 24px; background: #111; color: #aaa; }
+    .footer-row { display: flex; justify-content: space-between; gap: 25px; align-items: center; }
+    .footer-row .brand-lockup { color: var(--white); }
+    .footer-row p { max-width: 520px; margin: 0; font-size: 15px; color: rgba(255, 255, 255, .7); }
+    .footer-links { display: flex; gap: 22px; font-size: 13px; flex-wrap: wrap; }
+    .footer-links a { color: rgba(255, 255, 255, .8); }
+    .footer-links a:hover { color: var(--gold); }
+    .copyright { margin-top: 24px; border-top: 1px solid rgba(255, 255, 255, .1); padding-top: 18px; color: rgba(255, 255, 255, .5); font-size: 13px; }
+
+    /* Mobile Responsive */
+    @media (max-width: 900px) {
+      .site-header nav, .site-header > .button { display: none; }
+      .site-header { justify-content: space-between; }
+      .menu-toggle { display: flex; }
+      .field-grid { grid-template-columns: 1fr; }
+      .footer-row { flex-direction: column; align-items: flex-start; }
+      .mobile-menu {
+        position: fixed;
+        top: 84px;
+        left: 12px;
+        right: 12px;
+        z-index: 19;
+        display: flex;
+        flex-direction: column;
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-8px);
+        gap: 8px;
+        padding: 14px;
+        border: 1px solid rgba(179, 141, 90, .55);
+        border-radius: 18px;
+        background: rgba(247, 244, 239, .98);
+        box-shadow: 0 20px 45px rgba(23, 23, 23, .14);
+        transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
+      }
+      .mobile-menu a { padding: 13px 12px; border-radius: 10px; color: var(--muted); font-weight: 700; }
+      .mobile-menu a:hover, .mobile-menu a[aria-current="page"] { background: rgba(179, 141, 90, .12); color: var(--ink); }
+      body.menu-open .mobile-menu { visibility: visible; opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 600px) {
+      .site-header { position: sticky; top: 10px; width: calc(100% - 20px); margin-top: 10px; border-radius: 16px; padding: 8px 10px; }
+      .site-header .brand-lockup img { width: 160px; }
+      .page-hero { padding-top: 60px; }
+      .form-box { padding: 22px 18px; border-radius: 18px; }
+      .form-wrap { padding-bottom: 60px; }
+    }
   </style>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
+
   <header class="site-header">
-    <a class="brand-lockup" href="index.html" aria-label="XI:XI home"><img src="assets/logo-wordmark.svg" alt="XI:XI"></a>
+    <a class="brand-lockup" href="index.html" aria-label="XI:XI home">
+      <img src="assets/logo-wordmark.svg" alt="XI:XI">
+    </a>
     <nav aria-label="Primary navigation">
       <a href="services.html">Services</a>
       <a href="insights.html">Insights</a>
@@ -34,13 +284,25 @@
       <a href="tools.html">Tools</a>
       <a href="intake.html" aria-current="page">Get started</a>
     </nav>
-    <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="button">Book a call</a>
+    <a class="button" href="https://cal.com/xix-lana" target="_blank" rel="noopener">Book a call</a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open navigation">
+      <span></span><span></span>
+    </button>
   </header>
+
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true">
+    <a href="services.html">Services</a>
+    <a href="insights.html">Insights</a>
+    <a href="story.html">About</a>
+    <a href="tools.html">Tools</a>
+    <a href="intake.html" aria-current="page">Get started</a>
+    <a class="button" href="https://cal.com/xix-lana" target="_blank" rel="noopener">Book a call</a>
+  </nav>
 
   <main id="main-content">
     <section class="page-hero">
       <div class="wrap">
-        <div class="eyebrow">Client intake</div>
+        <p class="eyebrow">Client intake</p>
         <h1 class="page-title">Tell us where you need help.</h1>
         <p class="lede">Share a few details below so we can understand your books, your timeline, and the next step that makes sense for your business.</p>
       </div>
@@ -49,41 +311,49 @@
     <section class="form-wrap">
       <div class="wrap">
         <form class="form-box" action="https://formsubmit.co/lana@xixistrategy.com" method="POST">
-          <input type="hidden" name="_subject" value="New XI:XI Intake">
+          <input type="hidden" name="_subject" value="New XI:XI Intake Request">
           <input type="hidden" name="_captcha" value="false">
+          
           <div class="field-grid">
             <div class="field">
               <label class="label" for="name">Full name</label>
-              <input class="input" id="name" type="text" name="name" required>
+              <input class="input" id="name" type="text" name="name" required placeholder="Jane Doe">
             </div>
+            
             <div class="field">
               <label class="label" for="business">Business name</label>
-              <input class="input" id="business" type="text" name="business">
+              <input class="input" id="business" type="text" name="business" placeholder="Company LLC">
             </div>
+
             <div class="field full">
-              <label class="label" for="email">Email</label>
-              <input class="input" id="email" type="email" name="email" required>
+              <label class="label" for="email">Email address</label>
+              <input class="input" id="email" type="email" name="email" required placeholder="jane@example.com">
             </div>
+
             <div class="field">
-              <label class="label" for="phone">Phone</label>
-              <input class="input" id="phone" type="tel" name="phone">
+              <label class="label" for="phone">Phone number</label>
+              <input class="input" id="phone" type="tel" name="phone" placeholder="(555) 000-0000">
             </div>
+
             <div class="field">
               <label class="label" for="software">Current bookkeeping software</label>
               <select class="select" id="software" name="software">
                 <option value="">Select one</option>
-                <option>QuickBooks</option>
+                <option>QuickBooks Online / Desktop</option>
                 <option>Xero</option>
                 <option>Wave</option>
                 <option>FreshBooks</option>
+                <option>Spreadsheets / Manual</option>
                 <option>Other</option>
               </select>
             </div>
+
             <div class="field full">
               <label class="label" for="help">What would you like help with?</label>
-              <textarea class="textarea" id="help" name="help" placeholder="Tell us about the issue, the timing, and what you are trying to fix."></textarea>
+              <textarea class="textarea" id="help" name="help" placeholder="Tell us about the issue, your timeline, and what you are trying to fix or optimize."></textarea>
             </div>
           </div>
+
           <div class="button-row">
             <button class="button submit" type="submit">Send your details</button>
           </div>
@@ -93,20 +363,54 @@
   </main>
 
   <footer class="footer">
-    <div class="wrap footer-grid">
-      <div>
-        <div class="footer-brand">XI<span>:</span>XI</div>
-        <p class="footer-copy">Independent strategic finance and business optimization for owners who need numbers they can trust.</p>
+    <div class="wrap">
+      <div class="footer-row">
+        <a class="brand-lockup" href="index.html" aria-label="XI:XI home">
+          <img src="assets/logo-wordmark.svg" alt="XI:XI">
+        </a>
+        <p>Independent strategic finance and financial operations support for business owners who need numbers they can trust.</p>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="services.html">Services</a>
+          <a href="insights.html">Insights</a>
+          <a href="story.html">About</a>
+          <a href="tools.html">Tools</a>
+          <a href="intake.html" aria-current="page">Get Started</a>
+          <a href="mailto:lana@xixistrategy.com">Email Us</a>
+        </nav>
       </div>
-      <nav class="footer-links" aria-label="Footer navigation">
-        <a href="services.html">Services</a>
-        <a href="insights.html">Insights</a>
-        <a href="story.html">About</a>
-        <a href="intake.html">Get Started</a>
-        <a href="mailto:lana@xixistrategy.com">Email Us</a>
-      </nav>
+      <div class="copyright">© 2026 XI:XI. All rights reserved.</div>
     </div>
-    <div class="wrap copyright">© 2026 XI:XI. All rights reserved.</div>
   </footer>
+
+  <script>
+  (function(){
+    var toggle = document.getElementById('menuToggle');
+    var menu = document.getElementById('mobileMenu');
+    if(!toggle || !menu) return;
+
+    function setOpen(open){
+      document.body.classList.toggle('menu-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+      menu.setAttribute('aria-hidden', String(!open));
+    }
+
+    toggle.addEventListener('click', function(){
+      setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+    });
+
+    menu.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', function(){ setOpen(false); });
+    });
+
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') setOpen(false);
+    });
+
+    window.addEventListener('resize', function(){
+      if(window.innerWidth > 900) setOpen(false);
+    });
+  }());
+  </script>
 </body>
 </html>
