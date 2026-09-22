@@ -1,9 +1,18 @@
-<svg width="520" height="120" viewBox="0 0 520 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="logoTitle logoDesc">
-  <title id="logoTitle">XI:XI Financial Operations</title>
-  <desc id="logoDesc">XI:XI wordmark with a clear gold colon and financial operations descriptor.</desc>
-  <text x="8" y="68" fill="#171717" font-family="Georgia, 'Times New Roman', serif" font-size="60" font-weight="500" letter-spacing="-2">XI</text>
-  <text x="91" y="68" fill="#B38D5A" font-family="Georgia, 'Times New Roman', serif" font-size="60" font-weight="700">:</text>
-  <text x="119" y="68" fill="#171717" font-family="Georgia, 'Times New Roman', serif" font-size="60" font-weight="500" letter-spacing="-2">XI</text>
-  <path d="M9 84H207" stroke="#D9C39F" stroke-width="2" stroke-linecap="round"/>
-  <text x="8" y="106" fill="#80633D" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" letter-spacing="3.1">FINANCIAL OPERATIONS</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 64" role="img" aria-labelledby="logoTitle logoDesc">
+  <title id="logoTitle">XI:XI Financial Strategy &amp; Business Optimization</title>
+  <desc id="logoDesc">Modern XI:XI wordmark with right-aligned vertical stacked descriptors.</desc>
+
+  <g transform="translate(4, 2)">
+    <!-- 1. Primary Wordmark (XI:XI) -->
+    <text x="4" y="38" fill="#171717" font-family="-apple-system, BlinkMacSystemFont, 'Inter', 'DM Sans', sans-serif" font-size="36" font-weight="700" letter-spacing="0.02em">XI</text>
+    <text x="46" y="37" fill="#B38D5A" font-family="-apple-system, BlinkMacSystemFont, 'Inter', 'DM Sans', sans-serif" font-size="36" font-weight="700">:</text>
+    <text x="58" y="38" fill="#171717" font-family="-apple-system, BlinkMacSystemFont, 'Inter', 'DM Sans', sans-serif" font-size="36" font-weight="700" letter-spacing="0.02em">XI</text>
+
+    <!-- 2. Vertical Divider Rule -->
+    <path d="M 112 12 V 46" stroke="#D9C39F" stroke-width="1.5" stroke-linecap="round"/>
+
+    <!-- 3. Stacked Descriptors -->
+    <text x="126" y="24" fill="#80633D" font-family="-apple-system, BlinkMacSystemFont, 'Inter', 'DM Sans', sans-serif" font-size="8.5" font-weight="700" letter-spacing="0.18em">FINANCIAL STRATEGY</text>
+    <text x="126" y="40" fill="#80633D" font-family="-apple-system, BlinkMacSystemFont, 'Inter', 'DM Sans', sans-serif" font-size="8.5" font-weight="700" letter-spacing="0.18em">BUSINESS OPTIMIZATION</text>
+  </g>
 </svg>
