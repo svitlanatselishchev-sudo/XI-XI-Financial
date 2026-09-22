@@ -1,40 +1,177 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#171717">
   <meta name="description" content="Support for CPA firms and referral partners who need trusted reconciliation and cleanup work for clients with messy books.">
   <title>For CPA Firms | XI:XI</title>
+
+  <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="For CPA Firms | XI:XI Strategy">
+  <meta property="og:description" content="Support for CPA firms and referral partners who need trusted reconciliation and cleanup work for clients with messy books.">
+  <meta property="og:url" content="https://xixistrategy.com/cpa-partners.html">
+  <meta property="og:image" content="https://xixistrategy.com/og-image.png">
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+
+  <!-- Shared Asset Layers -->
+  <link rel="stylesheet" href="assets/site-shell.css">
+  <link rel="stylesheet" href="assets/ux-enhancements.css">
+  <script src="assets/site-shell.js" defer></script>
+
+  <!-- Page-Specific Styles -->
   <style>
-    :root { --ink:#171717; --paper:#f7f4ef; --white:#fff; --gold:#c5a880; --gold-dark:#987b55; --muted:#69645d; --line:#e3dacb; --max:1180px; --shadow:0 22px 45px rgba(23,23,23,.08); }
-    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 'DM Sans',sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility} body.menu-open{overflow:hidden} a{color:inherit;text-decoration:none} button{font:inherit} .wrap{width:min(var(--max),calc(100% - 32px));margin:0 auto}
-    header{position:fixed;top:18px;left:50%;z-index:200;transform:translateX(-50%);width:min(1160px,calc(100% - 32px));padding:10px 14px 10px 22px;border:1px solid rgba(197,168,128,.55);border-radius:999px;background:rgba(247,244,239,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:var(--shadow)}
-    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font:500 28px/1 Georgia,serif;letter-spacing:-.03em;color:var(--ink);white-space:nowrap}.brand span{color:var(--gold-dark)} .nav{display:flex;align-items:center;justify-content:center;gap:28px;flex:1}.nav a{position:relative;font-size:14px;font-weight:600;color:var(--muted);transition:color .2s ease}.nav a::after{content:"";position:absolute;left:0;right:100%;bottom:-7px;height:2px;background:var(--gold);transition:right .22s ease}.nav a:hover,.nav a:focus-visible{color:var(--ink)} .nav a:hover::after,.nav a:focus-visible::after{right:0}
-    .header-cta{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 18px;border-radius:999px;background:var(--ink);color:var(--white);font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;transition:transform .2s ease,background-color .2s ease,color .2s ease;white-space:nowrap}.header-cta:hover,.header-cta:focus-visible{transform:translateY(-1px);background:var(--gold);color:var(--ink)}
-    .menu{display:none;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid var(--line);border-radius:50%;background:rgba(255,255,255,.2);padding:0;cursor:pointer;color:var(--ink)} .menu span{display:block;width:18px;height:2px;border-radius:99px;background:currentColor;position:relative}.menu span + span { margin-top:4px; }
-    .backdrop{position:fixed;inset:0;background:rgba(23,23,23,.42);opacity:0;pointer-events:none;transition:opacity .2s ease;z-index:120} body.menu-open .backdrop{opacity:1;pointer-events:auto}
-    .mobile-menu{position:fixed;top:88px;left:16px;right:16px;z-index:150;display:none;flex-direction:column;gap:18px;padding:22px 18px 16px;border:1px solid rgba(197,168,128,.45);border-radius:22px;background:rgba(247,244,239,.98);box-shadow:var(--shadow);transform:translateY(-8px);opacity:0;pointer-events:none;transition:opacity .2s ease,transform .2s ease}.mobile-menu.open{display:flex;opacity:1;pointer-events:auto;transform:translateY(0)}.mobile-menu a{font-size:15px;font-weight:600;color:var(--ink);padding:6px 0;border-bottom:1px solid rgba(23,23,23,.08)}.mobile-menu a:last-child{border-bottom:none;padding-top:10px}.mobile-menu .menu-cta{display:inline-flex;align-items:center;justify-content:center;min-height:42px;border-radius:999px;background:var(--ink);color:var(--white);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-top:8px}
-    .page-hero{padding:160px 0 24px}.eyebrow{color:var(--gold-dark);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700}.page-title{margin:18px 0 0;font:500 clamp(42px,5vw,70px)/1.02 'Playfair Display',Georgia,serif;letter-spacing:-.05em;max-width:900px}.lede{max-width:720px;margin:18px 0 0;color:var(--muted);font-size:18px;line-height:1.7}
-    .partners{padding:18px 0 90px}.split{display:grid;grid-template-columns:1fr 1fr;gap:24px}.card{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:28px;border-shadow:0 18px 32px rgba(23,23,23,.02)}.card h3{margin:12px 0 14px;font:500 32px/1.1 'Playfair Display',Georgia,serif;letter-spacing:-.04em}.card p{margin:0 0 16px;color:var(--muted);line-height:1.7}.ul{padding-left:18px;margin:0;color:var(--muted);line-height:1.8}.cta{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 18px;border-radius:999px;background:var(--ink);color:var(--white);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-top:22px}.cta.alt{background:transparent;border:1px solid rgba(23,23,23,.2);color:var(--ink)}
-    footer{padding:55px 0 28px;background:#111;color:#aaa}.footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px}.footer-brand{color:var(--white);font:500 30px Georgia,serif}.footer-brand span{color:var(--gold)}.footer-copy{margin-top:18px;max-width:440px;line-height:1.7;color:rgba(255,255,255,.72)}.footer-links{display:flex;flex-wrap:wrap;justify-content:flex-end;align-content:flex-start;gap:18px 28px;font-size:13px;text-transform:uppercase;letter-spacing:.12em}.footer-links a{color:rgba(255,255,255,.7)}.footer-links a:hover,.footer-links a:focus-visible{color:var(--white)} .copyright{margin-top:42px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.64);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
-    @media (max-width:900px){.nav,.header-cta{display:none}.menu{display:flex;flex-direction:column;gap:4px}.split,.footer-grid{grid-template-columns:1fr;display:grid}.page-hero{padding-top:155px}}
+    .page-hero {
+      padding: 160px 0 24px;
+    }
+    .eyebrow {
+      color: var(--ux-focus, #987b55);
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .page-title {
+      margin: 18px 0 0;
+      font: 500 clamp(42px, 5vw, 70px)/1.02 'Playfair Display', Georgia, serif;
+      letter-spacing: -.05em;
+      max-width: 900px;
+    }
+    .lede {
+      max-width: 720px;
+      margin: 18px 0 0;
+      color: var(--ux-body, #69645d);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+    .partners {
+      padding: 18px 0 90px;
+    }
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--ux-border, #e3dacb);
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 18px 32px rgba(23, 23, 23, 0.04);
+    }
+    .card h3 {
+      margin: 12px 0 14px;
+      font: 500 32px/1.1 'Playfair Display', Georgia, serif;
+      letter-spacing: -.04em;
+    }
+    .card p {
+      margin: 0 0 16px;
+      color: var(--ux-body, #69645d);
+      line-height: 1.7;
+    }
+    .ul {
+      padding-left: 18px;
+      margin: 0;
+      color: var(--ux-body, #69645d);
+      line-height: 1.8;
+    }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      background: #171717;
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-top: 22px;
+    }
+    .cta.alt {
+      background: transparent;
+      border: 1px solid rgba(23, 23, 23, 0.2);
+      color: #171717;
+    }
+    @media (max-width: 900px) {
+      .split {
+        grid-template-columns: 1fr;
+      }
+      .page-hero {
+        padding-top: 130px;
+      }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <div class="header-inner">
-      <a class="brand" href="index.html" aria-label="XI:XI home">XI<span>:</span>XI</a>
-      <nav class="nav" aria-label="Primary">
+
+  <!-- Skip Navigation for Accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header injected dynamically by site-shell.js -->
+  <header class="site-header"></header>
+
+  <!-- Main Hero & Content -->
+  <main id="main-content" class="wrap">
+    <section class="page-hero">
+      <span class="eyebrow">Strategic Partnerships</span>
+      <h1 class="page-title">Trusted Ledger Support for CPA Firms</h1>
+      <p class="lede">We handle complex reconciliations, historical cleanup, and multi-entity books so you can focus on high-value tax advisory and client growth.</p>
+    </section>
+
+    <section class="partners">
+      <div class="split">
+        <div class="card">
+          <h3>Historical Cleanup & Catch-Up</h3>
+          <p>Clients with months (or years) of backlogged ledger entries risk delayed tax filings. We bring books current with clean audit trails.</p>
+          <ul class="ul">
+            <li>Intercompany balance reconciliation</li>
+            <li>Uncategorized expense & suspense resolution</li>
+            <li>Sales tax liability audits</li>
+          </ul>
+          <a href="intake.html" class="cta">Refer a Client</a>
+        </div>
+
+        <div class="card">
+          <h3>Ongoing Back-Office Integration</h3>
+          <p>Partner with us for reliable monthly closing cycles without the overhead of hiring and managing internal junior bookkeepers.</p>
+          <ul class="ul">
+            <li>Month-end closing checklists & delivery</li>
+            <li>Direct integration with QuickBooks & Xero</li>
+            <li>White-label or direct-referral workflows</li>
+          </ul>
+          <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="cta alt">Schedule Partner Call</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer py-12 border-t border-sand mt-16 bg-charcoal text-paper">
+    <div class="wrap flex flex-col sm:flex-row justify-between items-center gap-4 text-sm">
+      <p>&copy; 2026 XI:XI Strategy. All rights reserved.</p>
+      <div class="flex gap-4">
         <a href="services.html">Services</a>
         <a href="insights.html">Insights</a>
-        <a href="story.html">About</a>
-        <a href="intake.html">Get Started</a>
-      </nav>
+        <a href="tools.html">Tools</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>      </nav>
       <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="header-cta">Book a Call</a>
       <button class="menu" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open navigation">
         <span></span><span></span><span></span>
