@@ -7,10 +7,12 @@
     <title>Why Related Entity Balances Drift Apart — And How to Reconcile to Zero | XI:XI</title>
     <meta name="description" content="Why intercompany balances between related entities drift apart, and the monthly routine that keeps them reconciled to zero.">
 
+    <link rel="canonical" href="https://xixistrategy.com/blog/intercompany-balances-reconcile-to-zero.html">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
 
+    <!-- Open Graph / Social Cards -->
     <meta property="og:type" content="article">
     <meta property="og:title" content="Why Related Entity Balances Drift Apart — And How to Reconcile to Zero | XI:XI">
     <meta property="og:description" content="Why intercompany balances between related entities drift apart, and the monthly routine that keeps them reconciled to zero.">
@@ -20,9 +22,35 @@
     <meta name="twitter:title" content="Why Related Entity Balances Drift Apart — And How to Reconcile to Zero | XI:XI">
     <meta name="twitter:description" content="Why intercompany balances between related entities drift apart, and the monthly routine that keeps them reconciled to zero.">
 
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Why Related Entity Balances Drift Apart — And How to Reconcile to Zero",
+      "description": "Why intercompany balances between related entities drift apart, and the monthly routine that keeps them reconciled to zero.",
+      "author": {
+        "@type": "Organization",
+        "name": "XI:XI"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "XI:XI",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://xixistrategy.com/assets/logo-wordmark.svg"
+        }
+      },
+      "mainEntityOfPage": "https://xixistrategy.com/blog/intercompany-balances-reconcile-to-zero.html"
+    }
+    </script>
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -67,6 +95,11 @@
         .floating-contact.pulse { animation: fcPulse 1.8s ease 2; }
         .floating-contact { transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.2s ease, color 0.2s ease; }
         .floating-contact.is-hidden { opacity: 0; transform: translateY(12px); pointer-events: none; }
+        
+        /* Mobile menu toggle animation styling */
+        #menuToggle span { transition: transform 0.2s ease, opacity 0.2s ease; }
+        #menuToggle[aria-expanded="true"] span:first-child { transform: translateY(2.5px) rotate(45deg); }
+        #menuToggle[aria-expanded="true"] span:last-child { transform: translateY(-2.5px) rotate(-45deg); }
     </style>
 </head>
 <body class="antialiased selection:bg-accentGold selection:text-white">
@@ -117,7 +150,7 @@
         <a href="insights.html" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-accentGold hover:text-accentGoldDark transition-colors mb-4">
             <span aria-hidden="true">←</span> Back to Insights
         </a>
-        <span class="text-[10px] font-mono uppercase tracking-widest text-accentGold">Intercompany Accounting</span>
+        <span class="text-[10px] font-mono uppercase tracking-widest text-accentGold block">Intercompany Accounting</span>
         <h1 class="font-serif text-3xl sm:text-4xl text-charcoal mt-2 leading-tight">Why Related Entity Balances Drift Apart — And How to Reconcile to Zero</h1>
         <div class="service-goal mt-5">
             <p class="text-sm text-mutedText leading-relaxed"><span class="font-semibold text-charcoal">Key Takeaway:</span> Most intercompany mismatches trace back to timing — one entity books a transfer a month before the other does.</p>
@@ -198,7 +231,7 @@
             </div>
             <div class="md:col-span-7 md:pl-8 md:border-l md:border-zinc-800/60">
                 <h2 class="font-serif text-2xl text-cream mb-1">Get In Touch</h2>
-                <h4 class="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-3">Send a Quick Message</h4>
+                <h3 class="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-3">Send a Quick Message</h3>
                 <form id="quickContactForm" action="https://formsubmit.co/lana@xixistrategy.com" method="POST" class="space-y-3 max-w-md">
                     <input type="hidden" name="_subject" value="New message from the XI:XI website">
                     <input type="hidden" name="_template" value="table">
@@ -246,14 +279,25 @@
         var toggle = document.getElementById('menuToggle');
         var menu = document.getElementById('mobileMenu');
         if(!toggle || !menu) return;
-        function closeMenu(){ menu.classList.add('hidden'); menu.classList.remove('flex'); toggle.setAttribute('aria-expanded','false'); }
-        function openMenu(){ menu.classList.remove('hidden'); menu.classList.add('flex'); toggle.setAttribute('aria-expanded','true'); }
+        function closeMenu(){ 
+            menu.classList.add('hidden'); 
+            menu.classList.remove('flex'); 
+            toggle.setAttribute('aria-expanded','false'); 
+            toggle.setAttribute('aria-label', 'Open menu');
+        }
+        function openMenu(){ 
+            menu.classList.remove('hidden'); 
+            menu.classList.add('flex'); 
+            toggle.setAttribute('aria-expanded','true'); 
+            toggle.setAttribute('aria-label', 'Close menu');
+        }
         toggle.addEventListener('click', function(){
             var isOpen = toggle.getAttribute('aria-expanded') === 'true';
             isOpen ? closeMenu() : openMenu();
         });
         menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
     })();
+
     (function(){
         var form = document.getElementById('quickContactForm');
         if(!form) return;
@@ -282,6 +326,7 @@
             });
         });
     })();
+
     (function(){
         var fc = document.getElementById('floatingContact');
         if(!fc) return;
@@ -293,6 +338,7 @@
             });
         }, 2500);
     })();
+
     (function(){
         var fc = document.getElementById('floatingContact');
         var footer = document.getElementById('contact');
