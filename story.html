@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#171717">
-  <meta name="description" content="Meet Lana Tselishchev, founder of XI:XI Financial Operations Consultancy.">
-  <title>About XI:XI | Strategic Financial Operations</title>
+  <meta name="description" content="Meet Lana Tselishchev, Fractional Financial Controller and founder of XI:XI.">
+  <title>About | XI:XI Financial Operations</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +21,6 @@
       --line: #ded4c5;
       --tint: #efe7de;
       --max: 1180px;
-      --shadow: 0 26px 64px rgba(23, 23, 23, 0.08);
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -39,41 +38,45 @@
     /* Accessibility Skip Link */
     .skip-link {
       position: absolute;
-      top: -50px;
-      left: 0;
+      top: -60px;
+      left: 16px;
       background: var(--ink);
       color: var(--white);
       padding: 10px 18px;
       font-weight: 700;
-      z-index: 100;
+      z-index: 2000;
       transition: top 0.2s ease;
+      border-radius: 8px;
     }
-    .skip-link:focus { top: 0; }
+    .skip-link:focus { top: 16px; }
 
     /* Header Navigation */
     .site-header {
       position: sticky;
       top: 18px;
-      z-index: 12;
+      z-index: 1000;
       width: min(1160px, calc(100% - 32px));
       margin: 16px auto 0;
       padding: 10px 14px 10px 22px;
-      border: 1px solid rgba(179, 141, 90, 0.6);
+      border: 1px solid rgba(179, 141, 90, 0.4);
       border-radius: 999px;
       background: rgba(247, 244, 239, 0.96);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       display: flex;
       align-items: center;
-      gap: 26px;
+      justify-content: space-between;
+      gap: 20px;
       box-shadow: 0 10px 24px rgba(23, 23, 23, 0.04);
     }
+    .brand-logo { display: flex; align-items: center; text-decoration: none; }
+    .brand-logo svg { height: 26px; width: auto; display: block; }
+
     .site-header nav {
       display: flex;
+      align-items: center;
       justify-content: center;
-      gap: 24px;
-      flex: 1;
-      flex-wrap: wrap;
+      gap: 28px;
     }
     .site-header nav a {
       font-size: 14px;
@@ -84,15 +87,11 @@
       transition: color 0.2s ease;
     }
     .site-header nav a:hover,
-    .site-header nav a[aria-current="page"] {
-      color: var(--ink);
-    }
+    .site-header nav a[aria-current="page"] { color: var(--ink); }
     .site-header nav a::after {
       content: "";
       position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      left: 0; right: 0; bottom: 0;
       height: 2px;
       background: var(--gold);
       transform: scaleX(0);
@@ -100,118 +99,138 @@
       transition: transform 0.2s ease;
     }
     .site-header nav a:hover::after,
-    .site-header nav a[aria-current="page"]::after {
-      transform: scaleX(1);
-    }
+    .site-header nav a[aria-current="page"]::after { transform: scaleX(1); }
 
-    /* Buttons & Typography */
+    /* Buttons */
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 46px;
+      min-height: 44px;
       padding: 0 22px;
       border-radius: 999px;
       font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
     }
-    .button:hover { transform: translateY(-2px); }
-    .button-dark { background: var(--ink); color: var(--white); box-shadow: 0 14px 26px rgba(23, 23, 23, 0.14); }
-    .button-dark:hover { background: var(--gold-dark); }
+    .button-dark { background: var(--ink); color: var(--white); box-shadow: 0 8px 20px rgba(23, 23, 23, 0.15); }
+    .button-dark:hover { background: var(--gold-dark); color: var(--white); transform: translateY(-2px); }
     .button-gold { background: var(--gold); color: var(--ink); font-weight: 700; }
-    .button-gold:hover { background: var(--gold-dark); color: var(--white); }
-    .eyebrow { color: var(--gold); font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; }
+    .button-gold:hover { background: var(--gold-dark); color: var(--white); transform: translateY(-2px); }
 
-    /* Hero Section */
-    .hero { padding: 90px 0 48px; }
-    .hero h1 {
-      margin: 12px 0 0;
-      font: 500 clamp(42px, 6vw, 82px)/1 'Playfair Display', serif;
-      letter-spacing: -0.05em;
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
     }
-    .hero .lede { max-width: 680px; margin-top: 18px; color: var(--muted); font-size: 18px; }
+    .menu-toggle span { display: block; width: 22px; height: 2px; background: var(--ink); margin: 4px 0; }
 
-    /* Main Story Layout */
-    .story {
+    /* Hero */
+    .about-hero { padding: 80px 0 40px; }
+    .eyebrow { color: var(--gold-dark); font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 12px; }
+    .page-title { font: 500 clamp(38px, 5vw, 64px)/1.1 'Playfair Display', serif; margin: 0 0 16px; }
+    .page-subhead { font-size: 18px; color: var(--muted); max-width: 680px; }
+
+    /* Story Grid */
+    .story-grid {
       display: grid;
       grid-template-columns: minmax(260px, 360px) 1fr;
-      gap: clamp(32px, 5vw, 72px);
+      gap: 56px;
       align-items: start;
-      padding: 24px 0 100px;
+      padding: 40px 0 80px;
     }
-    .portrait {
+    .portrait-wrap {
       position: relative;
-      border-radius: 24px;
+      border-radius: 20px;
       overflow: hidden;
-      background: #201f1d;
       border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-      margin: 0;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
     }
-    .portrait img {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-    }
-    .portrait::after {
-      content: 'XI:XI';
+    .portrait-wrap img { width: 100%; height: auto; aspect-ratio: 1/1; object-fit: cover; }
+    .portrait-badge {
       position: absolute;
-      right: 14px;
-      bottom: 10px;
-      color: rgba(255, 255, 255, 0.7);
-      font: 500 24px 'Playfair Display', serif;
-      pointer-events: none;
+      bottom: 14px; right: 14px;
+      color: rgba(255,255,255,0.85);
+      font: 500 20px 'Playfair Display', serif;
     }
 
-    .meta { display: flex; flex-wrap: wrap; gap: 10px 20px; color: var(--gold-dark); font-weight: 700; }
-    .story-copy p { max-width: 670px; color: var(--muted); font-size: 18px; margin: 24px 0; }
-    .story-copy .brand-alignment {
-      padding-left: 18px;
-      border-left: 2px solid var(--gold);
-      margin-top: 28px;
+    .profile-title { font-size: 16px; font-weight: 700; color: var(--gold-dark); margin-bottom: 20px; }
+    .profile-title span { color: var(--ink); }
+    .story-copy p { color: var(--muted); font-size: 17px; margin-bottom: 20px; }
+    .brand-statement {
+      padding-left: 20px;
+      border-left: 3px solid var(--gold);
+      margin: 28px 0;
       color: var(--ink);
-      font-weight: 500;
+      font-size: 17px;
+      font-weight: 600;
     }
 
-    /* Stats Grid & Action Row */
-    .stats {
+    /* Stats Grid */
+    .stats-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      border-top: 1px solid var(--line);
-      padding-top: 26px;
-      margin-top: 32px;
-    }
-    .stats strong { display: block; font: 500 32px 'Playfair Display', serif; }
-    .stats span { color: var(--muted); font-size: 14px; }
-
-    .story-cta {
-      margin-top: 40px;
-      padding-top: 24px;
-      display: flex;
-      align-items: center;
       gap: 20px;
-      flex-wrap: wrap;
+      border-top: 1px solid var(--line);
+      padding-top: 28px;
+      margin-top: 36px;
     }
+    .stats-grid strong { display: block; font: 500 36px 'Playfair Display', serif; color: var(--ink); }
+    .stats-grid span { color: var(--muted); font-size: 14px; }
+
+    .cta-row { display: flex; gap: 16px; margin-top: 36px; flex-wrap: wrap; }
 
     /* Footer */
-    .footer { background: #111111; color: #aaaaaa; padding: 48px 0; border-top: 1px solid #222222; }
-    .footer-line { display: flex; justify-content: space-between; align-items: center; gap: 22px; flex-wrap: wrap; }
-    .footer-line span { max-width: 600px; color: rgba(255, 255, 255, 0.7); font-size: 14px; }
-    .footer-line a.footer-link { color: var(--gold); font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
-    .footer-line a.footer-link:hover { color: var(--white); }
+    .site-footer {
+      background: #111111;
+      color: #b0b0b0;
+      padding: 60px 0 40px;
+      border-top: 1px solid #222222;
+      margin-top: 80px;
+    }
+    .footer-content { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: start; }
+    .footer-brand p { font-size: 14px; line-height: 1.6; color: #888888; max-width: 320px; margin-top: 16px; }
+    .footer-nav { display: flex; gap: 40px; justify-content: flex-end; flex-wrap: wrap; }
+    .footer-nav a { font-size: 14px; color: #cccccc; transition: color 0.2s ease; }
+    .footer-nav a:hover { color: var(--gold); }
+    .legal-disclaimer {
+      border-top: 1px solid #222222;
+      margin-top: 40px;
+      padding-top: 24px;
+      font-size: 12px;
+      color: #666666;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
 
-    /* Responsive Design */
-    @media (max-width: 800px) {
-      .site-header nav, .site-header > .button { display: none; }
-      .site-header { justify-content: space-between; }
-      .story, .stats, .footer-line { grid-template-columns: 1fr; display: grid; }
-      .portrait { max-width: 360px; }
-      .hero { padding-top: 50px; }
+    @media (max-width: 850px) {
+      .menu-toggle { display: block; }
+      .site-header nav {
+        display: none;
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: rgba(247, 244, 239, 0.98);
+        backdrop-filter: blur(16px);
+        flex-direction: column;
+        padding: 20px;
+        margin-top: 10px;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        z-index: 1001;
+      }
+      .site-header nav.active { display: flex; }
+      .site-header nav a { width: 100%; text-align: center; padding: 10px 0; }
+      .story-grid, .stats-grid, .footer-content { grid-template-columns: 1fr; }
+      .footer-nav { justify-content: start; }
     }
   </style>
 </head>
@@ -219,49 +238,54 @@
   <a class="skip-link" href="#main-content">Skip to content</a>
 
   <header class="site-header">
-    <a href="index.html" aria-label="XI:XI Home" class="flex items-center gap-2">
-      <svg viewBox="20 46 148 52" style="height:28px; width:auto;" aria-hidden="true">
-        <text x="24" y="92" font-family="Georgia, serif" font-size="56" font-weight="500">
-          <tspan fill="#171717">XI</tspan><tspan fill="#B38D5A">:</tspan><tspan fill="#171717">XI</tspan>
-        </text>
+    <a href="index.html" class="brand-logo" aria-label="XI:XI Home">
+      <svg viewBox="0 0 160 40" fill="none" aria-hidden="true">
+        <text x="0" y="30" font-family="'Playfair Display', Georgia, serif" font-size="32" font-weight="600" fill="#171717" letter-spacing="-0.02em">XI<tspan fill="#B38D5A">:</tspan>XI</text>
       </svg>
     </a>
+
+    <button class="menu-toggle" aria-label="Toggle Navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
     <nav aria-label="Primary navigation">
       <a href="services.html">Services</a>
       <a href="insights.html">Insights</a>
-      <a href="story.html" aria-current="page">About</a>
+      <a href="about.html" aria-current="page">About</a>
       <a href="tools.html">Tools</a>
       <a href="intake.html">Get started</a>
     </nav>
+
     <a class="button button-dark" href="https://cal.com/xix-lana" target="_blank" rel="noopener">Book a call</a>
   </header>
 
-  <main id="main-content">
-    <section class="hero wrap">
-      <p class="eyebrow">About XI:XI</p>
-      <h1>Meet the person behind the numbers.</h1>
-      <p class="lede">I help owners bring structure to the financial operations side of their business—without the chaos, confusion, or endless cleanup.</p>
+  <main id="main-content" class="wrap">
+    <section class="about-hero">
+      <p class="eyebrow">ABOUT XI:XI</p>
+      <h1 class="page-title">Meet the person behind the numbers.</h1>
+      <p class="page-subhead">I help owners bring structure to the financial operations side of their business—without the chaos, confusion, or endless cleanup.</p>
     </section>
 
-    <section class="wrap story">
-      <figure class="portrait">
-        <img src="assets/lana-headshot.jpg" alt="Lana Tselishchev, founder of XI:XI" width="360" height="360" loading="eager">
-      </figure>
+    <section class="story-grid">
+      <div class="portrait-wrap">
+        <img src="assets/lana-headshot.jpg" alt="Lana Tselishchev, Fractional Financial Controller" width="360" height="360" loading="eager">
+        <span class="portrait-badge">XI:XI</span>
+      </div>
 
       <div class="story-copy">
-        <div class="meta">
-          <span>Lana Tselishchev</span>
-          <span>·</span>
-          <span>Financial operations partner</span>
+        <div class="profile-title">
+          <span>Lana Tselishchev</span> &nbsp;·&nbsp; Fractional Financial Controller
         </div>
 
         <p>Running a business is demanding enough without wondering whether the financial records can be trusted. I help owners find the gaps, fix the process, and build a clearer operating rhythm.</p>
 
         <p>I started XI:XI to give business owners a grounded partner in the financial operations of their business—someone who can turn confusing information into a practical next step.</p>
 
-        <p class="brand-alignment">XI:XI is named for the moment numbers align: clarity, precision, and confidence before a business moves forward.</p>
+        <div class="brand-statement">
+          XI:XI is named for the moment numbers align: clarity, precision, and confidence before a business moves forward.
+        </div>
 
-        <div class="stats">
+        <div class="stats-grid">
           <div>
             <strong>1M+</strong>
             <span>Financial entries reviewed</span>
@@ -276,7 +300,7 @@
           </div>
         </div>
 
-        <div class="story-cta">
+        <div class="cta-row">
           <a class="button button-dark" href="https://cal.com/xix-lana" target="_blank" rel="noopener">Schedule an intro call</a>
           <a class="button button-gold" href="services.html">Explore services</a>
         </div>
@@ -284,18 +308,39 @@
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="wrap footer-line">
-      <a href="index.html" aria-label="XI:XI Home">
-        <svg viewBox="20 46 148 52" style="height:24px; width:auto;" aria-hidden="true">
-          <text x="24" y="92" font-family="Georgia, serif" font-size="56" font-weight="500">
-            <tspan fill="#ffffff">XI</tspan><tspan fill="#B38D5A">:</tspan><tspan fill="#ffffff">XI</tspan>
-          </text>
-        </svg>
-      </a>
-      <span>Independent financial operations support for owners who need numbers they can trust.</span>
-      <a href="intake.html" class="footer-link">Get started →</a>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" aria-label="XI:XI Home">
+            <svg viewBox="0 0 160 40" fill="none" aria-hidden="true">
+              <text x="0" y="30" font-family="'Playfair Display', Georgia, serif" font-size="32" font-weight="600" fill="#ffffff" letter-spacing="-0.02em">XI<tspan fill="#B38D5A">:</tspan>XI</text>
+            </svg>
+          </a>
+          <p>Independent financial operations support for owners who need numbers they can trust.</p>
+        </div>
+        <div class="footer-nav">
+          <a href="services.html">Services</a>
+          <a href="insights.html">Insights</a>
+          <a href="about.html">About</a>
+          <a href="tools.html">Tools</a>
+          <a href="intake.html">Get started</a>
+        </div>
+      </div>
+      <div class="legal-disclaimer">
+        <span>&copy; 2026 XI:XI. All rights reserved.</span>
+        <span>Not a Certified Public Accountant firm.</span>
+      </div>
     </div>
   </footer>
+
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.site-header nav');
+    toggle?.addEventListener('click', () => {
+      const active = nav.classList.toggle('active');
+      toggle.setAttribute('aria-expanded', active);
+    });
+  </script>
 </body>
 </html>
