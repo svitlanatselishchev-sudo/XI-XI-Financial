@@ -199,13 +199,24 @@
     /* Cards Grid */
     .guide-grid { padding: 10px 0 96px; }
     .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
-    .card { background: var(--white); border: 1px solid var(--line); border-radius: 22px; overflow: hidden; box-shadow: var(--shadow); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .card {
+      display: flex;
+      flex-direction: column;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
     .card:hover { transform: translateY(-4px); box-shadow: 0 32px 72px rgba(23, 23, 23, .12); }
-    .card-bar { height: 7px; background: linear-gradient(90deg, var(--gold), #d7c29c); }
-    .card-body { padding: 28px 24px; }
-    .tag { display: inline-block; margin-bottom: 14px; padding: 6px 12px; border-radius: 999px; background: rgba(179, 141, 90, .12); color: var(--gold-dark); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    .card-bar { height: 7px; background: linear-gradient(90deg, var(--gold), #d7c29c); flex-shrink: 0; }
+    .card-body { padding: 28px 24px; display: flex; flex-direction: column; flex: 1; }
+    .tag { display: inline-block; align-self: flex-start; margin-bottom: 14px; padding: 6px 12px; border-radius: 999px; background: rgba(179, 141, 90, .12); color: var(--gold-dark); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
     .card h3 { font: 500 28px/1.15 "Playfair Display", serif; letter-spacing: -.04em; margin: 0 0 12px; }
-    .card p { color: var(--muted); font-size: 16px; line-height: 1.6; }
+    .card h3 a { color: inherit; }
+    .card h3 a:hover { color: var(--gold-dark); }
+    .card p { color: var(--muted); font-size: 16px; line-height: 1.6; flex: 1; }
     .card a.read-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; color: var(--gold-dark); font-weight: 700; font-size: 14px; }
     .card a.read-link::after { content: "→"; transition: transform 0.2s ease; }
     .card a.read-link:hover::after { transform: translateX(4px); }
@@ -302,9 +313,9 @@
           <div class="card-bar"></div>
           <div class="card-body">
             <span class="tag">Reconciliation</span>
-            <h3>5 financial record errors that can cost your business thousands</h3>
+            <h3><a href="5-invisible-ledger-errors.html">5 financial record errors that can cost your business thousands</a></h3>
             <p>Most small discrepancies are easy to miss until they compound into stale balances, missed cash, or a tax filing problem.</p>
-            <a class="read-link" href="5-invisible-ledger-errors.html">Read the guide</a>
+            <a class="read-link" href="5-invisible-ledger-errors.html" aria-label="Read guide: 5 financial record errors that can cost your business thousands">Read the guide</a>
           </div>
         </article>
 
@@ -312,9 +323,9 @@
           <div class="card-bar"></div>
           <div class="card-body">
             <span class="tag">Florida sales tax</span>
-            <h3>Florida sales tax: 5 things to check before an audit</h3>
+            <h3><a href="florida-sales-tax-pre-audit-checklist.html">Florida sales tax: 5 things to check before an audit</a></h3>
             <p>Audit teams usually start with a few consistent red flags. Here is what to review before an issue becomes a problem.</p>
-            <a class="read-link" href="florida-sales-tax-pre-audit-checklist.html">Read the guide</a>
+            <a class="read-link" href="florida-sales-tax-pre-audit-checklist.html" aria-label="Read guide: Florida sales tax: 5 things to check before an audit">Read the guide</a>
           </div>
         </article>
 
@@ -322,9 +333,9 @@
           <div class="card-bar"></div>
           <div class="card-body">
             <span class="tag">Multi-entity</span>
-            <h3>Why balances between your companies stop matching</h3>
+            <h3><a href="intercompany-balances-reconcile-to-zero.html">Why balances between your companies stop matching</a></h3>
             <p>Intercompany mismatches often come from timing and cutoffs. We walk through what to look for and how to correct it.</p>
-            <a class="read-link" href="intercompany-balances-reconcile-to-zero.html">Read the guide</a>
+            <a class="read-link" href="intercompany-balances-reconcile-to-zero.html" aria-label="Read guide: Why balances between your companies stop matching">Read the guide</a>
           </div>
         </article>
       </div>
