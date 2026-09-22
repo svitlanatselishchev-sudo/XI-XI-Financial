@@ -10,16 +10,29 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/brand.css">
-  <link rel="stylesheet" href="assets/ux-enhancements.css">
   <style>
     :root{--ink:#171717;--paper:#f7f4ef;--white:#fff;--gold:#b38d5a;--gold-dark:#80633d;--muted:#686158;--line:#ded4c5;--shadow:0 26px 64px rgba(23,23,23,.08)}
     *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.7 'DM Sans',sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility} a{color:inherit;text-decoration:none} img{display:block;max-width:100%}.wrap{width:min(1180px,calc(100% - 32px));margin:auto}
-    .site-header{position:sticky;top:18px;z-index:12;width:min(1160px,calc(100% - 32px));margin:16px auto 0;padding:10px 14px 10px 22px;border:1px solid rgba(179,141,90,.6);border-radius:999px;background:rgba(247,244,239,.96);backdrop-filter:blur(12px);display:flex;align-items:center;gap:26px;box-shadow:0 10px 24px rgba(23,23,23,.04)}
-    .site-header nav{display:flex;justify-content:center;gap:24px;flex:1;flex-wrap:wrap}.site-header nav a{font-size:14px;font-weight:600;color:var(--muted);position:relative;padding:6px 0}.site-header nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:center;transition:transform .2s ease}.site-header nav a:hover::after,.site-header nav a[aria-current="page"]::after{transform:scaleX(1)}
-    .button{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 18px;border-radius:999px;background:var(--ink);color:var(--white);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;transition:transform .2s ease,box-shadow .2s ease}.button:hover{transform:translateY(-2px)}
+    
+    .skip-link{position:absolute;top:-60px;left:16px;background:var(--ink);color:var(--white);padding:10px 18px;font-weight:700;z-index:2000;transition:top 0.2s ease;border-radius:8px}
+    .skip-link:focus{top:16px}
+
+    /* Header matching Insights style */
+    .site-header{position:sticky;top:18px;z-index:12;width:min(1160px,calc(100% - 32px));margin:16px auto 0;padding:10px 18px 10px 22px;border:1px solid rgba(179,141,90,.4);border-radius:999px;background:rgba(247,244,239,.96);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:space-between;gap:20px;box-shadow:0 10px 24px rgba(23,23,23,.04)}
+    
+    .brand-logo-full{display:flex;align-items:center;text-decoration:none}
+    .brand-logo-full svg{height:34px;width:auto;display:block}
+
+    .site-header nav{display:flex;align-items:center;justify-content:center;gap:28px}
+    .site-header nav a{font-size:14px;font-weight:600;color:var(--muted);position:relative;padding:6px 0;transition:color 0.2s ease}
+    .site-header nav a:hover,.site-header nav a[aria-current="page"]{color:var(--ink)}
+    .site-header nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:center;transition:transform .2s ease}
+    .site-header nav a:hover::after,.site-header nav a[aria-current="page"]::after{transform:scaleX(1)}
+    
+    .button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 22px;border-radius:999px;background:var(--ink);color:var(--white);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;transition:transform .2s ease,box-shadow .2s ease}
+    .button:hover{transform:translateY(-2px);background:var(--gold-dark)}
     .button-dark{background:var(--ink);color:var(--white)}
-    .eyebrow{color:var(--gold);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+    .eyebrow{color:var(--gold-dark);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
     
     .page-hero{padding:72px 0 32px}
     .page-title{margin:10px 0 0;font:500 clamp(38px,5vw,64px)/1.1 'Playfair Display',serif;letter-spacing:-.04em}
@@ -50,19 +63,24 @@
     .service-card li{position:relative;padding:10px 0 10px 18px;border-bottom:1px solid var(--line);font-size:13px;color:var(--ink);font-weight:500}
     .service-card li::before{content:"";position:absolute;left:0;top:16px;width:5px;height:5px;border-radius:50%;background:var(--gold)}
 
-    .cta-box{margin-top:20px;display:flex;justify-content:space-between;align-items:center;background:var(--white);border:1px solid var(--line);border-radius:20px;padding:24px 30px}
-    .cta-box p{margin:0;font-weight:500}
-
     .footer{background:#111;color:#aaa;padding:40px 0}.footer-grid{display:grid;grid-template-columns:1fr auto;gap:50px;align-items:center}.footer-brand{color:var(--white);font:500 30px Georgia,serif}.footer-copy{margin:10px 0 0;max-width:420px;color:rgba(255,255,255,.75)}.footer-links{display:flex;gap:18px;flex-wrap:wrap}.footer-links a{color:rgba(255,255,255,.78)}.footer-links a:hover{color:var(--gold)}.copyright{margin-top:18px;color:rgba(255,255,255,.55);font-size:14px}
 
     @media(max-width:1024px){.service-grid,.featured-inner,.cta-box{grid-template-columns:1fr;display:grid;gap:20px}}
-    @media(max-width:900px){.site-header nav,.site-header>.button{display:none}.site-header{justify-content:space-between}.footer-grid{grid-template-columns:1fr;display:grid}}
+    @media(max-width:900px){.site-header nav{display:none}.site-header{justify-content:space-between}.footer-grid{grid-template-columns:1fr;display:grid}}
   </style>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
+
   <header class="site-header">
-    <a class="brand-lockup" href="index.html" aria-label="XI:XI home"><img src="assets/logo-wordmark.svg" alt="XI:XI"></a>
+    <a href="index.html" class="brand-logo-full" aria-label="XI:XI Home">
+      <svg viewBox="0 0 380 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <text x="0" y="32" font-family="'Playfair Display', Georgia, serif" font-size="34" font-weight="600" fill="#171717" letter-spacing="-0.02em">XI<tspan fill="#B38D5A">:</tspan>XI</text>
+        <line x1="125" y1="6" x2="125" y2="38" stroke="#B38D5A" stroke-width="1.5" />
+        <text x="145" y="19" font-family="'DM Sans', sans-serif" font-size="11" font-weight="700" fill="#80633D" letter-spacing="0.18em">FINANCIAL STRATEGY</text>
+        <text x="145" y="34" font-family="'DM Sans', sans-serif" font-size="11" font-weight="700" fill="#80633D" letter-spacing="0.18em">BUSINESS OPTIMIZATION</text>
+      </svg>
+    </a>
     <nav aria-label="Primary navigation">
       <a href="services.html" aria-current="page">Services</a>
       <a href="insights.html">Insights</a>
@@ -316,7 +334,7 @@
   <footer class="footer">
     <div class="wrap footer-grid">
       <div>
-        <div class="footer-brand">XI<span>:</span>XI</div>
+        <div class="footer-brand" style="font-family:serif;">XI<span>:</span>XI</div>
         <p class="footer-copy">Independent strategic finance and business optimization for owners who need numbers they can trust.</p>
       </div>
       <nav class="footer-links" aria-label="Footer navigation">
