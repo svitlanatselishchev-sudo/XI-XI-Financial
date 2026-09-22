@@ -1,61 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#171717">
-  <meta name="description" content="XI:XI Financial guides on reconciliation, sales tax, and multi-entity accounting for business owners who want practical financial clarity.">
-  <title>Financial Guides | XI:XI</title>
-
-  <!-- Canonical Link -->
-  <link rel="canonical" href="https://xixistrategy.com/insights.html">
-
-  <!-- Favicons -->
+  <meta name="description" content="Insights & Articles — XI:XI Financial Strategy & Business Optimization. Perspectives on financial operations, ledger verification, and process cleanup.">
+  <title>Insights | XI:XI Financial Strategy & Business Optimization</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-
-  <!-- Open Graph / Social Cards -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Financial Guides | XI:XI — Financial Operations Consultancy">
-  <meta property="og:description" content="Practical guidance on bank and ledger issues, sales tax, and multi-entity accounting — written for business owners who need clear answers.">
-  <meta property="og:url" content="https://xixistrategy.com/insights.html">
-  <meta property="og:image" content="https://xixistrategy.com/og-image.png">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <!-- Structured Data (Schema.org) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "name": "Financial Guides & Insights",
-    "url": "https://xixistrategy.com/insights.html",
-    "description": "Practical guidance on bank and ledger issues, sales tax, and multi-entity accounting.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "XI:XI",
-      "logo": "https://xixistrategy.com/assets/logo-wordmark.svg"
-    }
-  }
-  </script>
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
-  
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="assets/brand.css">
-  <link rel="stylesheet" href="assets/ux-enhancements.css">
-
   <style>
     :root {
       --ink: #171717;
       --paper: #f7f4ef;
-      --white: #fff;
+      --white: #ffffff;
       --gold: #b38d5a;
       --gold-dark: #80633d;
       --muted: #686158;
       --line: #ded4c5;
-      --shadow: 0 26px 64px rgba(23, 23, 23, .08);
+      --tint: #efe7de;
       --max: 1180px;
     }
     * { box-sizing: border-box; }
@@ -64,333 +28,370 @@
       margin: 0;
       background: var(--paper);
       color: var(--ink);
-      font: 16px/1.7 "DM Sans", sans-serif;
+      font: 16px/1.65 'DM Sans', sans-serif;
       -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
     }
-    body.menu-open { overflow: hidden; }
-    body, h1, h2, h3, p, ul { margin: 0; }
     a { color: inherit; text-decoration: none; }
-    button { font: inherit; }
-    img { display: block; max-width: 100%; }
-    .wrap { width: min(var(--max), calc(100% - 32px)); margin-inline: auto; }
+    img { display: block; max-width: 100%; height: auto; }
+    .wrap { width: min(var(--max), calc(100% - 32px)); margin: auto; }
 
-    /* Focus States */
-    a:focus-visible, button:focus-visible {
-      outline: 2px solid var(--gold);
-      outline-offset: 2px;
-    }
-
-    /* Skip Link */
+    /* Accessibility Skip Link */
     .skip-link {
       position: absolute;
-      top: -100px;
+      top: -60px;
       left: 16px;
-      z-index: 100;
       background: var(--ink);
       color: var(--white);
-      padding: 12px 20px;
-      border-radius: 8px;
-      font-weight: 600;
+      padding: 10px 18px;
+      font-weight: 700;
+      z-index: 2000;
       transition: top 0.2s ease;
+      border-radius: 8px;
     }
     .skip-link:focus { top: 16px; }
 
-    /* Header & Navigation */
+    /* Header & Navigation Bar */
     .site-header {
       position: sticky;
       top: 18px;
-      z-index: 20;
+      z-index: 1000;
       width: min(1160px, calc(100% - 32px));
       margin: 16px auto 0;
-      padding: 8px 12px 8px 18px;
-      border: 1px solid rgba(179, 141, 90, .58);
+      padding: 10px 18px 10px 22px;
+      border: 1px solid rgba(179, 141, 90, 0.4);
       border-radius: 999px;
-      background: rgba(247, 244, 239, .96);
+      background: rgba(247, 244, 239, 0.96);
       backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       display: flex;
       align-items: center;
-      gap: 22px;
-      box-shadow: 0 10px 28px rgba(23, 23, 23, .06);
+      justify-content: space-between;
+      gap: 20px;
+      box-shadow: 0 10px 24px rgba(23, 23, 23, 0.04);
     }
-    .site-header .brand-lockup { flex-shrink: 0; }
-    .site-header .brand-lockup img { width: 184px; }
+    
+    .brand-logo-full {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    .brand-logo-full img,
+    .brand-logo-full svg {
+      height: 44px;
+      width: auto;
+      display: block;
+    }
+
     .site-header nav {
       display: flex;
+      align-items: center;
       justify-content: center;
-      gap: clamp(14px, 2vw, 26px);
-      flex: 1;
-      flex-wrap: wrap;
+      gap: 28px;
     }
     .site-header nav a {
       font-size: 14px;
       font-weight: 600;
       color: var(--muted);
       position: relative;
-      padding: 7px 0;
+      padding: 6px 0;
+      transition: color 0.2s ease;
+    }
+    .site-header nav a:hover,
+    .site-header nav a[aria-current="page"] {
+      color: var(--ink);
     }
     .site-header nav a::after {
       content: "";
       position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      left: 0; right: 0; bottom: 0;
       height: 2px;
       background: var(--gold);
       transform: scaleX(0);
-      transition: transform .2s ease;
+      transform-origin: center;
+      transition: transform 0.2s ease;
     }
     .site-header nav a:hover::after,
-    .site-header nav a[aria-current="page"]::after { transform: scaleX(1); }
-
-    .menu-toggle {
-      display: none;
-      width: 42px;
-      height: 42px;
-      padding: 0;
-      border: 1px solid var(--line);
-      border-radius: 50%;
-      background: transparent;
-      color: var(--ink);
-      cursor: pointer;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 5px;
+    .site-header nav a[aria-current="page"]::after {
+      transform: scaleX(1);
     }
-    .menu-toggle span {
-      width: 18px;
-      height: 2px;
-      background: currentColor;
-      border-radius: 2px;
-      transition: transform .2s ease;
-    }
-    .menu-toggle[aria-expanded="true"] span:first-child { transform: translateY(3.5px) rotate(45deg); }
-    .menu-toggle[aria-expanded="true"] span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
-    .mobile-menu { display: none; }
-    .site-header .button { flex-shrink: 0; }
 
     /* Buttons */
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 46px;
-      padding: 0 20px;
+      min-height: 44px;
+      padding: 0 22px;
       border-radius: 999px;
       font-size: 12px;
       font-weight: 700;
-      letter-spacing: .12em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s ease;
       border: 1px solid transparent;
-      background: var(--ink);
-      color: var(--white);
-      box-shadow: 0 16px 26px rgba(23, 23, 23, .14);
-      transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease;
     }
-    .button:hover { transform: translateY(-2px); }
+    .button-dark { background: var(--ink); color: var(--white); box-shadow: 0 8px 20px rgba(23, 23, 23, 0.15); }
+    .button-dark:hover { background: var(--gold-dark); color: var(--white); transform: translateY(-2px); }
 
-    /* Typography & Sections */
-    .eyebrow { color: var(--gold); font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
-    .page-hero { padding: 92px 0 28px; }
-    .page-title { margin: 10px 0 0; font: 500 clamp(42px, 6vw, 72px)/1 "Playfair Display", serif; letter-spacing: -.05em; }
-    .lede { margin: 18px 0 0; max-width: 700px; color: var(--muted); font-size: 18px; }
+    /* Mobile Menu Toggle */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+    }
+    .menu-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--ink);
+      margin: 4px 0;
+    }
 
-    /* Cards Grid */
-    .guide-grid { padding: 10px 0 96px; }
-    .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
-    .card {
+    /* Insights Content Section */
+    .insights-hero {
+      padding: 70px 0 40px;
+      border-bottom: 1px solid var(--line);
+    }
+    .eyebrow {
+      color: var(--gold-dark);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .insights-hero h1 {
+      font: 500 clamp(36px, 4.5vw, 56px)/1.1 'Playfair Display', serif;
+      margin: 0 0 16px;
+    }
+    .insights-hero p {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 680px;
+      margin: 0;
+    }
+
+    .insights-section {
+      padding: 60px 0 80px;
+    }
+    .insights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 32px;
+    }
+    .insight-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 36px;
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 30px rgba(23, 23, 23, 0.03);
       display: flex;
       flex-direction: column;
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
+      justify-content: space-between;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 32px 72px rgba(23, 23, 23, .12); }
-    .card-bar { height: 7px; background: linear-gradient(90deg, var(--gold), #d7c29c); flex-shrink: 0; }
-    .card-body { padding: 28px 24px; display: flex; flex-direction: column; flex: 1; }
-    .tag { display: inline-block; align-self: flex-start; margin-bottom: 14px; padding: 6px 12px; border-radius: 999px; background: rgba(179, 141, 90, .12); color: var(--gold-dark); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
-    .card h3 { font: 500 28px/1.15 "Playfair Display", serif; letter-spacing: -.04em; margin: 0 0 12px; }
-    .card h3 a { color: inherit; }
-    .card h3 a:hover { color: var(--gold-dark); }
-    .card p { color: var(--muted); font-size: 16px; line-height: 1.6; flex: 1; }
-    .card a.read-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; color: var(--gold-dark); font-weight: 700; font-size: 14px; }
-    .card a.read-link::after { content: "→"; transition: transform 0.2s ease; }
-    .card a.read-link:hover::after { transform: translateX(4px); }
+    .insight-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(23, 23, 23, 0.08);
+    }
+    .insight-date {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-bottom: 10px;
+    }
+    .insight-card h2 {
+      font: 500 24px/1.25 'Playfair Display', serif;
+      margin: 0 0 14px;
+      color: var(--ink);
+    }
+    .insight-card p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+    .read-more {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .read-more:hover { color: var(--gold-dark); }
 
     /* Footer */
-    .footer { padding: 42px 0 24px; background: #111; color: #aaa; }
-    .footer-row { display: flex; justify-content: space-between; gap: 25px; align-items: center; }
-    .footer-row .brand-lockup { color: var(--white); }
-    .footer-row p { max-width: 520px; margin: 0; font-size: 15px; color: rgba(255, 255, 255, .7); }
-    .footer-links { display: flex; gap: 22px; font-size: 13px; flex-wrap: wrap; }
-    .footer-links a { color: rgba(255, 255, 255, .8); }
-    .footer-links a:hover { color: var(--gold); }
-    .copyright { margin-top: 24px; border-top: 1px solid rgba(255, 255, 255, .1); padding-top: 18px; color: rgba(255, 255, 255, .5); font-size: 13px; }
+    .site-footer {
+      background: #111111;
+      color: #b0b0b0;
+      padding: 60px 0 40px;
+      border-top: 1px solid #222222;
+    }
+    .footer-content {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .footer-brand p { font-size: 14px; line-height: 1.6; color: #888888; max-width: 320px; margin-top: 16px; }
+    .footer-nav { display: flex; gap: 40px; justify-content: flex-end; flex-wrap: wrap; }
+    .footer-nav a { font-size: 14px; color: #cccccc; transition: color 0.2s ease; }
+    .footer-nav a:hover { color: var(--gold); }
+    .legal-disclaimer {
+      border-top: 1px solid #222222;
+      margin-top: 40px;
+      padding-top: 24px;
+      font-size: 12px;
+      color: #666666;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
 
     /* Mobile Responsive */
-    @media (max-width: 900px) {
-      .cards { grid-template-columns: 1fr; }
-      .site-header nav, .site-header > .button { display: none; }
-      .site-header { justify-content: space-between; }
-      .menu-toggle { display: flex; }
-      .footer-row { flex-direction: column; align-items: flex-start; }
-      .mobile-menu {
-        position: fixed;
-        top: 84px;
-        left: 12px;
-        right: 12px;
-        z-index: 19;
-        display: flex;
+    @media (max-width: 850px) {
+      .brand-logo-full img,
+      .brand-logo-full svg { height: 34px; }
+      .menu-toggle { display: block; }
+      .site-header nav {
+        display: none;
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: rgba(247, 244, 239, 0.98);
+        backdrop-filter: blur(16px);
         flex-direction: column;
-        visibility: hidden;
-        opacity: 0;
-        transform: translateY(-8px);
-        gap: 8px;
-        padding: 14px;
-        border: 1px solid rgba(179, 141, 90, .55);
+        padding: 20px;
+        margin-top: 10px;
         border-radius: 18px;
-        background: rgba(247, 244, 239, .98);
-        box-shadow: 0 20px 45px rgba(23, 23, 23, .14);
-        transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
+        border: 1px solid var(--line);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
       }
-      .mobile-menu a { padding: 13px 12px; border-radius: 10px; color: var(--muted); font-weight: 700; }
-      .mobile-menu a:hover, .mobile-menu a[aria-current="page"] { background: rgba(179, 141, 90, .12); color: var(--ink); }
-      body.menu-open .mobile-menu { visibility: visible; opacity: 1; transform: translateY(0); }
-    }
-    @media (max-width: 600px) {
-      .site-header { position: sticky; top: 10px; width: calc(100% - 20px); margin-top: 10px; border-radius: 16px; padding: 8px 10px; }
-      .site-header .brand-lockup img { width: 160px; }
-      .page-hero { padding-top: 60px; }
-      .guide-grid { padding-bottom: 60px; }
+      .site-header nav.active { display: flex; }
+      .site-header nav a { width: 100%; text-align: center; padding: 10px 0; }
+      .footer-content { grid-template-columns: 1fr; gap: 32px; }
+      .footer-nav { justify-content: start; }
     }
   </style>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
 
+  <!-- TOP NAVIGATION HEADER WITH LARGER FULL LOGO -->
   <header class="site-header">
-    <a class="brand-lockup" href="index.html" aria-label="XI:XI home">
-      <img src="assets/logo-wordmark.svg" alt="XI:XI">
+    <a href="index.html" class="brand-logo-full" aria-label="XI:XI Home">
+      <svg viewBox="0 0 380 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <text x="0" y="32" font-family="'Playfair Display', Georgia, serif" font-size="34" font-weight="600" fill="#171717" letter-spacing="-0.02em">XI<tspan fill="#B38D5A">:</tspan>XI</text>
+        <line x1="125" y1="6" x2="125" y2="38" stroke="#B38D5A" stroke-width="1.5" />
+        <text x="145" y="19" font-family="'DM Sans', sans-serif" font-size="11" font-weight="700" fill="#80633D" letter-spacing="0.18em">FINANCIAL STRATEGY</text>
+        <text x="145" y="34" font-family="'DM Sans', sans-serif" font-size="11" font-weight="700" fill="#80633D" letter-spacing="0.18em">BUSINESS OPTIMIZATION</text>
+      </svg>
     </a>
+
+    <button class="menu-toggle" aria-label="Toggle Navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
     <nav aria-label="Primary navigation">
       <a href="services.html">Services</a>
       <a href="insights.html" aria-current="page">Insights</a>
-      <a href="story.html">About</a>
+      <a href="about.html">About</a>
       <a href="tools.html">Tools</a>
       <a href="intake.html">Get started</a>
     </nav>
-    <a class="button" href="https://cal.com/xix-lana" target="_blank" rel="noopener">Book a call</a>
-    <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open navigation">
-      <span></span><span></span>
-    </button>
+
+    <a class="button button-dark" href="https://cal.com/xix-lana" target="_blank" rel="noopener">Book a call</a>
   </header>
 
-  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true">
-    <a href="services.html">Services</a>
-    <a href="insights.html" aria-current="page">Insights</a>
-    <a href="story.html">About</a>
-    <a href="tools.html">Tools</a>
-    <a href="intake.html">Get started</a>
-    <a class="button" href="https://cal.com/xix-lana" target="_blank" rel="noopener">Book a call</a>
-  </nav>
-
   <main id="main-content">
-    <section class="page-hero">
+    <section class="insights-hero">
       <div class="wrap">
-        <p class="eyebrow">Insights &amp; guides</p>
-        <h1 class="page-title">Financial guides</h1>
-        <p class="lede">Practical guidance on bank and ledger issues, sales tax, and multi-entity accounting — written for business owners who need clear answers.</p>
+        <p class="eyebrow">PERSPECTIVES &amp; NOTES</p>
+        <h1>Insights on financial operations &amp; control.</h1>
+        <p>Practical commentary on statement reconciliation, multi-channel revenue accounting, and cleaning up operational bottlenecks.</p>
       </div>
     </section>
 
-    <section class="guide-grid">
-      <div class="wrap cards">
-        <article class="card">
-          <div class="card-bar"></div>
-          <div class="card-body">
-            <span class="tag">Reconciliation</span>
-            <h3><a href="5-invisible-ledger-errors.html">5 financial record errors that can cost your business thousands</a></h3>
-            <p>Most small discrepancies are easy to miss until they compound into stale balances, missed cash, or a tax filing problem.</p>
-            <a class="read-link" href="5-invisible-ledger-errors.html" aria-label="Read guide: 5 financial record errors that can cost your business thousands">Read the guide</a>
+    <section class="insights-section">
+      <div class="wrap insights-grid">
+        <!-- Article 1 -->
+        <article class="insight-card">
+          <div>
+            <div class="insight-date">September 2026</div>
+            <h2>Why Statement-to-Ledger Verification Beats Standard Data Entry</h2>
+            <p>Moving beyond basic bookkeeping to ensure every transaction, platform fee, and multi-currency payout matches your actual banking source documents.</p>
           </div>
+          <a href="#" class="read-more">Read article &rarr;</a>
         </article>
 
-        <article class="card">
-          <div class="card-bar"></div>
-          <div class="card-body">
-            <span class="tag">Florida sales tax</span>
-            <h3><a href="florida-sales-tax-pre-audit-checklist.html">Florida sales tax: 5 things to check before an audit</a></h3>
-            <p>Audit teams usually start with a few consistent red flags. Here is what to review before an issue becomes a problem.</p>
-            <a class="read-link" href="florida-sales-tax-pre-audit-checklist.html" aria-label="Read guide: Florida sales tax: 5 things to check before an audit">Read the guide</a>
+        <!-- Article 2 -->
+        <article class="insight-card">
+          <div>
+            <div class="insight-date">August 2026</div>
+            <h2>Untangling Multi-Channel Revenue Streams</h2>
+            <p>How growing businesses handle payout discrepancies across payment gateways, merchant processors, and subscription platforms without losing clarity.</p>
           </div>
+          <a href="#" class="read-more">Read article &rarr;</a>
         </article>
 
-        <article class="card">
-          <div class="card-bar"></div>
-          <div class="card-body">
-            <span class="tag">Multi-entity</span>
-            <h3><a href="intercompany-balances-reconcile-to-zero.html">Why balances between your companies stop matching</a></h3>
-            <p>Intercompany mismatches often come from timing and cutoffs. We walk through what to look for and how to correct it.</p>
-            <a class="read-link" href="intercompany-balances-reconcile-to-zero.html" aria-label="Read guide: Why balances between your companies stop matching">Read the guide</a>
+        <!-- Article 3 -->
+        <article class="insight-card">
+          <div>
+            <div class="insight-date">July 2026</div>
+            <h2>Building an Internal Financial Rhythm Your Team Can Trust</h2>
+            <p>Structuring standard operating procedures around accounts payable and receivables to eliminate month-end scrambles.</p>
           </div>
+          <a href="#" class="read-more">Read article &rarr;</a>
         </article>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
+  <!-- FOOTER WITH FULL LEGAL DISCLAIMER -->
+  <footer class="site-footer">
     <div class="wrap">
-      <div class="footer-row">
-        <a class="brand-lockup" href="index.html" aria-label="XI:XI home">
-          <img src="assets/logo-wordmark.svg" alt="XI:XI">
-        </a>
-        <p>Independent strategic finance and financial operations support for business owners who need numbers they can trust.</p>
-        <nav class="footer-links" aria-label="Footer navigation">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo-full" aria-label="XI:XI Home">
+            <svg viewBox="0 0 380 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <text x="0" y="32" font-family="'Playfair Display', Georgia, serif" font-size="34" font-weight="600" fill="#ffffff" letter-spacing="-0.02em">XI<tspan fill="#B38D5A">:</tspan>XI</text>
+              <line x1="125" y1="6" x2="125" y2="38" stroke="#B38D5A" stroke-width="1.5" />
+              <text x="145" y="19" font-family="'DM Sans', sans-serif" font-size="11" font-weight="700" fill="#ded4c5" letter-spacing="0.18em">FINANCIAL STRATEGY</text>
+              <text x="145" y="34" font-family="'DM Sans', sans-serif" font-size="11" font-weight="700" fill="#ded4c5" letter-spacing="0.18em">BUSINESS OPTIMIZATION</text>
+            </svg>
+          </a>
+          <p>Independent financial operations support for owners who need numbers they can trust.</p>
+        </div>
+        <div class="footer-nav">
           <a href="services.html">Services</a>
-          <a href="insights.html" aria-current="page">Insights</a>
-          <a href="story.html">About</a>
+          <a href="insights.html">Insights</a>
+          <a href="about.html">About</a>
           <a href="tools.html">Tools</a>
-          <a href="intake.html">Get Started</a>
-          <a href="mailto:lana@xixistrategy.com">Email Us</a>
-        </nav>
+          <a href="intake.html">Get started</a>
+        </div>
       </div>
-      <div class="copyright">© 2026 XI:XI. All rights reserved.</div>
+      <div class="legal-disclaimer">
+        <span>&copy; 2026 XI:XI. All rights reserved.</span>
+        <span>XI:XI is not a Certified Public Accountant firm and does not provide public accounting services, certified audits, or formal tax representation.</span>
+      </div>
     </div>
   </footer>
 
   <script>
-  (function(){
-    var toggle = document.getElementById('menuToggle');
-    var menu = document.getElementById('mobileMenu');
-    if(!toggle || !menu) return;
-
-    function setOpen(open){
-      document.body.classList.toggle('menu-open', open);
-      toggle.setAttribute('aria-expanded', String(open));
-      toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
-      menu.setAttribute('aria-hidden', String(!open));
-    }
-
-    toggle.addEventListener('click', function(){
-      setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.site-header nav');
+    toggle?.addEventListener('click', () => {
+      const active = nav.classList.toggle('active');
+      toggle.setAttribute('aria-expanded', active);
     });
-
-    menu.querySelectorAll('a').forEach(function(link){
-      link.addEventListener('click', function(){ setOpen(false); });
-    });
-
-    document.addEventListener('keydown', function(e){
-      if(e.key === 'Escape') setOpen(false);
-    });
-
-    window.addEventListener('resize', function(){
-      if(window.innerWidth > 900) setOpen(false);
-    });
-  }());
   </script>
 </body>
 </html>
