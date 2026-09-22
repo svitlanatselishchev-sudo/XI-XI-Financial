@@ -1,265 +1,199 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#171717">
-  <meta name="description" content="Support for CPA firms and referral partners who need trusted reconciliation and cleanup work for clients with messy books.">
-  <title>For CPA Firms | XI:XI</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#171717">
+    <meta name="description" content="Support for CPA firms and referral partners who need trusted reconciliation and cleanup work for clients with messy books.">
+    <title>For CPA Firms | XI:XI</title>
 
-  <!-- Favicons -->
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="For CPA Firms | XI:XI Strategy">
-  <meta property="og:description" content="Support for CPA firms and referral partners who need trusted reconciliation and cleanup work for clients with messy books.">
-  <meta property="og:url" content="https://xixistrategy.com/cpa-partners.html">
-  <meta property="og:image" content="https://xixistrategy.com/og-image.png">
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="For CPA Firms | XI:XI Strategy">
+    <meta property="og:description" content="Support for CPA firms and referral partners who need trusted reconciliation and cleanup work for clients with messy books.">
+    <meta property="og:url" content="https://xixistrategy.com/cpa-partners.html">
+    <meta property="og:image" content="https://xixistrategy.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="For CPA Firms | XI:XI Strategy">
+    <meta name="twitter:description" content="Support for CPA firms and referral partners who need trusted reconciliation and cleanup work for clients with messy books.">
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
 
-  <!-- Shared Asset Layers -->
-  <link rel="stylesheet" href="assets/site-shell.css">
-  <link rel="stylesheet" href="assets/ux-enhancements.css">
-  <script src="assets/site-shell.js" defer></script>
+    <!-- Shared Asset Layers -->
+    <link rel="stylesheet" href="assets/site-shell.css">
+    <link rel="stylesheet" href="assets/ux-enhancements.css">
+    <script src="assets/site-shell.js" defer></script>
 
-  <!-- Page-Specific Styles -->
-  <style>
-    .page-hero {
-      padding: 160px 0 24px;
-    }
-    .eyebrow {
-      color: var(--ux-focus, #987b55);
-      font-size: 11px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      font-weight: 700;
-    }
-    .page-title {
-      margin: 18px 0 0;
-      font: 500 clamp(42px, 5vw, 70px)/1.02 'Playfair Display', Georgia, serif;
-      letter-spacing: -.05em;
-      max-width: 900px;
-    }
-    .lede {
-      max-width: 720px;
-      margin: 18px 0 0;
-      color: var(--ux-body, #69645d);
-      font-size: 18px;
-      line-height: 1.7;
-    }
-    .partners {
-      padding: 18px 0 90px;
-    }
-    .split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-    .card {
-      background: #ffffff;
-      border: 1px solid var(--ux-border, #e3dacb);
-      border-radius: 22px;
-      padding: 28px;
-      box-shadow: 0 18px 32px rgba(23, 23, 23, 0.04);
-    }
-    .card h3 {
-      margin: 12px 0 14px;
-      font: 500 32px/1.1 'Playfair Display', Georgia, serif;
-      letter-spacing: -.04em;
-    }
-    .card p {
-      margin: 0 0 16px;
-      color: var(--ux-body, #69645d);
-      line-height: 1.7;
-    }
-    .ul {
-      padding-left: 18px;
-      margin: 0;
-      color: var(--ux-body, #69645d);
-      line-height: 1.8;
-    }
-    .cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      padding: 0 18px;
-      border-radius: 999px;
-      background: #171717;
-      color: #ffffff;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      margin-top: 22px;
-    }
-    .cta.alt {
-      background: transparent;
-      border: 1px solid rgba(23, 23, 23, 0.2);
-      color: #171717;
-    }
-    @media (max-width: 900px) {
-      .split {
-        grid-template-columns: 1fr;
-      }
-      .page-hero {
-        padding-top: 130px;
-      }
-    }
-  </style>
+    <!-- Page-Specific Styles -->
+    <style>
+        .page-hero {
+            padding: 160px 0 24px;
+        }
+        .eyebrow {
+            color: var(--ux-focus, #987b55);
+            font-size: 11px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        .page-title {
+            margin: 18px 0 0;
+            font: 500 clamp(36px, 5vw, 64px)/1.05 'Playfair Display', Georgia, serif;
+            letter-spacing: -.04em;
+            max-width: 900px;
+        }
+        .lede {
+            max-width: 720px;
+            margin: 18px 0 0;
+            color: var(--ux-body, #69645d);
+            font-size: 18px;
+            line-height: 1.7;
+        }
+        .partners {
+            padding: 36px 0 90px;
+        }
+        .split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        .card {
+            background: #ffffff;
+            border: 1px solid var(--ux-border, #e3dacb);
+            border-radius: 22px;
+            padding: 32px;
+            box-shadow: 0 18px 32px rgba(23, 23, 23, 0.04);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .card h3 {
+            margin: 12px 0 14px;
+            font: 500 28px/1.15 'Playfair Display', Georgia, serif;
+            letter-spacing: -.03em;
+        }
+        .card p {
+            margin: 0 0 16px;
+            color: var(--ux-body, #69645d);
+            line-height: 1.7;
+        }
+        .ul {
+            padding-left: 18px;
+            margin: 0 0 24px;
+            color: var(--ux-body, #69645d);
+            line-height: 1.8;
+        }
+        .cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 46px;
+            padding: 0 22px;
+            border-radius: 999px;
+            background: #171717;
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            align-self: flex-start;
+        }
+        .cta:hover {
+            background: #987b55;
+            color: #ffffff;
+        }
+        .cta.alt {
+            background: transparent;
+            border: 1px solid rgba(23, 23, 23, 0.25);
+            color: #171717;
+        }
+        .cta.alt:hover {
+            border-color: #987b55;
+            background: #987b55;
+            color: #ffffff;
+        }
+        @media (max-width: 900px) {
+            .split {
+                grid-template-columns: 1fr;
+            }
+            .page-hero {
+                padding-top: 130px;
+            }
+        }
+    </style>
 </head>
-<body>
+<body class="bg-cream text-charcoal font-sans antialiased">
 
-  <!-- Skip Navigation for Accessibility -->
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+    <!-- Skip Navigation for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- Header injected dynamically by site-shell.js -->
-  <header class="site-header"></header>
+    <!-- Header dynamically injected by site-shell.js -->
+    <header class="site-header"></header>
 
-  <!-- Main Hero & Content -->
-  <main id="main-content" class="wrap">
-    <section class="page-hero">
-      <span class="eyebrow">Strategic Partnerships</span>
-      <h1 class="page-title">Trusted Ledger Support for CPA Firms</h1>
-      <p class="lede">We handle complex reconciliations, historical cleanup, and multi-entity books so you can focus on high-value tax advisory and client growth.</p>
-    </section>
+    <!-- Main Content -->
+    <main id="main-content" class="wrap">
+        <section class="page-hero">
+            <span class="eyebrow">Strategic Partnerships</span>
+            <h1 class="page-title">A trusted partner for the work your team cannot staff.</h1>
+            <p class="lede">Cleanup, reconciliation, and messy-books projects eat hours that are not worth billing at your rate. We handle complex reconciliations and backlogs so you can keep the client relationship while removing the work that slows your team down.</p>
+        </section>
 
-    <section class="partners">
-      <div class="split">
-        <div class="card">
-          <h3>Historical Cleanup & Catch-Up</h3>
-          <p>Clients with months (or years) of backlogged ledger entries risk delayed tax filings. We bring books current with clean audit trails.</p>
-          <ul class="ul">
-            <li>Intercompany balance reconciliation</li>
-            <li>Uncategorized expense & suspense resolution</li>
-            <li>Sales tax liability audits</li>
-          </ul>
-          <a href="intake.html" class="cta">Refer a Client</a>
+        <section class="partners">
+            <div class="split">
+                <!-- Option 1 Card -->
+                <article class="card">
+                    <div>
+                        <span class="eyebrow">Option 1</span>
+                        <h3>Take overflow work off your plate.</h3>
+                        <p>When cleanup or reconciliation is more than your team can staff, we can handle it as your trusted subcontractor. You keep the primary client relationship while we execute the underlying ledger delivery.</p>
+                        <ul class="ul">
+                            <li>No client bank login or direct accounting access required</li>
+                            <li>Fixed-fee pricing, scoped per project</li>
+                            <li>Clean handoffs, documented audit trails, and clear communication</li>
+                        </ul>
+                    </div>
+                    <a href="mailto:lana@xixistrategy.com?subject=Overflow%20Work%20-%20CPA%20Partnership" class="cta">Discuss Overflow Work</a>
+                </article>
+
+                <!-- Option 2 Card -->
+                <article class="card">
+                    <div>
+                        <span class="eyebrow">Option 2</span>
+                        <h3>Refer a client who needs extra help.</h3>
+                        <p>If a client's books are too messy for the scope of a standard tax or advisory engagement, refer them directly to us for statement-based reconciliation and catch-up work.</p>
+                        <ul class="ul">
+                            <li>Simple referral structure with seamless communication</li>
+                            <li>Structured month-end closings and multi-entity cleanup</li>
+                            <li>Professional partnership without additional administrative overhead</li>
+                        </ul>
+                    </div>
+                    <a href="mailto:lana@xixistrategy.com?subject=Referral%20Partnership%20-%20CPA%20Partnership" class="cta alt">Discuss a Referral</a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer py-12 border-t border-sand mt-16 bg-charcoal text-paper">
+        <div class="wrap flex flex-col sm:flex-row justify-between items-center gap-4 text-sm">
+            <p>&copy; 2026 XI:XI Strategy. All rights reserved.</p>
+            <div class="flex gap-4">
+                <a href="services.html" class="hover:text-accentGold transition-colors">Services</a>
+                <a href="insights.html" class="hover:text-accentGold transition-colors">Insights</a>
+                <a href="tools.html" class="hover:text-accentGold transition-colors">Tools</a>
+            </div>
         </div>
+    </footer>
 
-        <div class="card">
-          <h3>Ongoing Back-Office Integration</h3>
-          <p>Partner with us for reliable monthly closing cycles without the overhead of hiring and managing internal junior bookkeepers.</p>
-          <ul class="ul">
-            <li>Month-end closing checklists & delivery</li>
-            <li>Direct integration with QuickBooks & Xero</li>
-            <li>White-label or direct-referral workflows</li>
-          </ul>
-          <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="cta alt">Schedule Partner Call</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer py-12 border-t border-sand mt-16 bg-charcoal text-paper">
-    <div class="wrap flex flex-col sm:flex-row justify-between items-center gap-4 text-sm">
-      <p>&copy; 2026 XI:XI Strategy. All rights reserved.</p>
-      <div class="flex gap-4">
-        <a href="services.html">Services</a>
-        <a href="insights.html">Insights</a>
-        <a href="tools.html">Tools</a>
-      </div>
-    </div>
-  </footer>
-
-</body>
-</html>      </nav>
-      <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="header-cta">Book a Call</a>
-      <button class="menu" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open navigation">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
-  <div class="backdrop" id="backdrop" aria-hidden="true"></div>
-  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true">
-    <a href="services.html">Services</a>
-    <a href="insights.html">Insights</a>
-    <a href="story.html">About</a>
-    <a href="intake.html">Get Started</a>
-    <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="menu-cta">Book a Call</a>
-  </nav>
-
-  <main>
-    <section class="page-hero">
-      <div class="wrap">
-        <div class="eyebrow">For CPA firms</div>
-        <h1 class="page-title">A trusted partner for the work your team cannot staff.</h1>
-        <p class="lede">Cleanup, reconciliation, and messy-books projects eat hours that are not worth billing at your rate. We help you keep the client relationship while removing the work that slows your team down.</p>
-      </div>
-    </section>
-
-    <section class="partners">
-      <div class="wrap split">
-        <article class="card">
-          <div class="eyebrow">Option 1</div>
-          <h3>Take overflow work off your plate.</h3>
-          <p>When cleanup or reconciliation is more than your team can staff, we can handle it as your trusted subcontractor. You keep the client relationship while we do the delivery work.</p>
-          <ul class="ul">
-            <li>No client bank login or accounting access required</li>
-            <li>Fixed-fee, scoped per project</li>
-            <li>Clean handoff and clear communication</li>
-          </ul>
-          <a class="cta" href="mailto:lana@xixistrategy.com?subject=Overflow%20Work%20-%20CPA%20Partnership">Discuss overflow work</a>
-        </article>
-        <article class="card">
-          <div class="eyebrow">Option 2</div>
-          <h3>Refer a client who needs extra help.</h3>
-          <p>If the books are too messy for the scope of a current engagement, we can step in and take the work from there. You keep the professional relationship while we support the fix.</p>
-          <ul class="ul">
-            <li>Simple referral structure</li>
-            <li>Clear handoff and delivery process</li>
-            <li>Professional partnership without extra admin</li>
-          </ul>
-          <a class="cta alt" href="mailto:lana@xixistrategy.com?subject=Referral%20Partnership%20-%20CPA%20Partnership">Discuss a referral</a>
-        </article>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap footer-grid">
-      <div>
-        <div class="footer-brand">XI<span>:</span>XI</div>
-        <p class="footer-copy">Independent strategic finance and business optimization for owners who need numbers they can trust.</p>
-      </div>
-      <nav class="footer-links" aria-label="Footer navigation">
-        <a href="services.html">Services</a>
-        <a href="insights.html">Insights</a>
-        <a href="story.html">About</a>
-        <a href="intake.html">Get Started</a>
-        <a href="mailto:lana@xixistrategy.com">Email Us</a>
-      </nav>
-    </div>
-    <div class="wrap copyright">© 2026 XI:XI. All rights reserved.</div>
-  </footer>
-
-  <script>
-    (function () {
-      var toggle = document.getElementById('menuToggle');
-      var menu = document.getElementById('mobileMenu');
-      var backdrop = document.getElementById('backdrop');
-      if (!toggle || !menu) return;
-      function setOpen(open) {
-        document.body.classList.toggle('menu-open', open);
-        menu.classList.toggle('open', open);
-        menu.setAttribute('aria-hidden', String(!open));
-        toggle.setAttribute('aria-expanded', String(open));
-        toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
-      }
-      toggle.addEventListener('click', function () { setOpen(toggle.getAttribute('aria-expanded') !== 'true'); });
-      if (backdrop) backdrop.addEventListener('click', function () { setOpen(false); });
-      menu.querySelectorAll('a').forEach(function (link) { link.addEventListener('click', function () { setOpen(false); }); });
-      document.addEventListener('keydown', function (event) { if (event.key === 'Escape') setOpen(false); });
-      window.addEventListener('resize', function () { if (window.innerWidth > 900) setOpen(false); });
-    }());
-  </script>
 </body>
 </html>
