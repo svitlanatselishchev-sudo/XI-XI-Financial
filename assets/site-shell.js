@@ -13,37 +13,36 @@
   const header = document.querySelector('.site-header');
   if (!header) return;
 
-  // Resolve current filename and root base path
+  // Resolve current page and compute path depth for relative routing
   const currentPath = window.location.pathname;
   const currentFile = currentPath.split('/').pop() || 'index.html';
-  const basePath = currentPath.substring(0, currentPath.lastIndexOf('/') + 1);
 
-  // Build navigation items
+  // Build navigation items with correct aria-current state
   const buildNavHTML = () =>
     LINKS.map(([url, text]) => {
       const isCurrent = currentFile === url;
       return `<a href="${url}"${isCurrent ? ' aria-current="page"' : ''}>${text}</a>`;
     }).join('');
 
-  // Inject Header Elements
-  const brandHTML = `<a class="brand-lockup" href="index.html" aria-label="XI:XI home"><img src="assets/logo-wordmark.svg" alt="XI:XI"></a>`;
-  const desktopNavHTML = `<nav aria-label="Primary navigation">${buildNavHTML()}</nav>`;
+  // Inject Header Elements into HTML Structure
+  const brandHTML = `<a class="brand-lockup" href="index.html" aria-label="XI:XI home"><img src="assets/logo-wordmark.svg" alt="XI:XI" width="180" height="32"></a>`;
+  const desktopNavHTML = `<nav class="nav-menu" aria-label="Primary navigation">${buildNavHTML()}</nav>`;
   const ctaHTML = `<a class="button button-dark header-cta" href="https://cal.com/xix-lana" target="_blank" rel="noopener">Book a call</a>`;
-  const toggleHTML = `<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-mobile-menu" aria-label="Open navigation"><span></span><span></span></button>`;
+  const toggleHTML = `<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-mobile-menu" aria-label="Open navigation"><span></span><span></span><span></span></button>`;
 
   header.innerHTML = brandHTML + desktopNavHTML + ctaHTML + toggleHTML;
 
-  // Inject Mobile Navigation Panel
+  // Inject Mobile Navigation Overlay
   const mobileMenu = document.createElement('nav');
   mobileMenu.id = 'site-mobile-menu';
   mobileMenu.className = 'mobile-menu';
   mobileMenu.setAttribute('aria-label', 'Mobile navigation');
   mobileMenu.setAttribute('aria-hidden', 'true');
-  mobileMenu.innerHTML = buildNavHTML() + `<a class="button button-dark" href="https://cal.com/xix-lana" target="_blank" rel="noopener">Book a call</a>`;
+  mobileMenu.innerHTML = buildNavHTML() + `<div class="mobile-cta-wrap"><a class="button button-dark" href="https://cal.com/xix-lana" target="_blank" rel="noopener">Book a call</a></div>`;
 
   header.parentNode.insertBefore(mobileMenu, header.nextSibling);
 
-  // Navigation Logic & State Handling
+  // Navigation Logic & Accessibility Focus Trap
   const toggleBtn = header.querySelector('.menu-toggle');
 
   const setOpen = (open) => {
@@ -57,7 +56,7 @@
     if (open) {
       const firstLink = mobileMenu.querySelector('a');
       firstLink?.focus();
-    } else {
+    } else if (document.activeElement && mobileMenu.contains(document.activeElement)) {
       toggleBtn.focus();
     }
   };
@@ -71,24 +70,26 @@
     link.addEventListener('click', () => setOpen(false));
   });
 
-  // Global Keydown Handler (Escape to close)
+  // Global Keydown Handler (Escape Key Close)
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && toggleBtn.getAttribute('aria-expanded') === 'true') {
       setOpen(false);
     }
   });
 
-  // Auto-close on resize back to desktop screen
+  // Auto-close menu when expanding window to desktop layout
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 900) setOpen(false);
+    if (window.innerWidth > 900 && toggleBtn.getAttribute('aria-expanded') === 'true') {
+      setOpen(false);
+    }
   });
 
-  // Dynamic Asset Injector
+  // Dynamic Shared Asset Injector (Guards against duplicate scripts/styles)
   const loadAsset = (kind, src) => {
-    if (document.querySelector(`[data-xixi-${kind}]`)) return;
+    if (document.querySelector(`[data-xixi-${kind}="${src}"]`)) return;
 
     const node = document.createElement(kind === 'css' ? 'link' : 'script');
-    node.setAttribute(`data-xixi-${kind}`, 'true');
+    node.setAttribute(`data-xixi-${kind}`, src);
 
     if (kind === 'css') {
       node.rel = 'stylesheet';
@@ -101,6 +102,7 @@
     document.head.appendChild(node);
   };
 
+  // Load shared module assets across secondary pages
   loadAsset('css', 'assets/share.css');
   loadAsset('js', 'assets/share.js');
 })();
