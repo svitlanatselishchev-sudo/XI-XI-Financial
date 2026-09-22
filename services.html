@@ -1,72 +1,257 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#171717">
-  <meta name="description" content="XI:XI Financial Strategy services for reconciliation, sales tax, vendor controls, and operational workflows.">
-  <title>Services | XI:XI Financial Strategy</title>
+  <meta name="description" content="XI:XI Financial Operations & Strategy Services — Statement-to-ledger reconciliation, merchant fees, sales tax, vendor controls, and operational workflows.">
+  <title>Services | XI:XI Financial Strategy & Business Optimization</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
   <style>
-    :root{--ink:#171717;--paper:#f7f4ef;--white:#fff;--gold:#b38d5a;--gold-dark:#80633d;--muted:#686158;--line:#ded4c5;--shadow:0 26px 64px rgba(23,23,23,.08)}
-    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.7 'DM Sans',sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility} a{color:inherit;text-decoration:none} img{display:block;max-width:100%}.wrap{width:min(1180px,calc(100% - 32px));margin:auto}
+    :root {
+      --ink: #171717;
+      --paper: #f7f4ef;
+      --paper-gradient: linear-gradient(135deg, #fdfbf7 0%, #f7f4ef 100%);
+      --white: #ffffff;
+      --gold: #b38d5a;
+      --gold-dark: #80633d;
+      --gold-glow: rgba(179, 141, 90, 0.15);
+      --muted: #686158;
+      --line: #ded4c5;
+      --tint: #efe7de;
+      --max: 1180px;
+      --shadow: 0 24px 60px rgba(23,23,23,.06);
+      --shadow-soft: 0 14px 32px rgba(23,23,23,.04);
+      --focus-ring: 0 0 0 3px rgba(179, 141, 90, 0.4);
+      --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper-gradient);
+      color: var(--ink);
+      font: 16px/1.65 'DM Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+    ::selection { background: var(--gold-glow); color: var(--ink); }
+    a { color: inherit; text-decoration: none; transition: color 0.2s ease; }
+    img { display: block; max-width: 100%; height: auto; }
+    button { font: inherit; }
+    *:focus-visible { outline: none; box-shadow: var(--focus-ring); border-radius: 4px; }
+    .wrap { width: min(var(--max), calc(100% - 32px)); margin: auto; }
+
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: var(--paper); }
+    ::-webkit-scrollbar-thumb { background: #d0c8bd; border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+    .skip-link {
+      position: absolute;
+      top: -60px;
+      left: 16px;
+      background: var(--ink);
+      color: var(--white);
+      padding: 10px 18px;
+      font-weight: 700;
+      z-index: 2000;
+      transition: top 0.2s ease;
+      border-radius: 8px;
+    }
+    .skip-link:focus { top: 16px; }
+
+    /* Header & Navigation Bar */
+    .site-header {
+      position: sticky;
+      top: 18px;
+      z-index: 1000;
+      width: min(1160px, calc(100% - 32px));
+      margin: 16px auto 0;
+      padding: 10px 18px 10px 22px;
+      border: 1px solid rgba(179, 141, 90, 0.3);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      box-shadow: 0 10px 30px rgba(23, 23, 23, 0.05);
+      transition: box-shadow 0.3s ease;
+    }
+    .site-header:hover { box-shadow: 0 12px 40px rgba(23, 23, 23, 0.08); }
     
-    .skip-link{position:absolute;top:-60px;left:16px;background:var(--ink);color:var(--white);padding:10px 18px;font-weight:700;z-index:2000;transition:top 0.2s ease;border-radius:8px}
-    .skip-link:focus{top:16px}
+    .brand-logo-full { display: flex; align-items: center; text-decoration: none; }
+    .brand-logo-full svg { height: 48px; width: auto; display: block; }
 
-    /* Header matching Insights style */
-    .site-header{position:sticky;top:18px;z-index:12;width:min(1160px,calc(100% - 32px));margin:16px auto 0;padding:10px 18px 10px 22px;border:1px solid rgba(179,141,90,.4);border-radius:999px;background:rgba(247,244,239,.96);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:space-between;gap:20px;box-shadow:0 10px 24px rgba(23,23,23,.04)}
+    .site-header nav { display: flex; align-items: center; justify-content: center; gap: 32px; }
+    .site-header nav a { font-size: 14px; font-weight: 600; color: var(--muted); position: relative; padding: 6px 0; }
+    .site-header nav a:hover, .site-header nav a[aria-current="page"] { color: var(--ink); }
+    .site-header nav a::after {
+      content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--gold);
+      transform: scaleX(0); transform-origin: right; transition: transform 0.3s var(--transition-smooth);
+    }
+    .site-header nav a:hover::after, .site-header nav a[aria-current="page"]::after { transform: scaleX(1); transform-origin: left; }
     
-    .brand-logo-full{display:flex;align-items:center;text-decoration:none}
-    .brand-logo-full svg{height:34px;width:auto;display:block}
+    /* Desktop vs Mobile Menu Button Handling */
+    .site-header nav .mobile-menu-cta { display: none; }
 
-    .site-header nav{display:flex;align-items:center;justify-content:center;gap:28px}
-    .site-header nav a{font-size:14px;font-weight:600;color:var(--muted);position:relative;padding:6px 0;transition:color 0.2s ease}
-    .site-header nav a:hover,.site-header nav a[aria-current="page"]{color:var(--ink)}
-    .site-header nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:center;transition:transform .2s ease}
-    .site-header nav a:hover::after,.site-header nav a[aria-current="page"]::after{transform:scaleX(1)}
+    /* Buttons */
+    .button {
+      display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 24px;
+      border-radius: 999px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      cursor: pointer; transition: all 0.3s var(--transition-smooth); border: 1px solid transparent;
+    }
+    .button-dark { background: var(--ink); color: var(--white); box-shadow: 0 8px 20px rgba(23, 23, 23, 0.12); }
+    .button-dark:hover { background: var(--gold-dark); transform: translateY(-3px); box-shadow: 0 12px 24px rgba(128, 99, 61, 0.25); }
+
+    /* Mobile Menu Toggle */
+    .menu-toggle { display: none; background: none; border: none; padding: 8px; cursor: pointer; z-index: 1002; }
+    .menu-toggle span { display: block; width: 24px; height: 2px; background: var(--ink); margin: 5px 0; transition: all 0.3s var(--transition-smooth); }
+    .menu-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .menu-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Page Content */
+    .services-hero { padding: 90px 0 60px; border-bottom: 1px solid var(--line); }
+    .eyebrow {
+      display: inline-block; color: var(--gold-dark); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 12px; position: relative;
+    }
+    .eyebrow::after { content: ""; display: inline-block; width: 24px; height: 1px; background: var(--gold); vertical-align: middle; margin-left: 12px; }
     
-    .button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 22px;border-radius:999px;background:var(--ink);color:var(--white);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;transition:transform .2s ease,box-shadow .2s ease}
-    .button:hover{transform:translateY(-2px);background:var(--gold-dark)}
-    .button-dark{background:var(--ink);color:var(--white)}
-    .eyebrow{color:var(--gold-dark);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+    .services-hero h1 { font: 500 clamp(42px, 5.5vw, 68px)/1.05 'Playfair Display', serif; margin: 0 0 16px; letter-spacing: -.03em; }
+    .services-hero p { font-size: 18px; color: var(--muted); max-width: 680px; margin: 0; line-height: 1.8; }
+
+    .service-groups { padding: 80px 0 100px; }
     
-    .page-hero{padding:72px 0 32px}
-    .page-title{margin:10px 0 0;font:500 clamp(38px,5vw,64px)/1.1 'Playfair Display',serif;letter-spacing:-.04em}
-    .lede{margin:16px 0 0;max-width:720px;color:var(--muted);font-size:18px}
-
-    .featured{background:var(--white);border:1px solid var(--line);border-radius:24px;padding:36px;margin-bottom:60px;box-shadow:var(--shadow);position:relative}
-    .featured-inner{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}
-    .featured h3{font:500 28px/1.2 'Playfair Display',serif;margin:8px 0 12px}
-    .featured p{color:var(--muted);margin:0;max-width:640px}
-
-    .service-groups{padding-bottom:96px}
-    .service-group{margin-bottom:64px}
-    .service-group h2{font:500 32px/1.2 'Playfair Display',serif;margin:6px 0 24px;letter-spacing:-.03em}
-    .service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:stretch}
+    /* Featured Box */
+    .featured-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 48px;
+      box-shadow: var(--shadow);
+      position: relative;
+      margin-bottom: 72px;
+    }
+    .featured-card::before {
+      content: ""; position: absolute; top: 0; left: 48px; right: 48px; height: 4px; background: var(--gold); border-radius: 0 0 4px 4px;
+    }
+    .featured-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; margin-bottom: 16px; }
+    .featured-card h2 { font: 500 32px/1.2 'Playfair Display', serif; margin: 0; color: var(--ink); }
+    .featured-card p { font-size: 16px; color: var(--muted); margin: 16px 0 24px; max-width: 720px; line-height: 1.7; }
     
-    .service-card{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:space-between;position:relative}
-    .card-top-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
-    .tag{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(179,141,90,.08);color:var(--gold-dark);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
-    .share-btn{background:none;border:1px solid var(--line);border-radius:50%;width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;color:var(--muted);position:relative;transition:all .2s ease}
-    .share-btn:hover{border-color:var(--gold);color:var(--gold-dark)}
-    .share-btn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2}
-    .share-tooltip{position:absolute;bottom:calc(100% + 6px);right:0;background:var(--ink);color:var(--white);font-size:10px;font-weight:700;padding:4px 8px;border-radius:4px;letter-spacing:.05em;opacity:0;pointer-events:none;transition:opacity .2s ease;white-space:nowrap}
-    .share-btn.copied .share-tooltip{opacity:1}
+    .featured-list { list-style: none; padding: 0; margin: 0 0 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .featured-list li { position: relative; padding-left: 24px; font-size: 14px; color: var(--ink); font-weight: 500; }
+    .featured-list li::before { content: ""; position: absolute; left: 0; top: 8px; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
 
-    .service-card h3{font:500 22px/1.25 'Playfair Display',serif;margin:0 0 10px;letter-spacing:-.02em}
-    .service-card p{color:var(--muted);font-size:14px;margin:0 0 20px}
-    .service-card ul{list-style:none;margin:0 0 20px;padding:0;border-top:1px solid var(--line)}
-    .service-card li{position:relative;padding:10px 0 10px 18px;border-bottom:1px solid var(--line);font-size:13px;color:var(--ink);font-weight:500}
-    .service-card li::before{content:"";position:absolute;left:0;top:16px;width:5px;height:5px;border-radius:50%;background:var(--gold)}
+    /* Group Layout */
+    .service-group { margin-bottom: 72px; }
+    .service-group-title { font: 500 32px/1.2 'Playfair Display', serif; margin: 8px 0 32px; letter-spacing: -.02em; }
+    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
 
-    .footer{background:#111;color:#aaa;padding:40px 0}.footer-grid{display:grid;grid-template-columns:1fr auto;gap:50px;align-items:center}.footer-brand{color:var(--white);font:500 30px Georgia,serif}.footer-copy{margin:10px 0 0;max-width:420px;color:rgba(255,255,255,.75)}.footer-links{display:flex;gap:18px;flex-wrap:wrap}.footer-links a{color:rgba(255,255,255,.78)}.footer-links a:hover{color:var(--gold)}.copyright{margin-top:18px;color:rgba(255,255,255,.55);font-size:14px}
+    /* Service Cards */
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 36px 30px;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: transform 0.3s var(--transition-smooth), box-shadow 0.3s var(--transition-smooth);
+    }
+    .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+    .service-card::before {
+      content: ""; position: absolute; top: 0; left: 30px; right: 30px; height: 3px; background: var(--gold); border-radius: 0 0 4px 4px;
+    }
+    
+    .card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+    .tag { display: inline-block; padding: 4px 12px; border-radius: 999px; background: var(--tint); color: var(--gold-dark); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    
+    /* Sharable Button & Tooltip */
+    .share-btn {
+      background: var(--paper); border: 1px solid var(--line); border-radius: 50%; width: 36px; height: 36px;
+      display: inline-flex; align-items: center; justify-content: center; cursor: pointer; color: var(--muted);
+      position: relative; transition: all 0.2s ease; padding: 0;
+    }
+    .share-btn:hover { border-color: var(--gold); color: var(--ink); background: var(--white); }
+    .share-btn svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .share-tooltip {
+      position: absolute; bottom: calc(100% + 8px); right: 50%; transform: translateX(50%);
+      background: var(--ink); color: var(--white); font-size: 11px; font-weight: 700; padding: 4px 10px;
+      border-radius: 6px; opacity: 0; pointer-events: none; transition: opacity 0.2s ease; white-space: nowrap;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .share-btn.copied .share-tooltip { opacity: 1; }
 
-    @media(max-width:1024px){.service-grid,.featured-inner,.cta-box{grid-template-columns:1fr;display:grid;gap:20px}}
-    @media(max-width:900px){.site-header nav{display:none}.site-header{justify-content:space-between}.footer-grid{grid-template-columns:1fr;display:grid}}
+    .service-card h3 { font: 500 22px/1.3 'Playfair Display', serif; margin: 0 0 12px; color: var(--ink); }
+    .service-card p { color: var(--muted); font-size: 14.5px; margin: 0 0 24px; line-height: 1.6; }
+    .service-card ul { list-style: none; margin: 0 0 32px; padding: 0; border-top: 1px solid var(--line); }
+    .service-card li { position: relative; padding: 12px 0 12px 20px; border-bottom: 1px solid var(--line); font-size: 13.5px; color: var(--ink); font-weight: 500; }
+    .service-card li::before { content: ""; position: absolute; left: 0; top: 18px; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
+
+    /* Footer */
+    .site-footer { background: #111111; color: #b0b0b0; padding: 80px 0 40px; border-top: 1px solid #222222; }
+    .footer-content { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: start; }
+    .footer-brand p { font-size: 14px; line-height: 1.6; color: #888888; max-width: 320px; margin-top: 20px; }
+    .footer-nav { display: flex; gap: 48px; justify-content: flex-end; flex-wrap: wrap; }
+    .footer-nav a { font-size: 15px; font-weight: 500; color: #e0e0e0; position: relative; padding-bottom: 4px; }
+    .footer-nav a::after {
+      content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--gold);
+      transform: scaleX(0); transform-origin: right; transition: transform 0.3s ease;
+    }
+    .footer-nav a:hover::after { transform: scaleX(1); transform-origin: left; }
+    .legal-disclaimer { border-top: 1px solid #222222; margin-top: 60px; padding-top: 24px; font-size: 12px; color: #666666; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+
+    /* Mobile Navigation & Responsive Design */
+    @media (max-width: 1024px) {
+      .service-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .menu-toggle { display: block; }
+      .site-header nav {
+        position: absolute;
+        top: calc(100% + 12px);
+        left: 16px; right: 16px;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 24px 20px;
+        border-radius: 20px;
+        border: 1px solid var(--line);
+        box-shadow: 0 20px 50px rgba(23, 23, 23, 0.15);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-12px);
+        transition: opacity 0.3s var(--transition-smooth), transform 0.3s var(--transition-smooth), visibility 0.3s;
+        max-height: calc(100vh - 120px);
+        overflow-y: auto;
+      }
+      .site-header nav.active { opacity: 1; visibility: visible; transform: translateY(0); }
+      .site-header nav a { width: 100%; text-align: left; padding: 14px 16px; font-size: 16px; border-radius: 12px; transition: background 0.2s ease, color 0.2s ease; }
+      .site-header nav a:hover, .site-header nav a:focus-visible { background: var(--paper); color: var(--ink); }
+      .site-header nav a::after { display: none; }
+      .site-header nav .mobile-menu-cta { display: inline-flex !important; margin-top: 12px; text-align: center; justify-content: center; width: 100%; }
+      .site-header > .button, .site-header > .button-dark { display: none; }
+
+      .service-grid { grid-template-columns: 1fr; }
+      .featured-card { padding: 32px; }
+      .featured-card::before { left: 24px; right: 24px; }
+      .footer-content { grid-template-columns: 1fr; gap: 32px; }
+      .footer-nav { justify-content: start; gap: 24px; }
+    }
   </style>
 </head>
 <body>
@@ -74,66 +259,81 @@
 
   <header class="site-header">
     <a href="index.html" class="brand-logo-full" aria-label="XI:XI Home">
-      <svg viewBox="0 0 380 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <text x="0" y="32" font-family="'Playfair Display', Georgia, serif" font-size="34" font-weight="600" fill="#171717" letter-spacing="-0.02em">XI<tspan fill="#B38D5A">:</tspan>XI</text>
-        <line x1="125" y1="6" x2="125" y2="38" stroke="#B38D5A" stroke-width="1.5" />
-        <text x="145" y="19" font-family="'DM Sans', sans-serif" font-size="11" font-weight="700" fill="#80633D" letter-spacing="0.18em">FINANCIAL STRATEGY</text>
-        <text x="145" y="34" font-family="'DM Sans', sans-serif" font-size="11" font-weight="700" fill="#80633D" letter-spacing="0.18em">BUSINESS OPTIMIZATION</text>
+      <svg viewBox="0 0 460 50" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="height: 48px; width: auto; display: block;">
+        <g transform="translate(0, 0)">
+          <path d="M 16 12 Q 34 6 52 12" stroke="#B38D5A" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+          <path d="M 16 38 Q 34 44 52 38" stroke="#171717" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+          <path d="M 10 18 Q 6 25 10 32" stroke="#9A9183" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+          <path d="M 58 18 Q 62 25 58 32" stroke="#9A9183" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+          <text x="12" y="32" font-family="'Playfair Display', serif" font-size="20" font-weight="400" fill="#B38D5A">XI</text>
+          <text x="32" y="31" font-family="'Playfair Display', serif" font-size="20" font-weight="500" fill="#171717">:</text>
+          <text x="38" y="32" font-family="'Playfair Display', serif" font-size="20" font-weight="400" fill="#171717">XI</text>
+        </g>
+        <line x1="74" y1="8" x2="74" y2="42" stroke="#171717" stroke-opacity="0.2" stroke-width="1.5" />
+        <text x="92" y="21" font-family="'DM Sans', sans-serif" font-size="11" font-weight="700" fill="#171717" letter-spacing="0.22em">FINANCIAL STRATEGY</text>
+        <text x="92" y="39" font-family="'DM Sans', sans-serif" font-size="11" font-weight="700" fill="#80633D" letter-spacing="0.22em">BUSINESS OPTIMIZATION</text>
       </svg>
     </a>
+
+    <button class="menu-toggle" aria-label="Toggle Navigation" aria-expanded="false" type="button">
+      <span></span><span></span><span></span>
+    </button>
+
     <nav aria-label="Primary navigation">
       <a href="services.html" aria-current="page">Services</a>
       <a href="insights.html">Insights</a>
       <a href="story.html">About</a>
       <a href="tools.html">Tools</a>
       <a href="intake.html">Get started</a>
+      <a class="button button-dark mobile-menu-cta" href="https://cal.com/xix-lana" target="_blank" rel="noopener">Book a call</a>
     </nav>
-    <a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="button">Book a call</a>
+
+    <a class="button button-dark" href="https://cal.com/xix-lana" target="_blank" rel="noopener">Book a call</a>
   </header>
 
   <main id="main-content">
-    <section class="page-hero wrap">
-      <div class="eyebrow">Strategic Finance &amp; Business Optimization</div>
-      <h1 class="page-title">Services that make the numbers usable.</h1>
-      <p class="lede">Choose one focused review or combine services into an ongoing engagement. Every scope includes clear deliverables, concise analysis, and a practical next step you can trust.</p>
+    <section class="services-hero">
+      <div class="wrap">
+        <p class="eyebrow">Strategic Finance &amp; Business Optimization</p>
+        <h1>Services that make the numbers usable.</h1>
+        <p>Choose one focused review or combine services into an ongoing engagement. Every scope includes clear deliverables, concise analysis, and a practical next step you can trust.</p>
+      </div>
     </section>
 
     <div class="wrap service-groups">
       
-      <!-- Featured Starting Point -->
-      <div class="featured" id="self-employed-base-setup">
-        <button class="share-btn" aria-label="Share Self-employed base setup service" onclick="shareService('Self-employed base setup', 'We sort your bank and card history into business income and expenses, then build a tracking system you can maintain immediately.', 'self-employed-base-setup', this)" style="position:absolute; top:28px; right:28px;">
-          <svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
-          <span class="share-tooltip">Copied!</span>
-        </button>
-        <div class="featured-inner">
-          <div>
-            <span class="tag">Starting point · No existing books required</span>
-            <h3>Self-employed base setup</h3>
-            <p>We sort your bank and card history into business income and expenses, then build a tracking system you can maintain immediately.</p>
-            <ul style="list-style:none; margin:16px 0 0; padding:0; display:flex; gap:24px; flex-wrap:wrap;">
-              <li style="padding-left:14px; position:relative;">Organized transaction categories aligned with tax standards</li>
-              <li style="padding-left:14px; position:relative;">Ready-to-use tracking workbook customized to your operation</li>
-              <li style="padding-left:14px; position:relative;">1-on-1 working session and complete setup documentation</li>
-            </ul>
-          </div>
-          <a class="button button-dark" href="https://cal.com/xix-lana" target="_blank" rel="noopener">Ask about this</a>
+      <!-- Featured Foundation -->
+      <section class="featured-card" id="self-employed-base-setup">
+        <div class="featured-header">
+          <span class="tag">Starting point · No existing books required</span>
+          <button class="share-btn" aria-label="Share Self-employed base setup service" onclick="shareService('Self-employed Base Setup', 'self-employed-base-setup', this)">
+            <svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+            <span class="share-tooltip">Link copied!</span>
+          </button>
         </div>
-      </div>
+        <h2>Self-employed base setup</h2>
+        <p>We sort your bank and card history into business income and expenses, then build a clean tracking system you can maintain immediately.</p>
+        <ul class="featured-list">
+          <li>Organized transaction categories aligned with tax standards</li>
+          <li>Ready-to-use tracking workbook customized to your operation</li>
+          <li>1-on-1 working session and complete setup documentation</li>
+        </ul>
+        <a class="button button-dark" href="https://cal.com/xix-lana" target="_blank" rel="noopener">Inquire about setup</a>
+      </section>
 
-      <!-- Group 1: Income & Revenue Diagnostic -->
+      <!-- Group 1 -->
       <div class="service-group">
-        <div class="eyebrow">Income &amp; revenue diagnostic</div>
-        <h2>Know what is coming in—and what is actually profitable.</h2>
+        <p class="eyebrow">Income &amp; Revenue Diagnostic</p>
+        <h2 class="service-group-title">Know what is coming in—and what is actually profitable.</h2>
         <div class="service-grid">
           
           <article class="service-card" id="invoice-payment-verification">
             <div>
-              <div class="card-top-row">
+              <div class="card-top">
                 <span class="tag">Accounts receivable</span>
-                <button class="share-btn" aria-label="Share Customer invoice & payment verification service" onclick="shareService('Customer invoice & payment verification', 'Match invoices to real bank deposits so you know exactly who owes you and what is overdue.', 'invoice-payment-verification', this)">
-                  <svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
-                  <span class="share-tooltip">Copied!</span>
+                <button class="share-btn" aria-label="Share Customer invoice verification service" onclick="shareService('Customer Invoice & Payment Verification', 'invoice-payment-verification', this)">
+                  <svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                  <span class="share-tooltip">Link copied!</span>
                 </button>
               </div>
               <h3>Customer invoice &amp; payment verification</h3>
@@ -149,15 +349,15 @@
 
           <article class="service-card" id="card-processing-fee-recovery">
             <div>
-              <div class="card-top-row">
+              <div class="card-top">
                 <span class="tag">Merchant payouts</span>
-                <button class="share-btn" aria-label="Share Card processing & fee recovery service" onclick="shareService('Card processing & fee recovery', 'Find processor fees and timing gaps between sales and deposits.', 'card-processing-fee-recovery', this)">
-                  <svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
-                  <span class="share-tooltip">Copied!</span>
+                <button class="share-btn" aria-label="Share Card processing recovery service" onclick="shareService('Card Processing & Fee Recovery', 'card-processing-fee-recovery', this)">
+                  <svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                  <span class="share-tooltip">Link copied!</span>
                 </button>
               </div>
               <h3>Card processing &amp; fee recovery</h3>
-              <p>Find hidden processor fees and timing gaps between your gross sales and net bank deposits.</p>
+              <p>Find processor fees and timing gaps between your gross sales and net bank deposits.</p>
               <ul>
                 <li>Gross-to-net payout match</li>
                 <li>Fee and timing variance exceptions</li>
@@ -169,11 +369,11 @@
 
           <article class="service-card" id="florida-sales-tax-reconciliation">
             <div>
-              <div class="card-top-row">
+              <div class="card-top">
                 <span class="tag">Sales tax</span>
-                <button class="share-btn" aria-label="Share Florida sales tax reconciliation service" onclick="shareService('Florida sales tax reconciliation', 'Compare collected tax with filings and remittances before a shortfall becomes a surprise.', 'florida-sales-tax-reconciliation', this)">
-                  <svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
-                  <span class="share-tooltip">Copied!</span>
+                <button class="share-btn" aria-label="Share Florida sales tax service" onclick="shareService('Florida Sales Tax Reconciliation', 'florida-sales-tax-reconciliation', this)">
+                  <svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                  <span class="share-tooltip">Link copied!</span>
                 </button>
               </div>
               <h3>Florida sales tax reconciliation</h3>
@@ -190,19 +390,19 @@
         </div>
       </div>
 
-      <!-- Group 2: Expenses & Cost Control -->
+      <!-- Group 2 -->
       <div class="service-group">
-        <div class="eyebrow">Expenses &amp; cost control</div>
-        <h2>Stop avoidable costs from quietly repeating.</h2>
+        <p class="eyebrow">Expenses &amp; Cost Control</p>
+        <h2 class="service-group-title">Stop avoidable costs from quietly repeating.</h2>
         <div class="service-grid">
           
           <article class="service-card" id="vendor-payment-1099-check">
             <div>
-              <div class="card-top-row">
+              <div class="card-top">
                 <span class="tag">Vendor controls</span>
-                <button class="share-btn" aria-label="Share Vendor payment & 1099 check service" onclick="shareService('Vendor payment & 1099 check', 'Catch duplicate bills, billing errors, and missing contractor tax details before year-end.', 'vendor-payment-1099-check', this)">
-                  <svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
-                  <span class="share-tooltip">Copied!</span>
+                <button class="share-btn" aria-label="Share Vendor payment service" onclick="shareService('Vendor Payment & 1099 Check', 'vendor-payment-1099-check', this)">
+                  <svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                  <span class="share-tooltip">Link copied!</span>
                 </button>
               </div>
               <h3>Vendor payment &amp; 1099 check</h3>
@@ -218,11 +418,11 @@
 
           <article class="service-card" id="payroll-tax-matching">
             <div>
-              <div class="card-top-row">
+              <div class="card-top">
                 <span class="tag">Payroll</span>
-                <button class="share-btn" aria-label="Share Payroll & tax matching service" onclick="shareService('Payroll & tax matching', 'Match payroll withdrawals directly to payroll registers, tax filings, and employee benefits.', 'payroll-tax-matching', this)">
-                  <svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
-                  <span class="share-tooltip">Copied!</span>
+                <button class="share-btn" aria-label="Share Payroll tax matching service" onclick="shareService('Payroll & Tax Matching', 'payroll-tax-matching', this)">
+                  <svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                  <span class="share-tooltip">Link copied!</span>
                 </button>
               </div>
               <h3>Payroll &amp; tax matching</h3>
@@ -238,11 +438,11 @@
 
           <article class="service-card" id="subscription-leak-audit">
             <div>
-              <div class="card-top-row">
+              <div class="card-top">
                 <span class="tag">Recurring costs</span>
-                <button class="share-btn" aria-label="Share Subscription leak audit service" onclick="shareService('Subscription leak audit', 'Flag unused software licenses, duplicate tools, and price increases that slipped through.', 'subscription-leak-audit', this)">
-                  <svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
-                  <span class="share-tooltip">Copied!</span>
+                <button class="share-btn" aria-label="Share Subscription audit service" onclick="shareService('Subscription Leak Audit', 'subscription-leak-audit', this)">
+                  <svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                  <span class="share-tooltip">Link copied!</span>
                 </button>
               </div>
               <h3>Subscription leak audit</h3>
@@ -259,19 +459,19 @@
         </div>
       </div>
 
-      <!-- Group 3: Operations Optimization -->
+      <!-- Group 3 -->
       <div class="service-group">
-        <div class="eyebrow">Operations optimization</div>
-        <h2>Build routines your team can run consistently.</h2>
+        <p class="eyebrow">Operations Optimization</p>
+        <h2 class="service-group-title">Build routines your team can run consistently.</h2>
         <div class="service-grid">
           
           <article class="service-card" id="standard-operating-procedures">
             <div>
-              <div class="card-top-row">
+              <div class="card-top">
                 <span class="tag">Documentation</span>
-                <button class="share-btn" aria-label="Share Standard operating procedures service" onclick="shareService('Standard operating procedures', 'Turn financial approvals and monthly close tasks into clear, repeatable steps for your team.', 'standard-operating-procedures', this)">
-                  <svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
-                  <span class="share-tooltip">Copied!</span>
+                <button class="share-btn" aria-label="Share Standard operating procedures service" onclick="shareService('Standard Operating Procedures', 'standard-operating-procedures', this)">
+                  <svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                  <span class="share-tooltip">Link copied!</span>
                 </button>
               </div>
               <h3>Standard operating procedures</h3>
@@ -287,11 +487,11 @@
 
           <article class="service-card" id="bank-account-line-match">
             <div>
-              <div class="card-top-row">
+              <div class="card-top">
                 <span class="tag">Reconciliation</span>
-                <button class="share-btn" aria-label="Share Bank account line-by-line match service" onclick="shareService('Bank account line-by-line match', 'Confirm every single bank and credit card dollar is accurately accounted for in your ledger.', 'bank-account-line-match', this)">
-                  <svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
-                  <span class="share-tooltip">Copied!</span>
+                <button class="share-btn" aria-label="Share Bank account matching service" onclick="shareService('Bank Account Line-by-Line Match', 'bank-account-line-match', this)">
+                  <svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                  <span class="share-tooltip">Link copied!</span>
                 </button>
               </div>
               <h3>Bank account line-by-line match</h3>
@@ -307,11 +507,11 @@
 
           <article class="service-card" id="real-available-spend-tracking">
             <div>
-              <div class="card-top-row">
+              <div class="card-top">
                 <span class="tag">Liquidity</span>
-                <button class="share-btn" aria-label="Share Real available spend tracking service" onclick="shareService('Real available spend tracking', 'Factor in outstanding checks and pending deposits so you always know what is safe to spend.', 'real-available-spend-tracking', this)">
-                  <svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
-                  <span class="share-tooltip">Copied!</span>
+                <button class="share-btn" aria-label="Share Spend tracking service" onclick="shareService('Real Available Spend Tracking', 'real-available-spend-tracking', this)">
+                  <svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                  <span class="share-tooltip">Link copied!</span>
                 </button>
               </div>
               <h3>Real available spend tracking</h3>
@@ -331,30 +531,93 @@
     </div>
   </main>
 
-  <footer class="footer">
-    <div class="wrap footer-grid">
-      <div>
-        <div class="footer-brand" style="font-family:serif;">XI<span>:</span>XI</div>
-        <p class="footer-copy">Independent strategic finance and business optimization for owners who need numbers they can trust.</p>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo-full" aria-label="XI:XI Home">
+            <svg viewBox="0 0 460 50" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="height: 48px; width: auto; display: block;">
+              <g transform="translate(0, 0)">
+                <path d="M 16 12 Q 34 6 52 12" stroke="#B38D5A" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+                <path d="M 16 38 Q 34 44 52 38" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+                <path d="M 10 18 Q 6 25 10 32" stroke="#666666" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+                <path d="M 58 18 Q 62 25 58 32" stroke="#666666" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+                <text x="12" y="32" font-family="'Playfair Display', serif" font-size="20" font-weight="400" fill="#B38D5A">XI</text>
+                <text x="32" y="31" font-family="'Playfair Display', serif" font-size="20" font-weight="500" fill="#ffffff">:</text>
+                <text x="38" y="32" font-family="'Playfair Display', serif" font-size="20" font-weight="400" fill="#ffffff">XI</text>
+              </g>
+              <line x1="74" y1="8" x2="74" y2="42" stroke="#ffffff" stroke-opacity="0.3" stroke-width="1.5" />
+              <text x="92" y="21" font-family="'DM Sans', sans-serif" font-size="11" font-weight="700" fill="#ffffff" letter-spacing="0.22em">FINANCIAL STRATEGY</text>
+              <text x="92" y="39" font-family="'DM Sans', sans-serif" font-size="11" font-weight="700" fill="#ded4c5" letter-spacing="0.22em">BUSINESS OPTIMIZATION</text>
+            </svg>
+          </a>
+          <p>Independent strategic finance and financial operations support for business owners who need numbers they can trust.</p>
+        </div>
+        <div class="footer-nav">
+          <a href="services.html">Services</a>
+          <a href="insights.html">Insights</a>
+          <a href="story.html">About</a>
+          <a href="tools.html">Tools</a>
+          <a href="intake.html">Get started</a>
+        </div>
       </div>
-      <nav class="footer-links" aria-label="Footer navigation">
-        <a href="services.html">Services</a>
-        <a href="insights.html">Insights</a>
-        <a href="story.html">About</a>
-        <a href="intake.html">Get Started</a>
-        <a href="mailto:lana@xixistrategy.com">Email Us</a>
-      </nav>
+      <div class="legal-disclaimer">
+        <span>&copy; 2026 XI:XI. All rights reserved.</span>
+        <span>XI:XI is not a Certified Public Accountant firm and does not provide public accounting services, certified audits, or formal tax representation.</span>
+      </div>
     </div>
-    <div class="wrap copyright">© 2026 XI:XI. All rights reserved.</div>
   </footer>
 
   <script>
-    function shareService(title, desc, id, btn) {
-      const url = window.location.origin + window.location.pathname + '#' + id;
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(url).then(() => {
-          btn.classList.add('copied');
-          setTimeout(() => btn.classList.remove('copied'), 2000);
+    // Navigation Dropdown Handler
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.site-header nav');
+    const navLinks = document.querySelectorAll('.site-header nav a');
+
+    if (toggle && nav) {
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const active = nav.classList.toggle('active');
+        toggle.setAttribute('aria-expanded', String(active));
+      });
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('active');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      document.addEventListener('click', (e) => {
+        if (nav.classList.contains('active') && !e.target.closest('.site-header')) {
+          nav.classList.remove('active');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          nav.classList.remove('active');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
+    // Share Service Functionality
+    function shareService(title, serviceId, btnElement) {
+      const shareUrl = window.location.origin + window.location.pathname + '#' + serviceId;
+      
+      if (navigator.share) {
+        navigator.share({
+          title: title + ' | XI:XI Financial Operations',
+          url: shareUrl
+        }).catch(() => {});
+      } else if (navigator.clipboard) {
+        navigator.clipboard.writeText(shareUrl).then(() => {
+          btnElement.classList.add('copied');
+          setTimeout(() => {
+            btnElement.classList.remove('copied');
+          }, 2000);
         });
       }
     }
