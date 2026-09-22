@@ -69,6 +69,14 @@
             -moz-osx-font-smoothing: grayscale; 
             text-rendering: optimizeLegibility;
         }
+
+        /* Defensive cleanup: Hides unstyled header fragments prepended by external site-shell.js */
+        body > nav:not(.site-header):not(#mobileMenu),
+        body > header:not(.site-header),
+        body > button:not(#menuToggle):not(.floating-contact) {
+            display: none !important;
+        }
+
         .font-serif { font-family: 'Playfair Display', serif; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #F7F4EF; }
@@ -94,10 +102,10 @@
 <body class="bg-cream text-charcoal font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-accentGold selection:text-white">
 
     <!-- Accessibility Skip Link -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <a href="#main-content" class="skip-link sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-charcoal focus:text-cream focus:px-4 focus:py-2 focus:z-50">Skip to main content</a>
 
     <!-- Fixed Glass Header -->
-    <header class="fixed top-4 sm:top-5 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-1.25rem)] sm:w-[calc(100%-2.5rem)] max-w-6xl rounded-full border border-accentGold/30 bg-cream/95 frosted shadow-lg shadow-charcoal/10 site-header">
+    <header class="site-header fixed top-4 sm:top-5 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-1.25rem)] sm:w-[calc(100%-2.5rem)] max-w-6xl rounded-full border border-accentGold/30 bg-cream/95 frosted shadow-lg shadow-charcoal/10">
         <div class="px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
             <a href="index.html" class="flex items-center gap-2 sm:gap-3 shrink-0" role="img" aria-label="XI:XI — Strategic Finance &amp; Business Optimization">
                 <svg viewBox="20 46 148 52" class="h-8 sm:h-9 w-auto" aria-hidden="true" focusable="false">
@@ -285,69 +293,72 @@
         Book a Call
     </a>
 
-    <!-- Page Scripts -->
+    <!-- Single Script Container for Interactive Logic -->
     <script>
     (function(){
+        // Mobile Navigation Toggle
         var toggle = document.getElementById('menuToggle');
         var menu = document.getElementById('mobileMenu');
-        if(!toggle || !menu) return;
-        function closeMenu(){ menu.classList.add('hidden'); menu.classList.remove('flex'); toggle.setAttribute('aria-expanded','false'); }
-        function openMenu(){ menu.classList.remove('hidden'); menu.classList.add('flex'); toggle.setAttribute('aria-expanded','true'); }
-        toggle.addEventListener('click', function(){
-            var isOpen = toggle.getAttribute('aria-expanded') === 'true';
-            isOpen ? closeMenu() : openMenu();
-        });
-        menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
-    })();
-    (function(){
+        if(toggle && menu) {
+            function closeMenu(){ menu.classList.add('hidden'); menu.classList.remove('flex'); toggle.setAttribute('aria-expanded','false'); }
+            function openMenu(){ menu.classList.remove('hidden'); menu.classList.add('flex'); toggle.setAttribute('aria-expanded','true'); }
+            toggle.addEventListener('click', function(){
+                var isOpen = toggle.getAttribute('aria-expanded') === 'true';
+                isOpen ? closeMenu() : openMenu();
+            });
+            menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+        }
+
+        // Contact Form Handler
         var form = document.getElementById('quickContactForm');
-        if(!form) return;
-        var status = document.getElementById('qc-status');
-        var submitBtn = form.querySelector('button[type="submit"]');
-        form.addEventListener('submit', function(e){
-            e.preventDefault();
-            var formData = new FormData(form);
-            var originalLabel = submitBtn.textContent;
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending…';
-            if (status) { status.textContent = ''; status.className = 'text-xs mt-1'; }
-            fetch(form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
-                method: 'POST', body: formData, headers: { 'Accept': 'application/json' }
-            }).then(function(res){
-                if (!res.ok) throw new Error('Request failed');
-                return res.json();
-            }).then(function(){
-                form.reset();
-                if (status) { status.textContent = "Thanks — I'll get back to you shortly."; status.className = 'text-xs mt-1 text-accentGold'; }
-            }).catch(function(){
-                if (status) { status.textContent = 'Something went wrong. Please email lana@xixistrategy.com directly.'; status.className = 'text-xs mt-1 text-red-400'; }
-            }).finally(function(){
-                submitBtn.disabled = false;
-                submitBtn.textContent = originalLabel;
+        if(form) {
+            var status = document.getElementById('qc-status');
+            var submitBtn = form.querySelector('button[type="submit"]');
+            form.addEventListener('submit', function(e){
+                e.preventDefault();
+                var formData = new FormData(form);
+                var originalLabel = submitBtn.textContent;
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending…';
+                if (status) { status.textContent = ''; status.className = 'text-xs mt-1'; }
+                fetch(form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
+                    method: 'POST', body: formData, headers: { 'Accept': 'application/json' }
+                }).then(function(res){
+                    if (!res.ok) throw new Error('Request failed');
+                    return res.json();
+                }).then(function(){
+                    form.reset();
+                    if (status) { status.textContent = "Thanks — I'll get back to you shortly."; status.className = 'text-xs mt-1 text-accentGold'; }
+                }).catch(function(){
+                    if (status) { status.textContent = 'Something went wrong. Please email lana@xixistrategy.com directly.'; status.className = 'text-xs mt-1 text-red-400'; }
+                }).finally(function(){
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalLabel;
+                });
             });
-        });
-    })();
-    (function(){
+        }
+
+        // Floating Call Button Animations
         var fc = document.getElementById('floatingContact');
-        if(!fc) return;
-        setTimeout(function(){
-            fc.classList.add('pulse');
-            fc.addEventListener('animationend', function handler(){
-                fc.classList.remove('pulse');
-                fc.removeEventListener('animationend', handler);
-            });
-        }, 2500);
-    })();
-    (function(){
-        var fc = document.getElementById('floatingContact');
-        var footer = document.getElementById('contact');
-        if(!fc || !footer || !('IntersectionObserver' in window)) return;
-        var observer = new IntersectionObserver(function(entries){
-            entries.forEach(function(entry){
-                fc.classList.toggle('is-hidden', entry.isIntersecting);
-            });
-        }, { rootMargin: '0px 0px -10% 0px' });
-        observer.observe(footer);
+        if(fc) {
+            setTimeout(function(){
+                fc.classList.add('pulse');
+                fc.addEventListener('animationend', function handler(){
+                    fc.classList.remove('pulse');
+                    fc.removeEventListener('animationend', handler);
+                });
+            }, 2500);
+
+            var footer = document.getElementById('contact');
+            if(footer && ('IntersectionObserver' in window)) {
+                var observer = new IntersectionObserver(function(entries){
+                    entries.forEach(function(entry){
+                        fc.classList.toggle('is-hidden', entry.isIntersecting);
+                    });
+                }, { rootMargin: '0px 0px -10% 0px' });
+                observer.observe(footer);
+            }
+        }
     })();
     </script>
 </body>
