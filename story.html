@@ -9,34 +9,49 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
   <style>
     :root {
       --ink: #171717;
       --paper: #f7f4ef;
+      --paper-gradient: linear-gradient(135deg, #fdfbf7 0%, #f7f4ef 100%);
       --white: #ffffff;
       --gold: #b38d5a;
       --gold-dark: #80633d;
+      --gold-glow: rgba(179, 141, 90, 0.15);
       --muted: #686158;
       --line: #ded4c5;
       --tint: #efe7de;
       --max: 1180px;
+      --shadow: 0 24px 60px rgba(23,23,23,.06);
+      --focus-ring: 0 0 0 3px rgba(179, 141, 90, 0.4);
+      --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
     }
+    
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      background: var(--paper);
+      background: var(--paper-gradient);
       color: var(--ink);
-      font: 16px/1.65 'DM Sans', sans-serif;
+      font: 16px/1.75 'DM Sans', sans-serif;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
+      overflow-x: hidden;
     }
-    a { color: inherit; text-decoration: none; }
+    
+    ::selection { background: var(--gold-glow); color: var(--ink); }
+    a { color: inherit; text-decoration: none; transition: color 0.2s ease; }
     img { display: block; max-width: 100%; height: auto; }
+    button { font: inherit; cursor: pointer; }
+    *:focus-visible { outline: none; box-shadow: var(--focus-ring); border-radius: 4px; }
+    
     .wrap { width: min(var(--max), calc(100% - 32px)); margin: auto; }
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: var(--paper); }
+    ::-webkit-scrollbar-thumb { background: #d0c8bd; border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
 
-    /* Accessibility Skip Link */
     .skip-link {
       position: absolute;
       top: -60px;
@@ -51,7 +66,7 @@
     }
     .skip-link:focus { top: 16px; }
 
-    /* Header matching Insights, Services & Landing style */
+    /* Header */
     .site-header {
       position: sticky;
       top: 18px;
@@ -59,234 +74,166 @@
       width: min(1160px, calc(100% - 32px));
       margin: 16px auto 0;
       padding: 10px 18px 10px 22px;
-      border: 1px solid rgba(179, 141, 90, 0.4);
+      border: 1px solid rgba(179, 141, 90, 0.3);
       border-radius: 999px;
-      background: rgba(247, 244, 239, 0.96);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 20px;
-      box-shadow: 0 10px 24px rgba(23, 23, 23, 0.04);
+      box-shadow: 0 10px 30px rgba(23, 23, 23, 0.05);
+      transition: box-shadow 0.3s ease;
     }
+    .site-header:hover { box-shadow: 0 12px 40px rgba(23, 23, 23, 0.08); }
     
-    .brand-logo-full {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-    }
-    .brand-logo-full svg {
-      height: 34px;
-      width: auto;
-      display: block;
-    }
+    .brand-logo-full { display: flex; align-items: center; text-decoration: none; }
+    .brand-logo-full svg { height: 48px; width: auto; display: block; }
 
-    .site-header nav {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 28px;
-    }
-    .site-header nav a {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--muted);
-      position: relative;
-      padding: 6px 0;
-      transition: color 0.2s ease;
-    }
-    .site-header nav a:hover,
-    .site-header nav a[aria-current="page"] {
-      color: var(--ink);
-    }
+    .site-header nav { display: flex; align-items: center; justify-content: center; gap: 32px; }
+    .site-header nav a { font-size: 14px; font-weight: 600; color: var(--muted); position: relative; padding: 6px 0; }
+    .site-header nav a:hover, .site-header nav a[aria-current="page"] { color: var(--ink); }
     .site-header nav a::after {
-      content: "";
-      position: absolute;
-      left: 0; right: 0; bottom: 0;
-      height: 2px;
-      background: var(--gold);
-      transform: scaleX(0);
-      transform-origin: center;
-      transition: transform 0.2s ease;
+      content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--gold);
+      transform: scaleX(0); transform-origin: right; transition: transform 0.3s var(--transition-smooth);
     }
-    .site-header nav a:hover::after,
-    .site-header nav a[aria-current="page"]::after {
-      transform: scaleX(1);
-    }
+    .site-header nav a:hover::after, .site-header nav a[aria-current="page"]::after { transform: scaleX(1); transform-origin: left; }
 
-    /* Buttons */
     .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      padding: 0 22px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      border: 1px solid transparent;
+      display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 24px;
+      border-radius: 999px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      transition: all 0.3s var(--transition-smooth); border: 1px solid transparent;
     }
-    .button-dark { 
-      background: var(--ink); 
-      color: var(--white); 
-      box-shadow: 0 8px 20px rgba(23, 23, 23, 0.15); 
-    }
-    .button-dark:hover { 
-      background: var(--gold-dark); 
-      color: var(--white); 
-      transform: translateY(-2px); 
-    }
+    .button-dark { background: var(--ink); color: var(--white); box-shadow: 0 8px 20px rgba(23, 23, 23, 0.12); }
+    .button-dark:hover { background: var(--gold-dark); transform: translateY(-3px); box-shadow: 0 12px 24px rgba(128, 99, 61, 0.25); }
 
-    /* Mobile Menu Toggle */
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      padding: 8px;
-      cursor: pointer;
-    }
-    .menu-toggle span {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: var(--ink);
-      margin: 4px 0;
-    }
+    .menu-toggle { display: none; background: none; border: none; padding: 8px; z-index: 1001; }
+    .menu-toggle span { display: block; width: 24px; height: 2px; background: var(--ink); margin: 5px 0; transition: all 0.3s var(--transition-smooth); }
+    .menu-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .menu-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
     /* About Content Section */
-    .about-hero {
-      padding: 70px 0 50px;
-    }
+    .about-hero { padding: 90px 0 70px; }
     .eyebrow {
-      color: var(--gold-dark);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      margin-bottom: 12px;
+      display: inline-block; color: var(--gold-dark); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 12px; position: relative;
     }
-    .about-hero h1 {
-      font: 500 clamp(36px, 4.5vw, 56px)/1.1 'Playfair Display', serif;
-      margin: 0 0 24px;
-      max-width: 800px;
+    .eyebrow::after { content: ""; display: inline-block; width: 24px; height: 1px; background: var(--gold); vertical-align: middle; margin-left: 12px; }
+    
+    .about-hero h1 { font: 500 clamp(42px, 5.5vw, 68px)/1.05 'Playfair Display', serif; margin: 0 0 24px; max-width: 800px; letter-spacing: -.03em; }
+    .about-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 80px; align-items: center; margin-top: 56px; }
+    
+    /* Elegant Circular Frame for the Portrait */
+    .founder-image-wrap { position: relative; max-width: 400px; width: 100%; margin: 0 auto; }
+    .founder-image-wrap::before {
+      content: "";
+      position: absolute;
+      inset: -16px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      opacity: 0.4;
     }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 60px;
-      align-items: start;
+    .founder-img {
+      width: 100%;
+      border-radius: 50%;
+      box-shadow: var(--shadow);
+      object-fit: cover;
+      display: block;
+      position: relative;
+      z-index: 2;
+      border: 4px solid var(--white);
+      aspect-ratio: 1 / 1;
+      background: var(--tint);
+    }
+
+    .about-body p { font-size: 17px; color: var(--muted); line-height: 1.8; margin-bottom: 24px; }
+    .about-body p strong { color: var(--ink); font-weight: 600; }
+    
+    .about-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 48px;
+      box-shadow: var(--shadow);
+      position: relative;
       margin-top: 40px;
     }
-    .about-body p {
-      font-size: 17px;
-      color: var(--muted);
-      line-height: 1.7;
-      margin-bottom: 24px;
+    .about-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 48px; right: 48px;
+      height: 4px;
+      background: var(--gold);
+      border-radius: 0 0 4px 4px;
     }
-    .about-body p strong {
-      color: var(--ink);
-    }
-    .about-card {
-      background: var(--tint);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 40px;
-    }
-    .about-card h3 {
-      font: 500 24px/1.2 'Playfair Display', serif;
-      margin: 0 0 16px;
-      color: var(--ink);
-    }
-    .about-card p {
-      font-size: 15px;
-      color: var(--muted);
-      margin-bottom: 20px;
-    }
+    .about-card h3 { font: 500 28px/1.2 'Playfair Display', serif; margin: 0 0 24px; color: var(--ink); }
+    .about-card p { font-size: 15px; color: var(--muted); margin-bottom: 20px; line-height: 1.65; }
 
     /* Footer */
-    .site-footer {
-      background: #111111;
-      color: #b0b0b0;
-      padding: 60px 0 40px;
-      border-top: 1px solid #222222;
-      margin-top: 80px;
+    .site-footer { background: #111111; color: #b0b0b0; padding: 80px 0 40px; border-top: 1px solid #222222; margin-top: 80px; }
+    .footer-content { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: start; }
+    .footer-brand p { font-size: 14px; line-height: 1.6; color: #888888; max-width: 320px; margin-top: 20px; }
+    .footer-nav { display: flex; gap: 48px; justify-content: flex-end; flex-wrap: wrap; }
+    .footer-nav a { font-size: 15px; font-weight: 500; color: #e0e0e0; position: relative; padding-bottom: 4px; }
+    .footer-nav a::after {
+      content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--gold);
+      transform: scaleX(0); transform-origin: right; transition: transform 0.3s ease;
     }
-    .footer-content {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 40px;
-      align-items: start;
-    }
-    .footer-brand p { 
-      font-size: 14px; 
-      line-height: 1.6; 
-      color: #888888; 
-      max-width: 320px; 
-      margin-top: 16px; 
-    }
-    .footer-nav { 
-      display: flex; 
-      gap: 40px; 
-      justify-content: flex-end; 
-      flex-wrap: wrap; 
-    }
-    .footer-nav a { 
-      font-size: 14px; 
-      color: #cccccc; 
-      transition: color 0.2s ease; 
-    }
-    .footer-nav a:hover { color: var(--gold); }
-    .legal-disclaimer {
-      border-top: 1px solid #222222;
-      margin-top: 40px;
-      padding-top: 24px;
-      font-size: 12px;
-      color: #666666;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
+    .footer-nav a:hover::after { transform: scaleX(1); transform-origin: left; }
+    .legal-disclaimer { border-top: 1px solid #222222; margin-top: 60px; padding-top: 24px; font-size: 12px; color: #666666; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
 
     /* Mobile Responsive */
-    @media (max-width: 850px) {
+    @media (max-width: 900px) {
       .menu-toggle { display: block; }
       .site-header nav {
-        display: none;
         position: absolute;
-        top: 100%; left: 0; right: 0;
-        background: rgba(247, 244, 239, 0.98);
+        top: calc(100% + 12px);
+        left: 16px; right: 16px;
+        background: rgba(255, 255, 255, 0.98);
         backdrop-filter: blur(16px);
         flex-direction: column;
-        padding: 20px;
-        margin-top: 10px;
-        border-radius: 18px;
+        padding: 24px;
+        border-radius: 20px;
         border: 1px solid var(--line);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s var(--transition-smooth);
       }
-      .site-header nav.active { display: flex; }
-      .site-header nav a { width: 100%; text-align: center; padding: 10px 0; }
-      .about-grid, .footer-content { grid-template-columns: 1fr; gap: 32px; }
-      .footer-nav { justify-content: start; }
+      .site-header nav.active { opacity: 1; visibility: visible; transform: translateY(0); }
+      .site-header nav a { width: 100%; text-align: center; padding: 12px 0; font-size: 16px; }
+      
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .founder-image-wrap { max-width: 320px; }
+      
+      .footer-content { grid-template-columns: 1fr; gap: 40px; }
+      .footer-nav { justify-content: start; gap: 24px; }
+      .about-card { padding: 32px; }
+      .about-card::before { left: 32px; right: 32px; }
     }
   </style>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <!-- TOP NAVIGATION HEADER -->
   <header class="site-header">
     <a href="index.html" class="brand-logo-full" aria-label="XI:XI Home">
-      <svg viewBox="0 0 380 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <text x="0" y="32" font-family="'Playfair Display', Georgia, serif" font-size="34" font-weight="600" fill="#171717" letter-spacing="-0.02em">XI<tspan fill="#B38D5A">:</tspan>XI</text>
-        <line x1="125" y1="6" x2="125" y2="38" stroke="#B38D5A" stroke-width="1.5" />
-        <text x="145" y="19" font-family="'DM Sans', sans-serif" font-size="11" font-weight="700" fill="#80633D" letter-spacing="0.18em">FINANCIAL STRATEGY</text>
-        <text x="145" y="34" font-family="'DM Sans', sans-serif" font-size="11" font-weight="700" fill="#80633D" letter-spacing="0.18em">BUSINESS OPTIMIZATION</text>
+      <svg viewBox="0 0 460 50" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="height: 48px; width: auto; display: block;">
+        <g transform="translate(0, 0)">
+          <path d="M 16 12 Q 34 6 52 12" stroke="#B38D5A" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+          <path d="M 16 38 Q 34 44 52 38" stroke="#171717" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+          <path d="M 10 18 Q 6 25 10 32" stroke="#9A9183" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+          <path d="M 58 18 Q 62 25 58 32" stroke="#9A9183" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+          <text x="12" y="32" font-family="'Playfair Display', serif" font-size="20" font-weight="400" fill="#B38D5A">XI</text>
+          <text x="32" y="31" font-family="'Playfair Display', serif" font-size="20" font-weight="500" fill="#171717">:</text>
+          <text x="38" y="32" font-family="'Playfair Display', serif" font-size="20" font-weight="400" fill="#171717">XI</text>
+        </g>
+        <line x1="74" y1="8" x2="74" y2="42" stroke="#171717" stroke-opacity="0.2" stroke-width="1.5" />
+        <text x="92" y="21" font-family="'DM Sans', sans-serif" font-size="11" font-weight="700" fill="#171717" letter-spacing="0.22em">FINANCIAL STRATEGY</text>
+        <text x="92" y="39" font-family="'DM Sans', sans-serif" font-size="11" font-weight="700" fill="#80633D" letter-spacing="0.22em">BUSINESS OPTIMIZATION</text>
       </svg>
     </a>
 
@@ -301,53 +248,63 @@
       <a href="tools.html">Tools</a>
       <a href="intake.html">Get started</a>
     </nav>
-
     <a class="button button-dark" href="https://cal.com/xix-lana" target="_blank" rel="noopener">Book a call</a>
   </header>
 
   <main id="main-content">
     <section class="about-hero">
       <div class="wrap">
-        <p class="eyebrow">ABOUT XI:XI</p>
+        <p class="eyebrow">ABOUT</p>
         <h1>Precision financial operations for business owners.</h1>
         
         <div class="about-grid">
-          <div class="about-body">
-            <p><strong>XI:XI was built on a simple premise:</strong> business owners shouldn't have to second-guess their general ledgers or wrestle with messy multi-channel transaction reports.</p>
-            <p>We provide high-tier financial operations and reconciliation support designed specifically for businesses with complex workflows, diverse revenue streams, or high transaction volumes.</p>
-            <p>Instead of basic data entry, we focus on deep statement-to-ledger reconciliation, workflow optimization, and actionable operational strategy—giving you numbers that align with real-world activity.</p>
+          <div class="founder-image-wrap">
+            <img src="lana-headshot.jpg" alt="Lana - Founder of XI:XI" class="founder-img">
           </div>
-
-          <div class="about-card">
-            <h3>Our Operating Approach</h3>
-            <p><strong>1. Verification First:</strong> Every ledger entry must tie back to actual bank and merchant source documents.</p>
-            <p><strong>2. Structural Clarity:</strong> We design repeatable internal workflows so your routine accounting operates without bottlenecks.</p>
-            <p><strong>3. Decisive Focus:</strong> Clear reporting packages that highlight true margins, cash movement, and operational efficiency.</p>
+          
+          <div class="about-body">
+            <p><strong>Built on a simple premise:</strong> business owners shouldn't have to second-guess their general ledgers or wrestle with messy multi-channel transaction reports.</p>
+            <p>At XI:XI, we provide high-tier financial operations and reconciliation support designed specifically for businesses with complex workflows, diverse revenue streams, or high transaction volumes.</p>
+            <p>Instead of basic data entry, we focus on deep statement-to-ledger reconciliation, workflow optimization, and actionable operational strategy—giving you numbers that align with real-world activity.</p>
+            
+            <div class="about-card">
+              <h3>Our Operating Approach</h3>
+              <p><strong>1. Verification First:</strong> Every ledger entry must tie back to actual bank and merchant source documents.</p>
+              <p><strong>2. Structural Clarity:</strong> We design repeatable internal workflows so your routine accounting operates without bottlenecks.</p>
+              <p><strong>3. Decisive Focus:</strong> Clear reporting packages that highlight true margins, cash movement, and operational efficiency.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="wrap">
       <div class="footer-content">
         <div class="footer-brand">
           <a href="index.html" class="brand-logo-full" aria-label="XI:XI Home">
-            <svg viewBox="0 0 380 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <text x="0" y="32" font-family="'Playfair Display', Georgia, serif" font-size="34" font-weight="600" fill="#ffffff" letter-spacing="-0.02em">XI<tspan fill="#B38D5A">:</tspan>XI</text>
-              <line x1="125" y1="6" x2="125" y2="38" stroke="#B38D5A" stroke-width="1.5" />
-              <text x="145" y="19" font-family="'DM Sans', sans-serif" font-size="11" font-weight="700" fill="#ded4c5" letter-spacing="0.18em">FINANCIAL STRATEGY</text>
-              <text x="145" y="34" font-family="'DM Sans', sans-serif" font-size="11" font-weight="700" fill="#ded4c5" letter-spacing="0.18em">BUSINESS OPTIMIZATION</text>
+            <svg viewBox="0 0 460 50" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="height: 48px; width: auto; display: block;">
+              <g transform="translate(0, 0)">
+                <path d="M 16 12 Q 34 6 52 12" stroke="#B38D5A" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+                <path d="M 16 38 Q 34 44 52 38" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+                <path d="M 10 18 Q 6 25 10 32" stroke="#666666" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+                <path d="M 58 18 Q 62 25 58 32" stroke="#666666" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+                <text x="12" y="32" font-family="'Playfair Display', serif" font-size="20" font-weight="400" fill="#B38D5A">XI</text>
+                <text x="32" y="31" font-family="'Playfair Display', serif" font-size="20" font-weight="500" fill="#ffffff">:</text>
+                <text x="38" y="32" font-family="'Playfair Display', serif" font-size="20" font-weight="400" fill="#ffffff">XI</text>
+              </g>
+              <line x1="74" y1="8" x2="74" y2="42" stroke="#ffffff" stroke-opacity="0.3" stroke-width="1.5" />
+              <text x="92" y="21" font-family="'DM Sans', sans-serif" font-size="11" font-weight="700" fill="#ffffff" letter-spacing="0.22em">FINANCIAL STRATEGY</text>
+              <text x="92" y="39" font-family="'DM Sans', sans-serif" font-size="11" font-weight="700" fill="#ded4c5" letter-spacing="0.22em">BUSINESS OPTIMIZATION</text>
             </svg>
           </a>
-          <p>Independent financial operations support for owners who need numbers they can trust.</p>
+          <p>Independent strategic finance and financial operations support for business owners who need numbers they can trust.</p>
         </div>
         <div class="footer-nav">
           <a href="services.html">Services</a>
           <a href="insights.html">Insights</a>
-          <a href="story.html" aria-current="page">About</a>
+          <a href="story.html">About</a>
           <a href="tools.html">Tools</a>
           <a href="intake.html">Get started</a>
         </div>
