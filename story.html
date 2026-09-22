@@ -30,6 +30,7 @@
       color: var(--ink);
       font: 16px/1.65 'DM Sans', sans-serif;
       -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; height: auto; }
@@ -50,7 +51,7 @@
     }
     .skip-link:focus { top: 16px; }
 
-    /* Header & Navigation Bar */
+    /* Header matching Insights, Services & Landing style */
     .site-header {
       position: sticky;
       top: 18px;
@@ -75,9 +76,8 @@
       align-items: center;
       text-decoration: none;
     }
-    .brand-logo-full img,
     .brand-logo-full svg {
-      height: 44px;
+      height: 34px;
       width: auto;
       display: block;
     }
@@ -131,8 +131,16 @@
       transition: all 0.2s ease;
       border: 1px solid transparent;
     }
-    .button-dark { background: var(--ink); color: var(--white); box-shadow: 0 8px 20px rgba(23, 23, 23, 0.15); }
-    .button-dark:hover { background: var(--gold-dark); color: var(--white); transform: translateY(-2px); }
+    .button-dark { 
+      background: var(--ink); 
+      color: var(--white); 
+      box-shadow: 0 8px 20px rgba(23, 23, 23, 0.15); 
+    }
+    .button-dark:hover { 
+      background: var(--gold-dark); 
+      color: var(--white); 
+      transform: translateY(-2px); 
+    }
 
     /* Mobile Menu Toggle */
     .menu-toggle {
@@ -214,9 +222,24 @@
       gap: 40px;
       align-items: start;
     }
-    .footer-brand p { font-size: 14px; line-height: 1.6; color: #888888; max-width: 320px; margin-top: 16px; }
-    .footer-nav { display: flex; gap: 40px; justify-content: flex-end; flex-wrap: wrap; }
-    .footer-nav a { font-size: 14px; color: #cccccc; transition: color 0.2s ease; }
+    .footer-brand p { 
+      font-size: 14px; 
+      line-height: 1.6; 
+      color: #888888; 
+      max-width: 320px; 
+      margin-top: 16px; 
+    }
+    .footer-nav { 
+      display: flex; 
+      gap: 40px; 
+      justify-content: flex-end; 
+      flex-wrap: wrap; 
+    }
+    .footer-nav a { 
+      font-size: 14px; 
+      color: #cccccc; 
+      transition: color 0.2s ease; 
+    }
     .footer-nav a:hover { color: var(--gold); }
     .legal-disclaimer {
       border-top: 1px solid #222222;
@@ -232,8 +255,6 @@
 
     /* Mobile Responsive */
     @media (max-width: 850px) {
-      .brand-logo-full img,
-      .brand-logo-full svg { height: 34px; }
       .menu-toggle { display: block; }
       .site-header nav {
         display: none;
@@ -326,7 +347,7 @@
         <div class="footer-nav">
           <a href="services.html">Services</a>
           <a href="insights.html">Insights</a>
-          <a href="story.html">About</a>
+          <a href="story.html" aria-current="page">About</a>
           <a href="tools.html">Tools</a>
           <a href="intake.html">Get started</a>
         </div>
