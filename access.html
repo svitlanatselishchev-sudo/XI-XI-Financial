@@ -156,9 +156,21 @@
   (function(){
     // ================================================================
     // ONE-TIME SETUP: paste your published Google Sheet CSV URL below.
-    // After that, update the client's link by editing the Sheet cell —
-    // never this file again. See the setup steps sent alongside this
-    // file for how to create and publish the Sheet.
+    // Sheet layout:
+    //   Column A = folder link
+    //   Column B = client name (for your own records — full names with
+    //               commas/periods are fine, e.g. "Tree Works Of
+    //               Florida, Inc.")
+    //   Column C = short slug used in the link, e.g. "treeworks" —
+    //               no spaces or punctuation, keep it simple
+    // One client per row (row 1 can be a header, it's ignored — it
+    // just won't match any slug). To add a new client, add a new row
+    // — never edit this file or overwrite an existing row. Send each
+    // client their OWN link:
+    //   https://xixistrategy.com/access.html?client=THEIR-SLUG
+    // where THEIR-SLUG matches column C for their row (not case
+    // sensitive). Each client's link only ever shows their own row, so
+    // sending one client their link never affects another client.
     // ================================================================
     var SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7YenBmGQVvakXw0qXyFESUJGefe0b8kKSojsg07Asg21D6btJRAhwQOnHUXJwlB4BYcZ7bNdApbfO/pub?output=csv';
 
@@ -171,7 +183,38 @@
       if (fallback) fallback.hidden = false;
     }
 
-    if (!SHEET_CSV_URL || SHEET_CSV_URL.indexOf('PASTE_YOUR') === 0) {
+    function getClientParam(){
+      try {
+        return (new URLSearchParams(window.location.search).get('client') || '').trim().toLowerCase();
+      } catch (e) {
+        return '';
+      }
+    }
+
+    // Proper CSV field parser: respects quoted fields so commas and
+    // periods inside a company name (e.g. "Tree Works Of Florida,
+    // Inc.") don't get split into extra columns.
+    function parseRow(line){
+      var result = [], cur = '', inQuotes = false;
+      for (var i = 0; i < line.length; i++) {
+        var ch = line[i];
+        if (inQuotes) {
+          if (ch === '"' && line[i + 1] === '"') { cur += '"'; i++; }
+          else if (ch === '"') { inQuotes = false; }
+          else { cur += ch; }
+        } else {
+          if (ch === '"') { inQuotes = true; }
+          else if (ch === ',') { result.push(cur); cur = ''; }
+          else { cur += ch; }
+        }
+      }
+      result.push(cur);
+      return result.map(function(cell){ return cell.trim(); });
+    }
+
+    var client = getClientParam();
+
+    if (!SHEET_CSV_URL || SHEET_CSV_URL.indexOf('PASTE_YOUR') === 0 || !client) {
       showFallback();
       return;
     }
@@ -182,9 +225,19 @@
         return res.text();
       })
       .then(function(text){
-        var link = (text.split(/\r?\n/)[0] || '').trim().replace(/^"|"$/g, '');
-        if (/^https?:\/\//i.test(link)) {
-          btn.href = link;
+        var lines = text.split(/\r?\n/).filter(function(l){ return l.trim().length; });
+        var match = null;
+        for (var i = 0; i < lines.length; i++) {
+          var row = parseRow(lines[i]);
+          var link = row[0] || '';
+          var slug = (row[2] || '').toLowerCase();
+          if (slug && slug === client) {
+            match = link;
+            break;
+          }
+        }
+        if (match && /^https?:\/\//i.test(match)) {
+          btn.href = match;
           btn.removeAttribute('aria-disabled');
           btn.classList.remove('is-loading');
           btn.textContent = 'Open Upload Folder →';
