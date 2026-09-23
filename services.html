@@ -20,8 +20,8 @@
     .eyebrow{color:var(--gold);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
     .page-hero{padding:92px 0 36px}.page-hero h1{margin:12px 0 0;font:500 clamp(42px,6vw,76px)/1 'Playfair Display',serif;letter-spacing:-.05em}.page-hero p{max-width:720px;color:var(--muted);font-size:18px;margin-top:18px}
     .section{padding:46px 0 100px}.featured{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:stretch;background:var(--white);border:1px solid var(--line);border-radius:26px;padding:28px;box-shadow:var(--shadow)}.featured-box h2{font:500 clamp(32px,4vw,46px)/1.06 'Playfair Display',serif;letter-spacing:-.04em;margin:8px 0 12px}.featured-box p,.feature-card p,.service-card p{color:var(--muted);font-size:17px}.featured-box ul{display:grid;gap:10px;margin-top:18px}.featured-box li{display:flex;gap:10px;align-items:flex-start}.featured-box li::before{content:'✓';color:var(--gold-dark);font-weight:700}
-    .cta-box{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#171717,#2a2824);color:var(--white);border-radius:20px;padding:24px;text-align:center}.cta-box .button{width:100%}
-    .service-groups{display:grid;gap:32px;margin-top:50px}.service-group{display:grid;gap:18px}.service-group > h2{font:500 clamp(28px,3vw,40px)/1.1 'Playfair Display',serif;letter-spacing:-.04em;margin-top:4px}.service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.service-card{position:relative;background:var(--white);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 12px 24px rgba(23,23,23,.02);transition:box-shadow .3s ease}.tag{display:inline-block;padding:7px 10px;border-radius:999px;background:rgba(179,141,90,.1);color:var(--gold-dark);font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:16px}.service-card h3{font:500 24px/1.2 'Playfair Display',serif;margin:0 44px 10px 0}.service-card ul{display:grid;gap:8px;margin-top:16px}.service-card li{display:flex;gap:10px;align-items:flex-start;color:var(--ink);font-size:15px}.service-card li::before{content:'→';color:var(--gold-dark);font-weight:700}
+    .cta-box{display:flex;flex-direction:column;justify-content:center;gap:12px;background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:28px;text-align:left}.cta-box .cta-tag{color:var(--gold-dark);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}.cta-box h3{font:500 23px/1.2 'Playfair Display',serif;margin:0;letter-spacing:-.02em}.cta-box p{color:var(--muted);font-size:14px;margin:0}.cta-box .button{width:100%;margin-top:4px}
+    .service-groups{display:grid;gap:32px;margin-top:50px}.service-group{display:grid;gap:18px}.service-group > h2{font:500 clamp(28px,3vw,40px)/1.1 'Playfair Display',serif;letter-spacing:-.04em;margin-top:4px}.service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.service-card{position:relative;background:var(--white);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 12px 24px rgba(23,23,23,.02);transition:box-shadow .3s ease}.tag{display:inline-block;max-width:calc(100% - 46px);padding:7px 10px;border-radius:999px;background:rgba(179,141,90,.1);color:var(--gold-dark);font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:16px}.service-card h3{font:500 24px/1.2 'Playfair Display',serif;margin:0 44px 10px 0}.service-card ul{display:grid;gap:8px;margin-top:16px}.service-card li{display:flex;gap:10px;align-items:flex-start;color:var(--ink);font-size:15px}.service-card li::before{content:'→';color:var(--gold-dark);font-weight:700}
     .share-btn{position:absolute;top:18px;right:18px;width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:var(--white);color:var(--muted);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .2s ease,color .2s ease,background-color .2s ease}.share-btn:hover{border-color:var(--gold);color:var(--gold-dark)}.share-btn.copied{background:var(--gold);border-color:var(--gold);color:var(--ink)}
     .service-card.highlight,.featured.highlight{box-shadow:0 0 0 3px var(--gold),0 12px 24px rgba(23,23,23,.08)}
     .footer{background:#111;color:#aaa;padding:38px 0}.footer-line{display:flex;justify-content:space-between;align-items:center;gap:24px}.footer-line span{max-width:610px;color:rgba(255,255,255,.7)}.footer-line a{color:var(--gold)}
@@ -30,8 +30,8 @@
     .menu-toggle{display:none;width:42px;height:42px;padding:0;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--ink);cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px}.menu-toggle span{width:18px;height:2px;background:currentColor;border-radius:2px;transition:transform .2s ease}.menu-toggle[aria-expanded="true"] span:first-child{transform:translateY(3.5px) rotate(45deg)}.menu-toggle[aria-expanded="true"] span:last-child{transform:translateY(-3.5px) rotate(-45deg)}
     .mobile-menu{display:none}
     body.menu-open{overflow:hidden}
-    @media(max-width:900px){.menu-toggle{display:flex}.mobile-menu{position:fixed;top:84px;left:12px;right:12px;z-index:19;display:flex;flex-direction:column;visibility:hidden;opacity:0;transform:translateY(-8px);gap:6px;padding:14px;border:1px solid rgba(179,141,90,.55);border-radius:18px;background:#f7f4ef;box-shadow:0 20px 45px rgba(23,23,23,.14);transition:opacity .2s ease,transform .2s ease,visibility .2s ease;max-height:calc(100vh - 100px);overflow-y:auto}.mobile-menu a{padding:13px 12px;border-radius:10px;color:var(--muted);font-weight:700}.mobile-menu a:hover,.mobile-menu a[aria-current="page"]{background:rgba(179,141,90,.12);color:var(--ink)}.mobile-menu a.button{margin-top:6px;width:100%;padding:0;min-height:46px;display:inline-flex;align-items:center;justify-content:center}body.menu-open .mobile-menu{visibility:visible;opacity:1;transform:translateY(0)}}
-  .brand-lockup img{height:42px;width:64px;object-fit:contain;display:block}@media(max-width:600px){.brand-lockup img{height:34px;width:52px}}@media(max-width:680px){.site-header{position:sticky!important;top:10px;width:calc(100% - 20px);margin:10px auto 0;border-radius:16px}}.legal-disclaimer{margin:0 auto;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.45);font-size:12px;line-height:1.65;max-width:900px;text-align:center}@media(max-width:680px){.legal-disclaimer{font-size:11.5px;text-align:left}}</style>
+    @media(max-width:900px){.menu-toggle{display:flex}.mobile-menu{position:fixed;top:84px;left:12px;right:12px;z-index:19;display:flex;flex-direction:column;visibility:hidden;opacity:0;transform:translateY(-8px);gap:6px;padding:14px;border:1px solid rgba(179,141,90,.55);border-radius:18px;background:#f7f4ef;box-shadow:0 20px 45px rgba(23,23,23,.14);transition:opacity .2s ease,transform .2s ease,visibility .2s ease;max-height:calc(100vh - 100px);overflow-y:auto}.mobile-menu a{padding:13px 12px;border-radius:10px;color:var(--muted);font-weight:700}.mobile-menu a:hover,.mobile-menu a[aria-current="page"]{background:rgba(179,141,90,.12);color:var(--ink)}.mobile-menu a.button{margin-top:6px;width:100%;padding:0;min-height:46px;display:inline-flex;align-items:center;justify-content:center}body.menu-open .mobile-menu{visibility:visible;opacity:1;transform:translateY(0);pointer-events:auto}}
+  .brand-lockup img{height:78px;width:118px;object-fit:contain;display:block}@media(max-width:600px){.brand-lockup img{height:60px;width:91px}}@media(max-width:680px){.site-header{position:sticky!important;top:10px;width:calc(100% - 20px);margin:10px auto 0;border-radius:16px}}.legal-disclaimer{margin:0 auto;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.45);font-size:12px;line-height:1.65;max-width:900px;text-align:center}@media(max-width:680px){.legal-disclaimer{font-size:11.5px;text-align:left}}</style>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -41,7 +41,6 @@
       <a href="services.html" aria-current="page">Services</a>
       <a href="insights.html">Insights</a>
       <a href="story.html">About</a>
-      <a href="tools.html">Upload Docs</a>
       <a href="intake.html">Get started</a>
     </nav>
     <a class="button button-dark" href="https://cal.com/xix-lana" target="_blank" rel="noopener">Book a call</a>
@@ -51,7 +50,6 @@
     <a href="services.html" aria-current="page">Services</a>
       <a href="insights.html">Insights</a>
       <a href="story.html">About</a>
-      <a href="tools.html">Upload Docs</a>
       <a href="intake.html">Get started</a><a class="button button-dark" href="https://cal.com/xix-lana" target="_blank" rel="noopener">Book a call</a>
   </nav>
 
@@ -67,7 +65,7 @@
       <div class="featured" id="self-employed-setup">
         <div class="featured-box" style="position:relative">
           <button class="share-btn" type="button" data-share-id="self-employed-setup" data-share-title="Self-employed base setup — XI:XI" aria-label="Copy link to this service"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"/><line x1="8" y1="12" x2="16" y2="12"/></svg></button>
-          <p class="tag">Starting point · no existing books required</p>
+          <p class="tag">Starting point · no books required</p>
           <h2>Self-employed base setup</h2>
           <p>We sort your bank and card history into business income and expenses, then build a tracking system you can use immediately.</p>
           <ul>
@@ -78,6 +76,9 @@
         </div>
 
         <div class="cta-box">
+          <span class="cta-tag">Not sure where to start?</span>
+          <h3>Let's confirm it's the right fit.</h3>
+          <p>A quick call to review your books and confirm scope and pricing before anything is billed.</p>
           <a class="button button-gold" href="https://cal.com/xix-lana" target="_blank" rel="noopener">Ask about this</a>
         </div>
       </div>
