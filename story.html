@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#171717">
-  <meta name="description" content="Meet Lana Tselishchev, founder of XI:XI, a strategic finance and business optimization firm.">
-  <title>About XI:XI | XI:XI</title>
+  <meta name="description" content="Meet Lana Tselishchev, founder of XI:XI Strategy in Palm City, Florida. 11:11 helps new businesses launch right; XI:XI cleans up and structures the finances of established ones.">
+  <title>About | XI:XI Strategy</title>
   <link rel="icon" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,6 +35,10 @@
     .meta{display:flex;flex-wrap:wrap;gap:10px 20px;color:var(--gold-dark);font-weight:700}.story-copy p{max-width:670px;color:var(--muted);font-size:18px;margin:24px 0}.story-copy .brand-alignment{padding-left:18px;border-left:2px solid var(--brand-brass, var(--gold));margin-top:28px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;border-top:1px solid var(--line);padding-top:26px;margin-top:32px}.stats strong{display:block;font:500 32px 'Playfair Display',serif}.stats span{color:var(--muted);font-size:14px}.footer{background:#111;color:#aaa;padding:38px 0}.footer-line{display:flex;justify-content:space-between;align-items:center;gap:22px}.footer-line a{color:var(--gold)}.footer-line span{max-width:600px;color:rgba(255,255,255,.7)}
     @media(max-width:900px){.site-header nav,.site-header>.button{display:none}.site-header{justify-content:space-between}.story,.stats,.footer-line{grid-template-columns:1fr;display:grid}.portfolio-header{padding-top:40px}.portrait{max-width:240px} }
   
+    .story{grid-template-columns:minmax(280px,440px) 1fr}.portrait-wide{margin:0;border-radius:26px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:#201f1d;position:sticky;top:120px}.portrait-wide img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 22%}
+    .pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:28px 0}.pair>div{padding:22px;background:var(--white);border:1px solid var(--line);border-radius:18px}.pair strong{display:block;font:600 30px/1 'Playfair Display',serif;letter-spacing:-.02em}.pair span{display:block;margin-top:6px;color:var(--gold-dark);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}.pair p{margin:10px 0 0!important;font-size:16px!important}
+    .actions-row{display:flex;flex-wrap:wrap;align-items:center;gap:22px;margin-top:34px}.text-link{color:var(--gold-dark);font-weight:700;font-size:14px;letter-spacing:.08em;text-transform:uppercase}
+    @media(max-width:900px){.story{grid-template-columns:1fr}.portrait-wide{position:static;max-width:420px;margin:0 auto}.pair{grid-template-columns:1fr}}
     .menu-toggle{display:none;width:42px;height:42px;padding:0;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--ink);cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px}.menu-toggle span{width:18px;height:2px;background:currentColor;border-radius:2px;transition:transform .2s ease}.menu-toggle[aria-expanded="true"] span:first-child{transform:translateY(3.5px) rotate(45deg)}.menu-toggle[aria-expanded="true"] span:last-child{transform:translateY(-3.5px) rotate(-45deg)}
     .mobile-menu{display:none}
     body.menu-open{overflow:hidden}
@@ -46,59 +50,69 @@
   <header class="site-header">
     <a class="brand-lockup" href="index.html" aria-label="XI:XI home"><img src="assets/logo.png" alt="XI:XI — Financial Strategy, Business Optimization"></a>
     <nav aria-label="Primary navigation">
-      <a href="services.html">Services</a>
-      <a href="insights.html">Insights</a>
+      <a href="services.html">Services</a><a href="services.html#launch">11:11 Launch</a>
       <a href="story.html" aria-current="page">About</a>
       <a href="intake.html">Get started</a>
     </nav>
-    <a class="button button-dark" href="https://cal.com/xixistrategy" target="_blank" rel="noopener">Book a call</a>
+    <a class="button button-dark" href="https://cal.com/xixistrategy" target="_blank" rel="noopener">Book a Clarity Call</a>
       <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open navigation"><span></span><span></span></button>
 </header>
   <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true">
-    <a href="services.html">Services</a>
-      <a href="insights.html">Insights</a>
+    <a href="services.html">Services</a><a href="services.html#launch">11:11 Launch</a>
       <a href="story.html" aria-current="page">About</a>
-      <a href="intake.html">Get started</a><a class="button button-dark" href="https://cal.com/xixistrategy" target="_blank" rel="noopener">Book a call</a>
+      <a href="intake.html">Get started</a><a class="button button-dark" href="https://cal.com/xixistrategy" target="_blank" rel="noopener">Book a Clarity Call</a>
   </nav>
 
 
   <main id="main-content">
     <section class="hero wrap">
-      <p class="eyebrow">About XI:XI</p>
+      <p class="eyebrow">About</p>
       <h1>Meet the person behind the numbers.</h1>
-      <p class="lede">I help owners bring structure to the financial operations side of their business—without the chaos, confusion, or endless cleanup.</p>
+      <p class="lede">I help owners bring structure to the financial side of their business — without the chaos, confusion or endless cleanup.</p>
     </section>
 
     <section class="wrap story">
-      <figure class="portrait">
-        <img src="assets/lana-headshot.jpg" alt="Lana Tselishchev, founder of XI:XI" loading="eager">
+      <figure class="portrait-wide">
+        <img src="assets/lana-portrait.jpg" alt="Lana Tselishchev, founder of XI:XI Strategy, in a cream blazer" loading="eager" width="1400" height="1750">
       </figure>
 
       <div class="story-copy">
         <div class="meta">
           <span>Lana Tselishchev</span>
-          <span>Fractional Financial Controller</span>
+          <span>Principal, XI:XI Strategy</span>
+          <span>Palm City, Florida</span>
         </div>
 
-        <p>Running a business is demanding enough without wondering whether the financial records can be trusted. I help owners find the gaps, fix the process, and build a clearer operating rhythm.</p>
+        <p>Running a business is demanding enough without wondering whether the financial records can be trusted. I work with owners at two moments: before the business opens, and when the books need to be straightened out.</p>
 
-        <p>I started XI:XI to give business owners a grounded partner in the financial operations of their business—someone who can turn confusing information into a practical next step.</p>
+        <p>I started XI:XI Strategy to give owners a grounded partner for the money side of the business — someone who turns confusing information into a practical next step, and leaves behind routines that hold up.</p>
 
-        <p class="brand-alignment">11:11 is named for the moment numbers align: clarity, precision, and confidence before a business moves forward.</p>
+        <div class="pair">
+          <div><strong>11:11</strong><span>Launch</span><p>Setting up a new business so the numbers work from the first day.</p></div>
+          <div><strong>XI:XI</strong><span>Fix &amp; structure</span><p>Cleaning up and structuring the finances of a business that is already running.</p></div>
+        </div>
+
+        <p class="brand-alignment">XI:XI is 11:11 in Roman numerals — the moment numbers align: clarity, precision and confidence before a business moves forward.</p>
 
         <div class="stats">
           <div>
-            <strong>1M+</strong>
-            <span>Financial entries reviewed</span>
+            <strong>5+ years</strong>
+            <span>Hands-on experience in retail and commercial businesses</span>
           </div>
           <div>
-            <strong>$100M+</strong>
-            <span>Payments and revenue checked</span>
+            <strong>Certified</strong>
+            <span>Intuit Bookkeeping Professional</span>
           </div>
           <div>
-            <strong>$5.4M+</strong>
-            <span>Cash outflows managed</span>
+            <strong>Notary</strong>
+            <span>Licensed Florida Notary Public</span>
           </div>
+        </div>
+
+        <div class="actions-row">
+          <a class="button button-dark" href="https://cal.com/xixistrategy" target="_blank" rel="noopener">Book a Clarity Call</a>
+          <a class="text-link" href="services.html">See services →</a>
+          <a class="text-link" href="https://www.instagram.com/xixistrategy/" target="_blank" rel="noopener">Instagram @xixistrategy ↗</a>
         </div>
       </div>
     </section>
@@ -107,7 +121,8 @@
   <footer class="footer">
     <div class="wrap footer-line">
       <a class="brand-lockup" href="index.html"><img src="assets/logo-wordmark-dark.svg" alt="XI:XI"></a>
-      <span>Independent financial operations support for owners who need numbers they can trust.</span>
+      <span>XI:XI Strategy — independent financial support for owners who are starting, fixing or scaling a business.</span>
+      <a href="https://www.instagram.com/xixistrategy/" target="_blank" rel="noopener">Instagram</a>
       <a href="intake.html">Get started →</a>
     </div>
   <div class="wrap" style="margin-top:22px;"><p class="legal-disclaimer">XI:XI is not a Certified Public Accountant firm and is not engaged in the practice of public accounting, legal, or formal tax advising services. Services provided are strictly for financial and operational support purposes only.</p></div>
