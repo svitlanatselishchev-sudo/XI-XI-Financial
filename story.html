@@ -38,6 +38,7 @@
     .story{grid-template-columns:minmax(280px,440px) 1fr}.portrait-wide{margin:0;border-radius:26px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:#201f1d;position:sticky;top:120px}.portrait-wide img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 22%}
     .pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:28px 0}.pair>div{padding:22px;background:var(--white);border:1px solid var(--line);border-radius:18px}.pair strong{display:block;font:600 30px/1 'Playfair Display',serif;letter-spacing:-.02em}.pair span{display:block;margin-top:6px;color:var(--gold-dark);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}.pair p{margin:10px 0 0!important;font-size:16px!important}
     .actions-row{display:flex;flex-wrap:wrap;align-items:center;gap:22px;margin-top:34px}.text-link{color:var(--gold-dark);font-weight:700;font-size:14px;letter-spacing:.08em;text-transform:uppercase}
+    .about-banner-wrap{padding-bottom:0}.about-banner{margin:0;border-radius:26px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:#201f1d}.about-banner img{display:block;width:100%;aspect-ratio:16/8;object-fit:cover;object-position:50% 18%}.story{grid-template-columns:1fr!important;margin-top:48px}@media(max-width:700px){.about-banner img{aspect-ratio:4/3}}
     @media(max-width:900px){.story{grid-template-columns:1fr}.portrait-wide{position:static;max-width:420px;margin:0 auto}.pair{grid-template-columns:1fr}}
     .menu-toggle{display:none;width:42px;height:42px;padding:0;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--ink);cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px}.menu-toggle span{width:18px;height:2px;background:currentColor;border-radius:2px;transition:transform .2s ease}.menu-toggle[aria-expanded="true"] span:first-child{transform:translateY(3.5px) rotate(45deg)}.menu-toggle[aria-expanded="true"] span:last-child{transform:translateY(-3.5px) rotate(-45deg)}
     .mobile-menu{display:none}
@@ -71,11 +72,9 @@
       <p class="lede">I help owners bring structure to the financial side of their business — without the chaos, confusion or endless cleanup.</p>
     </section>
 
-    <section class="wrap story">
-      <figure class="portrait-wide">
-        <img src="assets/lana-portrait.jpg" alt="Lana Tselishchev, founder of XI:XI Strategy, in a cream blazer" loading="eager" width="1400" height="1750">
-      </figure>
+    <section class="wrap about-banner-wrap"><figure class="about-banner"><img src="assets/lana-clock-wide.jpg" alt="Lana Tselishchev, founder of XI:XI Strategy, beside the 11:11 clock — Right moves. Right time." width="1800" height="1347"></figure></section>
 
+    <section class="wrap story">
       <div class="story-copy">
         <div class="meta">
           <span>Lana Tselishchev</span>
