@@ -5,7 +5,7 @@
      status: "soon"  = registration closed, button shows "Registration soon"
              "open"  = registration open, button opens the link below
      date:   text shown on the page, e.g. "Середа, 11 листопада"
-     time:   text shown on the page, e.g. "11:00 ET · 10:00 CT"
+     time:   text shown on the page, e.g. "11:00 ET"
      link:   PAID  = Stripe payment link (https://buy.stripe.com/...)
              FREE  = Google Form link (https://forms.gle/...)
    Individual sessions (i1, i2) also take  price: 125   (a number, no $).
@@ -22,7 +22,7 @@ window.XIXI = {
     f6: { ua: { status: "soon", date: "", time: "", link: "" }, en: { status: "soon", date: "", time: "", link: "" } },
     m1: { ua: { status: "soon", date: "", time: "", link: "" }, en: { status: "soon", date: "", time: "", link: "" } },
     // P1: Ukrainian session is set for Nov 11. The English Saturday date is not confirmed yet.
-    p1: { ua: { status: "open", date: "Середа, 11 листопада", time: "11:00 ET · 10:00 CT", link: "https://buy.stripe.com/3cIfZgeidceIfKW5MCaR200" }, en: { status: "soon", date: "", time: "", link: "" } },
+    p1: { ua: { status: "open", date: "Середа, 11 листопада", time: "11:00 ET", link: "https://buy.stripe.com/3cIfZgeidceIfKW5MCaR200" }, en: { status: "soon", date: "", time: "", link: "" } },
     p2: { ua: { status: "open", date: "", time: "", link: "https://buy.stripe.com/28E9ASb61baE9my2aSaR201" }, en: { status: "open", date: "", time: "", link: "https://buy.stripe.com/28E9ASb61baE9my2aSaR201" } },
     p3: { ua: { status: "open", date: "", time: "", link: "https://buy.stripe.com/8x28wOgql0w0eGScb0aR202" }, en: { status: "open", date: "", time: "", link: "https://buy.stripe.com/8x28wOgql0w0eGScb0aR202" } },
     p4: { ua: { status: "open", date: "", time: "", link: "https://buy.stripe.com/dRm5kCeidguY0Q21wmaR203" }, en: { status: "open", date: "", time: "", link: "https://buy.stripe.com/dRm5kCeidguY0Q21wmaR203" } },
