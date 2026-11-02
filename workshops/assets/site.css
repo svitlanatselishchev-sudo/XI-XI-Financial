@@ -113,3 +113,29 @@ footer .d{margin-top:16px;font-size:13px;color:#9d927a;max-width:700px}
 .circle-photo{width:100%;max-width:440px;justify-self:center;border-radius:6px;box-shadow:0 12px 32px rgba(20,17,13,.25)}
 .circle-community{width:100%;border-radius:6px;box-shadow:0 12px 32px rgba(20,17,13,.18);display:block}
 @media(max-width:820px){.circle-photo{max-width:320px;margin:0 auto}}
+
+/* ===== 2026-11-02 layout & menu pass ===== */
+::selection{background:#e6c98f;color:#14110d}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+img{max-width:100%}
+.top{position:sticky;top:0;z-index:30;box-shadow:0 6px 24px rgba(14,12,9,.25)}
+.top nav a{padding:9px 2px}
+.top nav a.here{color:var(--gold2);border-bottom:2px solid var(--gold)}
+.wk,.card{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+@media(hover:hover){
+ .wk:hover,.card:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(20,17,13,.12);border-color:#d8cba6}
+ .points li{transition:transform .18s ease,box-shadow .18s ease}
+ .points li:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(20,17,13,.08)}
+}
+.next .box{padding:34px 0}
+@media(max-width:640px){
+ .top .wrap{justify-content:space-between}
+ .top nav{order:3;flex-basis:100%;gap:20px;overflow-x:auto;padding:2px 0 4px;-webkit-overflow-scrolling:touch}
+ .top nav a{white-space:nowrap}
+ .next .box{padding:26px 0}
+ .next .acts .btn{flex:1 1 auto}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ *{transition:none!important}
+}
