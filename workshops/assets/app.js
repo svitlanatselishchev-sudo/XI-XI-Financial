@@ -26,12 +26,16 @@
       return a;
     };
     var workshops = mk((prefix + langPrefix) || './', lang === 'en' ? 'Workshops' : 'Воркшопи', 'workshops');
-    var smart = mk(prefix + langPrefix + 'womens-circle.html', 'SMArt Club', 'smart');
-    if(/womens-circle\.html$/.test(path)) smart.classList.add('here');
+    var smart = mk(prefix + langPrefix + 'smart-club.html', 'SMArt Club', 'smart');
+    if(/(smart-club|womens-circle)\.html$/.test(path)) smart.classList.add('here');
     else if(/(^|\/)(en\/)?(index\.html)?$/.test(rest) && dirDepth <= 1 && !/\/w\//.test(rest)) workshops.classList.add('here');
+    else if(/(^|\/)w\/(f|m)\d+\.html$/.test(rest)) smart.classList.add('here');
+    else if(/(^|\/)w\//.test(rest)) workshops.classList.add('here');
+    var main = mk('https://xixistrategy.com/', lang === 'en' ? 'Main site' : 'Головний сайт', 'main');
     var langLink = nav.querySelector('.lang');
     nav.insertBefore(workshops, langLink || null);
     nav.insertBefore(smart, langLink || null);
+    nav.insertBefore(main, langLink || null);
   })();
 
   q('[data-buy]').forEach(function(a){
