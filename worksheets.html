@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sales Tax Worksheets | XI:XI</title>
+<meta name="description" content="Sales tax worksheets by XI:XI — the 12-State Sales Tax Toolkit ($79 launch price) and the California Sales Tax Worksheet ($19 launch price). Excel workbooks, checked against official state pages.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/brand.css">
+<link rel="stylesheet" href="assets/ux-enhancements.css">
+<style>
+:root{--ink:#171717;--paper:#f7f4ef;--white:#fff;--gold:#b38d5a;--gold-dark:#80633d;--muted:#686158;--line:#ded4c5;--max:760px;--shadow:0 24px 60px rgba(23,23,23,.08)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 'DM Sans',sans-serif}
+img{max-width:100%}
+a{color:var(--gold-dark)}
+.wrap{width:min(1160px,calc(100% - 32px));margin:0 auto}
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--ink);color:#fff;padding:10px 16px;z-index:99}
+.skip-link:focus{left:16px;top:16px}
+.site-header{display:flex;align-items:center;gap:28px;position:sticky;top:18px;z-index:12;width:min(1160px,calc(100% - 32px));margin:16px auto 0;padding:10px 14px 10px 22px;border:1px solid rgba(179,141,90,.6);border-radius:999px;background:rgba(247,244,239,.92);backdrop-filter:blur(8px)}
+.brand-lockup img{height:42px;width:64px;object-fit:contain;display:block}
+.site-header nav{display:flex;justify-content:center;gap:24px;flex:1;flex-wrap:wrap}
+.site-header nav a{font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;padding:6px 0}
+.site-header nav a[aria-current="page"]{color:var(--ink);border-bottom:2px solid var(--gold)}
+.button{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 20px;border-radius:999px;background:var(--ink);color:var(--white);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:1px solid var(--ink)}
+.button-gold{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.button-outline{background:transparent;border-color:var(--ink);color:var(--ink)}
+.menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:0;padding:10px;cursor:pointer}
+.menu-toggle span{display:block;width:24px;height:2px;background:var(--ink)}
+.mobile-menu{display:none}
+.page-hero{padding:92px 0 8px}
+.eyebrow{color:var(--gold);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700}
+.page-title{margin:16px 0 0;font:500 clamp(40px,5vw,62px)/1.05 'Playfair Display',serif;letter-spacing:-.02em}
+.lede{max-width:760px;margin:18px 0 0;font-size:19px;line-height:1.55;color:var(--muted)}
+.launch{margin:28px 0 8px;padding:20px 24px;border:1px solid rgba(179,141,90,.55);border-radius:18px;background:#fff;box-shadow:var(--shadow)}
+.launch p{margin:0}
+.launch strong{color:var(--gold-dark)}
+.product{padding:40px 0}
+.product-card{background:#fff;border:1px solid var(--line);border-radius:26px;padding:clamp(24px,4vw,44px);box-shadow:var(--shadow)}
+.product-card h2{margin:10px 0 0;font:500 clamp(30px,4vw,42px)/1.1 'Playfair Display',serif;letter-spacing:-.01em}
+.headline{font:500 22px/1.35 'Playfair Display',serif;margin:14px 0 0}
+.product-card h3{margin:30px 0 10px;font:600 22px/1.3 'Playfair Display',serif}
+.product-card p{margin:0 0 14px}
+.product-card ul,.product-card ol{margin:0 0 14px;padding-left:22px}
+.product-card li{margin:6px 0}
+.price-row{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin:22px 0 6px}
+.price{font:600 42px/1 'Playfair Display',serif}
+.strike{color:var(--muted);text-decoration:line-through;font-size:20px}
+.price-note{font-size:14px;color:var(--muted)}
+.buy-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:18px}
+.buy-note{font-size:14px;color:var(--muted);margin:0}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0}
+.gallery figure{margin:0}
+.gallery img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:14px}
+.note{background:#fbf7ef;border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:0 0 14px}
+.note p{margin:0}
+.fine{font-size:13px;color:var(--muted)}
+.divider{height:1px;background:var(--line);margin:8px 0 0}
+.contact-strip{padding:36px 0 56px;text-align:center}
+.contact-strip p{color:var(--muted)}
+.footer{padding:42px 0 24px;background:#111;color:#aaa}
+.footer-grid{display:grid;grid-template-columns:1fr auto;gap:50px;align-items:center}
+.footer-brand{color:var(--white);font:500 30px Georgia,serif}
+.footer-note{color:#777;font-size:12px}
+@media(max-width:900px){.site-header nav,.site-header>.button{display:none}.site-header{justify-content:space-between}.menu-toggle{display:flex}.mobile-menu{position:fixed;top:84px;left:12px;right:12px;z-index:20;display:flex;flex-direction:column;gap:4px;padding:16px;border:1px solid var(--line);border-radius:18px;background:var(--white);box-shadow:var(--shadow)}body:not(.menu-open) .mobile-menu{display:none}.mobile-menu a{padding:10px 8px;color:var(--ink);text-decoration:none;font-weight:600}.gallery{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.gallery{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+<a class="brand-lockup" href="index.html" aria-label="XI:XI home"><img src="assets/logo.png" alt="XI:XI logo"></a>
+<nav aria-label="Primary">
+<a href="services.html">Services</a>
+<a href="workshops/">11:11 Launch</a>
+<a href="about.html">About</a>
+<a href="worksheets.html" aria-current="page">Worksheets</a>
+<a href="tools.html">Upload Docs</a>
+</nav>
+<a class="button" href="intake.html">Get started</a>
+<button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</header>
+<nav class="mobile-menu" id="mobileMenu" aria-hidden="true">
+<a href="services.html">Services</a>
+<a href="workshops/">11:11 Launch</a>
+<a href="about.html">About</a>
+<a href="worksheets.html" aria-current="page">Worksheets</a>
+<a href="tools.html">Upload Docs</a>
+<a href="intake.html">Get started</a>
+</nav>
+<main id="main">
+<section class="page-hero wrap">
+<p class="eyebrow">Sales tax worksheets</p>
+<h1 class="page-title">Sales tax, worked out for you.</h1>
+<p class="lede">Excel workbooks that calculate what you owe, when it is due, and whether you must collect — checked against official state pages on November 5, 2026.</p>
+<div class="launch">
+<p><strong>Launch offer — ends November 19, 2026.</strong> 12-State Sales Tax Toolkit: $79 (standard $89). California Sales Tax Worksheet: $19 (standard $22). Instant digital download — nothing is shipped. After payment, you are taken straight to a download page for your file.</p>
+</div>
+</section>
+
+<section class="product wrap" id="toolkit">
+<article class="product-card">
+<p class="eyebrow">12 states · Excel workbook</p>
+<h2>12-State Sales Tax Toolkit (Excel)</h2>
+<p class="headline">One workbook for sellers who sell in more than one state.</p>
+<p>Ten sales tax tools for 12 states in one locked Excel workbook: California, Texas, Florida, New York, Pennsylvania, Illinois, Ohio, Georgia, North Carolina, New Jersey, Washington and Arizona. Every rate and rule was checked against official state pages on Nov 5, 2026 and is dated and linked in the file.</p>
+<div class="price-row"><span class="price">$79</span><span class="strike">$89</span><span class="price-note">Launch price — standard $89 after November 19, 2026</span></div>
+<div class="buy-row"><a class="button button-gold" href="https://buy.stripe.com/28EdR8de992wgP02AqaR20f">Buy the Toolkit — $79</a><p class="buy-note">Secure checkout with Stripe.</p></div>
+<div class="gallery">
+<figure><img src="assets/13_BUNDLE_12_States_1_Cover.jpg" alt="12-State Sales Tax Toolkit cover"></figure>
+<figure><img src="assets/13_BUNDLE_12_States_2_Multi_State_Calculator.jpg" alt="Multi-state calculator in the 12-State Sales Tax Toolkit"></figure>
+<figure><img src="assets/13_BUNDLE_12_States_3_Nexus_Check.jpg" alt="Nexus check in the 12-State Sales Tax Toolkit"></figure>
+<figure><img src="assets/13_BUNDLE_12_States_4_Filing_Calendar.jpg" alt="Filing calendar in the 12-State Sales Tax Toolkit"></figure>
+<figure><img src="assets/13_BUNDLE_12_States_5_Stay_Organized.jpg" alt="Stay organized with the 12-State Sales Tax Toolkit"></figure>
+<figure><img src="assets/13_BUNDLE_12_States_6_Whats_Inside.jpg" alt="What is inside the 12-State Sales Tax Toolkit"></figure>
+</div>
+<h3>What it does</h3>
+<ul>
+<li><strong>Multi-State Calculator:</strong> tax, vendor discount, amount due and due date for all 12 states side by side (one row per state, using your average local rate; for city-by-city detail use the single-state worksheets)</li>
+<li><strong>Must I Collect + Nexus Data:</strong> type 24 months of sales into each state and read a plain result for each (met, close, or below), using the rule each state&rsquo;s own page gives</li>
+<li><strong>Filing Calendar:</strong> every return, every state, the whole year, plus your next due date</li>
+<li><strong>Tax Owed Rollforward:</strong> what you owe each state at period end, checked against your balance sheet</li>
+<li><strong>Marketplace Recon:</strong> checks that Etsy, Amazon, eBay and similar payouts add up</li>
+<li><strong>Registration Tracker:</strong> where you are registered, account numbers, who files</li>
+<li><strong>Exemption Certificates:</strong> resale and exemption certificates, with missing and expiring flags</li>
+<li><strong>Taxability Matrix:</strong> your own sheet for what is taxable in each state</li>
+<li><strong>State Dashboard and State Details:</strong> one-page summary and every source</li>
+</ul>
+<h3>Who it is for</h3>
+<p>Sellers, bookkeepers and accountants who handle sales tax in several states and want one organized, checked file. Built for sales you handle yourself (your own website, in-person sales, invoices and other channels) and for keeping track of marketplace sales.</p>
+<div class="note"><p><strong>Please read: marketplaces.</strong> Etsy says it collects and remits sales tax on Etsy orders in all 12 of these states, so tax on those orders is handled by Etsy. The toolkit keeps marketplace sales out of the tax you owe and still lets you track them, because some states count them toward the out-of-state line.</p></div>
+<h3>How it works</h3>
+<ol>
+<li>Open the file and read the Start Here tab (three minutes).</li>
+<li>Type in the white cells with blue text.</li>
+<li>Read the cream cells and the plain-English results.</li>
+</ol>
+<p><strong>Formulas are locked.</strong> You can only type in the input cells. (To customize: Review &gt; Unprotect Sheet. There is no password.)</p>
+<h3>What it does not do</h3>
+<ul>
+<li>It does not file anything or send anything to a state.</li>
+<li>It does not look up your local rates. Each state&rsquo;s lookup link is in the file; you type your rate in.</li>
+<li>Holidays are not built in.</li>
+<li>Things we could not verify on an official page are marked &ldquo;not verified&rdquo; and are not guessed.</li>
+</ul>
+<p><strong>File:</strong> Excel workbook (.xlsx), instant digital download. Nothing is shipped. Google Sheets can open .xlsx files but may look a little different; this file is built and checked for Excel.</p>
+<p class="fine">Every sample number is made up. Rates, limits and due dates change: confirm with each state before you file or pay.</p>
+<p class="fine">Accountant, not an attorney or CPA. Educational tool, not tax, legal or accounting advice. For use in your own business only. Please do not copy, resell or share.</p>
+</article>
+</section>
+
+<section class="product wrap" id="california">
+<article class="product-card">
+<p class="eyebrow">California · Excel workbook</p>
+<h2>California Sales Tax Worksheet (Excel)</h2>
+<p class="headline">Type your California sales. See what you owe, and when.</p>
+<p>A California sales tax calculator and filing helper in one locked Excel workbook, checked against official California pages on Nov 5, 2026.</p>
+<div class="price-row"><span class="price">$19</span><span class="strike">$22</span><span class="price-note">Launch price — standard $22 after November 19, 2026</span></div>
+<div class="buy-row"><a class="button button-gold" href="https://buy.stripe.com/dRm6o68XTemQeGSej8aR20g">Buy the California Worksheet — $19</a><p class="buy-note">Secure checkout with Stripe.</p></div>
+<div class="gallery">
+<figure><img src="assets/01_CA_California_1_Cover.jpg" alt="California Sales Tax Worksheet cover"></figure>
+<figure><img src="assets/01_CA_California_2_See_It_Work.jpg" alt="See the California Sales Tax Worksheet work"></figure>
+<figure><img src="assets/01_CA_California_3_Checked_And_Sourced.jpg" alt="California Sales Tax Worksheet, checked and sourced"></figure>
+<figure><img src="assets/01_CA_California_4_Out_Of_State_Check.jpg" alt="Out-of-state check in the California Sales Tax Worksheet"></figure>
+<figure><img src="assets/01_CA_California_5_Whats_Inside.jpg" alt="What is inside the California Sales Tax Worksheet"></figure>
+</div>
+<h3>What it does</h3>
+<ul>
+<li>Works out sales tax by city or county from the sales you type in</li>
+<li>Subtracts marketplace sales that the marketplace already collected tax on</li>
+<li>Applies the state&rsquo;s vendor discount rule where one exists, only if you say you file on time</li>
+<li>Shows your net amount due and your due date (weekends move to the next business day)</li>
+<li>Checks your 12 months against your books and flags a mismatch</li>
+<li>Out-of-state seller check: shows how close your sales are to California&rsquo;s line</li>
+</ul>
+<h3>Who it is for</h3>
+<p>Small business owners, side-hustle sellers, bookkeepers and accountants who sell into or in California and want a clear, checked worksheet instead of a blank spreadsheet. It is built for sales you handle yourself: your own website, in-person sales, invoices and other channels.</p>
+<div class="note"><p><strong>Please read: marketplaces.</strong> Etsy says it collects and remits sales tax on Etsy orders in this state, so tax on those orders is handled by Etsy. The worksheet has a column for marketplace sales so they are kept out of the tax you owe. Some states still count marketplace sales toward the out-of-state line, and the worksheet shows what each state&rsquo;s own page says.</p></div>
+<h3>How it works</h3>
+<ol>
+<li>Open the file and read the Start Here tab (two minutes).</li>
+<li>Type in the white cells with blue text.</li>
+<li>Read the cream cells: tax, discount, amount due, due date.</li>
+</ol>
+<h3>What is inside (6 working tabs plus a guide)</h3>
+<ul>
+<li><strong>Calculator:</strong> tax, discount, amount due, due date</li>
+<li><strong>Annual Tracker:</strong> 12 months, checked against your books</li>
+<li><strong>Must I Collect:</strong> out-of-state seller check</li>
+<li><strong>State Rules:</strong> every rate and rule with its source link and the date checked</li>
+<li><strong>Booking Guide:</strong> how to record it, in plain words</li>
+<li><strong>Worked Example:</strong> a filled-in sample with made-up numbers</li>
+</ul>
+<h3>What is built in for California</h3>
+<ul>
+<li><strong>Rate:</strong> 7.25% statewide base rate. District taxes may add to it.</li>
+<li><strong>Due dates:</strong> Last day of the month after the period ends</li>
+<li><strong>Vendor discount:</strong> California: no vendor discount found on the pages we reviewed. Enter any credit yourself in &lsquo;Other credits&rsquo;.</li>
+<li><strong>Out-of-state line:</strong> $500,000 of sales of goods delivered into California. No order-count test. Sales of related companies are added together.</li>
+</ul>
+<p><strong>Formulas are locked.</strong> You can only type in the input cells, so a stray click cannot break the math. (To customize: Review &gt; Unprotect Sheet. There is no password.)</p>
+<h3>What it does not do</h3>
+<ul>
+<li>It does not file anything or send anything to the state.</li>
+<li>It does not look up your local rate. The state&rsquo;s own lookup link is on the State Rules tab; you type your rate in.</li>
+<li>Holidays are not built in.</li>
+<li>Anything we could not verify on an official page is marked &ldquo;not verified&rdquo; and is not guessed.</li>
+</ul>
+<p><strong>File:</strong> Excel workbook (.xlsx), instant digital download. Nothing is shipped. Google Sheets can open .xlsx files but may look a little different; this file is built and checked for Excel.</p>
+<p class="fine">Every sample number is made up. Rates, limits and due dates change: confirm with California before you file or pay.</p>
+<p class="fine">Accountant, not an attorney or CPA. Educational tool, not tax, legal or accounting advice. For use in your own business only. Please do not copy, resell or share.</p>
+</article>
+</section>
+
+<section class="contact-strip wrap">
+<p>Questions about a worksheet? Email <a href="mailto:lana@xixistrategy.com">lana@xixistrategy.com</a></p>
+</section>
+</main>
+<footer class="footer">
+<div class="wrap footer-grid">
+<div>
+<div class="footer-brand">XI:XI</div>
+<p>Strategic finance &amp; business optimization.</p>
+<p class="footer-note">© 2026 XI:XI Strategy. All rights reserved.</p>
+</div>
+<div>
+<p><a href="services.html">Services</a> · <a href="workshops/">11:11 Launch</a> · <a href="about.html">About</a></p>
+<p><a href="worksheets.html">Worksheets</a> · <a href="tools.html">Upload Docs</a> · <a href="contact.html">Email Us</a></p>
+</div>
+</div>
+</footer>
+<script>
+(function(){var toggle=document.getElementById('menuToggle'),menu=document.getElementById('mobileMenu');if(!toggle||!menu)return;function setOpen(open){document.body.classList.toggle('menu-open',open);toggle.setAttribute('aria-expanded',open);menu.setAttribute('aria-hidden',!open)}toggle.addEventListener('click',function(){setOpen(!document.body.classList.contains('menu-open'))});menu.addEventListener('click',function(e){if(e.target.closest('a'))setOpen(false)});})();
+</script>
+</body>
+</html>
