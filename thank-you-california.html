@@ -44,6 +44,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 'DM Sans',s
 .footer-grid{display:grid;grid-template-columns:1fr auto;gap:50px;align-items:center}
 .footer-brand{color:var(--white);font:500 30px Georgia,serif}
 .footer-note{color:#777;font-size:12px}
+.footer-links a{color:#aaa;text-decoration:none;margin-right:16px}
 @media(max-width:900px){.site-header nav,.site-header>.button{display:none}.site-header{justify-content:space-between}.menu-toggle{display:flex}.mobile-menu{position:fixed;top:84px;left:12px;right:12px;z-index:20;display:flex;flex-direction:column;gap:4px;padding:16px;border:1px solid var(--line);border-radius:18px;background:var(--white);box-shadow:var(--shadow)}body:not(.menu-open) .mobile-menu{display:none}.mobile-menu a{padding:10px 8px;color:var(--ink);text-decoration:none;font-weight:600}}
 </style>
 </head>
@@ -53,21 +54,23 @@ body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 'DM Sans',s
 <a class="brand-lockup" href="index.html" aria-label="XI:XI home"><img src="assets/logo.png" alt="XI:XI logo"></a>
 <nav aria-label="Primary">
 <a href="services.html">Services</a>
-<a href="workshops/">11:11 Launch</a>
-<a href="about.html">About</a>
+<a href="services.html#launch">11:11 Launch</a>
+<a href="story.html">About</a>
 <a href="worksheets.html">Worksheets</a>
 <a href="tools.html">Upload Docs</a>
+<a href="intake.html">Get started</a>
 </nav>
-<a class="button" href="intake.html">Get started</a>
+<a href="https://cal.com/xix-lana" target="_blank" rel="noopener" class="button">Book a Clarity Call</a>
 <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Toggle menu"><span></span><span></span><span></span></button>
 </header>
 <nav class="mobile-menu" id="mobileMenu" aria-hidden="true">
 <a href="services.html">Services</a>
-<a href="workshops/">11:11 Launch</a>
-<a href="about.html">About</a>
+<a href="services.html#launch">11:11 Launch</a>
+<a href="story.html">About</a>
 <a href="worksheets.html">Worksheets</a>
 <a href="tools.html">Upload Docs</a>
 <a href="intake.html">Get started</a>
+<a href="https://cal.com/xix-lana" target="_blank" rel="noopener">Book a Clarity Call</a>
 </nav>
 <main id="main">
 <section class="page-hero wrap">
@@ -98,11 +101,14 @@ body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 'DM Sans',s
 <div>
 <div class="footer-brand">XI:XI</div>
 <p>Strategic finance &amp; business optimization.</p>
-<p class="footer-note">© 2026 XI:XI Strategy. All rights reserved.</p>
+<p class="footer-note">© 2026 XI:XI. All rights reserved.</p>
 </div>
-<div>
-<p><a href="services.html">Services</a> · <a href="workshops/">11:11 Launch</a> · <a href="about.html">About</a></p>
-<p><a href="worksheets.html">Worksheets</a> · <a href="tools.html">Upload Docs</a> · <a href="contact.html">Email Us</a></p>
+<div class="footer-links">
+<a href="services.html">Services</a>
+<a href="services.html#launch">11:11 Launch</a>
+<a href="story.html">About</a>
+<a href="intake.html">Get Started</a>
+<a href="mailto:lana@xixistrategy.com">Email Us</a>
 </div>
 </div>
 </footer>
