@@ -1,0 +1,121 @@
+/* Homepage — "Quiet precision" layout. Uses the brand tokens from brand.css / index.html :root. */
+.h-wrap{width:min(1180px,calc(100% - 40px));margin:0 auto}
+.h-eyebrow{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark)}
+.h-dark .h-eyebrow{color:var(--gold)}
+.h-display{font-family:"Playfair Display",serif;font-weight:500;letter-spacing:-.025em;line-height:1.06}
+.h-rule{height:1px;background:var(--gold);border:0;margin:0}
+.h-section{padding:clamp(72px,10vw,120px) 0}
+.h-dark{background:var(--ink);color:#f7f4ef}
+.h-tint{background:#efe8dc}
+.h-muted{color:#4d4740}
+.h-dark .h-muted{color:rgba(247,244,239,.78)}
+.h-link{font-weight:700;border-bottom:1px solid currentColor;padding:6px 0;display:inline-block}
+.h-link:hover{color:var(--gold-dark)}
+.h-dark .h-link:hover{color:var(--gold)}
+.num-tab{font-variant-numeric:tabular-nums lining-nums}
+
+/* Hero */
+.h-hero{padding:clamp(56px,8vw,104px) 0 clamp(56px,7vw,88px)}
+.h-hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(36px,6vw,80px);align-items:center}
+.h-hero h1{margin-top:22px;font-size:clamp(42px,6.2vw,78px)}
+.h-hero h1 em{font-style:italic;color:var(--gold-dark)}
+.h-hero .h-lead{margin-top:26px;max-width:560px;font-size:clamp(17px,1.6vw,19px);line-height:1.65;color:#3f3a34}
+.h-actions{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:center;margin-top:34px}
+.h-proof{margin-top:28px;display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:#4d4740}
+.h-proof span{display:inline-flex;align-items:center;gap:8px}
+.h-proof span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold)}
+.h-lang{margin-top:18px;font-size:14px}
+.h-lang a{color:var(--gold-dark);font-weight:700}
+.h-hero-art{position:relative}
+.h-1111{font-family:"Playfair Display",serif;font-weight:500;font-size:clamp(96px,13vw,190px);line-height:.9;letter-spacing:-.04em;text-align:right;color:var(--ink)}
+.h-1111 b{color:var(--gold);font-weight:500}
+.h-hero-art .h-rule{margin:18px 0 22px;transform-origin:right;animation:h-align 1.2s .2s cubic-bezier(.2,.7,.2,1) both}
+@keyframes h-align{from{transform:scaleX(.15);opacity:.3}to{transform:scaleX(1);opacity:1}}
+.h-ledger{margin:0;background:#fff;border:1px solid var(--line);border-radius:4px;padding:24px 26px}
+.h-ledger figcaption{display:flex;justify-content:space-between;gap:12px;font-size:13px;color:#4d4740;margin-bottom:14px}
+.h-ledger figcaption strong{color:var(--ink)}
+.h-ledger dl{margin:0;display:grid;grid-template-columns:minmax(0,1fr) auto;row-gap:8px;font-size:15px}
+.h-ledger dt,.h-ledger dd{margin:0}
+.h-ledger .sub{color:#4d4740}
+.h-ledger .total{border-top:1px solid var(--ink);padding-top:10px;font-weight:700}
+.h-ledger .ok{margin-top:14px;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:#3f5a4b}
+
+/* Credentials strip */
+.h-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.h-strip ul{list-style:none;padding:20px 0;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 32px;font-size:14px;font-weight:500;color:#3f3a34}
+
+/* Section heads */
+.h-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px 40px;margin-bottom:48px}
+.h-head h2{font-size:clamp(34px,4.2vw,52px);max-width:680px}
+.h-head p{max-width:400px}
+
+/* Three paths */
+.h-paths{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--ink)}
+.h-path{display:flex;flex-direction:column;gap:14px;padding:36px 30px;border-bottom:1px solid var(--line)}
+.h-path+.h-path{border-left:1px solid var(--line)}
+.h-path:first-child{padding-left:0}
+.h-path:last-child{padding-right:0}
+.h-path .h-eyebrow{font-variant-numeric:tabular-nums}
+.h-path h3{font-family:"Playfair Display",serif;font-weight:500;font-size:28px;line-height:1.15;letter-spacing:-.01em}
+.h-path ul{margin:0;padding-left:18px;font-size:15px;color:#3f3a34;display:grid;gap:4px}
+.h-path .h-link{margin-top:auto;align-self:flex-start}
+
+/* Specialty band */
+.h-split{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(36px,6vw,72px);align-items:center}
+.h-split h2{margin-top:18px;font-size:clamp(32px,4vw,50px)}
+.h-split p.h-muted{margin-top:22px;font-size:17px;max-width:560px}
+.h-list{list-style:none;padding:0;border-top:1px solid rgba(247,244,239,.22)}
+.h-list li{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:6px 16px;padding:20px 0;border-bottom:1px solid rgba(247,244,239,.22)}
+.h-list b{font-family:"Playfair Display",serif;font-weight:500;font-size:23px}
+.h-list span{font-size:14px;color:rgba(247,244,239,.78)}
+.h-dark .button-gold{color:var(--ink)}
+
+/* Process */
+.h-steps{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
+.h-steps li{border-top:1px solid var(--ink);padding-top:22px}
+.h-steps .n{font-family:"Playfair Display",serif;font-size:52px;line-height:1;color:var(--gold-dark)}
+.h-steps h3{margin-top:14px;font-size:20px;font-weight:700}
+.h-steps p{margin-top:6px}
+
+/* Client story */
+.h-story{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(32px,6vw,72px);align-items:center}
+.h-story-logo{width:100%;max-width:360px;aspect-ratio:1;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:4px;padding:15%}
+.h-story h2{margin-top:16px;font-size:clamp(30px,3.6vw,46px)}
+.h-quote{margin:28px 0 0;padding:0;border:0}
+.h-quote p{font-family:"Playfair Display",serif;font-style:italic;font-size:clamp(19px,1.9vw,23px);line-height:1.45;color:var(--ink)}
+.h-quote p+p{margin-top:12px}
+.h-quote footer{margin-top:16px;font-size:14px;color:#4d4740}
+
+/* Objections */
+.h-faq{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(32px,6vw,72px)}
+.h-faq h2{font-size:clamp(32px,4vw,50px)}
+.h-faq dl{margin:0;border-top:1px solid var(--ink)}
+.h-faq dl>div{padding:22px 0;border-bottom:1px solid var(--line)}
+.h-faq dt{font-family:"Playfair Display",serif;font-size:22px;line-height:1.3}
+.h-faq dd{margin:6px 0 0;color:#3f3a34}
+
+/* Workshops + partners */
+.h-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.h-card{display:flex;flex-direction:column;gap:12px;padding:32px;background:#fff;border:1px solid var(--line);border-radius:4px}
+.h-card h3{font-family:"Playfair Display",serif;font-weight:500;font-size:26px;line-height:1.2}
+.h-card .h-link{margin-top:auto;align-self:flex-start}
+
+/* Final CTA */
+.h-cta{text-align:center}
+.h-cta .h-rule{width:64px;margin:0 auto 36px}
+.h-cta h2{font-size:clamp(36px,5vw,62px);max-width:820px;margin:0 auto}
+.h-cta p.h-muted{margin:24px auto 0;max-width:560px;font-size:17px}
+.h-cta .h-actions{justify-content:center}
+.h-cta .h-small{margin-top:22px;font-size:14px;color:rgba(247,244,239,.78)}
+.h-cta .h-small a{color:#f7f4ef;text-decoration:underline}
+
+@media(max-width:900px){
+  .h-hero-grid,.h-split,.h-story,.h-faq{grid-template-columns:1fr}
+  .h-paths,.h-steps,.h-pair{grid-template-columns:1fr}
+  .h-path{padding:30px 0}
+  .h-path+.h-path{border-left:0}
+  .h-1111{text-align:left}
+  .h-hero-art .h-rule{transform-origin:left}
+  .h-story-logo{max-width:240px}
+}
+@media(prefers-reduced-motion:reduce){.h-hero-art .h-rule{animation:none}}
