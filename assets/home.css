@@ -157,3 +157,18 @@
 .h-prices .h-link{margin-top:auto;align-self:flex-start}
 @media(max-width:1100px){.h-prices{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:720px){.h-prices{grid-template-columns:1fr}}
+.h-checks{list-style:none;margin:0;padding:0;display:grid;gap:12px;font-size:15px}
+.h-checks li{display:flex;gap:10px;align-items:flex-start}
+.h-checks li::before{content:"";flex:none;width:16px;height:16px;margin-top:4px;border-radius:50%;background:var(--gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23fff' stroke-width='2.2'%3E%3Cpath d='M4 8.5l2.6 2.5L12 5.5'/%3E%3C/svg%3E") center/12px no-repeat}
+.h-prices.h-prices-3{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.h-prices-3 li{padding:30px 28px}
+@media(max-width:820px){.h-prices.h-prices-3{grid-template-columns:1fr}}
+.h-others{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--ink)}
+.h-others a{display:flex;flex-direction:column;gap:6px;padding:24px 22px 24px 0;border-bottom:1px solid var(--line)}
+.h-others a+a{padding-left:22px;border-left:1px solid var(--line)}
+.h-others b{font-family:"Playfair Display",serif;font-weight:500;font-size:21px;line-height:1.25}
+.h-others a:hover b{color:var(--gold-dark)}
+.h-others span{font-size:14.5px;color:#4d4740}
+.h-others em{font-style:normal;font-size:13px;font-weight:700;color:var(--gold-dark);margin-top:auto}
+@media(max-width:900px){.h-others{grid-template-columns:repeat(2,minmax(0,1fr))}.h-others a:nth-child(3){padding-left:0;border-left:0}}
+@media(max-width:520px){.h-others{grid-template-columns:1fr}.h-others a+a{padding-left:0;border-left:0}}
