@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Payout reconciliation for Shopify, Amazon, Stripe and PayPal sellers: every deposit broken into sales, sales tax, fees, refunds and chargebacks, so your books tie to the bank. Free 15-minute call.">
+  <title>Shopify, Amazon &amp; Stripe Payout Reconciliation | XI:XI Strategy, Florida</title>
+  <link rel="canonical" href="https://xixistrategy.com/ecommerce-reconciliation">
+  <link rel="icon" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/brand.css">
+  <link rel="stylesheet" href="assets/ux-enhancements.css">
+  <link rel="stylesheet" href="assets/home.css">
+  <style>
+    :root{--ink:#171717;--paper:#f7f4ef;--white:#fff;--gold:#b38d5a;--gold-dark:#80633d;--muted:#686158;--line:#ded4c5;--tint:#efe8df;--max:1180px;--shadow:0 26px 68px rgba(23,23,23,.08)}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.7 'DM Sans',sans-serif;-webkit-font-smoothing:antialiased} a{color:inherit;text-decoration:none} ul{margin:0;padding:0;list-style:none} img{display:block;max-width:100%}.wrap{width:min(var(--max),calc(100% - 32px));margin:auto}
+    .site-header{position:sticky;top:18px;z-index:12;width:min(1160px,calc(100% - 32px));margin:16px auto 0;padding:10px 14px 10px 22px;border:1px solid rgba(179,141,90,.6);border-radius:999px;background:rgba(247,244,239,.95);backdrop-filter:blur(12px);display:flex;align-items:center;gap:26px;box-shadow:0 10px 24px rgba(23,23,23,.04)}
+    .site-header nav{display:flex;justify-content:center;gap:24px;flex:1;flex-wrap:wrap}.site-header nav a{font-size:14px;font-weight:600;color:var(--muted);position:relative;padding:6px 0}.site-header nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:center;transition:transform .2s ease}.site-header nav a:hover::after,.site-header nav a[aria-current="page"]::after{transform:scaleX(1)}
+    .button{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 20px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;transition:transform .2s ease,box-shadow .2s ease}.button:hover{transform:translateY(-2px)}.button-dark{background:var(--ink);color:var(--white);box-shadow:0 14px 26px rgba(23,23,23,.14)}.button-gold{background:var(--gold);color:var(--ink)}
+    .eyebrow{color:var(--gold);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+    .page-hero{padding:92px 0 36px}.page-hero h1{margin:12px 0 0;font:500 clamp(42px,6vw,76px)/1 'Playfair Display',serif;letter-spacing:-.05em}.page-hero p{max-width:720px;color:var(--muted);font-size:18px;margin-top:18px}
+    .section{padding:46px 0 100px}.featured{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:stretch;background:var(--white);border:1px solid var(--line);border-radius:26px;padding:28px;box-shadow:var(--shadow)}.featured-box h2{font:500 clamp(32px,4vw,46px)/1.06 'Playfair Display',serif;letter-spacing:-.04em;margin:8px 0 12px}.featured-box p,.feature-card p,.service-card p{color:var(--muted);font-size:17px}.featured-box ul{display:grid;gap:10px;margin-top:18px}.featured-box li{display:flex;gap:10px;align-items:flex-start}.featured-box li::before{content:'✓';color:var(--gold-dark);font-weight:700}
+    .cta-box{display:flex;flex-direction:column;justify-content:center;gap:12px;background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:28px;text-align:left}.cta-box .cta-tag{color:var(--gold-dark);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}.cta-box h3{font:500 23px/1.2 'Playfair Display',serif;margin:0;letter-spacing:-.02em}.cta-box p{color:var(--muted);font-size:14px;margin:0}.cta-box .button{width:100%;margin-top:4px}
+    .service-groups{display:grid;gap:32px;margin-top:50px}.service-group{display:grid;gap:18px}.service-group > h2{font:500 clamp(28px,3vw,40px)/1.1 'Playfair Display',serif;letter-spacing:-.04em;margin-top:4px}.service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.service-card{position:relative;background:var(--white);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 12px 24px rgba(23,23,23,.02);transition:box-shadow .3s ease}.tag{display:inline-block;max-width:calc(100% - 46px);padding:7px 10px;border-radius:999px;background:rgba(179,141,90,.1);color:var(--gold-dark);font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:16px}.service-card h3{font:500 24px/1.2 'Playfair Display',serif;margin:0 44px 10px 0}.service-card ul{display:grid;gap:8px;margin-top:16px}.service-card li{display:flex;gap:10px;align-items:flex-start;color:var(--ink);font-size:15px}.service-card li::before{content:'→';color:var(--gold-dark);font-weight:700}
+    .share-btn{position:absolute;top:18px;right:18px;width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:var(--white);color:var(--muted);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .2s ease,color .2s ease,background-color .2s ease}.share-btn:hover{border-color:var(--gold);color:var(--gold-dark)}.share-btn.copied{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+    .service-card.highlight,.featured.highlight{box-shadow:0 0 0 3px var(--gold),0 12px 24px rgba(23,23,23,.08)}
+    .footer{background:#111;color:#aaa;padding:38px 0}.footer-line{display:flex;justify-content:space-between;align-items:center;gap:24px}.footer-line span{max-width:610px;color:rgba(255,255,255,.7)}.footer-line a{color:var(--gold)}
+    @media(max-width:900px){.site-header nav,.site-header>.button{display:none}.site-header{justify-content:space-between}.featured, .service-grid, .footer-line{grid-template-columns:1fr;display:grid}.page-hero{padding-top:72px}}
+  
+    .menu-toggle{display:none;width:42px;height:42px;padding:0;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--ink);cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px}.menu-toggle span{width:18px;height:2px;background:currentColor;border-radius:2px;transition:transform .2s ease}.menu-toggle[aria-expanded="true"] span:first-child{transform:translateY(3.5px) rotate(45deg)}.menu-toggle[aria-expanded="true"] span:last-child{transform:translateY(-3.5px) rotate(-45deg)}
+    .mobile-menu{display:none}
+    body.menu-open{overflow:hidden}
+    @media(max-width:900px){.menu-toggle{display:flex}.mobile-menu{position:fixed;top:84px;left:12px;right:12px;z-index:19;display:flex;flex-direction:column;visibility:hidden;opacity:0;transform:translateY(-8px);gap:6px;padding:14px;border:1px solid rgba(179,141,90,.55);border-radius:18px;background:#f7f4ef;box-shadow:0 20px 45px rgba(23,23,23,.14);transition:opacity .2s ease,transform .2s ease,visibility .2s ease;max-height:calc(100vh - 100px);overflow-y:auto}.mobile-menu a{padding:13px 12px;border-radius:10px;color:var(--muted);font-weight:700}.mobile-menu a:hover,.mobile-menu a[aria-current="page"]{background:rgba(179,141,90,.12);color:var(--ink)}.mobile-menu a.button{margin-top:6px;width:100%;padding:0;min-height:46px;display:inline-flex;align-items:center;justify-content:center}body.menu-open .mobile-menu{visibility:visible;opacity:1;transform:translateY(0);pointer-events:auto}}
+    .service-grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}@media(max-width:900px){.service-grid.two{grid-template-columns:1fr}}
+  .brand-lockup img{height:78px;width:118px;object-fit:contain;display:block}@media(max-width:600px){.brand-lockup img{height:60px;width:91px}}@media(max-width:680px){.site-header{position:sticky!important;top:10px;width:calc(100% - 20px);margin:10px auto 0;border-radius:16px}}.legal-disclaimer{margin:0 auto;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.45);font-size:12px;line-height:1.65;max-width:900px;text-align:center}@media(max-width:680px){.legal-disclaimer{font-size:11.5px;text-align:left}}</style>
+  
+  <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Service", "name": "E-commerce payout reconciliation", "serviceType": "Payout reconciliation", "provider": {"@type": "ProfessionalService", "name": "XI:XI Strategy", "url": "https://xixistrategy.com/"}, "areaServed": "US"}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Which platforms do you work with?", "acceptedAnswer": {"@type": "Answer", "text": "Shopify, Amazon, Stripe and PayPal most often, and other payout-based platforms that provide reports."}}, {"@type": "Question", "name": "Which bookkeeping software?", "acceptedAnswer": {"@type": "Answer", "text": "QuickBooks, Xero, Wave and FreshBooks. If you use something else, ask on the call."}}, {"@type": "Question", "name": "I’m months behind. Can you catch up?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Catch-up cleanup is a common starting point, and the scope and price are confirmed before anything is billed."}}, {"@type": "Question", "name": "Do you file my sales tax or income tax?", "acceptedAnswer": {"@type": "Answer", "text": "No. I reconcile and prepare the records; your CPA or tax preparer files. XI:XI Strategy is not a CPA firm."}}]}]</script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <a class="brand-lockup" href="index.html" aria-label="XI:XI home"><img src="assets/logo.png" alt="XI:XI — Financial Strategy, Business Optimization"></a>
+    <nav aria-label="Primary navigation"><a href="services.html">Services</a><a href="insights.html">Guides</a><a href="worksheets.html">Worksheets</a><a href="https://xixistrategy.com/workshops/en/">Workshops</a><a href="story.html">About</a>
+    </nav>
+    <a class="button button-dark" href="https://cal.com/xixistrategy" target="_blank" rel="noopener">Book a free call</a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open navigation"><span></span><span></span></button>
+</header>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true"><a href="services.html">Services</a><a href="insights.html">Guides</a><a href="worksheets.html">Worksheets</a><a href="https://xixistrategy.com/workshops/en/">Workshops</a><a href="story.html">About</a><a class="button button-dark" href="https://cal.com/xixistrategy" target="_blank" rel="noopener">Book a free call</a>
+  </nav>
+
+
+  <main id="main-content">
+    <section class="h-hero"><div class="h-wrap h-hero-grid">
+      <div>
+        <p class="h-eyebrow">For Shopify, Amazon, Stripe and PayPal sellers</p>
+        <h1 class="h-display">Your deposits aren’t your <em>revenue.</em></h1>
+        <p class="h-lead">Platforms take out fees, refunds, chargebacks and reserves before the money reaches your bank. If your books record the deposit as sales, your revenue, costs and sales tax are all off. I break every payout back down, so your books tie to the bank and you see the true profit from each channel.</p>
+        <div class="h-actions"><a class="button button-dark" href="https://cal.com/xixistrategy" target="_blank" rel="noopener">Book a free 15-minute call</a><a class="h-link" href="#how">See how it works</a></div>
+      </div>
+      <div class="h-hero-art">
+        <figure class="h-ledger">
+          <figcaption><strong>One Shopify payout, broken down</strong><span>Example</span></figcaption>
+          <dl class="num-tab">
+            <dt>Gross sales</dt><dd>$12,640.00</dd>
+            <dt class="sub">Sales tax collected</dt><dd class="sub">+824.30</dd>
+            <dt class="sub">Platform and payment fees</dt><dd class="sub">−412.18</dd>
+            <dt class="sub">Refunds</dt><dd class="sub">−690.00</dd>
+            <dt class="sub">Chargebacks</dt><dd class="sub">−145.00</dd>
+            <dt class="sub">Reserve held</dt><dd class="sub">−500.00</dd>
+            <dt class="total">Bank deposit</dt><dd class="total">$11,717.12</dd>
+          </dl>
+          <p class="ok"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8.5l3.2 3L13 4.5"/></svg>Each line posted to its own account</p>
+        </figure>
+      </div>
+    </div></section>
+
+    <section class="h-section h-tint"><div class="h-wrap h-faq">
+      <div><p class="h-eyebrow">Sound familiar?</p><h2 class="h-display" style="margin-top:16px">Signs your payouts aren’t reconciled.</h2></div>
+      <dl>
+        <div><dt>Revenue in your books doesn’t match your platform reports.</dt><dd>Deposits were recorded as sales, so fees and refunds disappeared into the difference.</dd></div>
+        <div><dt>You can’t say which channel actually makes money.</dt><dd>Fees, ad spend and returns differ by platform. Without the breakdown, every channel looks the same.</dd></div>
+        <div><dt>Sales tax collected doesn’t tie to what you remitted.</dt><dd>Tax collected sits inside the payout. If it isn’t split out, the gap shows up later.</dd></div>
+        <div><dt>Year-end takes your CPA longer every time.</dt><dd>Unreconciled payouts are one of the slowest things to untangle after the fact.</dd></div>
+      </dl>
+    </div></section>
+
+    <section class="h-section" id="how"><div class="h-wrap">
+      <div class="h-head"><h2 class="h-display">How it works.</h2></div>
+      <ol class="h-steps">
+        <li><span class="n num-tab">01</span><h3>Pull the platform reports</h3><p class="h-muted">Payout, order and fee reports from each platform, plus your bank statements. Exports are enough — no logins required.</p></li>
+        <li><span class="n num-tab">02</span><h3>Break down every payout</h3><p class="h-muted">Gross sales, sales tax, fees, refunds, chargebacks and reserves, each matched to the deposit it belongs to.</p></li>
+        <li><span class="n num-tab">03</span><h3>Post it and keep it current</h3><p class="h-muted">Clean entries in your books, a monthly routine, and profit by channel. Keep it going with the monthly Run retainer.</p></li>
+      </ol>
+    </div></section>
+
+    <section class="h-section h-dark"><div class="h-wrap h-split">
+      <div>
+        <p class="h-eyebrow">What you get</p>
+        <h2 class="h-display">Books that tie to the bank, and profit you can trust by channel.</h2>
+      </div>
+      <ul class="h-list">
+        <li><b>Payout breakdown</b><span>Every deposit split into its parts</span></li>
+        <li><b>Channel profit</b><span>Shopify · Amazon · Stripe · PayPal</span></li>
+        <li><b>Sales tax tie-out</b><span>Collected vs. remitted, with an exception list for your tax professional</span></li>
+        <li><b>Multi-currency</b><span>Foreign sales at the right amounts</span></li>
+        <li><b>Catch-up</b><span>Missing months reconciled</span></li>
+      </ul>
+    </div></section>
+
+    <section class="h-section"><div class="h-wrap h-faq">
+      <div><h2 class="h-display">Common questions.</h2></div>
+      <dl>
+        <div><dt>Which platforms do you work with?</dt><dd>Shopify, Amazon, Stripe and PayPal most often, and other payout-based platforms that provide reports.</dd></div>
+        <div><dt>Which bookkeeping software?</dt><dd>QuickBooks, Xero, Wave and FreshBooks. If you use something else, ask on the call.</dd></div>
+        <div><dt>I’m months behind. Can you catch up?</dt><dd>Yes. Catch-up cleanup is a common starting point, and the scope and price are confirmed before anything is billed.</dd></div>
+        <div><dt>Do you file my sales tax or income tax?</dt><dd>No. I reconcile and prepare the records; your CPA or tax preparer files. XI:XI Strategy is not a CPA firm.</dd></div>
+      </dl>
+    </div></section>
+
+    <section class="h-section h-dark h-cta"><div class="h-wrap">
+      <hr class="h-rule" aria-hidden="true">
+      <h2 class="h-display">Fifteen minutes to find out where your payouts stand.</h2>
+      <p class="h-muted">Tell me which platforms you sell on and how far behind the books are. You’ll leave the call with a clear next step.</p>
+      <div class="h-actions"><a class="button button-gold" href="https://cal.com/xixistrategy" target="_blank" rel="noopener">Book a free 15-minute call</a></div>
+      <p class="h-small"><a href="services.html">See all services</a></p>
+    </div></section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-line">
+      <a class="brand-lockup" href="index.html"><img src="assets/logo-wordmark-dark.svg" alt="XI:XI"></a>
+      <span>XI:XI Strategy — independent financial support for owners who are starting, fixing or scaling a business.</span>
+      <a href="https://www.instagram.com/xixistrategy/" target="_blank" rel="noopener">Instagram</a>
+      <a href="mailto:lana@xixistrategy.com">lana@xixistrategy.com</a><a href="intake.html">Get started →</a>
+    </div>
+  <div class="wrap" style="margin-top:22px;"><p class="legal-disclaimer">XI:XI Strategy is not a certified public accounting (CPA) firm and is not engaged in the practice of public accounting, legal or formal tax advisory services. Services are provided strictly for financial and operational support.</p></div>
+  </footer>
+  <script>(function(){var toggle=document.getElementById('menuToggle'),menu=document.getElementById('mobileMenu');if(!toggle||!menu)return;function setOpen(open){document.body.classList.toggle('menu-open',open);toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Close navigation':'Open navigation');menu.setAttribute('aria-hidden',String(!open));}toggle.addEventListener('click',function(){setOpen(toggle.getAttribute('aria-expanded')!=='true');});menu.querySelectorAll('a').forEach(function(link){link.addEventListener('click',function(){setOpen(false);});});document.addEventListener('keydown',function(e){if(e.key==='Escape')setOpen(false);});window.addEventListener('resize',function(){if(window.innerWidth>900)setOpen(false);});}());</script>
+  <script>
+  (function(){
+    function shareUrl(id){ return window.location.origin + window.location.pathname + '#' + id; }
+    document.querySelectorAll('.share-btn').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var id = btn.getAttribute('data-share-id');
+        var title = btn.getAttribute('data-share-title') || document.title;
+        var url = shareUrl(id);
+        if (navigator.share) {
+          navigator.share({ title: title, url: url }).catch(function(){});
+          return;
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(url).then(function(){
+            var original = btn.getAttribute('aria-label');
+            btn.classList.add('copied');
+            btn.setAttribute('aria-label', 'Link copied');
+            setTimeout(function(){ btn.classList.remove('copied'); btn.setAttribute('aria-label', original); }, 1800);
+          }).catch(function(){ window.prompt('Copy this link:', url); });
+          return;
+        }
+        window.prompt('Copy this link:', url);
+      });
+    });
+    if (window.location.hash) {
+      var target = document.querySelector(window.location.hash);
+      if (target && (target.classList.contains('service-card') || target.classList.contains('featured'))) {
+        target.classList.add('highlight');
+        setTimeout(function(){ target.classList.remove('highlight'); }, 2600);
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
