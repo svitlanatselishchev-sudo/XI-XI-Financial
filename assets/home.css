@@ -119,3 +119,29 @@
   .h-story-logo{max-width:240px}
 }
 @media(prefers-reduced-motion:reduce){.h-hero-art .h-rule{animation:none}}
+
+/* Inner pages — shared "Quiet precision" blocks */
+.h-index{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--ink);margin-top:48px}
+.h-index a{display:flex;flex-direction:column;gap:4px;padding:20px 20px 20px 0;border-bottom:1px solid var(--line)}
+.h-index a+a{padding-left:20px;border-left:1px solid var(--line)}
+.h-index a:hover b{color:var(--gold-dark)}
+.h-index b{font-family:"Playfair Display",serif;font-weight:500;font-size:22px;line-height:1.2}
+.h-index span{font-size:14px;color:#4d4740}
+.h-group{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,5vw,72px);align-items:start;scroll-margin-top:110px}
+.h-group-head{position:sticky;top:120px}
+.h-group-head h2{margin-top:14px;font-size:clamp(30px,3.6vw,44px)}
+.h-group-head p.h-muted{margin-top:16px;max-width:380px}
+.h-rows{border-top:1px solid var(--ink)}
+.h-dark .h-rows{border-top-color:rgba(247,244,239,.5)}
+.h-row{padding:26px 0;border-bottom:1px solid var(--line)}
+.h-dark .h-row{border-bottom-color:rgba(247,244,239,.22)}
+.h-row h3{font-family:"Playfair Display",serif;font-weight:500;font-size:24px;line-height:1.25}
+.h-row .h-tag{display:block;margin-bottom:6px;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-dark)}
+.h-dark .h-row .h-tag{color:var(--gold)}
+.h-row p{margin-top:8px}
+.h-row ul{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.h-row li{font-size:13.5px;padding:4px 12px;border:1px solid var(--line);border-radius:999px;background:#fff;color:#3f3a34}
+.h-dark .h-row li{background:transparent;border-color:rgba(247,244,239,.3);color:rgba(247,244,239,.86)}
+.h-note{margin-top:28px;font-size:14px;color:#4d4740}
+@media(max-width:900px){.h-index{grid-template-columns:repeat(2,minmax(0,1fr))}.h-index a:nth-child(3){padding-left:0;border-left:0}.h-group{grid-template-columns:1fr}.h-group-head{position:static}}
+@media(max-width:520px){.h-index{grid-template-columns:1fr}.h-index a+a{padding-left:0;border-left:0}}

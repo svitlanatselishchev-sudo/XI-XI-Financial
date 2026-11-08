@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/brand.css">
   <link rel="stylesheet" href="assets/ux-enhancements.css">
+  <link rel="stylesheet" href="assets/home.css">
   <style>
     :root{--ink:#171717;--paper:#f7f4ef;--white:#fff;--gold:#b38d5a;--gold-dark:#80633d;--muted:#686158;--line:#ded4c5;--tint:#efe8df;--max:1180px;--shadow:0 26px 68px rgba(23,23,23,.08)}
     *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.7 'DM Sans',sans-serif;-webkit-font-smoothing:antialiased} a{color:inherit;text-decoration:none} ul{margin:0;padding:0;list-style:none} img{display:block;max-width:100%}.wrap{width:min(var(--max),calc(100% - 32px));margin:auto}
@@ -50,47 +51,64 @@
 
 
   <main id="main-content">
-    <section class="page-hero wrap">
-      <p class="eyebrow">Services</p>
-      <h1>Reconciliation first. Books you can trust.</h1>
-      <p>I reconcile the money that's hard to tie out — multi-currency activity and platform payouts — and clean up the books around it. Need it kept that way? The monthly Run retainer keeps the books closed and the cash view current. Every engagement starts with a free 15-minute Clarity Call and a written scope. You see the deliverables and the price before anything is billed.</p>
-    </section>
+    <section class="h-hero"><div class="h-wrap">
+      <p class="h-eyebrow">Services</p>
+      <h1 class="h-display" style="max-width:900px">Reconciled, structured and ready for decisions.</h1>
+      <p class="h-lead">Launch setup, cleanup, monthly upkeep, and the reconciliation work most bookkeepers avoid — multi-currency activity and platform payouts. Every engagement starts with a free 15-minute Clarity Call and a written scope. You see the deliverables and the price before anything is billed.</p>
+      <div class="h-actions"><a class="button button-dark" href="https://cal.com/xixistrategy" target="_blank" rel="noopener">Book a free 15-minute Clarity Call</a></div>
+      <nav class="h-index" aria-label="Service areas">
+        <a href="#launch"><b>Launch</b><span>Starting something new</span></a>
+        <a href="#fix"><b>Fix &amp; structure</b><span>Books feel tangled</span></a>
+        <a href="#run"><b>Run</b><span>Monthly upkeep</span></a>
+        <a href="#reconcile"><b>Reconciliation</b><span>Payouts and multi-currency</span></a>
+      </nav>
+    </div></section>
 
-    <section class="section wrap">
-      <div class="service-groups">
-                <section class="service-group" id="reconcile" style="scroll-margin-top:110px">           <p class="eyebrow">XI:XI · Reconciliation</p>           <h2>The money that's hard to tie out, tied out.</h2>           <div class="service-grid">             <article class="service-card"><span class="tag">Multi-currency</span><h3>Multi-currency reconciliation</h3><p>Foreign sales recorded right, exchange gains and losses tracked, balances reconciled monthly.</p><ul><li>Sales in other currencies recorded at the right amounts</li><li>Exchange gains and losses tracked</li><li>Balances reconciled monthly</li></ul></article>             <article class="service-card"><span class="tag">Payouts</span><h3>Platform payout reconciliation</h3><p>When sales run through Shopify, Amazon, Stripe or PayPal, the bank deposit rarely matches the sales. I break each payout down so revenue, fees and cash tie out.</p><ul><li>Fees, refunds and chargebacks split out of every payout</li><li>Deposits matched to sales</li><li>A true profit picture for each platform</li></ul></article>             <article class="service-card"><span class="tag">Cleanup</span><h3>Books cleanup and catch-up</h3><p>Missing months caught up, the ledger rebuilt and reconciled, records ready for your CPA.</p><ul><li>Ledger rebuilt and reconciled</li><li>Missing months caught up</li><li>Records ready for your CPA</li></ul></article>           </div>         </section>         <section class="service-group" id="launch" style="scroll-margin-top:110px">
-          <p class="eyebrow">11:11 · Launch</p>
-          <h2>Set up the money side before your first sale.</h2>
-          <div class="service-grid two"><article class="service-card"><span class="tag">11:11 · Launch</span><h3>Business launch setup</h3><p>Open with the structure, accounts and routine already in place, so nothing needs untangling later.</p><ul><li>Setup checklist: business setup, EIN and a separate business bank account, confirmed with your attorney or tax professional</li><li>A chart of accounts that fits your business</li><li>Books set up so every sale and bill lands in the right place</li><li>A monthly routine and a records-to-keep list</li></ul></article><article class="service-card"><span class="tag">Starting point · no books required</span><h3>Self-employed base setup</h3><p>Sort your bank and card history into business income and expenses, then build a tracking system.</p><ul><li>Organized transaction categories</li><li>Ready-to-use tracking workbook</li><li>Working session and setup notes</li></ul></article></div>
-        </section>
-
-        <section class="service-group" id="fix" style="scroll-margin-top:110px">
-          <p class="eyebrow">XI:XI · Fix &amp; structure</p>
-          <h2>Find what is misplaced. Build routines that hold.</h2>
-          <div class="service-grid"><article class="service-card"><span class="tag">Bank reconciliation</span><h3>Bank accounts and general ledger</h3><p>Compare the general ledger with every bank statement and fix what is misplaced.</p><ul><li>Line-by-line comparison</li><li>Unmatched transaction list</li><li>Closeout schedule</li></ul></article><article class="service-card"><span class="tag">Income check</span><h3>Customers and sales tax</h3><p>Match invoices to deposits, and Florida sales tax collected to the amounts remitted.</p><ul><li>Invoice-to-bank comparison and open accounts receivable list</li> <li>Sales tax collected versus remitted, with an exception list for your tax professional</li></ul></article><article class="service-card"><span class="tag">Vendors</span><h3>Vendor payments and 1099 check</h3><p>Catch duplicate bills, billing errors and missing vendor details before year-end.</p><ul><li>Vendor and payment comparison</li><li>Duplicate and exception list</li><li>Vendor records organized for 1099 season — W-9s and payment totals ready for your tax preparer</li></ul></article><article class="service-card"><span class="tag">Payroll</span><h3>Payroll matching</h3><p>Match payroll withdrawals to registers, tax payments and benefits.</p><ul><li>Payroll-to-bank reconciliation</li><li>Tax and benefit variance list</li><li>Closeout recommendations</li></ul></article><article class="service-card"><span class="tag">Recurring costs</span><h3>Subscription and tool review</h3><p>Flag unused subscriptions, duplicate tools and price increases that slipped through.</p><ul><li>Recurring-charge inventory</li><li>Use and price review</li><li>Cancel or renegotiate plan</li></ul></article><article class="service-card"><span class="tag">Routines</span><h3>Routines and cash tracking</h3><p>Turn approvals and month-end close tasks into steps your team can follow, and see what is safe to spend.</p><ul><li>Written process maps with roles and approval points</li><li>Monthly close checklist</li><li>Available-cash calculation and a weekly tracking view</li></ul></article></div>
-        </section>
-
-        <section class="service-group" id="run" style="scroll-margin-top:110px">
-          <p class="eyebrow">Run · Monthly</p>
-          <h2>Keep the numbers current, every month.</h2>
-          <div class="service-grid"><article class="service-card"><span class="tag">Monthly close</span><h3>Month-end close</h3><p>Every account reconciled and the books closed on a set schedule, so your numbers are ready when you need them.</p><ul><li>Bank and card reconciliations</li><li>Platform payouts and sales tax tied out</li><li>Month-end close checklist kept current</li></ul></article><article class="service-card"><span class="tag">Cash</span><h3>Weekly cash view</h3><p>See what is safe to spend this week, what is coming in, and what is due.</p><ul><li>Available-cash calculation</li><li>Upcoming receivables and payables</li><li>Early flags on shortfalls</li></ul></article><article class="service-card"><span class="tag">Decisions</span><h3>Quarterly review</h3><p>A working session on what the numbers mean for pricing, margins, hiring and the next move.</p><ul><li>Margin by product, service or channel</li><li>Trends since last quarter</li><li>A short list of next steps</li></ul></article></div>
-        </section>
-
-        <p style="color:var(--muted);max-width:760px;margin:0 0 28px;">I do not prepare or file tax returns; your CPA or tax preparer does.</p><div class="featured" style="margin-top:8px">
-          <div class="featured-box">
-            <p class="tag">Not sure which one fits?</p>
-            <h2>Start with a Clarity Call.</h2>
-            <p>Tell me what you are building, or what is not working. I will confirm the scope and the price before anything is billed.</p>
-          </div>
-          <div class="cta-box">
-            <span class="cta-tag">Next step</span>
-            <h3>Let's find the right starting point.</h3>
-            <a class="button button-gold" href="https://cal.com/xixistrategy" target="_blank" rel="noopener">Book a Clarity Call</a>
-            <a class="button button-dark" href="intake.html">Request a secure upload link</a>
-          </div>
+    <section class="h-section"><div class="h-wrap h-group" id="launch">
+        <div class="h-group-head"><p class="h-eyebrow">11:11 · Launch</p><h2 class="h-display">Set up the money side before your first sale.</h2><p class="h-muted">For new businesses and the self-employed. Get the structure and routine right before the first sale.</p></div>
+        <div class="h-rows">
+          <article class="h-row"><span class="h-tag">11:11 · Launch</span><h3>Business launch setup</h3><p class="h-muted">Open with the structure, accounts and routine already in place, so nothing needs untangling later.</p><ul><li>Setup checklist: business setup, EIN and a separate business bank account, confirmed with your attorney or tax professional</li><li>A chart of accounts that fits your business</li><li>Books set up so every sale and bill lands in the right place</li><li>A monthly routine and a records-to-keep list</li></ul></article>
+          <article class="h-row"><span class="h-tag">Starting point · no books required</span><h3>Self-employed base setup</h3><p class="h-muted">Sort your bank and card history into business income and expenses, then build a tracking system.</p><ul><li>Organized transaction categories</li><li>Ready-to-use tracking workbook</li><li>Working session and setup notes</li></ul></article>
         </div>
-      </div>
-    </section>
+    </div></section>
+
+    <section class="h-section"><div class="h-wrap h-group" id="fix">
+        <div class="h-group-head"><p class="h-eyebrow">XI:XI · Fix &amp; structure</p><h2 class="h-display">Find what is misplaced. Build routines that hold.</h2><p class="h-muted">For businesses already running. I find what is misplaced, correct it, and leave routines that hold.</p></div>
+        <div class="h-rows">
+          <article class="h-row"><span class="h-tag">Bank reconciliation</span><h3>Bank accounts and general ledger</h3><p class="h-muted">Compare the general ledger with every bank statement and fix what is misplaced.</p><ul><li>Line-by-line comparison</li><li>Unmatched transaction list</li><li>Closeout schedule</li></ul></article>
+          <article class="h-row"><span class="h-tag">Income check</span><h3>Customers and sales tax</h3><p class="h-muted">Match invoices to deposits, and Florida sales tax collected to the amounts remitted.</p><ul><li>Invoice-to-bank comparison and open accounts receivable list</li><li>Sales tax collected versus remitted, with an exception list for your tax professional</li></ul></article>
+          <article class="h-row"><span class="h-tag">Vendors</span><h3>Vendor payments and 1099 check</h3><p class="h-muted">Catch duplicate bills, billing errors and missing vendor details before year-end.</p><ul><li>Vendor and payment comparison</li><li>Duplicate and exception list</li><li>Vendor records organized for 1099 season — W-9s and payment totals ready for your tax preparer</li></ul></article>
+          <article class="h-row"><span class="h-tag">Payroll</span><h3>Payroll matching</h3><p class="h-muted">Match payroll withdrawals to registers, tax payments and benefits.</p><ul><li>Payroll-to-bank reconciliation</li><li>Tax and benefit variance list</li><li>Closeout recommendations</li></ul></article>
+          <article class="h-row"><span class="h-tag">Recurring costs</span><h3>Subscription and tool review</h3><p class="h-muted">Flag unused subscriptions, duplicate tools and price increases that slipped through.</p><ul><li>Recurring-charge inventory</li><li>Use and price review</li><li>Cancel or renegotiate plan</li></ul></article>
+          <article class="h-row"><span class="h-tag">Routines</span><h3>Routines and cash tracking</h3><p class="h-muted">Turn approvals and month-end close tasks into steps your team can follow, and see what is safe to spend.</p><ul><li>Written process maps with roles and approval points</li><li>Monthly close checklist</li><li>Available-cash calculation and a weekly tracking view</li></ul></article>
+        </div>
+    </div></section>
+
+    <section class="h-section"><div class="h-wrap h-group" id="run">
+        <div class="h-group-head"><p class="h-eyebrow">Run · Monthly</p><h2 class="h-display">Keep the numbers current, every month.</h2><p class="h-muted">For businesses that want to stay clean. A steady monthly rhythm, so the numbers are current whenever you need to decide.</p></div>
+        <div class="h-rows">
+          <article class="h-row"><span class="h-tag">Monthly close</span><h3>Month-end close</h3><p class="h-muted">Every account reconciled and the books closed on a set schedule, so your numbers are ready when you need them.</p><ul><li>Bank and card reconciliations</li><li>Platform payouts and sales tax tied out</li><li>Month-end close checklist kept current</li></ul></article>
+          <article class="h-row"><span class="h-tag">Cash</span><h3>Weekly cash view</h3><p class="h-muted">See what is safe to spend this week, what is coming in, and what is due.</p><ul><li>Available-cash calculation</li><li>Upcoming receivables and payables</li><li>Early flags on shortfalls</li></ul></article>
+          <article class="h-row"><span class="h-tag">Decisions</span><h3>Quarterly review</h3><p class="h-muted">A working session on what the numbers mean for pricing, margins, hiring and the next move.</p><ul><li>Margin by product, service or channel</li><li>Trends since last quarter</li><li>A short list of next steps</li></ul></article>
+        </div>
+    </div></section>
+
+    <section class="h-section h-dark"><div class="h-wrap h-group" id="reconcile">
+        <div class="h-group-head"><p class="h-eyebrow">XI:XI · Reconciliation</p><h2 class="h-display">The money that's hard to tie out, tied out.</h2><p class="h-muted">The money that is hardest to tie out: platform payouts and foreign-currency activity, plus catch-up cleanup around it.</p><div class="h-actions"><a class="h-link" href="ecommerce-reconciliation.html">Selling on Shopify, Amazon or Stripe? Read more →</a></div></div>
+        <div class="h-rows">
+          <article class="h-row"><span class="h-tag">Multi-currency</span><h3>Multi-currency reconciliation</h3><p class="h-muted">Foreign sales recorded right, exchange gains and losses tracked, balances reconciled monthly.</p><ul><li>Sales in other currencies recorded at the right amounts</li><li>Exchange gains and losses tracked</li><li>Balances reconciled monthly</li></ul></article>
+          <article class="h-row"><span class="h-tag">Payouts</span><h3>Platform payout reconciliation</h3><p class="h-muted">When sales run through Shopify, Amazon, Stripe or PayPal, the bank deposit rarely matches the sales. I break each payout down so revenue, fees and cash tie out.</p><ul><li>Fees, refunds and chargebacks split out of every payout</li><li>Deposits matched to sales</li><li>A true profit picture for each platform</li></ul></article>
+          <article class="h-row"><span class="h-tag">Cleanup</span><h3>Books cleanup and catch-up</h3><p class="h-muted">Missing months caught up, the general ledger rebuilt and reconciled, records ready for your CPA.</p><ul><li>General ledger rebuilt and reconciled</li><li>Missing months caught up</li><li>Records ready for your CPA</li></ul></article>
+        </div>
+    </div></section>
+
+    <section class="h-section h-dark h-cta" style="border-top:1px solid rgba(247,244,239,.12)"><div class="h-wrap">
+      <hr class="h-rule" aria-hidden="true">
+      <h2 class="h-display">Not sure which one fits? Start with a Clarity Call.</h2>
+      <p class="h-muted">Tell me what you are building, or what is not working. I will confirm the scope and the price before anything is billed.</p>
+      <div class="h-actions"><a class="button button-gold" href="https://cal.com/xixistrategy" target="_blank" rel="noopener">Book a free Clarity Call</a></div>
+      <p class="h-small">Already working together? <a href="intake.html">Request a secure upload link</a>. · I do not prepare or file tax returns; your CPA or tax preparer does.</p>
+    </div></section>
   </main>
 
   <footer class="footer">
