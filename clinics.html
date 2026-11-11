@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Clinic launch, money systems and monthly books for a new clinic — built for surgical practices. Fixed scope, confirmed in writing. Request a price.">
+  <title>For clinics: launch, setup and monthly books | XI:XI Strategy</title>
+  <link rel="canonical" href="https://xixistrategy.com/clinics">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="For clinics: launch, setup and monthly books | XI:XI Strategy">
+  <meta property="og:description" content="Clinic launch, money systems and monthly books for a new clinic — built for surgical practices. Fixed scope, confirmed in writing. Request a price.">
+  <meta property="og:url" content="https://xixistrategy.com/clinics">
+  <meta property="og:image" content="https://xixistrategy.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/brand.css">
+  <link rel="stylesheet" href="assets/ux-enhancements.css">
+  <link rel="stylesheet" href="assets/home.css">
+  <style>
+    :root{--ink:#171717;--paper:#f7f4ef;--white:#fff;--gold:#b38d5a;--gold-dark:#80633d;--muted:#686158;--line:#ded4c5;--tint:#efe8df;--max:1180px;--shadow:0 26px 68px rgba(23,23,23,.08)}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.7 'DM Sans',sans-serif;-webkit-font-smoothing:antialiased} a{color:inherit;text-decoration:none} ul{margin:0;padding:0;list-style:none} img{display:block;max-width:100%}.wrap{width:min(var(--max),calc(100% - 32px));margin:auto}
+    .site-header{position:sticky;top:18px;z-index:12;width:min(1160px,calc(100% - 32px));margin:16px auto 0;padding:10px 14px 10px 22px;border:1px solid rgba(179,141,90,.6);border-radius:999px;background:rgba(247,244,239,.95);backdrop-filter:blur(12px);display:flex;align-items:center;gap:26px;box-shadow:0 10px 24px rgba(23,23,23,.04)}
+    .site-header nav{display:flex;justify-content:center;gap:24px;flex:1;flex-wrap:wrap}.site-header nav a{font-size:14px;font-weight:600;color:var(--muted);position:relative;padding:6px 0}.site-header nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:center;transition:transform .2s ease}.site-header nav a:hover::after,.site-header nav a[aria-current="page"]::after{transform:scaleX(1)}
+    .button{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 20px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;transition:transform .2s ease,box-shadow .2s ease}.button:hover{transform:translateY(-2px)}.button-dark{background:var(--ink);color:var(--white);box-shadow:0 14px 26px rgba(23,23,23,.14)}.button-gold{background:var(--gold);color:var(--ink)}
+    .eyebrow{color:var(--gold);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+    .page-hero{padding:92px 0 36px}.page-hero h1{margin:12px 0 0;font:500 clamp(42px,6vw,76px)/1 'Playfair Display',serif;letter-spacing:-.05em}.page-hero p{max-width:720px;color:var(--muted);font-size:18px;margin-top:18px}
+    .section{padding:46px 0 100px}.featured{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:stretch;background:var(--white);border:1px solid var(--line);border-radius:26px;padding:28px;box-shadow:var(--shadow)}.featured-box h2{font:500 clamp(32px,4vw,46px)/1.06 'Playfair Display',serif;letter-spacing:-.04em;margin:8px 0 12px}.featured-box p,.feature-card p,.service-card p{color:var(--muted);font-size:17px}.featured-box ul{display:grid;gap:10px;margin-top:18px}.featured-box li{display:flex;gap:10px;align-items:flex-start}.featured-box li::before{content:'✓';color:var(--gold-dark);font-weight:700}
+    .cta-box{display:flex;flex-direction:column;justify-content:center;gap:12px;background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:28px;text-align:left}.cta-box .cta-tag{color:var(--gold-dark);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}.cta-box h3{font:500 23px/1.2 'Playfair Display',serif;margin:0;letter-spacing:-.02em}.cta-box p{color:var(--muted);font-size:14px;margin:0}.cta-box .button{width:100%;margin-top:4px}
+    .service-groups{display:grid;gap:32px;margin-top:50px}.service-group{display:grid;gap:18px}.service-group > h2{font:500 clamp(28px,3vw,40px)/1.1 'Playfair Display',serif;letter-spacing:-.04em;margin-top:4px}.service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.service-card{position:relative;background:var(--white);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 12px 24px rgba(23,23,23,.02);transition:box-shadow .3s ease;display:flex;flex-direction:column}.tag{display:inline-block;max-width:calc(100% - 46px);padding:7px 10px;border-radius:999px;background:rgba(179,141,90,.1);color:var(--gold-dark);font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:16px}.service-card h3{font:500 24px/1.2 'Playfair Display',serif;margin:0 0 10px}.service-card ul{display:grid;gap:8px;margin-top:16px}.service-card li{display:flex;gap:10px;align-items:flex-start;color:var(--ink);font-size:15px}.service-card li::before{content:'→';color:var(--gold-dark);font-weight:700}
+    .service-card .button{margin-top:auto}
+    .service-card .button{margin-top:20px;width:100%}
+    .footer{background:#111;color:#aaa;padding:38px 0}.footer-line{display:flex;justify-content:space-between;align-items:center;gap:24px}.footer-line span{max-width:610px;color:rgba(255,255,255,.7)}.footer-line a{color:var(--gold)}
+    @media(max-width:900px){.site-header nav,.site-header>.button{display:none}.site-header{justify-content:space-between}.featured, .service-grid, .footer-line{grid-template-columns:1fr;display:grid}.page-hero{padding-top:72px}}
+
+    .menu-toggle{display:none;width:42px;height:42px;padding:0;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--ink);cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px}.menu-toggle span{width:18px;height:2px;background:currentColor;border-radius:2px;transition:transform .2s ease}.menu-toggle[aria-expanded="true"] span:first-child{transform:translateY(3.5px) rotate(45deg)}.menu-toggle[aria-expanded="true"] span:last-child{transform:translateY(-3.5px) rotate(-45deg)}
+    .mobile-menu{display:none}
+    body.menu-open{overflow:hidden}
+    @media(max-width:900px){.menu-toggle{display:flex}.mobile-menu{position:fixed;top:84px;left:12px;right:12px;z-index:19;display:flex;flex-direction:column;visibility:hidden;opacity:0;transform:translateY(-8px);gap:6px;padding:14px;border:1px solid rgba(179,141,90,.55);border-radius:18px;background:#f7f4ef;box-shadow:0 20px 45px rgba(23,23,23,.14);transition:opacity .2s ease,transform .2s ease,visibility .2s ease;max-height:calc(100vh - 100px);overflow-y:auto}.mobile-menu a{padding:13px 12px;border-radius:10px;color:var(--muted);font-weight:700}.mobile-menu a:hover,.mobile-menu a[aria-current="page"]{background:rgba(179,141,90,.12);color:var(--ink)}.mobile-menu a.button{margin-top:6px;width:100%;padding:0;min-height:46px;display:inline-flex;align-items:center;justify-content:center}body.menu-open .mobile-menu{visibility:visible;opacity:1;transform:translateY(0);pointer-events:auto}}
+    .service-grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}@media(max-width:900px){.service-grid.two{grid-template-columns:1fr}}
+  .brand-lockup img{height:78px;width:118px;object-fit:contain;display:block}@media(max-width:600px){.brand-lockup img{height:60px;width:91px}}@media(max-width:680px){.site-header{position:sticky!important;top:10px;width:calc(100% - 20px);margin:10px auto 0;border-radius:16px}}.legal-disclaimer{margin:0 auto;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.45);font-size:12px;line-height:1.65;max-width:900px;text-align:center}@media(max-width:680px){.legal-disclaimer{font-size:11.5px;text-align:left}}</style>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": 1, "item": {"@type": "Service", "name": "Clinic name research", "description": "Name shortlist with reasons, plus checks of Florida business records, website addresses and social handles.", "provider": {"@type": "ProfessionalService", "name": "XI:XI Strategy", "url": "https://xixistrategy.com/"}, "areaServed": "Florida"}}, {"@type": "ListItem", "position": 2, "item": {"@type": "Service", "name": "Clinic brand kit", "description": "Logo concept, colors, fonts, one-page style guide, card and social templates, and a website brief.", "provider": {"@type": "ProfessionalService", "name": "XI:XI Strategy", "url": "https://xixistrategy.com/"}, "areaServed": "Florida"}}, {"@type": "ListItem", "position": 3, "item": {"@type": "Service", "name": "Clinic business operations plan", "description": "Opening timeline and checklist, vendor comparison sheet, staffing budget, and front-desk money routines.", "provider": {"@type": "ProfessionalService", "name": "XI:XI Strategy", "url": "https://xixistrategy.com/"}, "areaServed": "Florida"}}, {"@type": "ListItem", "position": 4, "item": {"@type": "Service", "name": "Clinic financial projections", "description": "Start-up budget, 12-month cash forecast in three cases, break-even point, and a summary for your lender.", "provider": {"@type": "ProfessionalService", "name": "XI:XI Strategy", "url": "https://xixistrategy.com/"}, "areaServed": "Florida"}}, {"@type": "ListItem", "position": 5, "item": {"@type": "Service", "name": "QuickBooks Online setup for clinics", "description": "Company file built for a surgical practice, with bank, card and payment connections, bill-paying and payroll routines, a dashboard, month-end checklist and staff training.", "provider": {"@type": "ProfessionalService", "name": "XI:XI Strategy", "url": "https://xixistrategy.com/"}, "areaServed": "Florida"}}, {"@type": "ListItem", "position": 6, "item": {"@type": "Service", "name": "Monthly clinic books", "description": "All accounts matched to the bank, insurer and patient deposits matched, with monthly profit, balance and cash reports.", "provider": {"@type": "ProfessionalService", "name": "XI:XI Strategy", "url": "https://xixistrategy.com/"}, "areaServed": "Florida"}}]}</script>
+<script data-goatcounter="https://xixistrategy.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <a class="brand-lockup" href="index.html" aria-label="XI:XI home"><img src="assets/logo.png" alt="XI:XI — Financial Strategy, Business Optimization"></a>
+    <nav aria-label="Primary navigation"><a href="services.html">Services</a><a href="insights.html">Guides</a><a href="https://xixistrategy.com/workshops/en/">Workshops</a><a href="story.html">About</a>
+    </nav>
+    <a class="button button-dark" href="https://cal.com/xixistrategy" target="_blank" rel="noopener" data-goatcounter-click="book-call">Book a 15-minute call</a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open navigation"><span></span><span></span></button>
+</header>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true"><a href="services.html">Services</a><a href="insights.html">Guides</a><a href="https://xixistrategy.com/workshops/en/">Workshops</a><a href="story.html">About</a><a class="button button-dark" href="https://cal.com/xixistrategy" target="_blank" rel="noopener" data-goatcounter-click="book-call">Book a 15-minute call</a>
+  </nav>
+
+
+  <main id="main-content">
+    <section class="h-hero"><div class="h-wrap">
+      <p class="h-eyebrow">For clinics</p>
+      <h1 class="h-display" style="max-width:900px">Your clinic, from launch to steady numbers.</h1>
+      <p class="h-lead">One person on the business side of your new clinic: the plan before you open, the money systems on day one, and clean books every month after. Fixed scope, confirmed in writing before any work begins.</p>
+      <div class="h-actions"><a class="button button-gold" href="request-price.html" data-goatcounter-click="request-price">Request a price</a><a class="button button-dark" href="https://cal.com/xixistrategy" target="_blank" rel="noopener" data-goatcounter-click="book-call">Book a 15-minute call</a></div>
+    </div></section>
+
+    <section class="h-section"><div class="h-wrap">
+      <div class="h-head"><h2 class="h-display">How it works.</h2><p class="h-muted">Three steps, and you know the price before anything is billed.</p></div>
+      <ol class="h-prices">
+        <li><p class="h-eyebrow">Step 1</p><h3>Call</h3><p class="h-price num-tab">15 minutes</p><p class="h-muted">Tell me your timeline and your plans.</p><a class="h-link" href="https://cal.com/xixistrategy" target="_blank" rel="noopener" data-goatcounter-click="book-call">Book a 15-minute call →</a></li>
+        <li><p class="h-eyebrow">Step 2</p><h3>Strategy Session</h3><p class="h-price num-tab">60 minutes</p><p class="h-muted">We go through your clinic plan together. The session fee is credited toward any service booked within 14 days.</p></li>
+        <li><p class="h-eyebrow">Step 3</p><h3>Written scope</h3><p class="h-price num-tab">Fixed price</p><p class="h-muted">Services, deliverables and price in writing. Then work begins.</p><a class="h-link" href="request-price.html" data-goatcounter-click="request-price">Request a price →</a></li>
+      </ol>
+      <p class="h-note">Prices depend on what your clinic needs. Request a price and you get a fixed quote in writing.</p>
+    </div></section>
+
+    <section class="h-section h-tint"><div class="h-wrap">
+      <div class="h-head"><p class="h-eyebrow">Launch · Before you open</p><h2 class="h-display">Start with a plan, not a scramble.</h2><p class="h-muted">Choose any service — or all four on one timeline.</p></div>
+      <div class="service-grid">
+        <article class="service-card"><span class="tag">Launch</span><h3>Name research</h3><p>A shortlist of names with reasons, plus checks of Florida business records, website addresses and social handles.</p><a class="button button-gold" href="request-price.html?service=name-research" data-goatcounter-click="request-price">Request price</a></article>
+        <article class="service-card"><span class="tag">Launch</span><h3>Brand kit</h3><p>Logo concept, colors, fonts, a one-page style guide, business card and social templates, and a website brief.</p><a class="button button-gold" href="request-price.html?service=brand-kit" data-goatcounter-click="request-price">Request price</a></article>
+        <article class="service-card"><span class="tag">Launch</span><h3>Business operations plan</h3><p>Opening timeline and checklist, vendor comparison sheet, staffing budget, and front-desk money routines.</p><a class="button button-gold" href="request-price.html?service=operations-plan" data-goatcounter-click="request-price">Request price</a></article>
+        <article class="service-card"><span class="tag">Launch</span><h3>Financial projections</h3><p>Start-up budget, a 12-month cash forecast in three cases, break-even point, and a summary for your lender. Planning tools for your internal use — not audited or reviewed.</p><a class="button button-gold" href="request-price.html?service=financial-projections" data-goatcounter-click="request-price">Request price</a></article>
+        <article class="service-card"><span class="tag">Launch · All four</span><h3>Full Launch</h3><p>All four launch services on one timeline, from name to numbers, before you open.</p><a class="button button-gold" href="request-price.html?service=full-launch" data-goatcounter-click="request-price">Request price</a></article>
+      </div>
+    </div></section>
+
+    <section class="h-section"><div class="h-wrap">
+      <div class="h-head"><p class="h-eyebrow">Setup · Your money systems</p><h2 class="h-display">Open with systems that work on day one.</h2></div>
+      <div class="service-grid two">
+        <article class="service-card"><span class="tag">Setup · One-time</span><h3>QuickBooks Online setup</h3><p>Company file built for a surgical practice. Bank, card and payment connections; bill-paying and payroll routines; a dashboard, month-end checklist and staff training.</p><a class="button button-gold" href="request-price.html?service=quickbooks-setup" data-goatcounter-click="request-price">Request price</a></article>
+      </div>
+    </div></section>
+
+    <section class="h-section h-tint"><div class="h-wrap">
+      <div class="h-head"><p class="h-eyebrow">Maintenance · Every month</p><h2 class="h-display">Clean books, every month.</h2><p class="h-muted">Choose one level — change any time.</p></div>
+      <div class="service-grid">
+        <article class="service-card"><span class="tag">Monthly</span><h3>Books</h3><p>All accounts matched to your bank. Insurer and patient deposits matched. Monthly profit, balance and cash reports with notes.</p><a class="button button-gold" href="request-price.html?service=books" data-goatcounter-click="request-price">Request price</a></article>
+        <article class="service-card"><span class="tag">Monthly</span><h3>Books + Insight</h3><p>Everything in Books, plus money owed to you by age, budget tracking, a quarterly review, and a year-end package for your CPA.</p><a class="button button-gold" href="request-price.html?service=books-insight" data-goatcounter-click="request-price">Request price</a></article>
+        <article class="service-card"><span class="tag">Monthly</span><h3>Operations Advisory</h3><p>Everything in Books + Insight, plus a rolling 12-month cash forecast, a monthly meeting, and numbers for big decisions reviewed by your CPA.</p><a class="button button-gold" href="request-price.html?service=operations-advisory" data-goatcounter-click="request-price">Request price</a></article>
+      </div>
+    </div></section>
+
+    <section class="h-section"><div class="h-wrap h-group">
+        <div class="h-group-head"><p class="h-eyebrow">Built for a surgical practice</p><h2 class="h-display">Clinic numbers are different. These books are built for them.</h2></div>
+        <div class="h-rows">
+          <article class="h-row"><span class="h-tag">Cash</span><h3>Forecasts that allow for slow insurer payments</h3><p class="h-muted">Insurers pay weeks or months after you open — the forecast plans for that, so cash is never a surprise.</p></article>
+          <article class="h-row"><span class="h-tag">Match</span><h3>Insurer deposits matched to payment reports</h3><p class="h-muted">Batch deposits tied to the payment report, so nothing is lost or counted twice.</p></article>
+          <article class="h-row"><span class="h-tag">Track</span><h3>Malpractice, implants, supplies and equipment loans</h3><p class="h-muted">Each tracked on its own line, so you always know what each one costs.</p></article>
+          <article class="h-row"><span class="h-tag">Revenue</span><h3>Tracked by procedure and service line</h3><p class="h-muted">Revenue by procedure and service line, not by visit — so you see what actually earns.</p></article>
+          <article class="h-row"><span class="h-tag">Separate</span><h3>Patient deposits kept separate</h3><p class="h-muted">Deposits for future procedures stay separate until the procedure happens.</p></article>
+          <article class="h-row"><span class="h-tag">Separate</span><h3>Surgeon fees kept separate</h3><p class="h-muted">Your surgeon fees kept separate from any facility income.</p></article>
+        </div>
+    </div></section>
+
+    <section class="h-section h-tint"><div class="h-wrap">
+      <div class="h-head"><p class="h-eyebrow">How we work together</p><h2 class="h-display">You stay in charge. Everyone has a clear job.</h2></div>
+      <div class="h-rows">
+        <article class="h-row"><span class="h-tag">You</span><h3>You make every decision</h3><p class="h-muted">You approve every payment and every decision.</p></article>
+        <article class="h-row"><span class="h-tag">Attorney</span><h3>Your attorney handles the legal side</h3><p class="h-muted">Entity, contracts, licenses and compliance.</p></article>
+        <article class="h-row"><span class="h-tag">Lana</span><h3>I handle the plan, the money systems and the monthly books</h3><p class="h-muted">With your written OK, I talk with your attorney and CPA directly, so you are not the go-between.</p></article>
+        <article class="h-row"><span class="h-tag">CPA</span><h3>Your CPA handles tax returns and tax advice</h3><p class="h-muted">And reviews the numbers behind big decisions.</p></article>
+        <article class="h-row"><span class="h-tag">Billing</span><h3>Your billing specialist handles claims</h3><p class="h-muted">Insurer enrollment, coding and claims.</p></article>
+      </div>
+      <div class="h-head" style="margin-top:48px"><h2 class="h-display">What is not included.</h2></div>
+      <div class="h-rows">
+        <article class="h-row"><span class="h-tag">No</span><h3>Tax returns, tax advice, or choosing your business structure</h3><p class="h-muted">Your CPA and your attorney handle those.</p></article>
+        <article class="h-row"><span class="h-tag">No</span><h3>Audits, reviews, or any formal opinion on financial statements</h3><p class="h-muted">Projections and reports are planning tools for your internal use.</p></article>
+        <article class="h-row"><span class="h-tag">No</span><h3>Releasing payments, signing for the practice, or filing payroll taxes</h3><p class="h-muted">You approve and sign; I prepare and reconcile.</p></article>
+        <article class="h-row"><span class="h-tag">No</span><h3>Legal documents or legal advice</h3><p class="h-muted">Your attorney handles those.</p></article>
+        <article class="h-row"><span class="h-tag">No</span><h3>Medical billing, coding, or insurer enrollment filings</h3><p class="h-muted">Your billing specialist handles those.</p></article>
+        <article class="h-row"><span class="h-tag">No</span><h3>Patient names or medical records</h3><p class="h-muted">I do not need them, and I do not ask for them.</p></article>
+      </div>
+      <p class="h-note" style="margin-top:32px">Terms: one-time services are 50% to start, 50% on delivery. Monthly services are billed at the start of each month. Anything outside the written scope is quoted before I do it. Software, vendor and filing fees are paid by the practice.</p>
+    </div></section>
+
+    <section class="h-section"><div class="h-wrap h-faq">
+      <div><p class="h-eyebrow">Questions</p><h2 class="h-display" style="margin-top:16px">Before you book.</h2><p class="h-muted" style="margin-top:18px;max-width:380px">Anything else: <a class="h-link" href="mailto:lana@xixistrategy.com" data-goatcounter-click="email">lana@xixistrategy.com</a></p></div>
+      <dl>
+        <div><dt>Do you do medical billing or coding?</dt><dd>No. Your billing specialist handles insurer enrollment, coding and claims. I match the insurer deposits to the payment reports, so the money is tracked — I never file a claim.</dd></div>
+        <div><dt>Do you need patient names or medical records?</dt><dd>No. I work from bank, insurer and payment records only. Patient names and medical records are never needed.</dd></div>
+        <div><dt>Who handles my tax returns?</dt><dd>Your CPA. I do not prepare or file tax returns. I keep the books clean and build the year-end package your CPA works from.</dd></div>
+        <div><dt>How does payment work?</dt><dd>You get a written scope and fixed price before anything is billed. One-time services are 50% to start and 50% on delivery; monthly services are billed at the start of each month.</dd></div>
+        <div><dt>Which languages do you work in?</dt><dd>English, Russian and Ukrainian, for sessions, walkthroughs and workshops.</dd></div>
+      </dl>
+    </div></section>
+
+    <section class="h-section h-dark h-cta" style="border-top:1px solid rgba(247,244,239,.12)"><div class="h-wrap">
+      <hr class="h-rule" aria-hidden="true">
+      <h2 class="h-display">Opening a clinic? Start with a price.</h2>
+      <div class="h-actions"><a class="button button-gold" href="request-price.html" data-goatcounter-click="request-price">Request a price</a><a class="button button-dark" href="https://cal.com/xixistrategy" target="_blank" rel="noopener" data-goatcounter-click="book-call" style="background:transparent;border:1px solid rgba(255,255,255,.4);color:#fff">Book a 15-minute call</a></div>
+      <p class="h-small">Accountant, not an attorney or CPA. Bookkeeping, reconciliation, financial organization and strategy. No income tax returns, no legal advice.</p>
+    </div></section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-line">
+      <a class="brand-lockup" href="index.html"><img src="assets/logo-wordmark-dark.svg" alt="XI:XI"></a>
+      <span>XI:XI Strategy — independent financial support for owners who are starting, fixing or scaling a business.</span>
+      <a href="https://www.instagram.com/xixistrategy/" target="_blank" rel="noopener">Instagram</a>
+      <a href="mailto:lana@xixistrategy.com" data-goatcounter-click="email">lana@xixistrategy.com</a><a href="intake.html">Get started →</a>
+    </div>
+  <div class="wrap" style="margin-top:22px;"><p class="legal-disclaimer">XI:XI Strategy is not a certified public accounting (CPA) firm and is not engaged in the practice of public accounting, legal or formal tax advisory services. Services are provided strictly for financial and operational support.</p></div>
+  </footer>
+  <script>(function(){var toggle=document.getElementById('menuToggle'),menu=document.getElementById('mobileMenu');if(!toggle||!menu)return;function setOpen(open){document.body.classList.toggle('menu-open',open);toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Close navigation':'Open navigation');menu.setAttribute('aria-hidden',String(!open));}toggle.addEventListener('click',function(){setOpen(toggle.getAttribute('aria-expanded')!=='true');});menu.querySelectorAll('a').forEach(function(link){link.addEventListener('click',function(){setOpen(false);});});document.addEventListener('keydown',function(e){if(e.key==='Escape')setOpen(false);});window.addEventListener('resize',function(){if(window.innerWidth>900)setOpen(false);});}());</script>
+</body>
+</html>
