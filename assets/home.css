@@ -172,3 +172,14 @@
 .h-others em{font-style:normal;font-size:13px;font-weight:700;color:var(--gold-dark);margin-top:auto}
 @media(max-width:900px){.h-others{grid-template-columns:repeat(2,minmax(0,1fr))}.h-others a:nth-child(3){padding-left:0;border-left:0}}
 @media(max-width:520px){.h-others{grid-template-columns:1fr}.h-others a+a{padding-left:0;border-left:0}}
+
+/* Credentials strip: tidy 3x2 grid (2 columns on small screens) */
+.h-strip ul{list-style:none;margin:0 auto;padding:6px 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;font-size:14.5px;font-weight:600;color:#2b2722;justify-content:initial}
+.h-strip li{position:relative;padding:16px 14px;text-align:center;line-height:1.35}
+.h-strip li:not(:nth-child(3n+1))::before{content:"";position:absolute;left:0;top:26%;height:48%;width:1px;background:var(--line,#ded4c5)}
+.h-strip li:nth-child(n+4){border-top:1px solid var(--line,#ded4c5)}
+@media(max-width:700px){.h-strip ul{grid-template-columns:repeat(2,minmax(0,1fr));font-size:13.5px}.h-strip li::before{display:none}.h-strip li:nth-child(2n)::before{display:block;content:"";position:absolute;left:0;top:26%;height:48%;width:1px;background:var(--line,#ded4c5)}.h-strip li:nth-child(n+3){border-top:1px solid var(--line,#ded4c5)}}
+
+/* Keep the booking button visible in the mobile header */
+@media(max-width:900px){body .site-header>.button{display:inline-flex;width:auto;min-height:38px;padding:0 14px;font-size:11px;letter-spacing:.08em;margin-left:auto;margin-right:8px}}
+@media(max-width:380px){body .site-header>.button{padding:0 10px;font-size:10px}}
