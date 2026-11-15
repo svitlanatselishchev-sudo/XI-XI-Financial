@@ -172,3 +172,27 @@
 .h-others em{font-style:normal;font-size:13px;font-weight:700;color:var(--gold-dark);margin-top:auto}
 @media(max-width:900px){.h-others{grid-template-columns:repeat(2,minmax(0,1fr))}.h-others a:nth-child(3){padding-left:0;border-left:0}}
 @media(max-width:520px){.h-others{grid-template-columns:1fr}.h-others a+a{padding-left:0;border-left:0}}
+
+/* Credentials strip: tidy 3x2 grid (2 columns on small screens) */
+.h-strip ul{list-style:none;margin:0 auto;padding:6px 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;font-size:14.5px;font-weight:600;color:#2b2722;justify-content:initial}
+.h-strip li{position:relative;padding:16px 14px;text-align:center;line-height:1.35}
+.h-strip li:not(:nth-child(3n+1))::before{content:"";position:absolute;left:0;top:26%;height:48%;width:1px;background:var(--line,#ded4c5)}
+.h-strip li:nth-child(n+4){border-top:1px solid var(--line,#ded4c5)}
+@media(max-width:700px){.h-strip ul{grid-template-columns:repeat(2,minmax(0,1fr));font-size:13.5px}.h-strip li::before{display:none}.h-strip li:nth-child(2n)::before{display:block;content:"";position:absolute;left:0;top:26%;height:48%;width:1px;background:var(--line,#ded4c5)}.h-strip li:nth-child(n+3){border-top:1px solid var(--line,#ded4c5)}}
+
+/* Keep the booking button visible in the mobile header */
+@media(max-width:900px){body .site-header>.button{display:inline-flex;width:auto;min-height:38px;padding:0 14px;font-size:11px;letter-spacing:.08em;margin-left:auto;margin-right:8px}}
+@media(max-width:380px){body .site-header>.button{padding:0 10px;font-size:10px}}
+
+/* Guided helper ("Not sure where to start?") */
+.h-fit .fit-card{max-width:760px;background:#fff;border:1px solid var(--line,#ded4c5);border-radius:22px;padding:clamp(22px,4vw,36px);box-shadow:0 14px 34px rgba(23,23,23,.05)}
+.fit-options{border:0;margin:0;padding:0;display:grid;gap:10px}
+.fit-options legend{font:500 clamp(22px,3vw,28px)/1.2 "Playfair Display",serif;margin-bottom:14px;padding:0}
+.fit-options label{display:flex;align-items:center;gap:12px;padding:14px 16px;border:1px solid var(--line,#ded4c5);border-radius:14px;cursor:pointer;font-weight:600;color:#2b2722;transition:border-color .2s,background-color .2s}
+.fit-options label:hover{border-color:#b38d5a}
+.fit-options input{accent-color:#80633d;width:18px;height:18px;flex:none}
+.fit-options label:has(input:checked){border-color:#80633d;background:#f7f4ef}
+.fit-options label:has(input:focus-visible){outline:3px solid #b38d5a;outline-offset:2px}
+.fit-result{margin-top:24px;padding-top:22px;border-top:1px solid var(--line,#ded4c5)}
+.fit-result[hidden]{display:none}
+.fit-result h3{margin:8px 0;font:500 clamp(24px,3.2vw,32px)/1.15 "Playfair Display",serif}
