@@ -1,23 +1,19 @@
-# XI:XI Strategic Finance Business Optimization
+# XI:XI Strategy website
 
-Marketing site for XI:XI Strategic Finance Business Optimization, led by Svitlana "Lana" Tselishchev — Palm City, FL.
+Static marketing site for XI:XI Strategy (Palm City, FL), published with GitHub Pages at https://xixistrategy.com. No build step: edit the HTML, commit, and Pages republishes.
 
-Single-file static site (HTML + Tailwind CDN). No build step required.
+## Structure
+- `index.html`, `services.html`, `story.html`, `insights.html`, `cpa-partners.html`, `ecommerce-reconciliation.html`, `tools.html`, `worksheets.html`, `intake.html`: main pages
+- `workshops/`: Ukrainian (root) and English (`en/`) workshop pages
+- `assets/`: styles (`brand.css`, `home.css`, `ux-enhancements.css`), images, logos
+- `404.html`: custom not-found page
+- `BRAND.md`, `CONTENT-QUALITY.md`: brand colors and editorial rules, read before editing copy
 
-## Deploy on GitHub Pages
+## Working rules
+- Call to action is always "Book a call" (never "free").
+- Make changes on a branch and merge to `main` to publish; `main` is the live site.
+- Update `sitemap.xml` lastmod when a page changes.
+- Worksheet launch prices on `worksheets.html` run through Nov 19, 2026; update prices and the Product markup afterwards.
 
-1. Upload `index.html` and `.nojekyll` to the root of this repository (the "uploading an existing file" link on the repo's Quick Setup page works fine for this).
-2. Go to **Settings → Pages**.
-3. Under **Build and deployment → Source**, choose **Deploy from a branch**.
-4. Set **Branch** to `main` and the folder to `/ (root)`, then **Save**.
-5. GitHub will publish the site at `https://svitlanatselishchev-sudo.github.io/XI-XI-Financial/` within a minute or two — refresh the Pages settings page to get the exact link.
-
-## Custom domain (optional)
-
-Once a domain is purchased and pointed at GitHub Pages (via a `CNAME` DNS record to `svitlanatselishchev-sudo.github.io`), add a file named `CNAME` (no extension) to the repo root containing just the domain, e.g.:
-
-```
-xixifinancial.com
-```
-
-Then re-enter that domain under **Settings → Pages → Custom domain** to enable HTTPS.
+## Analytics
+GoatCounter (privacy-friendly). Click events use `data-goatcounter-click`: `book-call`, `call-phone`, `email-click`, `instagram`, `etsy-*`, `stripe-*`, `form-submit-*`.
