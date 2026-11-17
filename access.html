@@ -67,7 +67,7 @@
       <div class="wrap">
         <div class="eyebrow">Your secure upload</div>
         <h1 class="page-title">Your upload folder is ready.</h1>
-        <p class="lede">This link is unique to you — please don't forward it. Enter the password we sent you separately when prompted.</p>
+        <p class="lede">Use the private folder link we emailed you — please don't forward it. Enter the password we sent you separately when prompted.</p>
       </div>
     </section>
 
@@ -77,7 +77,7 @@
           <div class="steps-card">
             <div class="step-item">
               <span class="step-num">1</span>
-              <div class="step-body"><h3>Open your folder.</h3><p>Click the button below to open your secure, encrypted folder.</p></div>
+              <div class="step-body"><h3>Open your folder.</h3><p>Open the private folder link from our email.</p></div>
             </div>
             <div class="step-item">
               <span class="step-num">2</span>
@@ -89,15 +89,10 @@
             </div>
           </div>
 
-          <!-- ============================================================
-               PER-CLIENT LINK: loaded live from a Google Sheet — see
-               SHEET_CSV_URL in the script near the bottom of this file.
-               To send a new client here, edit the Sheet cell, NOT this
-               file. Nothing here needs to change again.
-               ============================================================ -->
+          <!-- Each client's private folder link is sent to them directly by email.
+               Never publish client names or folder links in this page or in a public sheet. -->
           <div class="upload-cta">
-            <a id="folderLink" class="button button-gold is-loading" href="#" target="_blank" rel="noopener" aria-disabled="true">Loading your folder…</a>
-            <p class="folder-fallback" id="folderFallback" hidden>We couldn't load your link automatically — please <a href="#contact">contact us</a> and we'll send it directly.</p>
+            <p class="folder-fallback" id="folderFallback">Your private folder link comes in a separate email from lana@xixistrategy.com. Can't find it? <a href="#contact">Contact us</a> and we'll resend it.</p>
           </div>
           <div class="trust-line">Encrypted Folder<span>·</span>Password Protected<span>·</span>No Bank Logins Required</div>
         </div>
@@ -105,7 +100,7 @@
         <div class="tools-side" id="contact">
           <div class="contact-card">
             <div class="contact-head">
-              <img class="contact-photo" src="assets/lana-headshot.jpg" alt="Lana Tselishchev">
+              <img class="contact-photo" src="assets/lana-headshot.jpg" alt="Lana Tselishchev" width="78" height="78" loading="lazy" decoding="async">
               <div>
                 <div class="contact-name">Lana Tselishchev</div>
                 <div class="contact-role">Founder &amp; Principal</div>
@@ -141,101 +136,5 @@
   </footer>
   <script>(function(){var toggle=document.getElementById('menuToggle'),menu=document.getElementById('mobileMenu');if(!toggle||!menu)return;function setOpen(open){document.body.classList.toggle('menu-open',open);toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Close navigation':'Open navigation');menu.setAttribute('aria-hidden',String(!open));}toggle.addEventListener('click',function(){setOpen(toggle.getAttribute('aria-expanded')!=='true');});menu.querySelectorAll('a').forEach(function(link){link.addEventListener('click',function(){setOpen(false);});});document.addEventListener('keydown',function(e){if(e.key==='Escape')setOpen(false);});window.addEventListener('resize',function(){if(window.innerWidth>900)setOpen(false);});}());</script>
 
-  <script>
-  (function(){
-    // ================================================================
-    // ONE-TIME SETUP: paste your published Google Sheet CSV URL below.
-    // Sheet layout:
-    //   Column A = folder link
-    //   Column B = client name (for your own records — full names with
-    //               commas/periods are fine, e.g. "Tree Works Of
-    //               Florida, Inc.")
-    //   Column C = short slug used in the link, e.g. "treeworks" —
-    //               no spaces or punctuation, keep it simple
-    // One client per row (row 1 can be a header, it's ignored — it
-    // just won't match any slug). To add a new client, add a new row
-    // — never edit this file or overwrite an existing row. Send each
-    // client their OWN link:
-    //   https://xixistrategy.com/access.html?client=THEIR-SLUG
-    // where THEIR-SLUG matches column C for their row (not case
-    // sensitive). Each client's link only ever shows their own row, so
-    // sending one client their link never affects another client.
-    // ================================================================
-    var SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7YenBmGQVvakXw0qXyFESUJGefe0b8kKSojsg07Asg21D6btJRAhwQOnHUXJwlB4BYcZ7bNdApbfO/pub?output=csv';
-
-    var btn = document.getElementById('folderLink');
-    var fallback = document.getElementById('folderFallback');
-    if (!btn) return;
-
-    function showFallback(){
-      btn.hidden = true;
-      if (fallback) fallback.hidden = false;
-    }
-
-    function getClientParam(){
-      try {
-        return (new URLSearchParams(window.location.search).get('client') || '').trim().toLowerCase();
-      } catch (e) {
-        return '';
-      }
-    }
-
-    // Proper CSV field parser: respects quoted fields so commas and
-    // periods inside a company name (e.g. "Tree Works Of Florida,
-    // Inc.") don't get split into extra columns.
-    function parseRow(line){
-      var result = [], cur = '', inQuotes = false;
-      for (var i = 0; i < line.length; i++) {
-        var ch = line[i];
-        if (inQuotes) {
-          if (ch === '"' && line[i + 1] === '"') { cur += '"'; i++; }
-          else if (ch === '"') { inQuotes = false; }
-          else { cur += ch; }
-        } else {
-          if (ch === '"') { inQuotes = true; }
-          else if (ch === ',') { result.push(cur); cur = ''; }
-          else { cur += ch; }
-        }
-      }
-      result.push(cur);
-      return result.map(function(cell){ return cell.trim(); });
-    }
-
-    var client = getClientParam();
-
-    if (!SHEET_CSV_URL || SHEET_CSV_URL.indexOf('PASTE_YOUR') === 0 || !client) {
-      showFallback();
-      return;
-    }
-
-    fetch(SHEET_CSV_URL, { cache: 'no-store' })
-      .then(function(res){
-        if (!res.ok) throw new Error('bad response');
-        return res.text();
-      })
-      .then(function(text){
-        var lines = text.split(/\r?\n/).filter(function(l){ return l.trim().length; });
-        var match = null;
-        for (var i = 0; i < lines.length; i++) {
-          var row = parseRow(lines[i]);
-          var link = row[0] || '';
-          var slug = (row[2] || '').toLowerCase();
-          if (slug && slug === client) {
-            match = link;
-            break;
-          }
-        }
-        if (match && /^https?:\/\//i.test(match)) {
-          btn.href = match;
-          btn.removeAttribute('aria-disabled');
-          btn.classList.remove('is-loading');
-          btn.textContent = 'Open Upload Folder →';
-        } else {
-          showFallback();
-        }
-      })
-      .catch(showFallback);
-  })();
-  </script>
 </body>
 </html>
