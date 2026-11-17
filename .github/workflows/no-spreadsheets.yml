@@ -20,4 +20,8 @@ jobs:
             echo "A published Google Sheet is referenced. Published sheets are readable by anyone."
             exit 1
           fi
+          if grep -rlE 'drive\.google\.com/file/d/' --include='*.html' --include='*.js' . ; then
+            echo "A Google Drive file link is in the public site. Paid files must be delivered by Stripe, not linked here."
+            exit 1
+          fi
           echo "No spreadsheet files found."
