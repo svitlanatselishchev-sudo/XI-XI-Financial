@@ -1,0 +1,27 @@
+name: Block spreadsheet files
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fail if any spreadsheet or data file is tracked
+        run: |
+          found=$(git ls-files | grep -iE '\.(xlsx|xlsm|xlsb|xls|xltx|xltm|csv|tsv|ods|numbers)$' || true)
+          if [ -n "$found" ]; then
+            echo "Spreadsheet files must not be published on the public website:"
+            echo "$found"
+            exit 1
+          fi
+          if grep -rlE 'docs\.google\.com/spreadsheets/d/e/[^"]+/pub' --include='*.html' --include='*.js' . ; then
+            echo "A published Google Sheet is referenced. Published sheets are readable by anyone."
+            exit 1
+          fi
+          if grep -rlE 'drive\.google\.com/file/d/' --include='*.html' --include='*.js' . ; then
+            echo "A Google Drive file link is in the public site. Paid files must be delivered by Stripe, not linked here."
+            exit 1
+          fi
+          echo "No spreadsheet files found."

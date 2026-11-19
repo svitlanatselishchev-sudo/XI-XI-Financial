@@ -1,0 +1,13 @@
+# Never publish client or product files from this public repo.
+# Paid workbooks and client data belong in private storage, not the website.
+*.xlsx
+*.xlsm
+*.xlsb
+*.xls
+*.xltx
+*.xltm
+*.csv
+*.tsv
+*.ods
+*.numbers
+.DS_Store
