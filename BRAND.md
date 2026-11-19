@@ -1,8 +1,12 @@
-# XI:XI brand and content quality guide
+# 11:11 Strategy brand and content quality guide
+
+## Name
+
+The business name is **11:11 Strategy** (registered as a fictitious name / DBA). Write it as "11:11 Strategy" in all copy, titles, schema and documents. XI:XI is the same time in Roman numerals and survives in three places only: the logo mark, the web address and email (xixistrategy.com, lana@xixistrategy.com), and social handles (@xixistrategy). Never write "XI:XI Strategy" in new copy. Where a colon is not allowed, use "1111strategy".
 
 ## Visual identity
 
-The primary identity is the explicit **XI:XI** wordmark. The gold colon is the alignment point between the two `XI` groups. The compact favicon uses the same readable `XI:XI` lettering rather than an abstract BX-style monogram.
+The logo mark is the explicit **XI:XI** lettering (11:11 in Roman numerals). The gold colon is the alignment point between the two `XI` groups. The compact favicon uses the same readable `XI:XI` lettering rather than an abstract BX-style monogram.
 
 Core colors:
 

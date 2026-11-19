@@ -1,5 +1,5 @@
 /* ============================================================
-   XI:XI WORKSHOPS: THE ONLY FILE YOU EDIT TO OPEN REGISTRATION
+   11:11 WORKSHOPS: THE ONLY FILE YOU EDIT TO OPEN REGISTRATION
    ------------------------------------------------------------
    For each workshop and language (ua / en):
      status: "soon"  = registration closed, button shows "Registration soon"
