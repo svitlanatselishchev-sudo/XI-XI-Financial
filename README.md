@@ -1,6 +1,6 @@
-# XI:XI Strategy website
+# 11:11 Strategy website
 
-Static marketing site for XI:XI Strategy (Palm City, FL), published with GitHub Pages at https://xixistrategy.com. No build step: edit the HTML, commit, and Pages republishes.
+Static marketing site for 11:11 Strategy (Palm City, FL), published with GitHub Pages at https://xixistrategy.com. No build step: edit the HTML, commit, and Pages republishes.
 
 ## Structure
 - `index.html`, `services.html`, `story.html`, `insights.html`, `cpa-partners.html`, `ecommerce-reconciliation.html`, `tools.html`, `worksheets.html`, `intake.html`: main pages
