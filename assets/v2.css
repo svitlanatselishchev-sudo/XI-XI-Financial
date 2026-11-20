@@ -382,3 +382,10 @@ a.v-card:hover, .v-card--lift:hover { transform: translateY(-5px); box-shadow: 0
 .v-footer p { color: inherit; }
 .v-scopebar p { color: inherit; }
 .v-dock p { color: inherit; }
+
+/* Specialty strip under the audience switch */
+.v-specialty { margin: 40px 0 0; padding-top: 24px; border-top: 1px solid var(--v-line); max-width: 860px; font-size: 16px; line-height: 1.6; color: var(--v-muted); }
+.v-specialty .v-kicker { margin-right: 10px; }
+.v-dark .v-specialty { border-top-color: rgba(244,241,234,.18); color: var(--v-on-dark-muted); }
+.v-dark .v-specialty .v-link { color: var(--v-brass-soft); }
+.v-dark .v-specialty .v-link:hover { color: var(--v-on-dark); }
