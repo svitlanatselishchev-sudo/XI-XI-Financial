@@ -60,18 +60,19 @@
   }
 
   /* Count-up numbers: <strong data-count="50000" data-suffix="+">50,000+</strong> */
-  function fmt(n) { return Math.round(n).toLocaleString("en-US"); }
+  function fmt(n, d) { return n.toLocaleString("en-US", { minimumFractionDigits: d, maximumFractionDigits: d }); }
   var counters = q("[data-count]");
   function runCount(el) {
     var end = parseFloat(el.getAttribute("data-count"));
     var pre = el.getAttribute("data-prefix") || "";
     var suf = el.getAttribute("data-suffix") || "";
+    var dec = parseInt(el.getAttribute("data-decimals") || "0", 10);
     var start = null, dur = 1400;
     function step(t) {
       if (!start) start = t;
       var p = Math.min(1, (t - start) / dur);
       var eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = pre + fmt(end * eased) + suf;
+      el.textContent = pre + fmt(end * eased, dec) + suf;
       if (p < 1) window.requestAnimationFrame(step);
     }
     window.requestAnimationFrame(step);
