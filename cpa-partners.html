@@ -1,247 +1,108 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta name="theme-color" content="#171717">
-    <meta name="description" content="White-label cleanup and reconciliation for CPA firms, delivered to your standards.">
+  <meta name="theme-color" content="#1c1f22">
+  <title>For CPA firms: subcontract cleanup and reconciliation | 11:11 Strategy</title>
+  <meta name="description" content="Subcontract cleanup and reconciliation files, including multi-currency payouts, to Lana Tselishchev. You keep the client and the tax work. Accountant, not an attorney or CPA.">
   <meta name="robots" content="index,follow,max-image-preview:large">
-    <title>Overflow cleanup and reconciliation for CPA firms | 11:11 Strategy</title>
   <link rel="canonical" href="https://xixistrategy.com/cpa-partners">
-
-    <!-- Favicons -->
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
-
-    <!-- Open Graph / Social Media -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Overflow cleanup and reconciliation for CPA firms | 11:11 Strategy">
-    <meta property="og:description" content="White-label cleanup and reconciliation for CPA firms, delivered to your standards.">
-    <meta property="og:url" content="https://xixistrategy.com/cpa-partners">
-    <meta property="og:image" content="https://xixistrategy.com/og-image.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Overflow cleanup and reconciliation for CPA firms | 11:11 Strategy">
-    <meta name="twitter:description" content="White-label cleanup and reconciliation for CPA firms, delivered to your standards.">
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
-
-    <!-- Shared Asset Layers -->
-    <link rel="stylesheet" href="assets/brand.css">
-    <link rel="stylesheet" href="assets/ux-enhancements.css">
-
-    <!-- Page-Specific Styles -->
-    <style>
-        /* Site shell styles copied from story.html - styles the inline header/footer below */
-        :root {
-            --ink: #171717;
-            --paper: #f7f4ef;
-            --white: #fff;
-            --gold: #b38d5a;
-            --gold-dark: #80633d;
-            --muted: #686158;
-            --line: #ded4c5;
-            --max: 1180px;
-        }
-        body { margin: 0; background: var(--paper); }
-        .wrap { width: min(var(--max), calc(100% - 32px)); margin: auto; }
-        .site-header { position: sticky; top: 18px; z-index: 12; width: min(1160px, calc(100% - 32px)); margin: 16px auto 0; padding: 10px 14px 10px 22px; border: 1px solid rgba(179,141,90,.6); border-radius: 999px; background: rgba(247,244,239,.96); backdrop-filter: blur(12px); display: flex; align-items: center; gap: 26px; box-shadow: 0 10px 24px rgba(23,23,23,.04); }
-        .site-header nav { display: flex; justify-content: center; gap: 24px; flex: 1; flex-wrap: wrap; }
-        .site-header nav a { font-size: 14px; font-weight: 600; color: var(--muted); position: relative; padding: 6px 0; }
-        .site-header nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: center; transition: transform .2s ease; }
-        .site-header nav a:hover::after { transform: scaleX(1); }
-        .button { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 20px; border-radius: 999px; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; transition: transform .2s ease, box-shadow .2s ease; }
-        .button:hover { transform: translateY(-2px); }
-        .button-dark { background: var(--ink); color: var(--white); box-shadow: 0 14px 26px rgba(23,23,23,.14); }
-        .brand-lockup img { height: 78px; width: 118px; object-fit: contain; display: block; }
-        .footer { background: #111; color: #aaa; padding: 38px 0; }
-        .footer-line { display: flex; justify-content: space-between; align-items: center; gap: 22px; }
-        .footer-line a { color: var(--gold); }
-        .footer-line span { max-width: 600px; color: rgba(255,255,255,.7); }
-        .legal-disclaimer { margin: 0 auto; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.12); color: rgba(255,255,255,.45); font-size: 12px; line-height: 1.65; max-width: 900px; text-align: center; }
-        .menu-toggle { display: none; width: 42px; height: 42px; padding: 0; border: 1px solid var(--line); border-radius: 50%; background: transparent; color: var(--ink); cursor: pointer; align-items: center; justify-content: center; flex-direction: column; gap: 5px; }
-        .menu-toggle span { width: 18px; height: 2px; background: currentColor; border-radius: 2px; transition: transform .2s ease; }
-        .menu-toggle[aria-expanded="true"] span:first-child { transform: translateY(3.5px) rotate(45deg); }
-        .menu-toggle[aria-expanded="true"] span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
-        .mobile-menu { display: none; }
-        body.menu-open { overflow: hidden; }
-        @media (max-width: 900px) { .site-header nav, .site-header > .button { display: none; } .site-header { justify-content: space-between; } .footer-line { grid-template-columns: 1fr; display: grid; } .menu-toggle { display: flex; } .mobile-menu { position: fixed; top: 84px; left: 12px; right: 12px; z-index: 19; display: flex; flex-direction: column; visibility: hidden; opacity: 0; transform: translateY(-8px); gap: 6px; padding: 14px; border: 1px solid rgba(179,141,90,.55); border-radius: 18px; background: #f7f4ef; box-shadow: 0 20px 45px rgba(23,23,23,.14); transition: opacity .2s ease, transform .2s ease, visibility .2s ease; max-height: calc(100vh - 100px); overflow-y: auto; } .mobile-menu a { padding: 13px 12px; border-radius: 10px; color: var(--muted); font-weight: 700; } .mobile-menu a:hover { background: rgba(179,141,90,.12); color: var(--ink); } .mobile-menu a.button { margin-top: 6px; width: 100%; padding: 0; min-height: 46px; display: inline-flex; align-items: center; justify-content: center; } body.menu-open .mobile-menu { visibility: visible; opacity: 1; transform: translateY(0); pointer-events: auto; } }
-        @media (max-width: 600px) { .brand-lockup img { height: 60px; width: 91px; } }
-        @media (max-width: 680px) { .site-header { box-sizing: border-box; max-width: calc(100% - 20px); position: sticky !important; top: 10px; width: calc(100% - 20px); margin: 10px auto 0; border-radius: 16px; } .legal-disclaimer { font-size: 11.5px; text-align: left; } }
-        .page-hero {
-            padding: 160px 0 24px;
-        }
-        .eyebrow {
-            color: var(--ux-focus, #987b55);
-            font-size: 11px;
-            letter-spacing: .18em;
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-        .page-title {
-            margin: 18px 0 0;
-            font: 500 clamp(36px, 5vw, 64px)/1.05 'Playfair Display', Georgia, serif;
-            letter-spacing: -.04em;
-            max-width: 900px;
-        }
-        .lede {
-            max-width: 720px;
-            margin: 18px 0 0;
-            color: var(--ux-body, #69645d);
-            font-size: 18px;
-            line-height: 1.7;
-        }
-        .partners {
-            padding: 36px 0 90px;
-        }
-        .split {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-        }
-        .card {
-            background: #ffffff;
-            border: 1px solid var(--ux-border, #e3dacb);
-            border-radius: 22px;
-            padding: 32px;
-            box-shadow: 0 18px 32px rgba(23, 23, 23, 0.04);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .card h3 {
-            margin: 12px 0 14px;
-            font: 500 28px/1.15 'Playfair Display', Georgia, serif;
-            letter-spacing: -.03em;
-        }
-        .card p {
-            margin: 0 0 16px;
-            color: var(--ux-body, #69645d);
-            line-height: 1.7;
-        }
-        .ul {
-            padding-left: 18px;
-            margin: 0 0 24px;
-            color: var(--ux-body, #69645d);
-            line-height: 1.8;
-        }
-        .cta {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 46px;
-            padding: 0 22px;
-            border-radius: 999px;
-            background: #171717;
-            color: #ffffff;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: .12em;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            align-self: flex-start;
-        }
-        .cta:hover {
-            background: #987b55;
-            color: #ffffff;
-        }
-        .cta.alt {
-            background: transparent;
-            border: 1px solid rgba(23, 23, 23, 0.25);
-            color: #171717;
-        }
-        .cta.alt:hover {
-            border-color: #987b55;
-            background: #987b55;
-            color: #ffffff;
-        }
-        @media (max-width: 900px) {
-            .split {
-                grid-template-columns: 1fr;
-            }
-            .page-hero {
-                padding-top: 130px;
-            }
-        }
-    </style>
-<script data-goatcounter="https://xixistrategy.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://xixistrategy.com/cpa-partners">
+  <meta property="og:title" content="For CPA firms: subcontract cleanup and reconciliation | 11:11 Strategy">
+  <meta property="og:description" content="Subcontract cleanup and reconciliation files, including multi-currency payouts, to Lana Tselishchev. You keep the client and the tax work. Accountant, not an attorney or CPA.">
+  <meta property="og:image" content="https://xixistrategy.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" href="favicon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/v2.css">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "ProfessionalService", "@id": "https://xixistrategy.com/#firm", "name": "11:11 Strategy", "url": "https://xixistrategy.com/", "logo": "https://xixistrategy.com/assets/logo.png", "image": "https://xixistrategy.com/og-image.png", "description": "I get online sellers’ books ready for a buyer: every payout tied to the bank, 12 to 36 months reconciled, open questions written down. Accountant, not an attorney or CPA.", "telephone": "+1-772-210-9957", "email": "lana@xixistrategy.com", "address": {"@type": "PostalAddress", "addressLocality": "Palm City", "addressRegion": "FL", "addressCountry": "US"}, "areaServed": {"@type": "State", "name": "Florida"}, "founder": {"@id": "https://xixistrategy.com/#lana"}, "sameAs": ["https://www.instagram.com/xixistrategy/", "https://www.linkedin.com/in/svitlana-tselishchev"], "knowsLanguage": ["en", "uk", "ru"]}, {"@type": "Person", "@id": "https://xixistrategy.com/#lana", "name": "Lana Tselishchev", "jobTitle": "Accountant | Principal", "worksFor": {"@id": "https://xixistrategy.com/#firm"}, "hasCredential": ["Intuit Bookkeeping Professional Certification", "Florida Notary Public"], "sameAs": ["https://www.linkedin.com/in/svitlana-tselishchev"]}]}</script>
+  <script defer src="assets/v2.js"></script>
+  <script data-goatcounter="https://xixistrategy.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
-<body class="bg-cream text-charcoal font-sans antialiased">
-
-    <!-- Skip Navigation for Accessibility -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-
-    <!-- Header (inline, copied from story.html) -->
-    <header class="site-header">
-        <a class="brand-lockup" href="index.html" aria-label="11:11 Strategy home"><img src="assets/logo.png" alt="11:11 — Financial Strategy, Business Optimization"></a>
-        <nav aria-label="Primary navigation"><a href="services.html">Services</a><a href="insights.html">Guides</a><a href="https://xixistrategy.com/workshops/en/">Workshops</a><a href="story.html">About</a>
-        </nav>
-        <a class="button button-dark" href="https://cal.com/xixistrategy" target="_blank" rel="noopener" data-goatcounter-click="book-call">Book a call</a>
-        <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open navigation"><span></span><span></span></button>
-    </header>
-    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true"><a href="services.html">Services</a><a href="insights.html">Guides</a><a href="https://xixistrategy.com/workshops/en/">Workshops</a><a href="story.html">About</a><a class="button button-dark" href="https://cal.com/xixistrategy" target="_blank" rel="noopener" data-goatcounter-click="book-call">Book a call</a>
-    </nav>
-
-    <!-- Main Content -->
-    <main id="main-content" class="wrap">
-        <section class="page-hero">
-            <span class="eyebrow">Strategic Partnerships</span>
-            <h1 class="page-title">A trusted partner for the work your team cannot staff.</h1>
-            <p class="lede">Cleanup, reconciliation, and messy-books projects eat hours that are not worth billing at your rate. We handle complex reconciliations and backlogs so you can keep the client relationship while removing the work that slows your team down.</p>
-        </section>
-
-        <section class="partners">
-            <div class="split">
-                <!-- Option 1 Card -->
-                <article class="card">
-                    <div>
-                        <span class="eyebrow">Option 1</span>
-                        <h3>Take overflow work off your plate.</h3>
-                        <p>When cleanup or reconciliation is more than your team can staff, we can handle it as your trusted subcontractor. You keep the primary client relationship while we execute the underlying ledger delivery.</p>
-                        <ul class="ul">
-                            <li>No client bank login or direct accounting access required</li>
-                            <li><strong>First file</strong> — one entity, up to two accounts and three months of activity, delivered to your standards under your name</li>
-                            <li>Fixed-fee pricing for larger files, scoped per project</li>
-                            <li>Clean handoffs, documented workpapers, and clear communication</li>
-                        </ul>
-                    </div>
-                    <a href="mailto:lana@xixistrategy.com?subject=First%20file%20-%20CPA%20Partnership" class="cta" data-goatcounter-click="email">Send a first file</a>
-                </article>
-
-                <!-- Option 2 Card -->
-                <article class="card">
-                    <div>
-                        <span class="eyebrow">Option 2</span>
-                        <h3>Refer a client who needs extra help.</h3>
-                        <p>If a client's books are too messy for the scope of a standard tax or advisory engagement, refer them directly to us for statement-based reconciliation and catch-up work.</p>
-                        <ul class="ul">
-                            <li>Simple referral structure with seamless communication</li>
-                            <li>Structured month-end closings and multi-entity cleanup</li>
-                            <li>Professional partnership without additional administrative overhead</li>
-                        </ul>
-                    </div>
-                    <a href="mailto:lana@xixistrategy.com?subject=Referral%20Partnership%20-%20CPA%20Partnership" class="cta alt" data-goatcounter-click="email">Discuss a referral</a>
-                </article>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer (copied from story.html) -->
-    <footer class="footer">
-        <div class="wrap footer-line">
-            <a class="brand-lockup" href="index.html"><img src="assets/logo-wordmark-dark.svg" alt="11:11 Strategy"></a>
-            <span>11:11 Strategy — independent financial support for owners who are starting, fixing or scaling a business.</span>
-            <a href="https://www.instagram.com/xixistrategy/" target="_blank" rel="noopener" data-goatcounter-click="instagram">Instagram</a>
-            <a href="mailto:lana@xixistrategy.com" data-goatcounter-click="email">lana@xixistrategy.com</a><a href="intake.html">Get started →</a>
+<body class="v-body">
+  <a class="v-skip" href="#main">Skip to content</a>
+  <div class="v-progress" aria-hidden="true"><span></span></div>
+  <div class="v-scopebar"><div class="v-wrap"><p><strong>Accountant, not an attorney or CPA.</strong> I don’t prepare tax returns or give tax or legal advice.</p><p class="v-langs">Palm City, FL · EN · UA · RU</p></div></div>
+  <header class="v-header">
+    <div class="v-wrap">
+      <a class="v-brand" href="./" aria-label="11:11 Strategy home"><img src="assets/logo-wordmark-dark.svg" alt="" width="34" height="48"><span><b>11:11</b> Strategy</span></a>
+      <nav class="v-nav" aria-label="Primary"><a href="services.html">Services</a><a href="brokers.html">For brokers</a><a href="cpa-partners.html" aria-current="page">For CPA firms</a><a href="insights.html">Guides</a><a href="workshops/en/">Workshops</a><a href="story.html">About</a></nav>
+      <a class="v-btn v-btn--dark v-btn--sm" href="https://cal.com/xixistrategy" target="_blank" rel="noopener" data-goatcounter-click="book-call">Book a call</a>
+      <button class="v-menu-btn" type="button" aria-expanded="false" aria-controls="v-drawer" aria-label="Open menu"><span></span><span></span></button>
+    </div>
+  </header>
+  <nav class="v-drawer" id="v-drawer" aria-label="Mobile" aria-hidden="true"><a href="./">Home</a><a href="services.html">Services</a><a href="brokers.html">For brokers</a><a href="cpa-partners.html" aria-current="page">For CPA firms</a><a href="insights.html">Guides</a><a href="workshops/en/">Workshops</a><a href="story.html">About</a><a class="v-btn v-btn--brass" href="https://cal.com/xixistrategy" target="_blank" rel="noopener" data-goatcounter-click="book-call">Book a 15-minute call<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></nav>
+  <main id="main">
+    <section class="v-hero" data-hero aria-labelledby="cpa-title">
+      <div class="v-wrap v-hero-grid">
+        <div class="v-hero-copy">
+          <p class="v-kicker">For small CPA firms</p>
+          <h1 class="v-h1" id="cpa-title" style="font-size:clamp(40px,5.8vw,74px)">Cleanup files, off your team’s <span class="v-mark">desk</span>.</h1>
+          <p class="v-lead">Your team is full and a client’s books are behind. I take the cleanup or reconciliation file as your subcontractor. You keep the client, the review and the tax work.</p>
+          <div class="v-hero-actions"><a class="v-btn v-btn--brass" href="https://cal.com/xixistrategy" target="_blank" rel="noopener" data-goatcounter-click="book-call">Book a call about a file<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="v-link" href="#options">Two ways to work together</a></div>
         </div>
-        <div class="wrap" style="margin-top:22px;"><p class="legal-disclaimer">11:11 Strategy is not a certified public accounting (CPA) firm and is not engaged in the practice of public accounting, legal or formal tax advisory services. Services are provided strictly for financial and operational support.</p></div>
-    </footer>
-    <script>(function(){var toggle=document.getElementById('menuToggle'),menu=document.getElementById('mobileMenu');if(!toggle||!menu)return;function setOpen(open){document.body.classList.toggle('menu-open',open);toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Close navigation':'Open navigation');menu.setAttribute('aria-hidden',String(!open));}toggle.addEventListener('click',function(){setOpen(toggle.getAttribute('aria-expanded')!=='true');});menu.querySelectorAll('a').forEach(function(link){link.addEventListener('click',function(){setOpen(false);});});document.addEventListener('keydown',function(e){if(e.key==='Escape')setOpen(false);});window.addEventListener('resize',function(){if(window.innerWidth>900)setOpen(false);});}());</script>
+        <div class="v-board" style="padding:30px" data-reveal>
+          <p class="v-kicker">Good fits</p>
+          <ul class="v-checks" style="margin-top:18px;color:var(--v-alab)"><li>Catch-up cleanup and reconciliation</li><li>E-commerce and app-store payouts tied to the bank</li><li>Multi-currency revenue: fees, VAT and exchange rates</li><li>Owners getting ready to sell (Sale-Ready Books)</li></ul>
+        </div>
+      </div>
+    </section>
 
+    <section class="v-section v-paper" id="options" aria-labelledby="opt-title">
+      <div class="v-wrap">
+        <div class="v-head"><p class="v-kicker">Two ways to work together</p><h2 class="v-h2" id="opt-title" data-reveal>Subcontract a file, or refer a client.</h2></div>
+        <div class="v-grid v-grid--2">
+          <article class="v-card" data-reveal><span class="v-tag">Option 1</span><h3 class="v-h3">Subcontract cleanup</h3><p>I work the cleanup or reconciliation file and hand it back for your review. Each file is scoped and quoted before I start.</p><ul class="v-checks"><li>Per-file scope, agreed in writing</li><li>Multi-currency payouts handled</li><li>Open items written down, with amounts</li></ul></article>
+          <article class="v-card v-card--dark" data-reveal style="--d:.12s"><span class="v-tag">Option 2</span><h3 class="v-h3">Refer an owner who plans to sell</h3><p>When a client is getting ready to sell an online business, I get their books ready for a buyer while you keep the tax relationship.</p><ul class="v-checks"><li>12, 24 or 36 months reconciled</li><li>Every payout tied to the bank</li><li>Open questions written down</li></ul></article>
+        </div>
+        <div class="v-scope" style="margin-top:32px" data-reveal><b>Scope</b><p>Accountant, not an attorney or CPA. I don’t prepare tax returns, give tax or legal advice, perform attest work, or sign or file for clients. Those stay with your firm.</p></div>
+      </div>
+    </section>
+
+    <section class="v-section v-dark v-cta" aria-labelledby="cta-title">
+      <div class="v-wrap">
+        <p class="v-kicker">Next step</p>
+        <h2 class="v-h2" id="cta-title" data-reveal>Have a file that’s been sitting?</h2>
+        <p class="v-lead" data-reveal>Book a call and tell me about it. You’ll get a clear yes or no and a scope for the file.</p>
+        <div class="v-hero-actions" data-reveal><a class="v-btn v-btn--brass" href="https://cal.com/xixistrategy" target="_blank" rel="noopener" data-goatcounter-click="book-call">Book a 15-minute call<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="v-btn v-btn--ghost-dark" href="mailto:lana@xixistrategy.com" data-goatcounter-click="email">Email me</a></div>
+        <p class="v-contact-line">lana@xixistrategy.com · <a href="tel:+17722109957" data-goatcounter-click="phone">(772) 210-9957</a></p>
+      </div>
+    </section>
+  </main>
+  <footer class="v-footer">
+    <div class="v-wrap">
+      <div class="v-footer-grid">
+        <div class="v-footer-about">
+          <a class="v-brand" href="./" aria-label="11:11 Strategy home"><img src="assets/logo-wordmark-dark.svg" alt="" width="34" height="48" loading="lazy"><span><b>11:11</b> Strategy</span></a>
+          <p>I get online sellers’ books ready for a buyer: every payout tied to the bank, 12 to 36 months reconciled, open questions written down.</p>
+          <p>Lana Tselishchev, Accountant | Principal. Palm City, Florida. Work happens online.</p>
+        </div>
+        <div>
+          <h2>Work with me</h2>
+          <ul><li><a href="services.html#sale-ready">Sale-Ready Books</a></li><li><a href="services.html#projects">Other projects</a></li><li><a href="brokers.html">For brokers</a></li><li><a href="cpa-partners.html">For CPA firms</a></li><li><a href="story.html">About</a></li></ul>
+        </div>
+        <div>
+          <h2>Learn</h2>
+          <ul><li><a href="insights.html">Guides</a></li><li><a href="workshops/en/">Workshops</a></li><li><a href="workshops/">Workshops in Ukrainian</a></li><li><a href="worksheets.html">Worksheets</a></li></ul>
+        </div>
+        <div>
+          <h2>Contact</h2>
+          <ul><li><a href="https://cal.com/xixistrategy" target="_blank" rel="noopener" data-goatcounter-click="book-call">Book a call</a></li><li><a href="mailto:lana@xixistrategy.com" data-goatcounter-click="email">lana@xixistrategy.com</a></li><li><a href="tel:+17722109957" data-goatcounter-click="phone">(772) 210-9957</a></li><li><a href="https://www.instagram.com/xixistrategy/" target="_blank" rel="noopener" data-goatcounter-click="instagram">Instagram</a></li></ul>
+        </div>
+      </div>
+      <div class="v-footer-legal">
+        <p><strong>Accountant, not an attorney or CPA.</strong> 11:11 Strategy is not a certified public accounting (CPA) firm and is not engaged in the practice of public accounting. I don’t prepare tax returns, give tax or legal advice, perform attest work, or sign or file for clients.</p>
+        <p>© <span data-year>2026</span> 11:11 Strategy · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></p>
+      </div>
+    </div>
+  </footer>
+  <div class="v-dock" aria-label="Book a call"><p>Free 15-minute call<span>A clear next step, no prep needed</span></p><a class="v-btn v-btn--brass" href="https://cal.com/xixistrategy" target="_blank" rel="noopener" data-goatcounter-click="book-call">Book</a></div>
 </body>
 </html>

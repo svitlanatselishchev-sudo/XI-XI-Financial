@@ -6,18 +6,27 @@ The business name is **11:11 Strategy** (registered as a fictitious name / DBA).
 
 ## Visual identity
 
-The logo mark is **11:11** set in a Trajan-style serif (Cinzel) inside the brass double ring. The gold colon is the alignment point between the two 11s. The favicon uses the same 11:11 lettering.
+The logo mark is **11:11** set in a Trajan-style serif (Cinzel) inside the brass double ring. In the site header the ring mark sits beside "11:11 Strategy" set in IBM Plex Mono + DM Sans.
 
-Core colors:
+Site design system v2 (Nov 20, 2026) lives in `assets/v2.css` and `assets/v2.js`. Core colors:
 
-- Ink `#171717` for primary text and dark surfaces
-- Paper `#F7F4EF` for the warm page background
-- White `#FFFFFF` for cards and form surfaces
-- Brass `#B38D5A` for accents and calls to action
-- Brass dark `#80633D` for accent text on light backgrounds
-- Body text `#4D4740` or darker on light backgrounds
+- Charcoal `#1c1f22` for primary text and dark sections
+- Alabaster `#f4f1ea` for the page background
+- Brass `#B38D5A` for accents, buttons and highlights (never as small text on alabaster)
+- Brass ink `#7a5c35` for brass-colored text on light backgrounds
+- Muted text `#55504a` on light backgrounds, `#c5c0b6` on charcoal
+- No navy anywhere
 
-Never use light gold, muted gray, or white text directly on a similarly light surface. Text must have a clear contrast boundary through a dark surface, white card, border, or stronger text color.
+Type: **DM Sans** for all words (headings 700, tight tracking), **IBM Plex Mono** for numbers, labels and small kickers. Playfair Display is retired on redesigned pages.
+
+Motion: reveal-on-scroll, the payout tie-out board, count-up numbers and the marquee all switch off under `prefers-reduced-motion`.
+
+## Always on the site
+
+- The scope line **"Accountant, not an attorney or CPA."** is in the top bar and footer of every page.
+- **No prices anywhere on the site**, including workshops and worksheets. Prices are quoted after a call or shown at checkout.
+- Voice: first person ("I", not "we"), calm, direct, short sentences; end with "Book a call".
+- Public name is Lana Tselishchev.
 
 ## Content and accounting terminology
 
