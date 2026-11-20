@@ -42,7 +42,6 @@
     var id=a.getAttribute('data-buy'), e=ev(id);
     if(isOpen(e)){
       var label=a.getAttribute('data-open');
-      if(e.price){ label=label.replace('$'+'{price}','$'+e.price); }
       a.textContent=label; a.href=e.link; a.classList.remove('off'); a.removeAttribute('aria-disabled');
       a.target='_blank'; a.rel='noopener';
     } else {
@@ -55,7 +54,7 @@
   });
   q('[data-date]').forEach(function(n){ var e=ev(n.getAttribute('data-date')); if(e.date) n.textContent=e.date; });
   q('[data-time]').forEach(function(n){ var e=ev(n.getAttribute('data-time')); if(e.time) n.textContent=e.time; });
-  q('[data-price]').forEach(function(n){ var e=ev(n.getAttribute('data-price')); n.textContent = e.price ? '$'+e.price : priceTbd; });
+  /* Prices are not shown on the site (quoted at checkout). */
   q('[data-chip]').forEach(function(n){
     var e=ev(n.getAttribute('data-chip')), on=isOpen(e);
     n.textContent = on ? chipTxt.open : chipTxt.soon; n.classList.toggle('open', on);
