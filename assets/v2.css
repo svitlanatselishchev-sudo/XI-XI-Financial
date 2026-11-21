@@ -229,6 +229,8 @@ html { scroll-behavior: smooth; }
 .v-stat p { color: var(--v-on-dark-muted); font-size: 15px; }
 @media (max-width: 900px) { .v-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 520px) { .v-stats { grid-template-columns: 1fr; } }
+@media (min-width: 901px) { .v-stats--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 521px) and (max-width: 900px) { .v-stats--3 > :last-child { grid-column: 1 / -1; } }
 
 /* ---------- quote ---------- */
 .v-quote { display: grid; grid-template-columns: auto 1fr; gap: clamp(22px, 4vw, 48px); align-items: center; padding: clamp(28px, 5vw, 56px); border-radius: 30px; background: var(--v-card); border: 1px solid var(--v-line); }
