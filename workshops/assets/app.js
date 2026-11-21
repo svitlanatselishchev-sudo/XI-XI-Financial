@@ -1,6 +1,6 @@
-/* Reads window.XIXI (assets/site-data.js) and updates buttons, dates and chips. */
+/* Reads window.SITE1111 (assets/site-data.js) and updates buttons, dates and chips. */
 (function(){
-  var C = window.XIXI || {events:{}};
+  var C = window.SITE1111 || {events:{}};
   var lang = document.documentElement.getAttribute('data-wl') || 'ua';
   var chipTxt = {ua:{open:'Запис відкрито',soon:'Скоро'}, en:{open:'Open',soon:'Soon'}}[lang];
   var priceTbd = {ua:'Ціна скоро',en:'Price soon'}[lang];

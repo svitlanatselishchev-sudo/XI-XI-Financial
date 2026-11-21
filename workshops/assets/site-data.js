@@ -11,7 +11,7 @@
    Individual sessions (i1, i2) also take  price: 125   (a number, no $).
    Nothing else on the site needs to change.
    ============================================================ */
-window.XIXI = {
+window.SITE1111 = {
   announce: "https://instagram.com/xixistrategy",
   events: {
     f1: { ua: { status: "soon", date: "", time: "", link: "" }, en: { status: "soon", date: "", time: "", link: "" } },
