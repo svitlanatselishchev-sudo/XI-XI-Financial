@@ -69,7 +69,7 @@
 
 /* ---------- hero emblem: the 11:11 clock, large ---------- */
 .v-emblem-wrap { margin: 0; display: grid; place-items: center; }
-.v-emblem { width: min(100%, 470px); height: auto; overflow: visible; filter: drop-shadow(0 30px 50px rgba(28,31,34,.22)); }
+.v-emblem { width: min(100%, 500px); height: auto; overflow: visible; }
 .v-emblem .v-em-ring { font-family: var(--v-mono); font-weight: 500; }
 .v-emblem .v-em-word { font-family: var(--v-serif); font-weight: 500; letter-spacing: .04em; font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }
 .v-emblem .v-em-sub { font-family: var(--v-mono); font-weight: 500; }
