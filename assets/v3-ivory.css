@@ -1,0 +1,81 @@
+/* ==========================================================================
+   11:11 Strategy — "ivory" theme layer (Nov 2026)
+   Sits on top of v2.css. Turn it on with <body class="v-body v-ivory">.
+   Light alabaster canvas, charcoal text, one brass accent (most accounting
+   sites lean light: it reads as clean, precise books). Serif headlines
+   (Cormorant Garamond) over DM Sans body. Dark charcoal is kept for the
+   hero cards, the clock logo face and the footer, like a black clock on cream.
+   Logo: assets/logo-1111-clock.svg. Step markers are small clocks.
+   ========================================================================== */
+
+.v-ivory {
+  --v-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+}
+.v-ivory { overflow-x: clip; }
+
+/* ---------- type ---------- */
+.v-ivory .v-h1, .v-ivory .v-h2, .v-ivory .v-h3 { font-family: var(--v-serif); font-weight: 500; font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; letter-spacing: -.005em; }
+.v-ivory .v-h1 { font-size: clamp(46px, 7vw, 92px); line-height: 1.02; }
+.v-ivory .v-h2 { font-size: clamp(36px, 4.6vw, 60px); line-height: 1.06; }
+.v-ivory .v-h3 { font-size: clamp(23px, 2.2vw, 28px); line-height: 1.15; }
+.v-ivory .v-mark { color: var(--v-brass-ink); font-style: italic; }
+.v-ivory .v-mark::after { display: none; }
+.v-ivory .v-kicker { letter-spacing: .22em; font-size: 12px; }
+.v-ivory .v-quote blockquote p { font-family: var(--v-serif); font-style: italic; font-weight: 500; font-size: clamp(24px, 2.6vw, 32px); line-height: 1.3; }
+.v-ivory .v-hero-facts li { color: var(--v-muted); }
+.v-ivory .v-checks li::before { content: "✦"; background: transparent; color: var(--v-brass); font-size: 15px; }
+
+/* ---------- logo lockup (clock mark + serif wordmark) ---------- */
+.v-ivory .v-brand { gap: 12px; }
+.v-ivory .v-brand img.v-logo { width: 44px; height: 44px; filter: drop-shadow(0 4px 10px rgba(28,31,34,.22)); transition: transform .8s var(--v-ease); }
+.v-ivory .v-brand:hover img.v-logo { transform: rotate(-8deg); }
+.v-ivory .v-brand .v-brand-word { display: flex; flex-direction: column; line-height: 1; }
+.v-ivory .v-brand .v-brand-word b { font-family: var(--v-serif); font-weight: 500; font-size: 26px; letter-spacing: .02em; color: var(--v-brass-ink); font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }
+.v-ivory .v-brand .v-brand-word small { font: 500 10.5px/1 var(--v-mono); letter-spacing: .34em; text-transform: uppercase; color: var(--v-char); margin-top: 5px; padding-left: 1px; }
+.v-ivory .v-footer .v-brand .v-brand-word b { color: var(--v-brass-soft); }
+.v-ivory .v-footer .v-brand .v-brand-word small { color: var(--v-alab); }
+.v-ivory .v-footer .v-brand img.v-logo { width: 52px; height: 52px; }
+@media (prefers-reduced-motion: reduce) { .v-ivory .v-brand img.v-logo { transition: none; } }
+
+/* ---------- clock step markers (replace 01–04) ---------- */
+.v-ivory .v-step-dot--clock { padding: 0; }
+.v-ivory .v-step-dot--clock .v-clock { width: 34px; height: 34px; display: block; }
+
+/* ---------- arched portrait frame ---------- */
+.v-ivory .v-photo--arch { border-radius: 260px 260px 24px 24px; border: 1px solid rgba(179,141,90,.45); }
+
+/* ---------- "sound familiar?" pain points ---------- */
+.v-pains { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 36px; list-style: none; padding: 0; }
+.v-pains li { position: relative; background: var(--v-card); border: 1px solid var(--v-line); border-radius: var(--v-radius); padding: 26px 24px 24px 24px; font-size: 17px; line-height: 1.5; color: var(--v-text); }
+.v-pains li b { display: block; font-family: var(--v-serif); font-weight: 500; font-size: 25px; line-height: 1.15; margin-bottom: 8px; color: var(--v-char); }
+.v-pains li::before { content: "✦"; display: block; color: var(--v-brass); font-size: 15px; margin-bottom: 14px; }
+.v-pains-after { margin-top: 26px; font-size: 18px; color: var(--v-muted); }
+.v-pains-after b { color: var(--v-char); }
+@media (max-width: 860px) { .v-pains { grid-template-columns: 1fr; } }
+
+/* ---------- bento "what you get" (one featured dark card) ---------- */
+@media (min-width: 861px) {
+  .v-ivory .v-bento { grid-template-columns: 1fr 1fr; grid-auto-rows: auto; }
+  .v-ivory .v-bento > :nth-child(1) { grid-column: 1; grid-row: 1; }
+  .v-ivory .v-bento > :nth-child(2) { grid-column: 2; grid-row: 1 / span 2; }
+  .v-ivory .v-bento > :nth-child(3) { grid-column: 1; grid-row: 2; }
+}
+.v-ivory .v-bento > :nth-child(2) { background: linear-gradient(160deg, #2a2c30, #1c1f22); border-color: rgba(179,141,90,.55); color: #f4f1ea; }
+.v-ivory .v-bento > :nth-child(2) .v-h3 { color: #f4f1ea; }
+.v-ivory .v-bento > :nth-child(2) p { color: #c5c0b6; }
+.v-ivory .v-bento > :nth-child(2) .v-tile-icon { background: rgba(216,191,150,.14); color: var(--v-brass-soft); }
+.v-ivory .v-bento > :nth-child(2) .v-bento-big { font-family: var(--v-serif); font-weight: 500; font-size: clamp(72px, 9vw, 128px); line-height: .9; color: var(--v-brass-soft); margin: 18px 0 6px; font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }
+.v-ivory .v-bento > :nth-child(2) .v-bento-big small { display: block; font: 500 12px/1 var(--v-mono); letter-spacing: .3em; text-transform: uppercase; color: #c5c0b6; margin-top: 14px; }
+
+/* ---------- hero emblem: the 11:11 clock, large ---------- */
+.v-emblem-wrap { margin: 0; display: grid; place-items: center; }
+.v-emblem { width: min(100%, 500px); height: auto; overflow: visible; }
+.v-emblem .v-em-ring { font-family: var(--v-mono); font-weight: 500; }
+.v-emblem .v-em-word { font-family: var(--v-serif); font-weight: 500; letter-spacing: .04em; font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }
+.v-emblem .v-em-sub { font-family: var(--v-mono); font-weight: 500; }
+.v-emblem .v-em-hour, .v-emblem .v-em-min { transform-origin: 200px 200px; transform: rotate(var(--to)); animation: v-em-set 2.4s cubic-bezier(.3,.7,.2,1) .3s both; }
+@keyframes v-em-set { from { transform: rotate(var(--from)); } to { transform: rotate(var(--to)); } }
+.v-emblem .v-em-ring { transform-origin: 200px 200px; animation: v-em-turn 120s linear infinite; }
+@keyframes v-em-turn { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .v-emblem .v-em-hour, .v-emblem .v-em-min, .v-emblem .v-em-ring { animation: none; } }
+@media (max-width: 960px) { .v-emblem { width: min(100%, 360px); } }
