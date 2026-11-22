@@ -121,3 +121,11 @@
 .v-editorial .v-depth-card--feature h3 { color: var(--v-paper); }
 .v-editorial .v-hero::before { display: none; }
 .v-editorial .v-tile-icon { border-radius: 0; }
+
+/* New 11:11 Strategy logo (Nov 22, 2026): gold mark plus wordmark */
+.v-brand--new { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+.v-brand--new .v-logo-mark { display: block; width: auto; height: 36px; }
+.v-brand--new .v-logo-word { display: block; width: auto; height: 18px; }
+.v-footer .v-brand--new .v-logo-mark { height: 44px; }
+.v-footer .v-brand--new .v-logo-word { height: 20px; }
+@media (max-width: 420px) { .v-header .v-brand--new .v-logo-word { height: 15px; } .v-header .v-brand--new .v-logo-mark { height: 30px; } }
