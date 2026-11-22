@@ -1,0 +1,44 @@
+/* v4 editorial layer (Nov 22, 2026): image-led, quieter, more whitespace.
+   Loads after v2.css and v3-ivory.css. Scoped to body.v-editorial. */
+
+/* Hero: charcoal, big type, one large photo */
+.v-editorial .v-hero--photo { background: var(--v-char); color: var(--v-on-dark); padding: clamp(56px, 8vw, 120px) 0 clamp(64px, 9vw, 128px); }
+.v-editorial .v-hero--photo::before { display: none; }
+.v-editorial .v-hero--photo .v-hero-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 96px); }
+.v-editorial .v-hero--photo .v-kicker { color: var(--v-brass-soft); }
+.v-editorial .v-hero--photo .v-h1 { color: var(--v-on-dark); font-size: clamp(44px, 6.4vw, 92px); letter-spacing: -.04em; }
+.v-editorial .v-hero--photo .v-mark { color: var(--v-brass-soft); }
+.v-editorial .v-hero--photo .v-lead { color: var(--v-on-dark-muted); }
+.v-editorial .v-hero--photo .v-hero-facts li { color: var(--v-on-dark-muted); background: transparent; border-color: rgba(244, 241, 234, .22); }
+.v-editorial .v-hero--photo .v-link,
+.v-editorial .v-hero--photo .v-hero-actions a:not(.v-btn) { color: var(--v-on-dark); }
+.v-hero-photo { margin: 0; overflow: hidden; aspect-ratio: 4 / 5; }
+.v-hero-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 58% 35%; }
+@media (max-width: 960px) {
+  .v-editorial .v-hero--photo .v-hero-grid { grid-template-columns: 1fr; }
+  .v-hero-photo { aspect-ratio: 4 / 3; }
+}
+
+/* Three image cards, right under the hero */
+.v-cards { padding: clamp(56px, 7vw, 104px) 0 clamp(24px, 4vw, 48px); }
+.v-cards-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 2.6vw, 36px); }
+.v-card-img { display: grid; gap: 10px; color: var(--v-text); text-decoration: none; }
+.v-card-img picture { display: block; overflow: hidden; aspect-ratio: 4 / 5; background: var(--v-alab-2); }
+.v-card-img img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--v-ease); }
+.v-card-img:hover img, .v-card-img:focus-visible img { transform: scale(1.04); }
+.v-card-num { margin-top: 10px; font: 500 13px/1 var(--v-mono); letter-spacing: .08em; color: var(--v-brass-ink); }
+.v-card-img b { font-size: clamp(24px, 2.4vw, 32px); line-height: 1.1; letter-spacing: -.025em; }
+.v-card-img > span:last-child { color: var(--v-muted); }
+.v-card-img:hover b { text-decoration: underline; text-decoration-color: var(--v-brass); text-underline-offset: 6px; }
+@media (max-width: 860px) { .v-cards-row { grid-template-columns: 1fr; } .v-card-img picture { aspect-ratio: 3 / 2; } }
+
+/* Quieter, more editorial surfaces */
+.v-editorial .v-section { padding-block: clamp(72px, 9vw, 136px); }
+.v-editorial .v-h2 { letter-spacing: -.035em; }
+.v-editorial .v-tile,
+.v-editorial .v-photo,
+.v-editorial .v-panel,
+.v-editorial .v-faq details { border-radius: 4px; }
+.v-editorial .v-photo--arch, .v-editorial .v-photo--arch img { border-radius: 4px; }
+
+@media (prefers-reduced-motion: reduce) { .v-card-img img { transition: none; } }
