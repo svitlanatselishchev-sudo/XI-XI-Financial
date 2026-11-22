@@ -89,3 +89,6 @@
 .v-editorial .v-cta .v-btn--brass { background: var(--v-paper); color: var(--v-ink); }
 
 @media (prefers-reduced-motion: reduce) { .v-card-img img { transition: none; } }
+
+/* Experience grid: words instead of figures */
+.v-stats--text .v-stat strong { font: 500 clamp(24px, 2.2vw, 30px)/1.15 "Cormorant Garamond", Georgia, serif; letter-spacing: -.01em; color: var(--v-ink, #1c1f22); }
