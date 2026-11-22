@@ -1,0 +1,76 @@
+/* ===== 2026-11-22 editorial pass: same light look and logo as the main site ===== */
+:root{--ink:#1c1f22;--cream:#f7f5f0;--card:#f7f5f0;--line:#d9d3c7;--gold:#8a6a3e;--gold2:#8a6a3e;--muted:#5e5a52}
+body{background:var(--cream);font-family:"DM Sans",Manrope,system-ui,sans-serif}
+h1,h2,h3,.sub,.take,.steps b,footer b{font-family:"Cormorant Garamond",Georgia,serif!important;font-weight:500!important;letter-spacing:-.015em}
+em{color:var(--gold)}
+/* Top bar: light, hairline, logo */
+.top{background:var(--cream);color:var(--ink);border-bottom:1px solid var(--line);box-shadow:none}
+.brand{display:inline-flex;align-items:center;gap:10px;letter-spacing:0}
+.brand img{display:block;width:auto}
+.brand .bm{height:32px}.brand .bw{height:16px}
+.top nav a{border-radius:0;border:1px solid var(--line);background:transparent;color:var(--ink);font-weight:600}
+.top nav a:hover{color:var(--ink);border-color:var(--ink)}
+.top nav a.here{background:var(--ink);color:var(--cream);border-color:var(--ink);box-shadow:none}
+.top nav a.lang,.lang{color:var(--ink)!important;border-color:var(--line)}
+/* Hero on paper */
+.hero{background:var(--cream);color:var(--ink);border-bottom:1px solid var(--line)}
+.hero h1{font-size:clamp(40px,6vw,80px);line-height:1.04}
+.hero h1 em,.sub{color:var(--gold)}
+.sub{font-style:italic}
+.eyebrow{color:var(--gold);font-family:"IBM Plex Mono",monospace;font-weight:500;letter-spacing:.14em}
+.facts{border-top:1px solid var(--line);border-left:0}
+.facts div{border-bottom:1px solid var(--line);border-right:0;padding-left:0}
+.facts i{color:var(--gold);font-family:"IBM Plex Mono",monospace;font-weight:500}
+.cta p,.final p{color:var(--muted)}
+.cta p a,.final p a{color:var(--ink)}
+/* Buttons: ink, square, flat */
+.btn{background:var(--ink);color:var(--cream);border-radius:0;box-shadow:none;font-size:16px;font-weight:600}
+.btn:hover{transform:none;background:#2c3035}
+.btn.ghost,.btn.off{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+/* Sections that were dark become paper, divided by hairlines */
+section{border-top:1px solid var(--line)}
+.kicker,.code{color:var(--gold);font-family:"IBM Plex Mono",monospace;font-weight:500;letter-spacing:.14em}
+.dark,.next{background:var(--cream);color:var(--ink)}
+.dark .kicker,.next .kicker,.dark h2 em{color:var(--gold)}
+.dark .lead{color:var(--muted)}
+.next p{color:var(--muted)}
+.next .box{border-color:var(--line)}
+.steps{border-top:1px solid var(--ink)}
+.steps div{border-bottom:1px solid var(--line)}
+.steps b{color:var(--ink)}
+.steps span{color:var(--muted)}
+/* Cards: no brass edge, square, flat */
+.wk,.card,.points li,details{background:transparent;border:1px solid var(--line);border-top:1px solid var(--ink);border-radius:0;box-shadow:none}
+@media(hover:hover){.wk:hover,.card:hover,.points li:hover{transform:none;box-shadow:none;border-color:var(--ink)}}
+.wk p,.card p,details p{color:#3d3a34}
+.chip{border-radius:0;background:transparent;font-family:"IBM Plex Mono",monospace;font-weight:500}
+.chip.open{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.more{color:var(--ink);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.take{color:var(--gold)}
+.mono{border:1px solid var(--line);box-shadow:none}
+.circle-photo,.circle-community{border-radius:0;box-shadow:none}
+/* Footer and sticky bar stay the one dark moment */
+footer{background:var(--ink);color:#c5c0b6}
+footer b{color:var(--cream)}
+footer a{color:#d8bf96}
+.bar{background:rgba(28,31,34,.97);border-top:0}
+.bar .btn{background:var(--cream);color:var(--ink)}
+/* Featured workshop page top links */
+.topnav a{color:var(--ink)}
+.topnav .lang,.topnav .m a{border-radius:0;border-color:var(--line);color:var(--ink)}
+.topnav .m a.here{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+/* Inline light colors left over from the dark design */
+.btn.ghost[style]{color:var(--ink)!important}
+p[style*="#cdbf9f"]{color:var(--muted)!important}
+.brand small{color:var(--muted)}
+div.brand{display:block}
+div.brand img{display:inline-block;vertical-align:middle;margin-right:8px}
+/* Takeaways list on the featured page */
+.kit{border-top:1px solid var(--ink)}
+.kit div{border-bottom:1px solid var(--line)}
+.kit b{color:var(--ink);font-family:"Cormorant Garamond",Georgia,serif;font-weight:500}
+.kit span{color:var(--muted)}
+.dark .facts b,.hero .facts b{color:var(--ink)}
+/* Hero picture: Lana's light office portrait instead of the dark pocket watch */
+.art{background:url(../../assets/lana-hero-office-640.webp) 50% 18%/cover no-repeat;-webkit-mask-image:none;mask-image:none;aspect-ratio:4/5;max-width:400px}
+@media(max-width:820px){.art{max-width:320px;margin:8px auto 0}}

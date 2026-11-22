@@ -89,3 +89,43 @@
 .v-editorial .v-cta .v-btn--brass { background: var(--v-paper); color: var(--v-ink); }
 
 @media (prefers-reduced-motion: reduce) { .v-card-img img { transition: none; } }
+
+/* Experience grid: words instead of figures */
+.v-stats--text .v-stat strong { font: 500 clamp(24px, 2.2vw, 30px)/1.15 "Cormorant Garamond", Georgia, serif; letter-spacing: -.01em; color: var(--v-ink, #1c1f22); }
+
+/* Inner pages (services, about, brokers, CPA firms): same paper and square edges */
+.v-editorial { --v-radius: 0; }
+.v-editorial .v-card,
+.v-editorial .v-depth-card,
+.v-editorial .v-scope,
+.v-editorial .v-card .v-tag,
+.v-editorial .v-anchor-nav a,
+.v-editorial .v-board,
+.v-editorial .v-board-foot { border-radius: 0; box-shadow: none; }
+.v-editorial .v-card,
+.v-editorial .v-depth-card { background: transparent; border-color: var(--v-rule); }
+.v-editorial .v-card--lift:hover { transform: none; box-shadow: none; border-color: var(--v-ink); }
+/* Dark cards keep light text even inside re-themed sections */
+.v-editorial .v-card--dark,
+.v-editorial .v-depth-card--feature {
+  --v-on-dark: var(--v-paper);
+  --v-on-dark-muted: #c5c0b6;
+  --v-brass-soft: #d8bf96;
+  background: var(--v-ink);
+  border-color: var(--v-ink);
+  color: var(--v-paper);
+}
+.v-editorial .v-card--dark .v-h3,
+.v-editorial .v-card--dark h3,
+.v-editorial .v-depth-card--feature .v-h3,
+.v-editorial .v-depth-card--feature h3 { color: var(--v-paper); }
+.v-editorial .v-hero::before { display: none; }
+.v-editorial .v-tile-icon { border-radius: 0; }
+
+/* New 11:11 Strategy logo (Nov 22, 2026): gold mark plus wordmark */
+.v-brand--new { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+.v-brand--new .v-logo-mark { display: block; width: auto; height: 36px; }
+.v-brand--new .v-logo-word { display: block; width: auto; height: 18px; }
+.v-footer .v-brand--new .v-logo-mark { height: 44px; }
+.v-footer .v-brand--new .v-logo-word { height: 20px; }
+@media (max-width: 420px) { .v-header .v-brand--new .v-logo-word { height: 15px; } .v-header .v-brand--new .v-logo-mark { height: 30px; } }

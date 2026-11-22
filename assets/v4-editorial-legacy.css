@@ -1,0 +1,67 @@
+/* v4 editorial layer for the older guide, tool and policy pages (Nov 22, 2026).
+   Brings them onto the same quiet paper, serif headlines, hairline rules and
+   square edges as the home page. Loads last. Scoped to body.v-legacy.v-editorial. */
+
+.v-legacy.v-editorial {
+  --brand-paper: #f7f5f0;
+  --brand-ink: #1c1f22;
+  --brand-line: #d9d3c7;
+  --brand-radius: 0;
+  --brand-shadow: none;
+  background: #f7f5f0;
+}
+.v-legacy.v-editorial :is(main, .doc, .policy, article) {
+  background-color: transparent;
+}
+
+/* Headlines: Cormorant, light weight, no condensed display face */
+.v-legacy.v-editorial :is(main, article) :is(h1, h2, h3) {
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-weight: 500 !important;
+  font-stretch: normal;
+  letter-spacing: -.015em !important;
+  color: #1c1f22;
+}
+.v-legacy.v-editorial :is(main, article) h1 { line-height: 1.04; }
+.v-legacy.v-editorial :is(main, article) :is(h1, h2, h3) :is(em, i) { color: #8a6a3e; }
+
+/* Square, flat surfaces */
+.v-legacy.v-editorial main *:not(.v-step-dot):not(.num):not(.step-num) {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+.v-legacy.v-editorial main :is(.card, .tool-card, .guide-card, article.card) {
+  background: transparent !important;
+  border: 1px solid #d9d3c7 !important;
+}
+.v-legacy.v-editorial main :is(.card, .tool-card):hover { transform: none !important; border-color: #1c1f22 !important; }
+.v-legacy.v-editorial main :is(.card, .tool-card)::before { display: none !important; }
+
+/* Buttons: ink, square */
+.v-legacy.v-editorial main :is(.button, .btn, button[type="submit"], a.cta) {
+  border-radius: 0 !important;
+  background: #1c1f22 !important;
+  border-color: #1c1f22 !important;
+  color: #f7f5f0 !important;
+  box-shadow: none !important;
+}
+.v-legacy.v-editorial main :is(.button, .btn, a.cta):hover { background: #2c3035 !important; transform: none !important; }
+
+/* Form fields */
+.v-legacy.v-editorial main :is(input, select, textarea) { border-radius: 0 !important; background: #fffdf9; border-color: #d9d3c7; }
+
+/* Guide cards: no brass bar */
+.v-legacy.v-editorial main .card-bar { display: none; }
+
+/* Pages without a <main> (privacy, terms): same serif headlines */
+.v-legacy.v-editorial > :not(header):not(footer):not(.v-header):not(.v-footer):not(.v-scopebar) :is(h1, h2) {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -.015em;
+  color: #1c1f22;
+}
+
+/* Dark contact card: ink ground, paper buttons */
+.v-legacy.v-editorial main .contact-card { background: #1c1f22 !important; border-left: 0 !important; }
+.v-legacy.v-editorial main .contact-card :is(.button, .btn, a.cta) { background: #f7f5f0 !important; border-color: #f7f5f0 !important; color: #1c1f22 !important; }
+.v-legacy.v-editorial main .contact-card :is(.button, .btn, a.cta):nth-of-type(2) { background: transparent !important; border: 1px solid rgba(247,245,240,.5) !important; color: #f7f5f0 !important; }
