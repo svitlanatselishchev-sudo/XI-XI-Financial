@@ -1,44 +1,90 @@
-/* v4 editorial layer (Nov 22, 2026): image-led, quieter, more whitespace.
-   Loads after v2.css and v3-ivory.css. Scoped to body.v-editorial. */
+/* v4 editorial layer (Nov 22, 2026): a light, magazine-like home page.
+   Quiet paper ground, large serif headlines, hairline rules, square edges,
+   small mono labels, photography carrying the page. Loads after v2.css and
+   v3-ivory.css. Scoped to body.v-editorial. */
 
-/* Hero: charcoal, big type, one large photo */
-.v-editorial .v-hero--photo { background: var(--v-char); color: var(--v-on-dark); padding: clamp(56px, 8vw, 120px) 0 clamp(64px, 9vw, 128px); }
+.v-editorial {
+  --v-paper: #f7f5f0;
+  --v-ink: #1c1f22;
+  --v-rule: #d9d3c7;
+  background: var(--v-paper);
+}
+.v-editorial .v-header { background: var(--v-paper); border-bottom: 1px solid var(--v-rule); box-shadow: none; }
+
+/* Square, quiet buttons */
+.v-editorial .v-btn { border-radius: 0; box-shadow: none; letter-spacing: .02em; }
+.v-editorial .v-btn:hover { transform: none; box-shadow: none; }
+.v-editorial .v-btn--brass { background: var(--v-ink); color: var(--v-paper); }
+.v-editorial .v-btn--brass:hover { background: var(--v-char-3); }
+.v-editorial .v-btn--dark { background: var(--v-ink); color: var(--v-paper); }
+
+/* Headlines: serif, light weight, generous size */
+.v-editorial .v-h1,
+.v-editorial .v-h2 { font-weight: 500; letter-spacing: -.02em; color: var(--v-ink); }
+.v-editorial .v-mark { color: var(--v-brass-ink); font-style: italic; }
+.v-editorial .v-kicker::before { display: none; }
+
+/* Hero: light, text over a wide photo */
+.v-editorial .v-hero--photo { background: var(--v-paper); padding: clamp(40px, 6vw, 88px) 0 clamp(56px, 7vw, 104px); }
 .v-editorial .v-hero--photo::before { display: none; }
-.v-editorial .v-hero--photo .v-hero-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 96px); }
-.v-editorial .v-hero--photo .v-kicker { color: var(--v-brass-soft); }
-.v-editorial .v-hero--photo .v-h1 { color: var(--v-on-dark); font-size: clamp(44px, 6.4vw, 92px); letter-spacing: -.04em; }
-.v-editorial .v-hero--photo .v-mark { color: var(--v-brass-soft); }
-.v-editorial .v-hero--photo .v-lead { color: var(--v-on-dark-muted); }
-.v-editorial .v-hero--photo .v-hero-facts li { color: var(--v-on-dark-muted); background: transparent; border-color: rgba(244, 241, 234, .22); }
-.v-editorial .v-hero--photo .v-link,
-.v-editorial .v-hero--photo .v-hero-actions a:not(.v-btn) { color: var(--v-on-dark); }
-.v-hero-photo { margin: 0; overflow: hidden; aspect-ratio: 4 / 5; }
+.v-editorial .v-hero--photo .v-hero-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(32px, 6vw, 96px); align-items: end; }
+.v-editorial .v-hero--photo .v-h1 { font-size: clamp(44px, 6vw, 88px); line-height: 1.02; }
+.v-editorial .v-hero-facts { gap: 0; }
+.v-editorial .v-hero-facts li { padding: 0 14px 0 0; margin-right: 14px; border: 0; border-right: 1px solid var(--v-rule); border-radius: 0; background: transparent; font: 400 13px/1.8 var(--v-mono); letter-spacing: .02em; color: var(--v-muted); }
+.v-editorial .v-hero-facts li:last-child { border-right: 0; }
+.v-hero-photo { margin: 0; overflow: hidden; aspect-ratio: 5 / 6; }
 .v-hero-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 58% 35%; }
 @media (max-width: 960px) {
   .v-editorial .v-hero--photo .v-hero-grid { grid-template-columns: 1fr; }
   .v-hero-photo { aspect-ratio: 4 / 3; }
 }
 
-/* Three image cards, right under the hero */
-.v-cards { padding: clamp(56px, 7vw, 104px) 0 clamp(24px, 4vw, 48px); }
-.v-cards-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 2.6vw, 36px); }
-.v-card-img { display: grid; gap: 10px; color: var(--v-text); text-decoration: none; }
-.v-card-img picture { display: block; overflow: hidden; aspect-ratio: 4 / 5; background: var(--v-alab-2); }
-.v-card-img img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--v-ease); }
-.v-card-img:hover img, .v-card-img:focus-visible img { transform: scale(1.04); }
-.v-card-num { margin-top: 10px; font: 500 13px/1 var(--v-mono); letter-spacing: .08em; color: var(--v-brass-ink); }
-.v-card-img b { font-size: clamp(24px, 2.4vw, 32px); line-height: 1.1; letter-spacing: -.025em; }
-.v-card-img > span:last-child { color: var(--v-muted); }
-.v-card-img:hover b { text-decoration: underline; text-decoration-color: var(--v-brass); text-underline-offset: 6px; }
+/* Three photo stories under the hero, captioned like a magazine */
+.v-cards { padding: clamp(48px, 6vw, 88px) 0 clamp(24px, 4vw, 48px); border-top: 1px solid var(--v-rule); }
+.v-cards-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 2.6vw, 40px); }
+.v-card-img { display: grid; gap: 8px; color: var(--v-ink); text-decoration: none; }
+.v-card-img picture { display: block; overflow: hidden; aspect-ratio: 4 / 5; background: var(--v-alab-2); margin-bottom: 10px; }
+.v-card-img img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--v-ease), opacity .4s ease; }
+.v-card-img:hover img, .v-card-img:focus-visible img { transform: scale(1.03); }
+.v-card-num { font: 500 12px/1 var(--v-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--v-brass-ink); }
+.v-card-img b { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; font-size: clamp(28px, 2.6vw, 36px); line-height: 1.08; }
+.v-card-img > span:last-child { color: var(--v-muted); font-size: 16px; }
+.v-card-img:hover b { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 6px; }
 @media (max-width: 860px) { .v-cards-row { grid-template-columns: 1fr; } .v-card-img picture { aspect-ratio: 3 / 2; } }
 
-/* Quieter, more editorial surfaces */
-.v-editorial .v-section { padding-block: clamp(72px, 9vw, 136px); }
-.v-editorial .v-h2 { letter-spacing: -.035em; }
+/* Every section on light paper, divided by hairlines */
+.v-editorial .v-section { padding-block: clamp(72px, 9vw, 136px); border-top: 1px solid var(--v-rule); }
+.v-editorial .v-dark,
+.v-editorial .v-paper {
+  --v-on-dark: var(--v-ink);
+  --v-on-dark-muted: var(--v-muted);
+  --v-brass-soft: var(--v-brass-ink);
+  background: var(--v-paper);
+  color: var(--v-ink);
+}
+.v-editorial .v-dark .v-h2, .v-editorial .v-dark .v-h3 { color: var(--v-ink); }
+.v-editorial .v-dark .v-checks li::before { color: var(--v-paper); }
+.v-editorial .v-marquee { background: var(--v-paper); border-color: var(--v-rule); }
+
+/* Cards, tiles, photos: square and flat */
 .v-editorial .v-tile,
-.v-editorial .v-photo,
 .v-editorial .v-panel,
-.v-editorial .v-faq details { border-radius: 4px; }
-.v-editorial .v-photo--arch, .v-editorial .v-photo--arch img { border-radius: 4px; }
+.v-editorial .v-tab,
+.v-editorial .v-faq details,
+.v-editorial .v-quote,
+.v-editorial .v-photo,
+.v-editorial .v-photo img { border-radius: 0; box-shadow: none; }
+.v-editorial .v-tile { background: transparent; border: 0; border-top: 1px solid var(--v-ink); padding-inline: 0; }
+.v-editorial .v-bento > :nth-child(2) { background: var(--v-ink); padding: clamp(24px, 3vw, 40px); border-top: 0; }
+.v-editorial .v-panel { background: transparent; border: 1px solid var(--v-rule); }
+.v-editorial .v-panel .v-btn--ghost, .v-editorial .v-panel a:not(.v-btn) { color: var(--v-ink); }
+.v-editorial .v-tab[aria-selected="true"] { background: var(--v-ink); border-color: var(--v-ink); color: var(--v-paper); }
+.v-editorial .v-stats { background: var(--v-rule); border-color: var(--v-rule); border-radius: 0; }
+.v-editorial .v-stat { background: var(--v-paper); }
+
+/* Closing call to action stays the one dark moment */
+.v-editorial .v-cta { background: var(--v-ink); color: var(--v-paper); --v-on-dark: var(--v-paper); --v-on-dark-muted: #c5c0b6; --v-brass-soft: #d8bf96; }
+.v-editorial .v-cta .v-h2 { color: var(--v-paper); }
+.v-editorial .v-cta .v-btn--brass { background: var(--v-paper); color: var(--v-ink); }
 
 @media (prefers-reduced-motion: reduce) { .v-card-img img { transition: none; } }
