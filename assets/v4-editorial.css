@@ -132,5 +132,5 @@
 /* Photo framing: keep faces in frame on every card */
 .v-cards-row .v-card-img:nth-child(1) img { object-position: 50% 30%; }
 .v-cards-row .v-card-img:nth-child(2) img { object-position: 100% 25%; }
-.v-cards-row .v-card-img:nth-child(3) img { object-position: 60% 14%; }
+.v-cards-row .v-card-img:nth-child(3) img { object-position: 50% 0%; }
 @media (max-width: 860px) { .v-card-img picture { aspect-ratio: 4 / 3; } }
