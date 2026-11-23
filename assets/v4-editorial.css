@@ -33,10 +33,10 @@
 .v-editorial .v-hero-facts li { padding: 0 14px 0 0; margin-right: 14px; border: 0; border-right: 1px solid var(--v-rule); border-radius: 0; background: transparent; font: 400 13px/1.8 var(--v-mono); letter-spacing: .02em; color: var(--v-muted); }
 .v-editorial .v-hero-facts li:last-child { border-right: 0; }
 .v-hero-photo { margin: 0; overflow: hidden; aspect-ratio: 5 / 6; }
-.v-hero-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 58% 35%; }
+.v-hero-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 0%; }
 @media (max-width: 960px) {
   .v-editorial .v-hero--photo .v-hero-grid { grid-template-columns: 1fr; }
-  .v-hero-photo { aspect-ratio: 4 / 3; }
+  .v-hero-photo { aspect-ratio: 5 / 6; } .v-hero-photo img { object-position: 50% 0%; }
 }
 
 /* Three photo stories under the hero, captioned like a magazine */
@@ -129,3 +129,17 @@
 .v-footer .v-brand--new .v-logo-mark { height: 44px; }
 .v-footer .v-brand--new .v-logo-word { height: 20px; }
 @media (max-width: 420px) { .v-header .v-brand--new .v-logo-word { height: 15px; } .v-header .v-brand--new .v-logo-mark { height: 30px; } }
+/* Photo framing: keep faces in frame on every card */
+.v-cards-row .v-card-img:nth-child(1) img { object-position: 50% 30%; }
+.v-cards-row .v-card-img:nth-child(2) img { object-position: 50% 0%; }
+.v-cards-row .v-card-img:nth-child(3) img { object-position: 50% 0%; }
+@media (max-width: 860px) { .v-card-img picture { aspect-ratio: 4 / 5; } }
+/* Credentials strip */
+.v-creds { border-top: 1px solid var(--v-line, rgba(26,26,26,.12)); border-bottom: 1px solid var(--v-line, rgba(26,26,26,.12)); padding: 22px 0; margin-bottom: clamp(32px,4vw,56px); }
+.v-creds-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+.v-cred { display: grid; gap: 4px; padding-left: 14px; border-left: 2px solid var(--v-brass, #b38d5a); }
+.v-cred b { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; font-size: 20px; line-height: 1.15; color: var(--v-ink); }
+.v-cred span { font-size: 13.5px; color: var(--v-muted); line-height: 1.4; }
+@media (max-width: 960px) { .v-creds-row { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .v-creds-row { grid-template-columns: 1fr; gap: 14px; } }
+.v-cta-mark { display: block; width: 44px; height: auto; margin: 0 auto 4px; opacity: .95; }
