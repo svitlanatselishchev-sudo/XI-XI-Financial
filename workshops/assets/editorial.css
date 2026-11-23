@@ -72,5 +72,5 @@ div.brand img{display:inline-block;vertical-align:middle;margin-right:8px}
 .kit span{color:var(--muted)}
 .dark .facts b,.hero .facts b{color:var(--ink)}
 /* Hero picture: Lana's light office portrait instead of the dark pocket watch */
-.art{background:url(../../assets/lana-hero-office-640.webp) 50% 18%/cover no-repeat;-webkit-mask-image:none;mask-image:none;aspect-ratio:4/5;max-width:400px}
+.art{background:url(../../assets/lana-black-desk-640.webp) 50% 20%/cover no-repeat;-webkit-mask-image:none;mask-image:none;aspect-ratio:4/5;max-width:400px}
 @media(max-width:820px){.art{max-width:320px;margin:8px auto 0}}
