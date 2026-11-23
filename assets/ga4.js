@@ -34,14 +34,15 @@
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a');
     if (!a) return;
-    var href = a.getAttribute('href') || '';
-    var url = href.toLowerCase();
+    var proto = (a.protocol || '').toLowerCase();
+    var host = (a.hostname || '').toLowerCase();
+    function onHost(h) { return host === h || host.slice(-(h.length + 1)) === '.' + h; }
 
-    if (url.indexOf('cal.com/xixistrategy') !== -1) return send('book_call_click', a, {});
-    if (url.indexOf('mailto:') === 0) return send('email_click', a, {});
-    if (url.indexOf('tel:') === 0) return send('phone_click', a, {});
-    if (url.indexOf('linkedin.com') !== -1) return send('linkedin_click', a, {});
-    if (a.hasAttribute('data-buy') || url.indexOf('buy.stripe.com') !== -1) {
+    if (proto === 'mailto:') return send('email_click', a, {});
+    if (proto === 'tel:') return send('phone_click', a, {});
+    if (onHost('cal.com') && /^\/xixistrategy(\/|$)/i.test(a.pathname)) return send('book_call_click', a, {});
+    if (onHost('linkedin.com')) return send('linkedin_click', a, {});
+    if (a.hasAttribute('data-buy') || host === 'buy.stripe.com') {
       return send('workshop_register_click', a, { workshop_id: a.getAttribute('data-buy') || '' });
     }
     /* EN/UA switch on the workshop pages: a link between /workshops/ and /workshops/en/. */
