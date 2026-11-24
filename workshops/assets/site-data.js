@@ -21,8 +21,8 @@ window.SITE1111 = {
     f5: { ua: { status: "soon", date: "", time: "", link: "" }, en: { status: "soon", date: "", time: "", link: "" } },
     f6: { ua: { status: "soon", date: "", time: "", link: "" }, en: { status: "soon", date: "", time: "", link: "" } },
     m1: { ua: { status: "soon", date: "", time: "", link: "" }, en: { status: "open", date: "Saturday, November 28, 2026", time: "11:00 ET", link: "https://www.eventbrite.com/e/where-to-start-when-you-have-no-resources-tickets-2004248054885" } },
-    // P1: Ukrainian session is set for Nov 11. The English Saturday date is not confirmed yet.
-    p1: { ua: { status: "open", date: "Середа, 11 листопада 2026", time: "11:00 ET", link: "https://buy.stripe.com/3cIfZgeidceIfKW5MCaR200" }, en: { status: "open", date: "Saturday, November 21, 2026", time: "11:00 ET", link: "https://buy.stripe.com/aFa7sK1vrceIgP0ej8aR20e" } },
+    // P1: Nov 11 (UA) and Nov 21 (EN) sessions have taken place. Set status "open" and a new date to reopen.
+    p1: { ua: { status: "soon", date: "Нова дата скоро", time: "11:00 ET", link: "https://buy.stripe.com/3cIfZgeidceIfKW5MCaR200" }, en: { status: "soon", date: "New date coming soon", time: "11:00 ET", link: "https://buy.stripe.com/aFa7sK1vrceIgP0ej8aR20e" } },
     p2: { ua: { status: "open", date: "", time: "", link: "https://buy.stripe.com/28E9ASb61baE9mya2SaR201" }, en: { status: "open", date: "", time: "", link: "https://buy.stripe.com/28E9ASb61baE9mya2SaR201" } },
     p3: { ua: { status: "open", date: "", time: "", link: "https://buy.stripe.com/8x28wOgql0w0eGScb0aR202" }, en: { status: "open", date: "", time: "", link: "https://buy.stripe.com/8x28wOgql0w0eGScb0aR202" } },
     p4: { ua: { status: "open", date: "", time: "", link: "https://buy.stripe.com/dRm5kCeidguY0Q21wmaR203" }, en: { status: "open", date: "", time: "", link: "https://buy.stripe.com/dRm5kCeidguY0Q21wmaR203" } },
